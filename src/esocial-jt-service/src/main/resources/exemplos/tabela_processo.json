@@ -1,0 +1,38 @@
+{
+	"tipoOcorrencia": "TABELA_PROCESSO",
+	"referencia": "501991-2016",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaProcesso",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoProcesso": {
+			"ideProcesso": {
+				"tpProc": 1,
+				"nrProc": "501991-2016",
+				"iniValid": "2018-07",
+				"fimValid": null
+			},
+			"dadosProc": {
+				"indAutoria": 1,
+				"indMatProc": 1,
+				"dadosProcJud": {
+					"ufVara": "DF",
+					"codMunic": 3304557,
+					"idVara": 100
+				},
+				"infoSusp": [
+					{
+						"codSusp": 123,
+						"indSusp": 10,
+						"dtDecisao": "1529608005000",
+						"indDeposito": "N"
+					}
+				]
+			}
+		}
+	}
+}

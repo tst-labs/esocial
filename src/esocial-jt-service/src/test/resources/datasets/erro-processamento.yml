@@ -1,0 +1,9 @@
+EST_ERRO_PROCESSAMENTO:
+  - COD_ERRO_PROCESSAMENTO: "1" 
+    COD_TIPO_ERRO_PROCESSAMENTO: "1" 
+    DES_ERRO: "223::O CPF informado não foi localizado no Cadastro da RFB ou está em situação irregular." 
+    TXT_LOCALIZACAO: "/eSocial/evtInfoEmpregador/infoEmpregador/inclusao/infoCadastro/contato/cpfCtt"
+    
+  - COD_ERRO_PROCESSAMENTO: "2" 
+    COD_TIPO_ERRO_PROCESSAMENTO: "1" 
+    DES_ERRO: "537::Já existe no sistema registro com mesmo código de identificação (chave)." 

@@ -1,0 +1,53 @@
+Insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values ('1','EM FILA');
+Insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values ('5','ERRO');
+Insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values ('2','PROCESSAMENTO');
+Insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values ('3','PROCESSADO COM SUCESSO');
+Insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values ('4','PROCESSADO COM ERRO');
+
+Insert into EST_GRUPO_TIPO_EVENTO (COD_GRUPO_TIPO,TXT_DESCRICAO) values ('1','Eventos de Tabelas');
+Insert into EST_GRUPO_TIPO_EVENTO (COD_GRUPO_TIPO,TXT_DESCRICAO) values ('2','Eventos Não Periódicos');
+Insert into EST_GRUPO_TIPO_EVENTO (COD_GRUPO_TIPO,TXT_DESCRICAO) values ('3','Eventos Periódicos');
+
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1000','1','Informações do Empregador/Contribuinte/Órgão Público');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1005','1','Tabela de Estabelecimentos, Obras ou Unidades de Órgãos Públicos');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1010','1','Tabela de Rubricas');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1020','1','Tabela de Lotações Tributárias');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1030','1','Tabela de Cargos/Empregos Públicos');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1035','1','Tabela de Carreiras Públicas');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1040','1','Tabela de Funções/Cargos em Comissão');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1050','1','Tabela de Horários/Turnos de Trabalho');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1060','1','Tabela de Ambientes de Trabalho');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('1070','1','Tabela de Processos Administrativos/Judiciais');
+Insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values ('2200','2','Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador');
+
+Insert into EST_TIPO_ERRO_PROCESSAMENTO (COD_TIPO_ERRO_PROCESSAMENTO,DES_TIPO_OCORRENCIA) values ('1','Erro');
+Insert into EST_TIPO_ERRO_PROCESSAMENTO (COD_TIPO_ERRO_PROCESSAMENTO,DES_TIPO_OCORRENCIA) values ('2','Advertência');
+  
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('23','Assinante inválido. Assinante não possui perfil de procuração eletrônica para enviar este tipo de evento ou assinante não consta como representante legal da empresa. ','2','411');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('22','Erro na integração com o sistema Procuração Eletrônica Caixa. ','2','410');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('21','Erro na integração com o sistema Procuração Eletrônica RFB','2','409');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('20','A regra de precedência na transmissão de eventos não foi seguida. Eventos desse tipo não devem ser enviados para processamento em paralelo. Ver seção 5.6.1 do Manual de Orientação do Desenvolvedor. ','2','407');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('19','Evento não pertence ao grupo especificado no lote de eventos ','2','406');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('1','Sucesso','2','201');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('2','Sucesso com advertência.','2','202');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('3','Erro Servidor','2','301');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('4','Erro no conteúdo do evento.','2','401');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('5','Schema inválido','2','402');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('6','Leiaute inválido','2','403');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('7','Erro do certificado digital da assinatura do evento','2','404');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('8','Erro na assinatura evento','2','405');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('9','Erro na integração com o sistema CNPJ / CPF. ','2','408');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('10','Lote Aguardando Processamento','1','101');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('11','Lote recebido com sucesso','1','201');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('12','Lote recebido com Advertência','1','202');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('13','Erro Servidor','1','301');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('14','Lote Incorreto - Erro preenchimento','1','401');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('15','Lote Incorreto - Schema Inválido','1','402');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('16','Lote Incorreto - Versão do Schema não permitida','1','403');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('17','Lote Incorreto - Erro Certificado','1','404');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('18','Lote Incorreto - Lote nulo ou vazio','1','405');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('24','Solicitação de Consulta Incorreta - Erro Preenchimento','1','501');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('25','Solicitação de Consulta Incorreta - Schema Inválido','1','502');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('26','Solicitação de Consulta Incorreta - Versão do Schema Não Permitida','1','503');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('27','Solicitação de Consulta Incorreta - Erro Certificado','1','504');
+Insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values ('30','Solicitação de Consulta Incorreta - Consulta nula o vazia','1','505');

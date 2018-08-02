@@ -1,0 +1,26 @@
+{
+	"tipoOcorrencia": "TABELA_CARREIRA",
+	"referencia": "1",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaCarreira",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoCarreira": {
+			"ideCarreira": {
+				"codCarreira": "1",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosCarreira": {
+				"dscCarreira": "ANALISTA JUDICIÁRIO",
+				"leiCarr": "11.416/2006",
+				"dtLeiCarr": "1513098190",
+				"sitCarr": 1
+			}
+		}
+	}
+}

@@ -1,0 +1,68 @@
+<eSocial
+	xmlns="http://www.esocial.gov.br/schema/lote/eventos/envio/retornoProcessamento/v1_3_0"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<retornoProcessamentoLoteEventos>
+		<ideEmpregador>
+			<tpInsc>1</tpInsc>
+			<nrInsc>00509968000148</nrInsc>
+		</ideEmpregador>
+		<ideTransmissor>
+			<tpInsc>1</tpInsc>
+			<nrInsc>00509968000148</nrInsc>
+		</ideTransmissor>
+		<status>
+			<cdResposta>201</cdResposta>
+			<descResposta>Lote processado com sucesso.</descResposta>
+		</status>
+		<dadosRecepcaoLote>
+			<dhRecepcao>2017-11-21T12:43:07.87</dhRecepcao>
+			<versaoAplicativoRecepcao>0.1.0-A0214</versaoAplicativoRecepcao>
+			<protocoloEnvio>1.2.201711.0000000000000705042</protocoloEnvio>
+		</dadosRecepcaoLote>
+		<dadosProcessamentoLote>
+			<versaoAplicativoProcessamentoLote>1.0.0.0</versaoAplicativoProcessamentoLote>
+		</dadosProcessamentoLote>
+		<retornoEventos>
+			<evento Id="ID1005099680001482017112112365700004">
+				<retornoEvento>
+					<eSocial
+						xmlns="http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_0">
+						<retornoEvento Id="ID1005099680001482017112112365700004">
+							<ideEmpregador>
+								<tpInsc>1</tpInsc>
+								<nrInsc>00509968000148</nrInsc>
+							</ideEmpregador>
+							<recepcao>
+								<tpAmb>2</tpAmb>
+								<dhRecepcao>2017-11-21T12:43:07.87</dhRecepcao>
+								<versaoAppRecepcao>0.1.0-A0214</versaoAppRecepcao>
+								<protocoloEnvioLote>1.2.201711.0000000000000705042</protocoloEnvioLote>
+							</recepcao>
+							<processamento>
+								<cdResposta>401</cdResposta>
+								<descResposta>Conteudo do evento inválido.</descResposta>
+								<versaoAppProcessamento>5.2.0-A2394</versaoAppProcessamento>
+								<dhProcessamento>2017-11-21T12:43:07.35</dhProcessamento>
+								<ocorrencias>
+									<ocorrencia>
+										<tipo>1</tipo>
+										<codigo>537</codigo>
+										<descricao>Já existe no sistema registro com mesmo código de
+											identificação (chave) em período de vigência conflitante com
+											o período informado no registro atual. Ação Sugerida: O
+											evento somente pode ser recepcionado se não existir outro
+											evento para a tabela com o mesmo código de identificação
+											(chave) em período de vigência conflitante com o período
+											informado no evento atual. Certifique-se que o codígo de
+											identificação e os períodos informados estejam corretos.</descricao>
+										<localizacao />
+									</ocorrencia>
+								</ocorrencias>
+							</processamento>
+						</retornoEvento>
+					</eSocial>
+				</retornoEvento>
+			</evento>
+		</retornoEventos>
+	</retornoProcessamentoLoteEventos>
+</eSocial>

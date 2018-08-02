@@ -1,0 +1,5 @@
+nb-configuration.xml
+target
+.settings
+.project
+*.swp

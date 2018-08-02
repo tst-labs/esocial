@@ -1,0 +1,18 @@
+<eSocial
+	xmlns="http://www.esocial.gov.br/schema/lote/eventos/envio/retornoProcessamento/v1_3_0"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<retornoProcessamentoLoteEventos>
+		<status>
+			<cdResposta>501</cdResposta>
+			<descResposta>Solicitação de consulta incorreta - Erro preenchimento.
+			</descResposta>
+			<ocorrencias>
+				<ocorrencia>
+					<codigo>605</codigo>
+					<descricao>Lote inexistente.</descricao>
+					<tipo>1</tipo>
+				</ocorrencia>
+			</ocorrencias>
+		</status>
+	</retornoProcessamentoLoteEventos>
+</eSocial>

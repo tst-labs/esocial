@@ -1,0 +1,5 @@
+EVENTO:
+  - EVT_ID: "1" 
+    EVT_DESCRICAO: "Evento 1" 
+    EVT_IDENTIFICADOR: "teste1" 
+    EVT_TIPO_OCORRENCIA: "N"

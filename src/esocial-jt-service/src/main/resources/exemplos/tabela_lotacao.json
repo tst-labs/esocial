@@ -1,0 +1,50 @@
+{
+	"tipoOcorrencia": "TABELA_LOTACAO",
+	"referencia": "TST12345",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+	"tipo": ".TabelaLotacao",
+	"ideEmpregador": {
+		"tpInsc": 1,
+		"nrInsc": "00509968000148"
+	},
+	"infoLotacao": {
+		"ideLotacao": {
+			"codLotacao": "TST12345",
+			"iniValid": "2017-01",
+			"fimValid": null
+		},
+		"dadosLotacao": {
+			"tpLotacao": "01",
+			"tpInsc": 1,
+			"nrInsc": "00509968000148",
+			"fpasLotacao": {
+				"fpas": "582",
+				"codTercsSusp": "0000",
+				"codTercs": "0000",
+				"infoProcJudTerceiros": {
+					"procJudTerceiro": [
+						{
+							"codTerc": "0000",
+							"nrProcJud": "123455677",
+							"codSusp": 10
+						},
+						{
+							"codTerc": "0000",
+							"nrProcJud": "123455677",
+							"codSusp": 10
+						}
+					]
+				}
+			},
+			"infoEmprParcial": {
+				"tpInscContrat": 1,
+				"nrInscContrat": "00509968000148",
+				"tpInscProp": 1,
+				"nrInscProp": "00509968000148"
+			}
+		}
+	}
+}
+}

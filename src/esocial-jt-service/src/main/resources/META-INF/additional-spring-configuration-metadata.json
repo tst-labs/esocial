@@ -1,0 +1,47 @@
+{"properties": [
+  {
+    "name": "esocialjt.ambiente",
+    "type": "java.lang.String",
+    "description": "Define para qual ambiente do eSocial os eventos serão enviados. Valores: PRODUCAO, PRODUCAO_RESTRITA"
+  },
+  {
+    "name": "esocialjt.erros-recuperaveis",
+    "type": "java.lang.List<Long>",
+    "description": "Lista com códigos de erros que indicam um reenvio do evento ao eSocial em momento posterior"
+  },
+  {
+    "name": "esocialjt.limite-eventos-lote",
+    "type": "java.lang.Long",
+    "description": "Quantidade máxima de eventos em um lote"
+  },
+  {
+    "name": "esocialjt.arquivoCertificado",
+    "type": "java.lang.String",
+    "description": "Caminho para o arquivo do certificado digital ICP Brasil A1"
+  },
+  {
+    "name": "esocialjt.senhaCertificado",
+    "type": "java.lang.String",
+    "description": "Senha do certificado digital"
+  },
+  {
+    "name": "esocialjt.arquivoCacerts",
+    "type": "java.lang.String",
+    "description": "Caminho para o arquivo Cacerts"
+  },
+  {
+    "name": "esocialjt.senhaCacerts",
+    "type": "java.lang.String",
+    "description": "Senha do Cacerts"
+  },
+  {
+    "name": "esocialjt.cnpj-empregador",
+    "type": "java.lang.String",
+    "description": "CNPJ do empregador"
+  },
+  {
+    "name": "esocialjt.periodoAutoMilis",
+    "type": "java.lang.Long",
+    "description": "Período entre as execuções de envio automático em MILISEGUNDOS ou 0 (zero) para desabilitar."
+  }
+]}

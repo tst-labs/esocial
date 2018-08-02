@@ -1,0 +1,24 @@
+{
+	"tipoOcorrencia": "TABELA_FUNCAO",
+	"referencia": "FC-01",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaFuncao",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoFuncao": {
+			"ideFuncao": {
+				"codFuncao": "FC-01",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosFuncao": {
+				"dscFuncao": "FC-01",
+				"codCBO": "411020"
+			}
+		}
+	}
+}

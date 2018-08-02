@@ -1,0 +1,55 @@
+{
+	"tipoOcorrencia": "TABELA_RUBRICA",
+	"referencia": "01",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaRubrica",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoRubrica": {
+			"ideRubrica": {
+				"codRubr": "01",
+				"ideTabRubr": "01",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosRubrica": {
+				"dscRubr": "RUBRICA",
+				"natRubr": 1234,
+				"tpRubr": 1,
+				"codIncCP": "00",
+				"codIncIRRF": "01",
+				"codIncFGTS": "11",
+				"codIncSIND": "01",
+				"observacao": "Observação sobre a rubrica",
+				"ideProcessoCP": [
+					{
+						"tpProc": 1,
+						"nrProc": "1234",
+						"extDecisao": 1,
+						"codSusp": 1
+					}
+				],
+				"ideProcessoIRRF": [
+					{
+						"nrProc": "1234",
+						"codSusp": 1
+					}
+				],
+				"ideProcessoFGTS": [
+					{
+						"nrProc": "1234"
+					}
+				],
+				"ideProcessoSIND": [
+					{
+						"nrProc": "1234"
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"tipoOcorrencia": "TABELA_CARGO",
+	"referencia": "010100",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaCargo",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoCargo": {
+			"ideCargo": {
+				"codCargo": "010100",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosCargo": {
+				"nmCargo": "ANALISTA",
+				"codCBO": "241040",
+				"cargoPublico": {
+					"acumCargo": 1,
+					"contagemEsp": 1,
+					"dedicExcl": "N",
+					"leiCargo": {
+						"nrLei": "11.416/2006",
+						"dtLei": 1166148000000,
+						"sitCargo": 1
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,23 @@
+<eSocial
+	xmlns="http://www.esocial.gov.br/schema/lote/eventos/envio/retornoEnvio/v1_1_0"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<retornoEnvioLoteEventos>
+		<ideEmpregador>
+			<tpInsc>1</tpInsc>
+			<nrInsc>00509968000148</nrInsc>
+		</ideEmpregador>
+		<ideTransmissor>
+			<tpInsc>1</tpInsc>
+			<nrInsc>00509968000148</nrInsc>
+		</ideTransmissor>
+		<status>
+			<cdResposta>201</cdResposta>
+			<descResposta>Lote Recebido com Sucesso.</descResposta>
+		</status>
+		<dadosRecepcaoLote>
+			<dhRecepcao>2017-11-28T16:22:17.8052247-02:00</dhRecepcao>
+			<versaoAplicativoRecepcao>0.1.0-A0243</versaoAplicativoRecepcao>
+			<protocoloEnvio>1.2.201711.0000000000000037150</protocoloEnvio>
+		</dadosRecepcaoLote>
+	</retornoEnvioLoteEventos>
+</eSocial>

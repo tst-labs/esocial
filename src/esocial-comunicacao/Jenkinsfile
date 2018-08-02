@@ -1,0 +1,81 @@
+pipeline {
+    agent any
+    parameters {
+        booleanParam(
+            name: 'release',
+            defaultValue: false,
+            description: 'Gera uma release'
+        )
+    }
+    tools {
+        maven 'maven 3.2.5'
+        jdk 'Java 1.8'
+    }
+    stages {
+        stage('Cleanup') {
+            steps {
+                deleteDir()
+                checkout scm
+            }
+        }
+        stage('Build') {
+            steps {
+                dir("esocial-comunicacao") {
+                    sh 'mvn clean install -DskipTests' 
+                }
+            }
+        }
+        stage('Test'){
+            steps {
+                dir("esocial-comunicacao") {
+                    sh 'mvn test failsafe:integration-test failsafe:verify'
+                }
+            }
+        }
+        stage('Release') {
+            when {
+                expression {
+                    def buildSuccess = (
+                        currentBuild.result == null
+                        || currentBuild.result == 'SUCCESS'
+                    )
+                    def masterBranch = env.BRANCH_NAME == "master"
+                    def releaseBuild = params.release
+                    return buildSuccess && masterBranch && releaseBuild
+                }
+            }
+            steps {
+                sh 'git checkout master'
+                dir("esocial-comunicacao") {
+                    sh 'mvn -Dresume=false -DautoVersionSubmodules=true -B release:prepare release:perform'
+                }
+            }
+            post {
+                failure {
+                    dir("esocial-comunicacao") {
+                        sh 'echo "Falha no release.  Fazendo rollback."'
+                        sh 'mvn -B release:rollback'
+                    }
+                }
+            }
+        }
+    }
+        
+    post {
+        success {
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true            
+        }
+        failure {
+            slackSend color: '#dd3333', message: "*${env.JOB_NAME}* - Build nº ${env.BUILD_ID} ficou instável (<${env.BUILD_URL}|Detalhes>)", channel: 'esocial-status'
+        }
+    }
+    // A diretiva options é usada para configurações aplicáveis ao job inteiro.
+    options {
+        // Número máximo de builds a manter
+        buildDiscarder(logRotator(numToKeepStr:'5'))
+    
+        // Limita o tempo total do build a 1h.
+        timeout(time: 60, unit: 'MINUTES')
+    }
+
+}

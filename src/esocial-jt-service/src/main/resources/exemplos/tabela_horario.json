@@ -1,0 +1,28 @@
+{
+	"tipoOcorrencia": "TABELA_HORARIO",
+	"referencia": "HOR001",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaHorario",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoHorContratual": {
+			"ideHorContratual": {
+				"codHorContrat": "HOR001",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosHorContratual": {
+				"hrEntr": "0800",
+				"hrSaida": "1200",
+				"durJornada": 4,
+				"perHorFlexivel": "S",
+				"horarioIntervalo": null
+			},
+			"novaValidade": null
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+	"tipoOcorrencia": "TABELA_ESTABELECIMENTO",
+	"referencia": "00509968000148",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaEstabelecimento",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoEstab": {
+			"ideEstab": {
+				"tpInsc": 1,
+				"nrInsc": "00509968000148",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosEstab": {
+				"cnaePrep": 8411600,
+				"aliqGilrat": {
+					"aliqRat": 2,
+					"fap": 1,
+					"aliqRatAjust": 2,
+					"procAdmJudRat": null,
+					"procAdmJudFap": null
+				},
+				"infoCaepf": null,
+				"infoObra": null,
+				"infoTrab": {
+					"regPt": 1,
+					"infoApr": {
+						"contApr": 0,
+						"nrProcJud": null,
+						"contEntEd": null,
+						"infoEntEduc": null
+					},
+					"infoPCD": null
+				}
+			}
+		}
+	}
+}

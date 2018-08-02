@@ -1,0 +1,18 @@
+EST_ENVIO_EVENTO:
+  - COD_ENVIO_EVENTO: "1"
+    COD_EVENTO: "1" 
+    COD_LOTE: "1"
+    COD_RESPOSTA: "3" 
+    NUM_VERSAO: "02_03_00" 
+  
+  - COD_ENVIO_EVENTO: "2"
+    COD_EVENTO: "2" 
+    COD_LOTE: "1"
+    COD_RESPOSTA: "3" 
+    NUM_VERSAO: "02_03_00" 
+  
+  - COD_ENVIO_EVENTO: "3" 
+    COD_EVENTO: "3" 
+    COD_LOTE: "2"
+    COD_RESPOSTA: "3" 
+    NUM_VERSAO: "02_03_00"

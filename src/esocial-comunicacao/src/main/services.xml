@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.7.6  Built on : Jul 30, 2017 (09:08:31 BST) --><serviceGroup>
+    <service name="ServicoConsultarLoteEventos">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="br.gov.esocial.www.servicos.empregador.lote.eventos.envio.consulta.retornoprocessamento.v1_1_0.ServicoConsultarLoteEventosMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">br.gov.esocial.www.servicos.empregador.lote.eventos.envio.consulta.retornoprocessamento.v1_1_0.ServicosEmpregador_ServicoConsultarLoteEventosImpl</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="ConsultarLoteEventos" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/consulta/retornoProcessamento/v1_1_0">
+            <actionMapping>http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/consulta/retornoProcessamento/v1_1_0/ServicoConsultarLoteEventos/ConsultarLoteEventos</actionMapping>
+            <outputActionMapping>http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/consulta/retornoProcessamento/v1_1_0/ServicoConsultarLoteEventos/ConsultarLoteEventosResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

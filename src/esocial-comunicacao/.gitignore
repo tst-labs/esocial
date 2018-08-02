@@ -1,0 +1,12 @@
+.project
+.settings
+.classpath
+target
+bin
+.cer
+.key
+.pfx
+.factorypath
+*.iml
+.idea
+release.properties

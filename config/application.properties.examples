@@ -1,0 +1,12 @@
+spring.datasource.url=jdbc:postgresql://esocial-db/postgres
+spring.datasource.username=postgres
+spring.datasource.password=esocial
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
+
+esocialjt.arquivoCertificado=/usr/src/config/esocial.pfx
+esocialjt.senhaCertificado=
