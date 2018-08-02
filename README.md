@@ -2,6 +2,8 @@
 
 [https://tst-labs.github.io/esocial/](https://tst-labs.github.io/esocial/)
 
+**[PROJETO EM DESENVOLVIMENTO] Atenção!** API ainda em desenvolvimento e portanto instável.
+
 ## Módulos do projeto
 
 - esocial-comunicacao: Pacote de mapeamento dos serviços do WSDL.
