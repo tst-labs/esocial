@@ -1,5 +1,7 @@
 # eSocial
 
+[![Build Status](https://travis-ci.org/tst-labs/esocial.svg?branch=master)](https://travis-ci.org/tst-labs/esocial)
+
 [https://tst-labs.github.io/esocial/](https://tst-labs.github.io/esocial/)
 
 **[PROJETO EM DESENVOLVIMENTO] Atenção!** API ainda em desenvolvimento e portanto instável.
