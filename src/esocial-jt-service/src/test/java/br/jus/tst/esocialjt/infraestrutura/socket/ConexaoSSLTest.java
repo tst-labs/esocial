@@ -22,7 +22,7 @@ public class ConexaoSSLTest {
 	}
 	
 	public Certificado criarCertificadoParaTeste() {
-		final String arquivoCertificado = "src/test/resources/keystore.pfx";
+		final String arquivoCertificado = "target/test-classes/keystore.pfx";
 		final String arquivoCacerts = "";
 		final String senhaCertificado = "123456";
 		final String senhaCacerts = "";
