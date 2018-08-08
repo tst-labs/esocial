@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.3.RELEASE</version>
+		<version>2.0.4.RELEASE</version>
 		<relativePath />
 	</parent>
 
@@ -127,11 +127,20 @@
 							<version>${org.mapstruct.version}</version>
 						</path>
 					</annotationProcessorPaths>
+                    <encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+					<requiresUnpack>
+						<dependency>
+							<groupId>org.apache.axis2</groupId>
+							<artifactId>axis2</artifactId>
+						</dependency>
+					</requiresUnpack>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
@@ -140,42 +149,38 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<requiresUnpack>
-						<dependency>
-							<groupId>org.apache.axis2</groupId>
-							<artifactId>axis2</artifactId>
-						</dependency>
-					</requiresUnpack>
-				</configuration>
-			</plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>keytool-maven-plugin</artifactId>
                 <version>1.5</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>generateKeyPair</goal>
-                            </goals>
-                            <phase>generate-test-resources</phase>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <keystore>${project.build.testOutputDirectory}/keystore.pfx</keystore>
-                        <dname>cn=tst.jus.br, ou=SETIN, o=CDS, l=Brasilia, st=Distrito Federal, c=BR</dname>
-                        <keypass>123456</keypass>
-                        <storepass>123456</storepass>
-                        <alias>esocial</alias>
-                        <storetype>pkcs12</storetype>
-                        <keyalg>RSA</keyalg>
-                        <sigalg>SHA256withRSA</sigalg>
-                        <validity>100</validity>
-                        <skipIfExist>true</skipIfExist>
-                    </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generateKeyPair</goal>
+                        </goals>
+                        <phase>generate-test-resources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <keystore>${project.build.testOutputDirectory}/keystore.pfx</keystore>
+                    <dname>cn=tst.jus.br, ou=SETIN, o=CDS, l=Brasilia, st=Distrito Federal, c=BR</dname>
+                    <keypass>123456</keypass>
+                    <storepass>123456</storepass>
+                    <alias>esocial</alias>
+                    <storetype>pkcs12</storetype>
+                    <keyalg>RSA</keyalg>
+                    <sigalg>SHA256withRSA</sigalg>
+                    <validity>100</validity>
+                    <skipIfExist>true</skipIfExist>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
 		</plugins>
 	</build>
