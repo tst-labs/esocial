@@ -9,4 +9,4 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=false
 
 esocialjt.arquivoCertificado=/usr/src/config/esocial.pfx
-esocialjt.senhaCertificado=
+esocialjt.senhaCertificado=changeit
