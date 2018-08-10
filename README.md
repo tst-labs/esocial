@@ -90,7 +90,7 @@ Atualmente, o **esocial-jt-service** é testado com **PostgreSQL** mas em teoria
 
 #### Criação/Atualização do banco de dados
 
-Os scripts de criação do banco ficam localizados em [src/esocial-jt-service/resources/db/migration/](src/esocial-jt-service/resources/db/migration/). Os scripts podem ser executados de forma manual, porém utilizamos o [flyway](https://flywaydb.org/) para automatizar esse processo.
+Os scripts de criação do banco ficam localizados em [src/esocial-jt-service/main/resources/db/migration/](src/esocial-jt-service/resources/db/migration/). Os scripts podem ser executados de forma manual, porém utilizamos o [flyway](https://flywaydb.org/) para automatizar esse processo.
 
 Execute o seguinte comando preenchendo os valores com a URL de conexão do banco, usuário e senha para criar / atualizar as tabelas no seu banco de dados.
 
