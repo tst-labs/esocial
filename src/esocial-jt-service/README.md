@@ -21,28 +21,27 @@ Em poucas palavras, este módulo recebe um _JSON_ com os dados de uma **ocorrên
 
 ### Banco de dados
 
-Atualmente, o **esocial-jt-service** é compatível com **Oracle 11g** e **PostgreSQL**. Os parâmetros de conexão devem ser passados no arquivo de configuração, como explicado mais adiante.
+Atualmente, o **esocial-jt-service** é testado principalmente com **PostgreSQL**. Os parâmetros de conexão devem ser passados no arquivo de configuração, como explicado mais adiante.
 
-> "TODO: Script de criação de tabelas e inserts iniciais"
+### Criação/Atualização do banco de dados
+
+Os scripts de preparação de banco encontram-se em: [src/esocial-jt-service/src/main/resources/db/migration](src/esocial-jt-service/src/main/resources/db/migration).
+
+> TODO: Descrver o uso básico do flyway
 
 ### Download da aplicação
 
 ```bash
-git clone git@(?)
-```
-
-ou
-
-```bash
-git clone https://(?)
+git clone https://github.com/tst-labs/esocial.git
 ```
 
 ### Configuração
 
-Os seguintes parâmetros de configuração (camiho do arquivo do certificado digital e conexão com o banco de dados) devem ser passado editando o arquivo [src/main/java/resources/application.properties](./src/main/java/resources/application.properties).
+Os seguintes parâmetros de configuração (camiho do arquivo do certificado digital e conexão com o banco de dados) devem ser passado editando o arquivo `config/application.properties`.
 
-```
+```properties
 esocialjt.cnpj-empregador=
+
 esocialjt.arquivoCertificado=
 esocialjt.senhaCertificado=
 
@@ -51,6 +50,11 @@ spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=
 spring.jpa.database-platform=
+
+esocialjt.proxyServer=
+esocialjt.proxyPort=
+esocialjt.proxyUser=
+esocialjt.proxyPassword=
 ```
 
 > Obs.: Como qualquer aplicação Spring Boot, existem outras maneiras de [sobreescrever os parâmetros de configuração](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
@@ -60,13 +64,14 @@ spring.jpa.database-platform=
 Para fazer build do projeto, execute:
 
 ```bash
+cd src
 mvn clean package
 ```
 
 E para iniciar:
 
 ```bash
-java -jar target/esocial-jt-service.jar
+java -jar src/esocial-jt-service/target/esocial-jt-service-0.0.1-SNAPSHOT.jar
 ```
 
 Verifique se a aplicação está no ar acessando a url
