@@ -1,0 +1,32 @@
+version: "3.5"
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: ./src
+    image: tst-labs/esocial-app:latest
+    container_name: esocial-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    networks:
+      - esocial-net
+    volumes:
+      - "./config:/usr/src/esocial/config/"
+
+  db:
+    image: postgres:10
+    container_name: esocial-db
+    volumes:
+      - "/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    networks:
+      - esocial-net
+    environment:
+      - POSTGRES_PASSWORD=esocial
+
+networks:
+  esocial-net:
+    driver: bridge
