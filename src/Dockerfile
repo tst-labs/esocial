@@ -8,4 +8,9 @@ WORKDIR /usr/src/esocial
 RUN mvn clean install
 
 EXPOSE 8080
-ENTRYPOINT cd esocial-jt-service && mvn flyway:migrate -Dflyway.url=jdbc:postgresql://esocial-db/postgres -Dflyway.user=postgres -Dflyway.password=esocial && cd .. && exec java $JAVA_OPTS -jar esocial-jt-service/target/esocial-jt-service*.jar
+ENTRYPOINT cd esocial-jt-service && \
+            mvn flyway:migrate -Dflyway.url=jdbc:postgresql://esocial-db/postgres \
+            -Dflyway.user=postgres -Dflyway.password=esocial \
+            -Dflyway.baselineOnMigrate=true && \
+            cd .. && \
+            exec java $JAVA_OPTS -jar esocial-jt-service/target/esocial-jt-service*.jar

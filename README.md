@@ -48,8 +48,13 @@ $ cp ./config/application.properties.example ./config/application.properties
 ```shellscript
 docker-compose up
 ```
-
 > Obs: O docker-compose sobe um banco postgres e a aplicação Java
+
+Verifique se a aplicação está no ar acessando a url
+
+```
+http://localhost:8080/esocial-jt-service/actuator/health
+```
 
 ## Características
 
