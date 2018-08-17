@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.hibernate.annotations.Type;
+
 /**
  * The persistent class for the EST_LOTE database table.
  * 
@@ -58,16 +60,17 @@ public class Lote implements Serializable {
 	private String protocolo;
 
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_RETORNO")
-	@JsonIgnore
 	private String retorno;
 
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_XML_LOTE")
-	@JsonIgnore
 	private String xmlLote;
 
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_ERRO_INTERNO")
 	private String erroInterno;
 
@@ -152,6 +155,7 @@ public class Lote implements Serializable {
 		return this;
 	}
 
+	@JsonIgnore
 	public String getXmlLote() {
 		return xmlLote;
 	}
@@ -161,6 +165,7 @@ public class Lote implements Serializable {
 		return this;
 	}
 
+	@JsonIgnore
 	public String getErroInterno() {
 		return erroInterno;
 	}
