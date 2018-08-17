@@ -25,6 +25,8 @@ import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "EST_ENVIO_EVENTO")
 @NamedQuery(name = "EnvioEvento.findAll", query = "SELECT e FROM EnvioEvento e")
@@ -58,6 +60,7 @@ public class EnvioEvento implements Serializable {
 	private String versao;
 
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_ERRO_INTERNO")
 	private String erroInterno;
 
