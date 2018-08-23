@@ -65,7 +65,7 @@ O projeto é dividido nos seguintes módulos:
 - esocial-jt-dominio: Modelos básicos do esocial-jt.
 - esocial-jt-service: API RESTful para comunicação com eSocial-GOV. [[mais informações...](src/esocial-jt-service/README.md)]
 
-O **esocial-jt-service** é o módulo principal do sistema eSocial na Justiça do Trabalho, que recebe dados de ocorrências da vida funcional dos trabalhadores/servidores e os comunica ao sistema eSocial governametal central [eSocial-Gov](https://portal.esocial.gov.br/).
+O **esocial-jt-service** é o módulo principal do sistema eSocial na Justiça do Trabalho, que recebe dados de ocorrências da vida funcional dos trabalhadores/servidores e os comunica ao sistema eSocial governamental central [eSocial-Gov](https://portal.esocial.gov.br/).
 
 O **esocial-jt-service** foi construído em [Java 8](http://www.oracle.com/technetwork/pt/java/javaee/overview/index.html) utilizando o framework [Spring Boot](https://spring.io/projects/spring-boot). É uma aplicação primordialmente de _backend_ que fornece API RESTful trafegando dados no formato _JSON_.
 
@@ -108,7 +108,7 @@ git clone https://github.com/tst-labs/esocial.git
 
 ### Configuração
 
-Os seguintes parâmetros de configuração (caminho do arquivo do certificado digital e conexão com o banco de dados) devem ser passado editando o arquivo `config/application.properties`.
+Os seguintes parâmetros de configuração (caminho do arquivo do certificado digital e conexão com o banco de dados) devem ser passados editando o arquivo `config/application.properties`.
 
 ```properties
 esocialjt.cnpj-empregador=
@@ -218,7 +218,7 @@ Verifica o status da aplicação
 ## Visão Geral
 
 O Tribunal Superior do Trabalho está em uma fase avançada de desenvolvimento de uma solução para transmitir os dados
-da vida funcional dos seus servidores para sistema eSocial do Governo Federal, atendendo às necessidades legais do
+da vida funcional dos seus servidores para o sistema eSocial do Governo Federal, atendendo às necessidades legais do
 <a href="http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/decreto/d8373.htm">Decreto N° 8.373, de 11 de Dezembro de 2014</a>.
 
 Essa iniciativa converge na publicação desse trabalho como projeto Open Source (OSS), uma vez que entendemos que essa solução
@@ -267,7 +267,7 @@ de eventos especificados pelo eSocial-GOV.
 | Envio inicial | S-1035 | Carreiras Públicas                  | 2.4.02 |         Feito |
 | Envio inicial | S-1040 | Funções/Cargos em Comissão          | 2.4.02 |         Feito |
 | Envio inicial | S-1050 | Horários/Turnos de Trabalho         |     NA |            NA |
-| Envio inicial | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |         Feito |
+| Envio inicial | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |         **Fazendo** |
 | Envio inicial | S-1080 | Operadores Portuários               |     NA |            NA |
 | Inclusão      | S-1005 | Estabelecimentos                    | 2.4.02 |         Feito |
 | Inclusão      | S-1010 | Rubricas                            | 2.4.02 |   **Fazendo** |
@@ -297,6 +297,6 @@ de eventos especificados pelo eSocial-GOV.
 
 **Próximos eventos serão analisados após conclusão da primeira fase.**
 
-### Commo contribuir?
+### Como contribuir?
 
 Leia nosso [guia de contribuição em andamento](CONTRIBUTING.md).
