@@ -42,6 +42,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TABELA_CARREIRA, 1035);
 		map.put(TipoOcorrencia.TABELA_FUNCAO, 1040);
 		map.put(TipoOcorrencia.TABELA_HORARIO, 1050);
+		map.put(TipoOcorrencia.TABELA_AMBIENTE, 1060);
 		map.put(TipoOcorrencia.TABELA_PROCESSO, 1070);
 		map.put(TipoOcorrencia.ADMISSAO_TRABALHADOR, 2200);
 

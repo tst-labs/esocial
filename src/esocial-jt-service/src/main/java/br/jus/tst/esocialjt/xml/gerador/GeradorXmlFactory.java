@@ -35,6 +35,9 @@ public class GeradorXmlFactory {
 	
 	@Autowired
 	private GeradorXmlTabelaHorario geradorXmlTabelaHorario;
+	
+	@Autowired
+	private GeradorXmlTabelaAmbiente geradorXmlTabelaAmbiente;
 
 	@Autowired
 	private GeradorXmlTabelaProcesso geradorXmlTabelaProcesso;
@@ -63,6 +66,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S1035, geradorXmlTabelaCarreira);
 			geradores.put(TipoEvento.S1040, geradorXmlTabelaFuncao);
 			geradores.put(TipoEvento.S1050, geradorXmlTabelaHorario);
+			geradores.put(TipoEvento.S1060, geradorXmlTabelaAmbiente);
 			geradores.put(TipoEvento.S1070, geradorXmlTabelaProcesso);
 			geradores.put(TipoEvento.S2200, geradorXmlAdmissao);
 		}
