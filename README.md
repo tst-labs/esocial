@@ -232,7 +232,6 @@ Esse pedaço da solução compreende:
 
 - Recepção de ocorrências provenientes dos sistemas de origem, via API RESTful;
 - Conversão dessas ocorrências em eventos do eSocial, no formato XML;
-- Orquestração do envio dos eventos ao eSocial-GOV;
 - Consulta do resultado do processamento dos eventos enviados; e
 - Gerência dos detalhes de conexão com o eSocial-GOV (assinatura dos eventos, conexão com certificado, etc.).
 
