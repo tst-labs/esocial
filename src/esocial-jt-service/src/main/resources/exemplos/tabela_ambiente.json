@@ -1,0 +1,31 @@
+{
+	"tipoOcorrencia": "TABELA_AMBIENTE",
+	"referencia": "1",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181304444,
+	"dadosOcorrencia": {
+		"tipo": ".TabelaAmbiente",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"infoAmbiente": {
+			"ideAmbiente": {
+				"codAmb": "1",
+				"iniValid": "2017-01",
+				"fimValid": null
+			},
+			"dadosAmbiente": {
+				"dscAmb": "Descrição do ambiente de trabalho",
+				"localAmb": 1,
+    			"tpInsc": 1,
+	    		"nrInsc": "00509968000148",
+				"fatorRisco": [
+					{
+						"codFatRis": "09.01.001"
+					}
+				]
+			}
+		}
+	}
+}

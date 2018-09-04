@@ -41,7 +41,7 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento TABELA_CARREIRA = S1035;  
 	public static final TipoEvento TABELA_FUNCAO = S1040;  
 	public static final TipoEvento TABELA_HORARIO = S1050; 
-	public static final TipoEvento TABELA_AMBIENTES_TRABALHO = S1060; 
+	public static final TipoEvento TABELA_AMBIENTE = S1060; 
 	public static final TipoEvento TABELA_PROCESSO = S1070;  
 	public static final TipoEvento ADMISSAO_TRABALHADOR = S2200;  
 	

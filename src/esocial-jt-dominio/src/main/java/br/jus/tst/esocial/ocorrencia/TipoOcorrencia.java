@@ -5,6 +5,7 @@ import java.util.Arrays;
 import br.jus.tst.esocial.ocorrencia.dados.Admissao;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
+import br.jus.tst.esocial.ocorrencia.dados.TabelaAmbiente;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCargo;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCarreira;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaEstabelecimento;
@@ -23,8 +24,9 @@ public enum TipoOcorrencia {
 	TABELA_CARGO(TabelaCargo.class), 
 	TABELA_CARREIRA(TabelaCarreira.class), 
 	TABELA_FUNCAO(TabelaFuncao.class), 
-	TABELA_PROCESSO(TabelaProcesso.class), 
 	TABELA_HORARIO(TabelaHorario.class),
+	TABELA_AMBIENTE(TabelaAmbiente.class),
+	TABELA_PROCESSO(TabelaProcesso.class), 
 	ADMISSAO_TRABALHADOR(Admissao.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;

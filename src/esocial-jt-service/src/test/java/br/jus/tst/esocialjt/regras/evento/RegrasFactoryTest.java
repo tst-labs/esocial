@@ -40,7 +40,16 @@ public class RegrasFactoryTest{
 				RegraEventosTabela.class
 		);
 	}
-	
+
+	@Test
+	public void deveProverRegraTabelaRubrica() {
+		Regra regra = getRegra(TipoEvento.S1010);
+		assertThat(regra).isInstanceOf(RegraTabelaRubrica.class);
+		assertThat(regra.regras()).extracting("class").contains(
+				RegraEventosTabela.class
+		);
+	}
+
 	@Test
 	public void deveProverRegraTabelaLotacao() {
 		Regra regra = getRegra(TipoEvento.S1020);
@@ -72,6 +81,24 @@ public class RegrasFactoryTest{
 	public void deveProverRegraTabelaFuncao() {
 		Regra regra = getRegra(TipoEvento.S1040);
 		assertThat(regra).isInstanceOf(RegraTabelaFuncao.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEventosTabela.class
+		);
+	}
+	
+	@Test
+	public void deveProverRegraTabelaAmbiente() {
+		Regra regra = getRegra(TipoEvento.S1060);
+		assertThat(regra).isInstanceOf(RegraTabelaAmbiente.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEventosTabela.class
+		);
+	}
+	
+	@Test
+	public void deveProverRegraTabelaProcesso() {
+		Regra regra = getRegra(TipoEvento.S1070);
+		assertThat(regra).isInstanceOf(RegraTabelaProcesso.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEventosTabela.class
 		);
