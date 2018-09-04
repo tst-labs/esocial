@@ -39,12 +39,12 @@ Antes de utilizá-lo é necessário configurar o seguinte:
   
   > rh_datasource_des/type=javax.sql.DataSource</br>
   > rh_datasource_des/driver=oracle.jdbc.driver.OracleDriver</br>
-  > rh_datasource_des/url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=host-database)(PORT = 1521)))(CONNECT_DATA=(SERVICE_NAME=dbdes02)))</br>
+  > rh_datasource_des/url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=host-database)(PORT = 1521)))(CONNECT_DATA=(SERVICE_NAME=dbdes)))</br>
   > rh_datasource_des/user=C7_USUARIO</br>
   > rh_datasource_des/password=senha</br>
   > c7_datasource_des/type=javax.sql.DataSource</br>
   > c7_datasource_des/driver=oracle.jdbc.driver.OracleDriver</br>
-  > c7_datasource_des/url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=host-database)(PORT = 1521)))(CONNECT_DATA=(SERVICE_NAME=dbdes02)))</br>
+  > c7_datasource_des/url=jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=host-database)(PORT = 1521)))(CONNECT_DATA=(SERVICE_NAME=dbdes)))</br>
   > c7_datasource_des/user=C7_USUARIO</br>
   > c7_datasource_des/password=senha</br>
 
