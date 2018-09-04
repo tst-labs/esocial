@@ -3,7 +3,7 @@ import {
   criarOcorrenciaApiBasicaFalsa,
   criarOcorrenciaDetalhadaFalsa
 } from "./_test-utils";
-import EstadoOcorrencia, { FILA, PROCESSAMENTO } from "./EstadoOcorrencia";
+import { FILA, PROCESSAMENTO } from "./EstadoOcorrencia";
 
 describe("Ocorrencia", () => {
   test("deve ser criado a partir de ocorrencia básica", () => {

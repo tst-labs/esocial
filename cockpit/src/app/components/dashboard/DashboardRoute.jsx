@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { Menu } from "semantic-ui-react";
 
 import { listarOcorrencias } from "../../api/esocial-jt";
 
 import Dashboard from "./Dashboard";
 import { withLoader } from "../../../shared/components/loader/LoaderContext";
 import { withMessages } from "../../../shared/components/message/MessageContext";
-import { ERROR } from "../../../shared/components/message/MessageType";
 
 const LOAD_OCORRENCIAS_INTERVAL = 3000;
 const LOADER_ID = "load-ocorrencias";

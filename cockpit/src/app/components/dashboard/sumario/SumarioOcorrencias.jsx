@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { func, arrayOf, object } from "prop-types";
-import { Container, Grid } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 import EstadoOcorrencia, {
   Estados
 } from "../../../models/ocorrencia/EstadoOcorrencia";
 import ItemSumarioOcorrenciaPorEstado from "./ItemSumarioOcorrenciaPorEstado";
-import BaseRow from "../../layout/BaseRow";
 
 class SumarioOcorrencias extends Component {
   state = {

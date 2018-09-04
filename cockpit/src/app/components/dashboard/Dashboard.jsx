@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Grid, Menu } from "semantic-ui-react";
+import { Menu } from "semantic-ui-react";
 
 import BaseRow from "../layout/BaseRow";
 import BaseLayout from "../layout/BaseLayout";

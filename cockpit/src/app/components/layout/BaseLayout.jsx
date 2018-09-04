@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Dimmer } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 import BaseMenu from "./BaseMenu";
 import BaseRow from "./BaseRow";
