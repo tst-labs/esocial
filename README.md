@@ -252,49 +252,38 @@ A priorização dos eventos a serem transmitidos foi feita com base na necessida
 demais órgãos da Justiça do Trabalho. No entanto, o projeto pode ser estendido para quaisquer tipos
 de eventos especificados pelo eSocial-GOV.
 
-### Status por evento
+## Status por evento
 
-#### 0.1.0
+### 0.1.0
 
-| Fase          | Evento | Nome Evento                         | Versão | Envio Inicial |
-| ------------- | ------ | ----------------------------------- | -----: | ------------: |
-| Envio inicial | S-1000 | Empregador/Contribuinte             | 2.4.02 |         Feito |
-| Envio inicial | S-1005 | Estabelecimentos                    | 2.4.02 |         Feito |
-| Envio inicial | S-1010 | Rubricas                            | 2.4.02 |   **Fazendo** |
-| Envio inicial | S-1020 | Lotações Tributárias                | 2.4.02 |         Feito |
-| Envio inicial | S-1030 | Cargos/Empregos Públicos            | 2.4.02 |         Feito |
-| Envio inicial | S-1035 | Carreiras Públicas                  | 2.4.02 |         Feito |
-| Envio inicial | S-1040 | Funções/Cargos em Comissão          | 2.4.02 |         Feito |
-| Envio inicial | S-1050 | Horários/Turnos de Trabalho         |     NA |            NA |
-| Envio inicial | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |         **Fazendo** |
-| Envio inicial | S-1080 | Operadores Portuários               |     NA |            NA |
-| Inclusão      | S-1005 | Estabelecimentos                    | 2.4.02 |         Feito |
-| Inclusão      | S-1010 | Rubricas                            | 2.4.02 |   **Fazendo** |
-| Inclusão      | S-1020 | Lotações Tributárias                | 2.4.02 |         Feito |
-| Inclusão      | S-1030 | Cargos/Empregos Públicos            | 2.4.02 |         Feito |
-| Inclusão      | S-1035 | Carreiras Públicas                  | 2.4.02 |         Feito |
-| Inclusão      | S-1040 | Funções/Cargos em Comissão          | 2.4.02 |         Feito |
-| Inclusão      | S-1050 | Horários/Turnos de Trabalho         |     NA |            NA |
-| Inclusão      | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |   **Fazendo** |
-| Alteração     | S-1000 | Empregador/Contribuinte             | 2.4.02 |         Feito |
-| Alteração     | S-1005 | Estabelecimentos                    | 2.4.02 |         Feito |
-| Alteração     | S-1010 | Rubricas                            | 2.4.02 |   **Fazendo** |
-| Alteração     | S-1020 | Lotações Tributárias                | 2.4.02 |         Feito |
-| Alteração     | S-1030 | Cargos/Empregos Públicos            | 2.4.02 |         Feito |
-| Alteração     | S-1035 | Carreiras Públicas                  | 2.4.02 |         Feito |
-| Alteração     | S-1040 | Funções/Cargos em Comissão          | 2.4.02 |         Feito |
-| Alteração     | S-1050 | Horários/Turnos de Trabalho         |     NA |            NA |
-| Alteração     | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |   **Fazendo** |
-| Exclusão      | S-1005 | Estabelecimentos                    | 2.4.02 |         Feito |
-| Exclusão      | S-1010 | Rubricas                            | 2.4.02 |   **Fazendo** |
-| Exclusão      | S-1020 | Lotações Tributárias                | 2.4.02 |         Feito |
-| Exclusão      | S-1030 | Cargos/Empregos Públicos            | 2.4.02 |         Feito |
-| Exclusão      | S-1035 | Carreiras Públicas                  | 2.4.02 |         Feito |
-| Exclusão      | S-1040 | Funções/Cargos em Comissão          | 2.4.02 |         Feito |
-| Exclusão      | S-1050 | Horários/Turnos de Trabalho         |     NA |            NA |
-| Exclusão      | S-1070 | Processos Administrativos/Judiciais | 2.4.02 |   **Fazendo** |
+#### Eventos de Tabelas
 
-**Próximos eventos serão analisados após conclusão da primeira fase.**
+| Evento | Nome Evento                         | Versão | Situação |
+| ------ | ----------------------------------- | ----- | ------|
+| S-1000 | Empregador/Contribuinte             | 2.4.02 | Feito |
+| S-1005 | Estabelecimentos                    | 2.4.02 | Feito |
+| S-1010 | Rubricas                            | 2.4.02 | Feito |
+| S-1020 | Lotações Tributárias                | 2.4.02 | Feito |
+| S-1030 | Cargos/Empregos Públicos            | 2.4.02 | Feito |
+| S-1035 | Carreiras Públicas                  | 2.4.02 | Feito |
+| S-1040 | Funções/Cargos em Comissão          | 2.4.02 | Feito |
+| S-1050 | Horários/Turnos de Trabalho         |     NA |    NA |
+| S-1060 | Ambientes de Trabalho               | 2.4.02 | Feito |
+| S-1070 | Processos Administrativos/Judiciais | 2.4.02 | Feito |
+| S-1080 | Operadores Portuários               |     NA |    NA |
+
+#### Eventos periódicos
+
+    . *A fazer*
+
+#### Eventos não periódicos
+| Evento | Nome Evento                         | Versão | Situação |
+| -------| ----------------------------------- | ------ | -------- |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador | 2.4.02 | **Fazendo** |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador | 2.4.02 | **Fazendo** |
+
+
+
 
 ### Como contribuir?
 
