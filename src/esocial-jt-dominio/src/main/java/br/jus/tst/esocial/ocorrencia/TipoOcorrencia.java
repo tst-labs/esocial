@@ -14,6 +14,7 @@ import br.jus.tst.esocial.ocorrencia.dados.TabelaHorario;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaProcesso;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaRubrica;
+import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 
 public enum TipoOcorrencia {
 
@@ -27,7 +28,8 @@ public enum TipoOcorrencia {
 	TABELA_HORARIO(TabelaHorario.class),
 	TABELA_AMBIENTE(TabelaAmbiente.class),
 	TABELA_PROCESSO(TabelaProcesso.class), 
-	ADMISSAO_TRABALHADOR(Admissao.class);
+	ADMISSAO_TRABALHADOR(Admissao.class),
+	ALTERACAO_CONTRATUAL(AltContratual.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 

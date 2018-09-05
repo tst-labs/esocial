@@ -45,6 +45,9 @@ public class GeradorXmlFactory {
 	@Autowired
 	private GeradorXmlAdmissao geradorXmlAdmissao;
 
+	@Autowired
+	private GeradorXmlAltContratual geradorXmlAltContratual;
+
 	private Map<TipoEvento, GeradorXml> geradores;
 
 	public GeradorXml getGerador(Evento evento) throws GeracaoXmlException {
