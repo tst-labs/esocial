@@ -18,7 +18,7 @@ export default class ConfirmButton extends Component {
     confirmContent: "Tem certeza?",
     cancelLabel: "Cancelar",
     confirmLabel: "OK",
-    buttonColor: "white",
+    buttonColor: undefined,
     buttonText: "Enviar",
     buttonIcon: "circle"
   };

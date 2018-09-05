@@ -20,7 +20,7 @@
     "react-json-view": "^1.16.0",
     "react-router-dom": "^4.2.2",
     "semantic-ui-css": "^2.2.14",
-    "semantic-ui-react": "^0.77.2",
+    "semantic-ui-react": "^0.82.3",
     "uniqid": "^4.1.1"
   },
   "lint-staged": {
