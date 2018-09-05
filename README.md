@@ -274,16 +274,14 @@ de eventos especificados pelo eSocial-GOV.
 
 #### Eventos periódicos
 
-    . *A fazer*
+    . A fazer
 
 #### Eventos não periódicos
 | Evento | Nome Evento                         | Versão | Situação |
 | -------| ----------------------------------- | ------ | -------- |
 | S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador | 2.4.02 | **Fazendo** |
 | S-2205 | Alteração de Dados Cadastrais do Trabalhador | 2.4.02 | **Fazendo** |
-
-
-
+| S-2206 | Alteração de Contrato de Trabalho | 2.4.02 | **Fazendo** |
 
 ### Como contribuir?
 
