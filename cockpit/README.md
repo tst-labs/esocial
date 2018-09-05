@@ -40,18 +40,20 @@ O projeto foi implementado utilizando [React](https://reactjs.org/) para compone
 
 ### Estrutura de pastas
 
-`/src/app`: arquivos especificos do `esocial-cockpit`
-`/src/app/api`: arquivos para conexão com API do `esocial-jt-service`
-`/src/app/components`: componentes visuais
-`/src/app/models`: Modelos usados nos componentes visuais e mapeamentos da API para esses modelos
-`/src/app/App.jsx`: Componente principal da aplicação
-`/src/shared`: arquivos criados no `esocial-cockpit` mas que podem ser extraídos posteriormente para outros projetos
-`/src/shared/components`: componentes genéricos o suficiente para atender outros projetos
-`/src/shared/libs`: bibliotecas genéricas o suficiente para atender outros projetos
+- `/src/app`: arquivos especificos do `esocial-cockpit`
+- `/src/app/api`: arquivos para conexão com API do `esocial-jt-service`
+- `/src/app/components`: componentes visuais
+- `/src/app/models`: Modelos usados nos componentes visuais e mapeamentos da API para esses modelos
+- `/src/app/App.jsx`: Componente principal da aplicação
+- `/src/shared`: arquivos criados no `esocial-cockpit` mas que podem ser extraídos posteriormente para outros projetos
+- `/src/shared/components`: componentes genéricos o suficiente para atender outros projetos
+- `/src/shared/libs`: bibliotecas genéricas o suficiente para atender outros projetos
 
 ### Desenvolvimento de componentes genéricos
 
-Os componentes mais genéricos da aplicação podem ser visualizados sem a necessidade de executar o ambiente completo. Para isso utilizamos a biblioteca [storybook](https://storybook.js.org/). Essa biblioteca permite catalogar componentes da aplicação. Para visualizar o catálogo de componentes genéricos execute o comando abaixo e acessando [http://localhost:9001/](http://localhost:9001/):
+Os componentes mais genéricos da aplicação podem ser visualizados sem a necessidade de execução do ambiente completo. Para isso utilizamos a biblioteca [storybook](https://storybook.js.org/). Essa biblioteca permite catalogar componentes da aplicação.
+
+Para visualizar o catálogo de componentes genéricos execute o comando abaixo e acessando [http://localhost:9001/](http://localhost:9001/):
 
 ```console
 npm run storybook
@@ -59,9 +61,9 @@ npm run storybook
 
 ### Complexidades
 
-Normalmente nas aplicações React os dados são passados de cima para baixo (pai para filho) através de propriedades (props). Isso gera um grande incômodo quando uma propriedade é utilizada por diversos componentes na aplicação. Utilizamos a API de Context do React para que não tenhamos que explicitar essas propriedades por cada nó da árvore.
+Normalmente nas aplicações React os dados são passados de cima para baixo (pai para filho) através de propriedades (props). Isso gera um grande incômodo quando uma propriedade é utilizada por diversos componentes na aplicação.
 
-As seguintes APIs de contexto são utilizadas:
+Utilizamos a API de Context do React para que não tenhamos que explicitar essas propriedades para cada nó da árvore.
 
 #### [`LoaderContext`](./src/shared/components/loader)
 
