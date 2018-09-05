@@ -1,0 +1,78 @@
+{
+  "name": "esocial-cockpit",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged",
+    "start": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "jest",
+    "lint": "eslint src/**/*.{js,jsx}"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "date-fns": "^1.29.0",
+    "history": "^4.7.2",
+    "immer": "^1.3.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-json-view": "^1.16.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.2.14",
+    "semantic-ui-react": "^0.82.3",
+    "uniqid": "^4.1.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/build/",
+      "!src/index.js"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.3",
+    "autoprefixer": "^7.2.5",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^22.1.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.15.0",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.41.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.5.1",
+    "express": "^4.16.2",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4",
+    "json-server": "^0.12.1",
+    "lint-staged": "^6.0.1",
+    "postcss-modules": "^1.1.0",
+    "prettier": "^1.10.2",
+    "prop-types": "^15.6.0",
+    "request": "^2.34",
+    "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1",
+    "webpack-pwa-manifest": "^3.4.1",
+    "clean-webpack-plugin": "^0.1.18"
+  }
+}

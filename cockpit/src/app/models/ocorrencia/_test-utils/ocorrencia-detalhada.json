@@ -1,0 +1,67 @@
+{
+  "id": 14631,
+  "tipoOcorrencia": "TABELA_FUNCAO",
+  "referencia": "9",
+  "operacao": "INCLUSAO",
+  "dataOcorrencia": 1526047359000,
+  "dataRecebimento": 1526047359000,
+  "dadosOcorrencia": {
+    "tipo": ".TabelaFuncao",
+    "ideEmpregador": { "tpInsc": "CNPJ", "nrInsc": "00509968000148" },
+    "infoFuncao": {
+      "ideFuncao": {
+        "codFuncao": "9",
+        "iniValid": "2016-01",
+        "fimValid": null
+      },
+      "dadosFuncao": { "dscFuncao": "CJ-3", "codCBO": "411020" },
+      "novaValidade": null
+    }
+  },
+  "evento": {
+    "id": 14816,
+    "ocorrencia": 14631,
+    "estado": { "id": 3, "descricao": "PROCESSADO COM SUCESSO" },
+    "idEvento": "ID1005099680001482018051111024401988",
+    "tipoEvento": {
+      "desTipo": "Tabela de Funções/Cargos em Comissão",
+      "grupoTipoEvento": { "id": 1, "descricao": "Eventos de Tabelas" },
+      "codTipo": 1040
+    },
+    "enviosEvento": [
+      {
+        "id": 26258,
+        "lote": {
+          "id": 1058,
+          "estado": { "id": 3, "descricao": "PROCESSADO COM SUCESSO" },
+          "codigoResposta": {
+            "id": 2,
+            "desResposta": "Lote Recebido com Sucesso.",
+            "codGrupoResposta": 1,
+            "codResposta": 201
+          },
+          "dataEnvio": 1526047403000,
+          "protocolo": "1.2.201805.0000000000002602485",
+          "erroInterno": null,
+          "resposta": {
+            "id": 2,
+            "desResposta": "Lote Recebido com Sucesso.",
+            "codGrupoResposta": 1,
+            "codResposta": 201
+          },
+          "dtaEnvio": 1526047403000
+        },
+        "codRespostaProcessamento": {
+          "id": 3,
+          "desResposta": "Sucesso.",
+          "codGrupoResposta": 2,
+          "codResposta": 201
+        },
+        "dtaGeracaoEvento": "2018-05-11",
+        "versao": "2.4.02",
+        "erroInterno": null,
+        "errosProcessamento": []
+      }
+    ]
+  }
+}
