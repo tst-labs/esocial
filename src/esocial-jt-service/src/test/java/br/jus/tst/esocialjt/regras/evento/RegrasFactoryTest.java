@@ -87,6 +87,15 @@ public class RegrasFactoryTest{
 	}
 	
 	@Test
+	public void deveProverRegraTabelaHorario() {
+		Regra regra = getRegra(TipoEvento.S1050);
+		assertThat(regra).isInstanceOf(RegraTabelaHorario.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEventosTabela.class
+				);
+	}
+	
+	@Test
 	public void deveProverRegraTabelaAmbiente() {
 		Regra regra = getRegra(TipoEvento.S1060);
 		assertThat(regra).isInstanceOf(RegraTabelaAmbiente.class);

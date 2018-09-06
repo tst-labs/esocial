@@ -48,6 +48,9 @@ public class InfoContrato {
 	
 	@Valid
 	private List<Observacoes> observacoes;
+	
+	@Valid
+	private ServPubl servPubl;
 
 	public List<Observacoes> getObservacoes() {
 		return observacoes;
@@ -156,4 +159,12 @@ public class InfoContrato {
 		return this;
 	}
 
+	public ServPubl getServPubl() {
+		return servPubl;
+	}
+
+	public InfoContrato setServPubl(ServPubl servPubl) {
+		this.servPubl = servPubl;
+		return this;
+	}
 }
