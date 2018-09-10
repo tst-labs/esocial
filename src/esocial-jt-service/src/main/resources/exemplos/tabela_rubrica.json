@@ -18,37 +18,17 @@
 			},
 			"dadosRubrica": {
 				"dscRubr": "RUBRICA",
-				"natRubr": 1234,
+				"natRubr": 1000,
 				"tpRubr": 1,
 				"codIncCP": "00",
 				"codIncIRRF": "01",
 				"codIncFGTS": "11",
-				"codIncSIND": "01",
+				"codIncSIND": "00",
 				"observacao": "Observação sobre a rubrica",
-				"ideProcessoCP": [
-					{
-						"tpProc": 1,
-						"nrProc": "1234",
-						"extDecisao": 1,
-						"codSusp": 1
-					}
-				],
-				"ideProcessoIRRF": [
-					{
-						"nrProc": "1234",
-						"codSusp": 1
-					}
-				],
-				"ideProcessoFGTS": [
-					{
-						"nrProc": "1234"
-					}
-				],
-				"ideProcessoSIND": [
-					{
-						"nrProc": "1234"
-					}
-				]
+				"ideProcessoCP": null,
+				"ideProcessoIRRF": null,
+				"ideProcessoFGTS": null,
+				"ideProcessoSIND": null
 			}
 		}
 	}
