@@ -14,17 +14,16 @@ public class AltContratualMapperTest {
 		AltContratual altContratual = CriadorObjetoAleatorio.criarEPreencher(AltContratual.class);
 		EvtAltContratual evtAltContratual = AltContratualMapper.INSTANCE.comoEvtAltContratual(altContratual);
 
-		// TODO: Aguardar correção pela ISSUE do evento 2200
-		// MapperAssertion
-		// 	.assertThat(evtAltContratual.getIdeEmpregador())
-		// 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeEmpregador());
+		 MapperAssertion
+		 	.assertThat(evtAltContratual.getIdeEmpregador())
+		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeEmpregador());
 		
-		// MapperAssertion
-		// 	.assertThat(evtAltContratual.getIdeVinculo())
-		// 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeVinculo());
+		 MapperAssertion
+		 	.assertThat(evtAltContratual.getIdeVinculo())
+		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeVinculo());
 		
-		// MapperAssertion
-		// 	.assertThat(evtAltContratual.getAltContratual())
-		// 	.isEqualToComparingFieldByFieldRecursively(altContratual.getAltContratual());
+		 MapperAssertion
+		 	.assertThat(evtAltContratual.getAltContratual())
+		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getAltContratual());
 	}
 }

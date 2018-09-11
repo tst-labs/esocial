@@ -132,6 +132,7 @@ insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values (1050,1,'Tabela d
 insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values (1060,1,'Tabela de Ambientes de Trabalho');
 insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values (1070,1,'Tabela de Processos Administrativos/Judiciais');
 insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values (2200,2,'Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador');
+insert into EST_TIPO (COD_TIPO,COD_GRUPO_TIPO,DES_TIPO) values (2206,2,'Alteração de Contrato de Trabalho');
 insert into EST_TIPO_ERRO_PROCESSAMENTO (COD_TIPO_ERRO_PROCESSAMENTO,DES_TIPO_OCORRENCIA) values (1,'Erro');
 insert into EST_TIPO_ERRO_PROCESSAMENTO (COD_TIPO_ERRO_PROCESSAMENTO,DES_TIPO_OCORRENCIA) values (2,'Advertência');
 insert into EST_RESPOSTA_GOV (COD_IDENTIFICADOR,DES_RESPOSTA,COD_GRUPO_RESPOSTA,COD_RESPOSTA) values (23,'Assinante inválido. Assinante não possui perfil de procuração eletrônica para enviar este tipo de evento ou assinante não consta como representante legal da empresa. ',2,411);

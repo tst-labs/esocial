@@ -40,6 +40,9 @@ public class InfoCeletista {
 	
 	@Valid
 	private TrabTemporario trabTemporario;
+
+	@Valid
+	private TrabTemp trabTemp;
 	
 	@Valid
 	private Aprend aprend;
@@ -97,6 +100,12 @@ public class InfoCeletista {
 	}
 	public void setTrabTemporario(TrabTemporario trabalhoTemporario) {
 		this.trabTemporario = trabalhoTemporario;
+	}
+	public TrabTemp getTrabTemp() {
+		return trabTemp;
+	}
+	public void setTrabTemp(TrabTemp trabTemp) {
+		this.trabTemp = trabTemp;
 	}
 	public Aprend getAprend() {
 		return aprend;

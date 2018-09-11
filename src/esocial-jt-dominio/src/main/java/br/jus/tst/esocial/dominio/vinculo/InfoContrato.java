@@ -48,6 +48,9 @@ public class InfoContrato {
 	
 	@Valid
 	private List<Observacoes> observacoes;
+	
+	@Valid
+	private ServPubl servPubl;
 
 	public List<Observacoes> getObservacoes() {
 		return observacoes;
@@ -154,6 +157,14 @@ public class InfoContrato {
 	public InfoContrato setAlvaraJudicial(AlvaraJudicial alvaraJudicial) {
 		this.alvaraJudicial = alvaraJudicial;
 		return this;
+	}
+
+	public ServPubl getServPubl() {
+		return servPubl;
+	}
+
+	public void setServPubl(ServPubl servPubl) {
+		this.servPubl = servPubl;
 	}
 
 }
