@@ -6,10 +6,9 @@ façam o mesmo.
 
 ## Comunicação
 
-Qualquer órgão ou indivíduo que esteja ativamente contribuindo ou usando o
-**eSocial-jt** deve se juntar ao nosso time nas conversas via Rocket Chat. Caso
-você esteja interessando em contribuir ou saber mais, abra uma issue comunicando
-seu interesse para que possamos cadastrá-lo na ferramenta.
+Caso você esteja interessando em contribuir, tenha alguma dúvida ou sugestão,
+por favor abra uma [issue](https://github.com/tst-labs/esocial/issues) que iremos
+responder o mais rápido possível.
 
 Recomendamos o uso da _branch master_ como versão mais estável. Ainda não
 implementamos um ciclo regular para liberação de _releases_ e, por isso, ainda
@@ -20,8 +19,8 @@ estável, considere que estamos aderentes ao [semantic
 versioning](http://semver.org/lang/pt-BR/).
 
 Como as iniciativas estão bem fragmentadas, caso queira acompanhar os trabalhos
-diários, sugerimos verificar as _branchs_ e nos contatar pelos canais do nosso
-Rocket Chat.
+diários, sugerimos verificar as _branchs_ ou verificar se existe uma
+[issue](https://github.com/tst-labs/esocial/issues) já aberta com as mesmas dúvidas.
 
 ## Processo de Desenvolvimento
 
