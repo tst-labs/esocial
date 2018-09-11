@@ -41,16 +41,16 @@ public class AltContratual extends DadosOcorrencia {
 		}
 		AltContratual castOther = (AltContratual) other;
 		return new EqualsBuilder()
+					.append(ideEmpregador, castOther.ideEmpregador)
 					.append(ideVinculo, castOther.ideVinculo)
-					.append(altContratual, castOther.altContratual)
 					.isEquals();
 	}
 
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
+					.append(ideEmpregador)
 					.append(ideVinculo)
-					.append(altContratual)
 					.toHashCode();
 	}
 }
