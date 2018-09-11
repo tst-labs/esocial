@@ -17,32 +17,19 @@
 		},
 		"dadosLotacao": {
 			"tpLotacao": "01",
-			"tpInsc": 1,
-			"nrInsc": "00509968000148",
+			"tpInsc": null,
+			"nrInsc": null,
 			"fpasLotacao": {
 				"fpas": "582",
-				"codTercsSusp": "0000",
+				"codTercsSusp": null,
 				"codTercs": "0000",
-				"infoProcJudTerceiros": {
-					"procJudTerceiro": [
-						{
-							"codTerc": "0000",
-							"nrProcJud": "123455677",
-							"codSusp": 10
-						},
-						{
-							"codTerc": "0000",
-							"nrProcJud": "123455677",
-							"codSusp": 10
-						}
-					]
-				}
+				"infoProcJudTerceiros": null
 			},
 			"infoEmprParcial": {
-				"tpInscContrat": 1,
-				"nrInscContrat": "00509968000148",
-				"tpInscProp": 1,
-				"nrInscProp": "00509968000148"
+				"tpInscContrat": 0,
+				"nrInscContrat": null,
+				"tpInscProp": null,
+				"nrInscProp": null
 			}
 		}
 	}

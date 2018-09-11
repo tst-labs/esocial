@@ -11,27 +11,16 @@
 		},
 		"infoProcesso": {
 			"ideProcesso": {
-				"tpProc": 1,
-				"nrProc": "501991-2016",
+				"tpProc": 3,
+				"nrProc": "_NrBeneficioValido_",
 				"iniValid": "2018-07",
 				"fimValid": null
 			},
 			"dadosProc": {
-				"indAutoria": 1,
-				"indMatProc": 1,
-				"dadosProcJud": {
-					"ufVara": "DF",
-					"codMunic": 3304557,
-					"idVara": 100
-				},
-				"infoSusp": [
-					{
-						"codSusp": 123,
-						"indSusp": 10,
-						"dtDecisao": "1529608005000",
-						"indDeposito": "N"
-					}
-				]
+				"indAutoria": 2,
+				"indMatProc": 6,
+				"dadosProcJud": null,
+				"infoSusp": null
 			}
 		}
 	}
