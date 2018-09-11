@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual;
+package br.jus.tst.esocial.dominio.vinculo.alteracaocontratual;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

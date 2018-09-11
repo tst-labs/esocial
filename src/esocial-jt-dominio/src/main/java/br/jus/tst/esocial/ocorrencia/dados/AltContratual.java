@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual.IdeVinculo;
+import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 
 public class AltContratual extends DadosOcorrencia {
 
@@ -16,7 +16,7 @@ public class AltContratual extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual.AltContratual altContratual;
+	private br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.AltContratual altContratual;
 	
 	public void setIdeVinculo(IdeVinculo ideVinculo) {
 		this.ideVinculo = ideVinculo;
@@ -26,11 +26,11 @@ public class AltContratual extends DadosOcorrencia {
 		return ideVinculo;
 	}
 
-	public void setAltContratual(br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual.AltContratual altContratual) {
+	public void setAltContratual(br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.AltContratual altContratual) {
 		this.altContratual = altContratual;
 	}
 
-	public br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual.AltContratual getAltContratual() {
+	public br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.AltContratual getAltContratual() {
 		return altContratual;
 	}
 

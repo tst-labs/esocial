@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.vinculo.AlteracaoContratual;
+package br.jus.tst.esocial.dominio.vinculo.alteracaocontratual;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
