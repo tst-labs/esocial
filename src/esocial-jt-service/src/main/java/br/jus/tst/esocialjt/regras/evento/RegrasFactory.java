@@ -42,6 +42,9 @@ public class RegrasFactory {
 	private RegraAdmissao regraAdmissao;
 
 	@Autowired
+	private RegraAltContratual regraAltContratual;
+
+	@Autowired
 	private RegraTabelaRubrica regraTabelaRubrica;
 	
 	@Autowired
@@ -71,6 +74,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1060.getCodTipo(), regraTabelaAmbiente);
 			regras.put(TipoEvento.S1070.getCodTipo(), regraTabelaProcesso);
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);
+			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 		}
 		return regras;
 	}

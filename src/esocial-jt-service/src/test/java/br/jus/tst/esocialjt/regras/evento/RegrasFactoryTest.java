@@ -123,6 +123,16 @@ public class RegrasFactoryTest{
 		);
 	}
 
+	@Test
+	public void deveProverRegraAltContratual() {
+		Regra regra = getRegra(TipoEvento.S2206);
+		assertThat(regra).isInstanceOf(RegraAltContratual.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+		);
+	}
+
 	private Regra getRegra(TipoEvento tipo) {
 		return regrasFactory.getRegra(new EventoDTO().setCodTipoEvento(tipo.getCodTipo()));
 	}

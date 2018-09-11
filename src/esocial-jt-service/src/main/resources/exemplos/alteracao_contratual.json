@@ -1,0 +1,67 @@
+{
+	"tipoOcorrencia": "ALTERACAO_CONTRATUAL",
+	"referencia": "12000",
+	"operacao": "ALTERACAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".AltContratual",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideVinculo": {
+			"cpfTrab": "77993893704",
+			"nisTrab": "90580722711",
+			"matricula": "12000"
+		},
+		"altContratual": {
+			"dtAlteracao": 1522181179561,
+			"dtEf": 1522181179561,
+			"dscAlt": "Alteração contratual de testes",
+			"vinculo": {
+				"tpRegPrev": 2
+			},
+			"infoRegimeTrab": {
+				"infoCeletista": null,
+				"infoEstatutario": {
+					"indProvim": 1,
+					"tpProv": 1,
+					"dtNomeacao": 535341600000,
+					"dtPosse": 535341600000,
+					"dtExercicio": 535341600000,
+					"tpPlanRP": 1,
+					"infoDecJud": null
+				}
+			},
+			"infoContrato": {
+				"codCargo": "010100",
+				"codFuncao": null,
+				"codCateg": 301,
+				"codCarreira": "1",
+				"dtIngrCarr": 535341600000,
+				"remuneracao": {
+					"vrSalFx": 12345.7,
+					"undSalFixo": 5,
+					"dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
+				},
+				"duracao": {
+					"tpContr": 1,
+					"dtTerm": null,
+					"clauAssec": null
+				},
+				"localTrabalho": {
+					"localTrabGeral": {
+						"tpInsc": 1,
+						"nrInsc": "00509968000148",
+						"descComp": "TRIBUNAL SUPERIOR DO TRABALHO"
+					},
+					"localTrabDom": null
+				},
+				"horContratual": null,
+				"filiacaoSindical": null,
+				"alvaraJudicial": null,
+				"observacoes": null
+			}
+		}
+	}
+}

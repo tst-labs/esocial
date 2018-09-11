@@ -163,8 +163,8 @@ public class InfoContrato {
 		return servPubl;
 	}
 
-	public InfoContrato setServPubl(ServPubl servPubl) {
+	public void setServPubl(ServPubl servPubl) {
 		this.servPubl = servPubl;
-		return this;
 	}
+
 }
