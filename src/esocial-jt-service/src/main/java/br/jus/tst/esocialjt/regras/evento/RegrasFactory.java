@@ -46,6 +46,9 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraTabelaRubrica regraTabelaRubrica;
+	
+	@Autowired
+	private RegraTabelaHorario regraTabelaHorario;
 
 	private Map<Long, Regra> regras;
 
@@ -67,6 +70,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1030.getCodTipo(), regraTabelaCargo);
 			regras.put(TipoEvento.S1035.getCodTipo(), regraTabelaCarreira);
 			regras.put(TipoEvento.S1040.getCodTipo(), regraTabelaFuncao);
+			regras.put(TipoEvento.S1050.getCodTipo(), regraTabelaHorario);
 			regras.put(TipoEvento.S1060.getCodTipo(), regraTabelaAmbiente);
 			regras.put(TipoEvento.S1070.getCodTipo(), regraTabelaProcesso);
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);

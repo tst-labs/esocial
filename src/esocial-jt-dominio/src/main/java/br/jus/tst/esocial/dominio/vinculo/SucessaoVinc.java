@@ -2,7 +2,6 @@ package br.jus.tst.esocial.dominio.vinculo;
 
 import java.util.Calendar;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,9 +23,6 @@ public class SucessaoVinc {
 	@Size(min=3, max=255)
 	private String observacao;
 	
-	@Valid
-	private Afastamento afastamento;
-
 	public String getCnpjEmpregAnt() {
 		return cnpjEmpregAnt;
 	}
@@ -57,14 +53,6 @@ public class SucessaoVinc {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
-	}
-
-	public Afastamento getAfastamento() {
-		return afastamento;
-	}
-
-	public void setAfastamento(Afastamento afastamento) {
-		this.afastamento = afastamento;
 	}
 
 }
