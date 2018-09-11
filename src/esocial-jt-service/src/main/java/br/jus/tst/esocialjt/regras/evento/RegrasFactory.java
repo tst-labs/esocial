@@ -21,6 +21,9 @@ public class RegrasFactory {
 	private RegraTabelaEstabelecimento regraTabelaEstabelecimento;
 
 	@Autowired
+	private RegraTabelaRubrica regraTabelaRubrica;
+
+	@Autowired
 	private RegraTabelaLotacao regraTabelaLotacao;
 
 	@Autowired
@@ -33,6 +36,9 @@ public class RegrasFactory {
 	private RegraTabelaFuncao regraTabelaFuncao;
 
 	@Autowired
+	private RegraTabelaHorario regraTabelaHorario;
+
+	@Autowired
 	private RegraTabelaAmbiente regraTabelaAmbiente;
 
 	@Autowired
@@ -42,14 +48,11 @@ public class RegrasFactory {
 	private RegraAdmissao regraAdmissao;
 
 	@Autowired
+	private RegraAltCadastral regraAltCadastral;
+
+	@Autowired
 	private RegraAltContratual regraAltContratual;
-
-	@Autowired
-	private RegraTabelaRubrica regraTabelaRubrica;
 	
-	@Autowired
-	private RegraTabelaHorario regraTabelaHorario;
-
 	private Map<Long, Regra> regras;
 
 	public Regra getRegra(EventoDTO eventoDTO) {
@@ -74,6 +77,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1060.getCodTipo(), regraTabelaAmbiente);
 			regras.put(TipoEvento.S1070.getCodTipo(), regraTabelaProcesso);
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);
+			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 		}
 		return regras;
