@@ -47,6 +47,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.ADMISSAO_TRABALHADOR, 2200);
 		map.put(TipoOcorrencia.ALTERACAO_CADASTRAL, 2205);
 		map.put(TipoOcorrencia.ALTERACAO_CONTRATUAL, 2206);
+		map.put(TipoOcorrencia.AFASTAMENTO_TEMPORARIO, 2230);
 
 		return map;
 	}

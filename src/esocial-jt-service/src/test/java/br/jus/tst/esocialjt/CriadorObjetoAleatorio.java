@@ -59,7 +59,7 @@ public class CriadorObjetoAleatorio {
 			Object[] enumValues = type.getEnumConstants();
 			return enumValues[random.nextInt(enumValues.length)];
 		} else if (type.equals(Integer.TYPE) || type.equals(Integer.class)) {
-			return random.nextInt(Byte.MAX_VALUE);
+			return random.nextInt(Byte.MAX_VALUE)+1;
 		} else if (type.equals(Long.TYPE) || type.equals(Long.class)) {
 			return random.nextLong();
 		} else if (type.equals(Double.TYPE) || type.equals(Double.class)) {
@@ -69,7 +69,7 @@ public class CriadorObjetoAleatorio {
 		} else if (type.equals(Boolean.TYPE) || type.equals(Boolean.class)) {
 			return random.nextDouble() < 0.5;
 		} else if (type.equals(Byte.TYPE) || type.equals(Byte.class)) {
-			return (byte)random.nextInt(Byte.MAX_VALUE);
+			return (byte)(random.nextInt(Byte.MAX_VALUE)+1);
 		} else if (type.equals(String.class)) {
 			return UUID.randomUUID().toString();
 		} else if (type.equals(BigInteger.class)) {
