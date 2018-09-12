@@ -78,9 +78,7 @@
 						"incTrab": "N"
 					}
 				],
-				"aposentadoria": {
-					"trabAposent": "N"
-				},
+				"aposentadoria": null,
 				"contato": {
 					"fonePrinc": "6130430001",
 					"foneAlternat": "6130430001",
