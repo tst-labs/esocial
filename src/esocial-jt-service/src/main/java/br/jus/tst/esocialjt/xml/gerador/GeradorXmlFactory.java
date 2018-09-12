@@ -46,6 +46,9 @@ public class GeradorXmlFactory {
 	private GeradorXmlAdmissao geradorXmlAdmissao;
 
 	@Autowired
+	private GeradorXmlAltCadastral geradorXmlAltCadastral;
+
+	@Autowired
 	private GeradorXmlAltContratual geradorXmlAltContratual;
 
 	private Map<TipoEvento, GeradorXml> geradores;
@@ -72,6 +75,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S1060, geradorXmlTabelaAmbiente);
 			geradores.put(TipoEvento.S1070, geradorXmlTabelaProcesso);
 			geradores.put(TipoEvento.S2200, geradorXmlAdmissao);
+			geradores.put(TipoEvento.S2205, geradorXmlAltCadastral);
 			geradores.put(TipoEvento.S2206, geradorXmlAltContratual);
 		}
 		return geradores;

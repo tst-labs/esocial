@@ -18,29 +18,29 @@ import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeradorXmlAltContratualTest {
+public class GeradorXmlAltCadastralTest {
 	
 	@Autowired
-	GeradorXmlAltContratual gerador;
+	GeradorXmlAltCadastral gerador;
 
 	@Test
-	public void deveGerarXmlAltContratual() throws Exception {
+	public void deveGerarXmlAltCadastral() throws Exception {
 		Evento evento = getEvento();
 		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtAltContratual");
+		assertThat(xml).contains("evtAltCadastral");
 	}
 	
 	private Evento getEvento() throws Exception {
 		ExemploOcorrenciaServico exemplo = new ExemploOcorrenciaServico();
-		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.ALTERACAO_CONTRATUAL);
+		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.ALTERACAO_CADASTRAL);
 		Evento evento = new Evento();
 		evento.setOcorrencia(ocorrencia);
 		ocorrencia.setEvento(evento);
 		
 		evento.setId(1l);
 		evento.setIdEvento("ID1005099680001482017092708200100001");
-		evento.setTipoEvento(TipoEvento.ALTERACAO_CONTRATUAL);
+		evento.setTipoEvento(TipoEvento.ALTERACAO_CADASTRAL);
 		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(2l));
 		
 		return evento;

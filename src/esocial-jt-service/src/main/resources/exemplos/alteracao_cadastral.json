@@ -1,0 +1,91 @@
+{
+	"tipoOcorrencia": "ALTERACAO_CADASTRAL",
+	"referencia": "12000",
+	"operacao": "ALTERACAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".AltCadastral",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideTrabalhador": {
+			"cpfTrab": "77993893704"
+		},
+		"alteracao" : {
+    		"dtAlteracao": 1522181179561,
+			"dadosTrabalhador": {
+				"nisTrab": "90580722711",
+				"nmTrab": "LEIA ORGANA SOLO",
+				"sexo": "F",
+				"racaCor": 6,
+				"estCiv": 2,
+				"grauInstr": "10",
+				"nmSoc": null,
+				"nascimento": {
+					"dtNascto": 453524400000,
+					"codMunic": 5300108,
+					"uf": "DF",
+					"paisNascto": "105",
+					"paisNac": "105",
+					"nmMae": "PADME AMIDALA",
+					"nmPai": "ANAKIN SKYWALKER"
+				},
+				"documentos": {
+					"ctps": null,
+					"ric": null,
+					"rg": {
+						"nrRg": "2200000",
+						"orgaoEmissor": "SSP-DF",
+						"dtExped": 1255575600000
+					},
+					"rne": null,
+					"oc": null,
+					"cnh": null
+				},
+				"endereco": {
+					"brasil": {
+						"tpLograd": "IND",
+						"dscLograd": "SAFS QUADRA 0 LOTE 0",
+						"nrLograd": "1",
+						"complemento": "LOTE 0",
+						"bairro": "ZONA CÍVICO-ADMINISTRATIVA",
+						"cep": "70070943",
+						"codMunic": 5300108,
+						"uf": "DF"
+					},
+					"exterior": null
+				},
+				"trabEstrangeiro": null,
+				"infoDeficiencia": {
+					"defFisica": "N",
+					"defVisual": "N",
+					"defAuditiva": "N",
+					"defMental": "N",
+					"defIntelectual": "N",
+					"reabReadap": "N",
+					"infoCota": "N",
+					"observacao": null
+				},
+				"dependente": [
+					{
+						"tpDep": "03",
+						"nmDep": "BEN SOLO",
+						"dtNascto": 656391600000,
+						"cpfDep": "99645142393",
+						"depIRRF": "N",
+						"depSF": "N",
+						"incTrab": "N"
+					}
+				],
+				"aposentadoria": null,
+				"contato": {
+					"fonePrinc": "6130430001",
+					"foneAlternat": "6130430001",
+					"emailPrinc": "leiaorgana@email.com",
+					"emailAlternat": null
+				}
+			}
+		}
+	}
+}

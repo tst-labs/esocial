@@ -124,6 +124,17 @@ public class RegrasFactoryTest{
 	}
 
 	@Test
+	public void deveProverRegraAltCadastral() {
+		Regra regra = getRegra(TipoEvento.S2205);
+		assertThat(regra).isInstanceOf(RegraAltCadastral.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+		);
+	}
+
+
+	@Test
 	public void deveProverRegraAltContratual() {
 		Regra regra = getRegra(TipoEvento.S2206);
 		assertThat(regra).isInstanceOf(RegraAltContratual.class);
