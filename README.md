@@ -267,7 +267,7 @@ de eventos especificados pelo eSocial-GOV.
 | S-1030 | Cargos/Empregos Públicos            | 2.4.02 | Feito |
 | S-1035 | Carreiras Públicas                  | 2.4.02 | Feito |
 | S-1040 | Funções/Cargos em Comissão          | 2.4.02 | Feito |
-| S-1050 | Horários/Turnos de Trabalho         |     NA |    NA |
+| S-1050 | Horários/Turnos de Trabalho         | 2.4.02 | Feito |
 | S-1060 | Ambientes de Trabalho               | 2.4.02 | Feito |
 | S-1070 | Processos Administrativos/Judiciais | 2.4.02 | Feito |
 | S-1080 | Operadores Portuários               |     NA |    NA |
@@ -279,9 +279,12 @@ de eventos especificados pelo eSocial-GOV.
 #### Eventos não periódicos
 | Evento | Nome Evento                         | Versão | Situação |
 | -------| ----------------------------------- | ------ | -------- |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador | 2.4.02 | **Fazendo** |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador | 2.4.02 | **Fazendo** |
-| S-2206 | Alteração de Contrato de Trabalho | 2.4.02 | **Fazendo** |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador | 2.4.02 | Feito |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador | 2.4.02 | Feito |
+| S-2206 | Alteração de Contrato de Trabalho | 2.4.02 | Feito |
+| S-2230 | Afastamento Temporário | 2.4.02 | Feito |
+| S-2298 | Reintegração | 2.4.02 | **Fazendo** |
+| S-2299 | Desligamento | 2.4.02 | **Fazendo** |
 
 ### Como contribuir?
 
