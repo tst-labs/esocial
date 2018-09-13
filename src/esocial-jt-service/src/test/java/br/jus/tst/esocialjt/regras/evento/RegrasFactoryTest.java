@@ -143,6 +143,16 @@ public class RegrasFactoryTest{
 				RegraNaoHaEventoTabelaEmFila.class
 		);
 	}
+	
+	@Test
+	public void deveProverRegraAfastTemp() {
+		Regra regra = getRegra(TipoEvento.S2230);
+		assertThat(regra).isInstanceOf(RegraAfastTemp.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+				);
+	}
 
 	private Regra getRegra(TipoEvento tipo) {
 		return regrasFactory.getRegra(new EventoDTO().setCodTipoEvento(tipo.getCodTipo()));

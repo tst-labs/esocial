@@ -3,6 +3,7 @@ package br.jus.tst.esocial.ocorrencia;
 import java.util.Arrays;
 
 import br.jus.tst.esocial.ocorrencia.dados.Admissao;
+import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
@@ -31,7 +32,8 @@ public enum TipoOcorrencia {
 	TABELA_PROCESSO(TabelaProcesso.class), 
 	ADMISSAO_TRABALHADOR(Admissao.class),
 	ALTERACAO_CADASTRAL(AltCadastral.class),
-	ALTERACAO_CONTRATUAL(AltContratual.class);
+	ALTERACAO_CONTRATUAL(AltContratual.class),
+	AFASTAMENTO_TEMPORARIO(AfastTemp.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 

@@ -52,6 +52,9 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraAltContratual regraAltContratual;
+
+	@Autowired
+	private RegraAfastTemp regraAfastTemp;
 	
 	private Map<Long, Regra> regras;
 
@@ -79,6 +82,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
+			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
 		}
 		return regras;
 	}

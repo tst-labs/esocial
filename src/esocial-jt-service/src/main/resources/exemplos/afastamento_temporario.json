@@ -1,0 +1,26 @@
+{
+	"tipoOcorrencia": "AFASTAMENTO_TEMPORARIO",
+	"referencia": "1",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".AfastTemp",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideVinculo": {
+			"cpfTrab": "77993893704",
+			"nisTrab": "90580722711",
+			"matricula": "12000"
+		},
+		"infoAfastamento": {
+			"iniAfastamento": {
+				"dtIniAfast": 1505238066000,
+				"codMotAfast": "05"
+			},
+			"infoRetif": null,
+			"fimAfastamento": null
+		}
+	}
+}
