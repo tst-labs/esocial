@@ -57,6 +57,9 @@ public class RegrasFactory {
 	private RegraAfastTemp regraAfastTemp;
 	
 	@Autowired
+	private RegraReintegracao regraReintegracao;
+	
+	@Autowired
 	private RegraDesligamento regraDesligamento;
 	
 	private Map<Long, Regra> regras;
@@ -86,6 +89,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
+			regras.put(TipoEvento.S2298.getCodTipo(), regraReintegracao);
 			regras.put(TipoEvento.S2299.getCodTipo(), regraDesligamento);
 		}
 		return regras;
