@@ -8,7 +8,6 @@ import org.mapstruct.factory.Mappers;
 
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial.EvtAfastTemp;
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ObjectFactory;
-import br.jus.tst.esocial.ocorrencia.dados.Admissao;
 import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
@@ -22,7 +21,7 @@ public abstract class AfastTempMapper {
 	public abstract EvtAfastTemp comoEvtAfastTemp(AfastTemp afastTemp);
 
 	@AfterMapping
-	protected void limparNulos(Admissao admissao, @MappingTarget EvtAfastTemp evtAfastTemp) {
+	protected void limparNulos(@MappingTarget EvtAfastTemp evtAfastTemp) {
 		LimpadorNulos limpadorNulos = new LimpadorNulos();
 		limpadorNulos.executarLimpeza(evtAfastTemp);
 	}

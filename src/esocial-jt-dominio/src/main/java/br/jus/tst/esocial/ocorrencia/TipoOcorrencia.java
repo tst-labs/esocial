@@ -7,6 +7,7 @@ import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaAmbiente;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCargo;
@@ -33,7 +34,8 @@ public enum TipoOcorrencia {
 	ADMISSAO_TRABALHADOR(Admissao.class),
 	ALTERACAO_CADASTRAL(AltCadastral.class),
 	ALTERACAO_CONTRATUAL(AltContratual.class),
-	AFASTAMENTO_TEMPORARIO(AfastTemp.class);
+	AFASTAMENTO_TEMPORARIO(AfastTemp.class),
+	DESLIGAMENTO(Deslig.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 
