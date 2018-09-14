@@ -155,6 +155,16 @@ public class RegrasFactoryTest{
 	}
 	
 	@Test
+	public void deveProverRegraReintegracao() {
+		Regra regra = getRegra(TipoEvento.S2298);
+		assertThat(regra).isInstanceOf(RegraReintegracao.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+				);
+	}
+	
+	@Test
 	public void deveProverRegraDesligamento() {
 		Regra regra = getRegra(TipoEvento.S2299);
 		assertThat(regra).isInstanceOf(RegraDesligamento.class);

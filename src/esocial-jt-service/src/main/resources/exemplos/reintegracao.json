@@ -1,0 +1,26 @@
+{
+	"tipoOcorrencia": "REINTEGRACAO",
+	"referencia": "1",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".Reintegr",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideVinculo": {
+			"cpfTrab": "77993893704",
+			"nisTrab": "90580722711",
+			"matricula": "12000"
+		},
+		"infoReintegr": {
+			"tpReint": 4,
+			"nrProcJud": null,
+			"nrLeiAnistia": null,
+			"dtEfetRetorno": 1505555555555,
+			"dtEfeito": 1505555555555,
+			"indPagtoJuizo": "N"
+		}
+	}
+}
