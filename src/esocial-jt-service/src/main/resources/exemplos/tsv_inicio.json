@@ -1,0 +1,91 @@
+{
+	"tipoOcorrencia": "TSV_INICIO",
+	"referencia": "77993893704",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".TSVInicio",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"trabalhador": {
+			"cpfTrab": "77993893704",
+			"nisTrab": "90580722711",
+			"nmTrab": "JANGO FETT",
+			"sexo": "M",
+			"racaCor": 6,
+			"estCiv": 2,
+			"grauInstr": "10",
+			"indPriEmpr": "N",
+			"nmSoc": null,
+			"nascimento": {
+				"dtNascto": 453524400000,
+				"codMunic": 5300108,
+				"uf": "DF",
+				"paisNascto": "105",
+				"paisNac": "105",
+				"nmMae": "MOTHER",
+				"nmPai": "BOBA FETT"
+			},
+			"documentos": {
+				"ctps": null,
+				"ric": null,
+				"rg": {
+					"nrRg": "1100000",
+					"orgaoEmissor": "SSP-DF",
+					"dtExped": 1255575600000
+				},
+				"rne": null,
+				"oc": null,
+				"cnh": null
+			},
+			"endereco": {
+				"brasil": {
+					"tpLograd": "IND",
+					"dscLograd": "SAFS QUADRA 0 LOTE 0",
+					"nrLograd": "1",
+					"complemento": "LOTE 0",
+					"bairro": "ZONA CÍVICO-ADMINISTRATIVA",
+					"cep": "70070943",
+					"codMunic": 5300108,
+					"uf": "DF"
+				},
+				"exterior": null
+			},
+			"trabEstrangeiro": null,
+			"infoDeficiencia": {
+				"defFisica": "N",
+				"defVisual": "N",
+				"defAuditiva": "N",
+				"defMental": "N",
+				"defIntelectual": "N",
+				"reabReadap": "N",
+				"infoCota": "N",
+				"observacao": null
+			},
+			"dependente": null,
+			"contato": {
+				"fonePrinc": "6130430001",
+				"foneAlternat": "6130430001",
+				"emailPrinc": "jangofett@email.com",
+				"emailAlternat": null
+			}
+		},
+		"infoTSVInicio": {
+			"cadIni": "S",
+			"codCateg": 901,
+			"dtInicio": 535341600000,
+			"infoComplementares": {
+				"infoEstagiario": {
+					"natEstagio": "N",
+					"nivEstagio": 1,
+					"dtPrevTerm": 1537151759000,
+					"instEnsino": {
+						"nmRazao": "Kaminoan Military Complex"
+					}
+				}
+			}
+		}
+	}
+}

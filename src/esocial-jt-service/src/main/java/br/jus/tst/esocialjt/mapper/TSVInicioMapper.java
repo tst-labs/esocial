@@ -18,7 +18,7 @@ public abstract class TSVInicioMapper {
 
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
-	public abstract ESocial.EvtTSVInicio comoEvtTSVInicioXML(TSVInicio tsvInicio);
+	public abstract ESocial.EvtTSVInicio comoEvtTSVInicio(TSVInicio tsvInicio);
 
 	@AfterMapping
 	protected void limparNulos(TSVInicio tsvInicio,

@@ -62,6 +62,9 @@ public class RegrasFactory {
 	@Autowired
 	private RegraDesligamento regraDesligamento;
 	
+	@Autowired
+	private RegraTSVInicio regraTSVInicio;
+	
 	private Map<Long, Regra> regras;
 
 	public Regra getRegra(EventoDTO eventoDTO) {
@@ -91,6 +94,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
 			regras.put(TipoEvento.S2298.getCodTipo(), regraReintegracao);
 			regras.put(TipoEvento.S2299.getCodTipo(), regraDesligamento);
+			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
 		}
 		return regras;
 	}

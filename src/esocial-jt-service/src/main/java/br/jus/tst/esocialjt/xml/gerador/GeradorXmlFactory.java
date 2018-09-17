@@ -59,6 +59,9 @@ public class GeradorXmlFactory {
 
 	@Autowired
 	private GeradorXmlDeslig geradorXmlDeslig;
+	
+	@Autowired
+	private GeradorXmlTSVInicio geradorXmlTSVInicio;
 
 	private Map<TipoEvento, GeradorXml> geradores;
 
@@ -89,6 +92,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2230, geradorXmlAfastTemp);
 			geradores.put(TipoEvento.S2298, geradorXmlReintegr);
 			geradores.put(TipoEvento.S2299, geradorXmlDeslig);
+			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);
 		}
 		return geradores;
 	}

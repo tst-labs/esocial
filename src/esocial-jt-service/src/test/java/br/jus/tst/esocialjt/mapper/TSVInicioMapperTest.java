@@ -13,7 +13,7 @@ public class TSVInicioMapperTest {
 	public void deveMapearEvento(){
 		TSVInicio tsvInicio = CriadorObjetoAleatorio.criarEPreencher(TSVInicio.class);
 		
-		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicioXML(tsvInicio);
+		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicio(tsvInicio);
 
 		MapperAssertion
 			.assertThat(evtTSVInicio.getIdeEmpregador())
