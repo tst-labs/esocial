@@ -50,6 +50,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.AFASTAMENTO_TEMPORARIO, 2230);
 		map.put(TipoOcorrencia.REINTEGRACAO, 2298);
 		map.put(TipoOcorrencia.DESLIGAMENTO, 2299);
+		map.put(TipoOcorrencia.TSV_INICIO, 2300);
 
 		return map;
 	}

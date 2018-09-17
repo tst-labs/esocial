@@ -139,4 +139,12 @@ public class GeradorXmlFactoryTest {
 		assertThat(gerador).isInstanceOf(GeradorXmlTabelaHorario.class);
 	}
 	
+	@Test
+	public void deveRetornarGeradorXmlTSVInicio() throws GeracaoXmlException {
+		Evento evento = new Evento();
+		evento.setTipoEvento(new TipoEvento(2300l));
+		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
+		assertThat(gerador).isInstanceOf(GeradorXmlTSVInicio.class);
+	}
+	
 }
