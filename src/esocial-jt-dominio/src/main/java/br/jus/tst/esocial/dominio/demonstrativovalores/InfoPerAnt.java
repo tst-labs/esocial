@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.desligamento.IdeADC;
-
 public class InfoPerAnt {
 
 	@Valid

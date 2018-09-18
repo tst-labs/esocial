@@ -1,26 +1,26 @@
-package br.jus.tst.esocial.dominio.termino.comum;
+package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class DetVerbas {
+public class ItemRemuneracao {
+
 	@NotNull
-	@Size(min=1, max=30)
+	@Size(min = 1, max = 30)
 	private String codRubr;
-	
+
 	@NotNull
-	@Size(min=1, max=8)
+	@Size(min = 1, max = 8)
 	private String ideTabRubr;
 	
 	private BigDecimal qtdRubr;
 	
 	private BigDecimal fatorRubr;
-
+	
 	private BigDecimal vrUnit;
 	
-	@NotNull
 	private BigDecimal vrRubr;
 
 	public String getCodRubr() {
@@ -70,5 +70,6 @@ public class DetVerbas {
 	public void setVrRubr(BigDecimal vrRubr) {
 		this.vrRubr = vrRubr;
 	}
+	
 	
 }

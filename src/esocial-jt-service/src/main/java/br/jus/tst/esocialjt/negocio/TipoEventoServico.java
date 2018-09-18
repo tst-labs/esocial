@@ -53,6 +53,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TSV_INICIO, 2300);
 		map.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, 2306);
 		map.put(TipoOcorrencia.TSV_TERMINO, 2399);
+		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
 
 		return map;
 	}

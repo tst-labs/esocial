@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.demonstrativovalores;
 
 import java.util.Calendar;
 import java.util.List;
@@ -25,6 +25,9 @@ public class IdeADC {
 	@NotNull
 	@Size(min=3, max=255)
 	private String dsc;
+	
+	@Pattern(regexp="[N|S]")
+	private String remunSuc;
 
 	@Valid
 	private List<IdePeriodo> idePeriodo;
@@ -67,6 +70,14 @@ public class IdeADC {
 
 	public void setDsc(String dsc) {
 		this.dsc = dsc;
+	}
+
+	public String getRemunSuc() {
+		return remunSuc;
+	}
+
+	public void setRemunSuc(String remunSuc) {
+		this.remunSuc = remunSuc;
 	}
 
 	public List<IdePeriodo> getIdePeriodo() {

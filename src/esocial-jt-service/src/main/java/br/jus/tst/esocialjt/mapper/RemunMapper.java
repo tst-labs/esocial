@@ -18,9 +18,9 @@ public abstract class RemunMapper {
 	public static final RemunMapper INSTANCE = Mappers.getMapper(RemunMapper.class);
  
 	@Mapping(target = "id", ignore = true) 
-	@Mapping(target = "ideEvento", ignore = true)
-	public abstract ESocial.EvtRemun comoEvtRemun(Remun remun);
-
+	//@Mapping(target = "ideEvento", ignore = true)
+	public abstract ESocial.EvtRemun comoEvtRemun(Remun remun);  
+ 
 	@AfterMapping 
 	protected void limparNulos(@MappingTarget EvtRemun evtRemun) {
 		LimpadorNulos limpadorNulos = new LimpadorNulos();

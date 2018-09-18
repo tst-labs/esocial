@@ -10,15 +10,28 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
 import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
+import br.jus.tst.esocial.evento.IdeEvento;
 
 public class Remun extends DadosOcorrencia {
 
+	@Valid
+	@NotNull
+	private IdeEvento ideEvento;
+	
 	@Valid
 	@NotNull
 	private IdeTrabalhador ideTrabalhador;
 	
 	@NotNull
 	private List<DmDev> dmDev;
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
+	}
 
 	public IdeTrabalhador getIdeTrabalhador() {
 		return ideTrabalhador;

@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.termino.comum;
+package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
 import java.util.List;
 
@@ -17,8 +17,14 @@ public class IdeEstabLot {
 	@Size(min=1, max=30)
 	private String codLotacao;
 	
+	private Byte qtdDiasAv;
+	
 	@Valid
 	private List<DetVerbas> detVerbas;
+	
+	private List<RemunPerApur> remunPerApur;
+	
+	private List<RemumPerAnt> remunPerAnt;
 	
 	@Valid
 	private InfoSaudeColet infoSaudeColet;
@@ -53,12 +59,36 @@ public class IdeEstabLot {
 		this.codLotacao = codLotacao;
 	}
 
+	public Byte getQtdDiasAv() {
+		return qtdDiasAv;
+	}
+
+	public void setQtdDiasAv(Byte qtdDiasAv) {
+		this.qtdDiasAv = qtdDiasAv;
+	}
+
 	public List<DetVerbas> getDetVerbas() {
 		return detVerbas;
 	}
 
 	public void setDetVerbas(List<DetVerbas> detVerbas) {
 		this.detVerbas = detVerbas;
+	}
+	
+	public List<RemunPerApur> getRemunPerApur() {
+		return remunPerApur;
+	}
+	
+	public void setRemunPerApur(List<RemunPerApur> remunPerApur) {
+		this.remunPerApur = remunPerApur;
+	}
+
+	public List<RemumPerAnt> getRemunPerAnt() {
+		return remunPerAnt;
+	}
+
+	public void setRemunPerAnt(List<RemumPerAnt> remunPerAnt) {
+		this.remunPerAnt = remunPerAnt;
 	}
 
 	public InfoSaudeColet getInfoSaudeColet() {

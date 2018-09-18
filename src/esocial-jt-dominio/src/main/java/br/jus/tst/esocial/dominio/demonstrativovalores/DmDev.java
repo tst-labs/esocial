@@ -6,16 +6,21 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.estabelecimentolotacao.IdeEstabLot;
+
 public class DmDev {
 	
 	@Size(min=1, max=30)
 	private String ideDmDev;
 	
+	@Valid
+	private List<IdeEstabLot> ideEstabLot;
+
 	private BigInteger codCateg;
 	
 	@Valid
 	private InfoPerApur infoPerApur;
-	
+		
 	@Valid
 	private InfoPerAnt infoPerAnt;
 
@@ -30,6 +35,14 @@ public class DmDev {
 
 	public void setIdeDmDev(String ideDmDev) {
 		this.ideDmDev = ideDmDev;
+	}
+
+	public List<IdeEstabLot> getIdeEstabLot() {
+		return ideEstabLot;
+	}
+
+	public void setIdeEstabLot(List<IdeEstabLot> ideEstabLot) {
+		this.ideEstabLot = ideEstabLot;
 	}
 
 	public InfoPerApur getInfoPerApur() {

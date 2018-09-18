@@ -24,12 +24,7 @@
 			"infoComplem": {
 				"nmTrab": "LEIA ORGANA SOLO",
 				"dtNascto": 453524400000,
-				"sucessaoVinc": [{
-					"cnpjEmpregAnt": null,
-					"matricAnt": null,
-					"dtAdm": null,
-					"observacao": null
-				}]
+				"sucessaoVinc": null
 			},
 			"procJudTrab": [{
 				"tpTrib": null,
@@ -43,8 +38,8 @@
 		"dmDev": [{
 			"ideDmDev": null,
 			"codCateg": null,
-			"infoPerApur": [{}],
-			"infoPerAnt": [{}],
+			"infoPerApur": null,
+			"infoPerAnt": null,
 			"infoComplCont": {
 				"codCBO": null,
 				"natAtividade": null,
