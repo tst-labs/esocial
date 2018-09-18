@@ -1,0 +1,55 @@
+{
+	"tipoOcorrencia": "REMUNERACAO_RGPS",
+	"referencia": "12000",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".Remun",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideTrabalhador": {
+			"cpfTrab": "77993893704",
+			"nisTrab": "90580722711",
+			"infoMV":{
+				"indMV": null,
+				"remunOutrEmpr": [{
+					"tpInsc": null,
+					"nrInsc": null,
+					"codCateg": null,
+					"vlrRemunOE": null
+				}]
+			},
+			"infoComplem": {
+				"nmTrab": "LEIA ORGANA SOLO",
+				"dtNascto": 453524400000,
+				"sucessaoVinc": [{
+					"cnpjEmpregAnt": null,
+					"matricAnt": null,
+					"dtAdm": null,
+					"observacao": null
+				}]
+			},
+			"procJudTrab": [{
+				"tpTrib": null,
+				"nrProcJud": null,
+				"codSusp": null
+			}],
+			"infoInterm": {
+				"qtdDiasInterm": null
+			}
+		},		
+		"dmDev": [{
+			"ideDmDev": null,
+			"codCateg": null,
+			"infoPerApur": [{}],
+			"infoPerAnt": [{}],
+			"infoComplCont": {
+				"codCBO": null,
+				"natAtividade": null,
+				"qtdDiasTrab": null
+			}
+		}]
+	} 
+}
