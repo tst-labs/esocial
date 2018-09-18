@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.semvinculo.termino;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import br.jus.tst.esocial.dominio.termino.comum.InfoMV;
 import br.jus.tst.esocial.dominio.termino.comum.ProcJudTrab;
 
 public class VerbasResc {
-
+	
 	@Valid
 	private List<DmDev> dmDev;
 	
@@ -17,9 +17,6 @@ public class VerbasResc {
 	
 	@Valid
 	private InfoMV infoMV;
-	
-	@Valid
-	private ProcCS procCS;
 
 	public List<DmDev> getDmDev() {
 		return dmDev;
@@ -44,13 +41,4 @@ public class VerbasResc {
 	public void setInfoMV(InfoMV infoMV) {
 		this.infoMV = infoMV;
 	}
-
-	public ProcCS getProcCS() {
-		return procCS;
-	}
-
-	public void setProcCS(ProcCS procCS) {
-		this.procCS = procCS;
-	}
-	
 }

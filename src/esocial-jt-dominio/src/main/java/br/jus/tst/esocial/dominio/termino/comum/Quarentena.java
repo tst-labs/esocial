@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.termino.comum;
 
 import java.util.Calendar;
 
