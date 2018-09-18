@@ -287,10 +287,10 @@ de eventos especificados pelo eSocial-GOV.
 | S-2299 | Desligamento | 2.4.02 | Feito |
 | S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início | 2.4.02 | Feito |
 | S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.4.02 | Feito |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término | 2.4.02 | **Fazendo** |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social | 2.4.02 | na fila |
-| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.4.02 | na fila |
-| S-1210 | Pagamentos de Rendimentos do Trabalho | 2.4.02 | na fila |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término | 2.4.02 | Feito |
+| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social | 2.4.02 | **Fazendo** |
+| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.4.02 | **Fazendo** |
+| S-1210 | Pagamentos de Rendimentos do Trabalho | 2.4.02 | **Fazendo** |
 
 ### Como contribuir?
 
