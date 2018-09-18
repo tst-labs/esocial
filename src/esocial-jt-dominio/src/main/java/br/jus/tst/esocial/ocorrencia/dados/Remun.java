@@ -18,7 +18,7 @@ public class Remun extends DadosOcorrencia {
 	private IdeTrabalhador ideTrabalhador;
 	
 	@NotNull
-	private List<DmDev> dmDevs;
+	private List<DmDev> dmDev;
 
 	public IdeTrabalhador getIdeTrabalhador() {
 		return ideTrabalhador;
@@ -29,12 +29,12 @@ public class Remun extends DadosOcorrencia {
 		return this;
 	}
 
-	public List<DmDev> getDmDevs() {
-		return dmDevs;
+	public List<DmDev> getDmDev() {
+		return dmDev;
 	}
 
-	public Remun setDmDevs(List<DmDev> dmDevs) {
-		this.dmDevs = dmDevs;
+	public Remun setDmDev(List<DmDev> dmDev) {
+		this.dmDev = dmDev;
 		return this;
 	}
 
@@ -47,7 +47,7 @@ public class Remun extends DadosOcorrencia {
 		return new EqualsBuilder()
 				.append(ideEmpregador, castOther.ideEmpregador)
 				.append(ideTrabalhador, castOther.ideTrabalhador)
-				.append(dmDevs, castOther.dmDevs)
+				.append(dmDev, castOther.dmDev)
 				.isEquals();
 	}
 
@@ -56,7 +56,7 @@ public class Remun extends DadosOcorrencia {
 		return new HashCodeBuilder()
 				.append(ideEmpregador)
 				.append(ideTrabalhador)
-				.append(dmDevs)
+				.append(dmDev)
 				.toHashCode();
 	}
 }

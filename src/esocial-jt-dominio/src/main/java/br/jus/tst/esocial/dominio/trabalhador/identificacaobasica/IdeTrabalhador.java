@@ -23,7 +23,7 @@ public class IdeTrabalhador {
 	
 	private InfoComplem infoComplem;
 	
-	private List<ProcJudTrab> procsJudsTrabs;
+	private List<ProcJudTrab> procJudTrab;
 	
 	private InfoInterm infoInterm;
 	
@@ -60,12 +60,12 @@ public class IdeTrabalhador {
 		this.infoComplem = infoComplem;
 	}
 
-	public List<ProcJudTrab> getProcsJudsTrabs() {
-		return procsJudsTrabs;
+	public List<ProcJudTrab> getProcJudTrab() {
+		return procJudTrab;
 	}
 
-	public void setProcsJudsTrabs(List<ProcJudTrab> procsJudsTrabs) {
-		this.procsJudsTrabs = procsJudsTrabs;
+	public void setProcJudTrab(List<ProcJudTrab> procJudTrab) {
+		this.procJudTrab = procJudTrab;
 	}
 
 	public InfoInterm getInfoInterm() {

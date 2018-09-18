@@ -39,7 +39,8 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S2299 = new TipoEvento(2299l);
 	public static final TipoEvento S2300 = new TipoEvento(2300l);
 	public static final TipoEvento S2306 = new TipoEvento(2306l);
-	
+	public static final TipoEvento S1200 = new TipoEvento(1200l);
+		
 	public static final TipoEvento INFORMACOES_EMPREGADOR = S1000;
 	public static final TipoEvento TABELA_ESTABELECIMENTO = S1005; 
 	public static final TipoEvento TABELA_RUBRICA = S1010; 
@@ -58,6 +59,7 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento DESLIGAMENTO = S2299;
 	public static final TipoEvento TSV_INICIO = S2300;
 	public static final TipoEvento TSV_ALTERACAO_CONTRATUAL = S2306;
+	public static final TipoEvento REMUNERACAO_RGPS = S1200;
 	
 
 	@Id
