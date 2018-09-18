@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.desligamento.IdeEstabLot;
+import br.jus.tst.esocial.dominio.termino.comum.IdeEstabLot;
 
 public class InfoPerApur {
 	@Valid

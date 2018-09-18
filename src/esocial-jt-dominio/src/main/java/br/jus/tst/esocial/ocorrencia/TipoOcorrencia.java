@@ -13,6 +13,7 @@ import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocial.ocorrencia.dados.TSVAltContr;
 import br.jus.tst.esocial.ocorrencia.dados.TSVInicio;
+import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaAmbiente;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCargo;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCarreira;
@@ -43,6 +44,7 @@ public enum TipoOcorrencia {
 	REINTEGRACAO(Reintegr.class),
 	TSV_INICIO(TSVInicio.class),
 	TSV_ALTERACAO_CONTRATUAL(TSVAltContr.class),
+	TSV_TERMINO(TSVTermino.class),
 	REMUNERACAO_RGPS(Remun.class);	
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;

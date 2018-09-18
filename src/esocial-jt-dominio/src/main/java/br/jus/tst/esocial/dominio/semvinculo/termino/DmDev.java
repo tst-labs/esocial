@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.semvinculo.termino;
 
 import java.util.List;
 
@@ -8,20 +8,22 @@ import javax.validation.constraints.Size;
 
 import br.jus.tst.esocial.dominio.termino.comum.IdeEstabLot;
 
-public class IdePeriodo {
+
+public class DmDev {
+	
 	@NotNull
-	@Size(min=4, max=7)
-	private String perRef;
+	@Size(min=1, max=30)
+	private String ideDmDev;
 	
 	@Valid
 	private List<IdeEstabLot> ideEstabLot;
 
-	public String getPerRef() {
-		return perRef;
+	public String getIdeDmDev() {
+		return ideDmDev;
 	}
 
-	public void setPerRef(String perRef) {
-		this.perRef = perRef;
+	public void setIdeDmDev(String ideDmDev) {
+		this.ideDmDev = ideDmDev;
 	}
 
 	public List<IdeEstabLot> getIdeEstabLot() {
@@ -31,4 +33,5 @@ public class IdePeriodo {
 	public void setIdeEstabLot(List<IdeEstabLot> ideEstabLot) {
 		this.ideEstabLot = ideEstabLot;
 	}
+
 }
