@@ -17,6 +17,8 @@ public class SucessaoVinc {
 	@Size(min=1, max=30)
 	private String matricAnt;
 	
+	private Calendar dtAdm;
+	
 	@NotNull
 	private Calendar dtTransf;
 
@@ -37,6 +39,14 @@ public class SucessaoVinc {
 
 	public void setMatricAnt(String matriculaAnterior) {
 		this.matricAnt = matriculaAnterior;
+	}
+
+	public Calendar getDtAdm() {
+		return dtAdm;
+	}
+
+	public void setDtAdm(Calendar dtAdm) {
+		this.dtAdm = dtAdm;
 	}
 
 	public Calendar getDtTransf() {

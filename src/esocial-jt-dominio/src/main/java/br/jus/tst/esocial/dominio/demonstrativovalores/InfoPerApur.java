@@ -1,8 +1,10 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.demonstrativovalores;
 
 import java.util.List;
 
 import javax.validation.Valid;
+
+import br.jus.tst.esocial.dominio.desligamento.IdeEstabLot;
 
 public class InfoPerApur {
 	@Valid

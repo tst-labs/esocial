@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.demonstrativovalores;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

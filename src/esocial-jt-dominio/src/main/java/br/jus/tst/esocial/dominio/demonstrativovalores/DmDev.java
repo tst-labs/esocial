@@ -1,5 +1,6 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.demonstrativovalores;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -10,15 +11,19 @@ public class DmDev {
 	@Size(min=1, max=30)
 	private String ideDmDev;
 	
+	private BigInteger codCateg;
+	
 	@Valid
 	private InfoPerApur infoPerApur;
 	
 	@Valid
 	private InfoPerAnt infoPerAnt;
+
+	private InfoComplCont infoComplCont;
 	
 	@Valid
 	private List<InfoTrabInterm> infoTrabInterm;
-
+	
 	public String getIdeDmDev() {
 		return ideDmDev;
 	}
@@ -49,6 +54,22 @@ public class DmDev {
 
 	public void setInfoTrabInterm(List<InfoTrabInterm> infoTrabInterm) {
 		this.infoTrabInterm = infoTrabInterm;
+	}
+
+	public BigInteger getCodCateg() {
+		return codCateg;
+	}
+
+	public void setCodCateg(BigInteger codCateg) {
+		this.codCateg = codCateg;
+	}
+
+	public InfoComplCont getInfoComplCont() {
+		return infoComplCont;
+	}
+
+	public void setInfoComplCont(InfoComplCont infoComplCont) {
+		this.infoComplCont = infoComplCont;
 	}
 	
 }
