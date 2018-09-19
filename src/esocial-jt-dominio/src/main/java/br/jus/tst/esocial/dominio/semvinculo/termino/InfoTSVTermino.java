@@ -5,7 +5,7 @@ import java.util.Calendar;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import br.jus.tst.esocial.dominio.termino.comum.Quarentena;
+import br.jus.tst.esocial.dominio.termino.Quarentena;
 
 public class InfoTSVTermino {
 	

@@ -4,8 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.termino.comum.InfoMV;
-import br.jus.tst.esocial.dominio.termino.comum.ProcJudTrab;
+import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
+import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.InfoMV;
+import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.ProcJudTrab;
 
 public class VerbasResc {
 

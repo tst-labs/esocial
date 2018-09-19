@@ -7,7 +7,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.Alteracao;
-import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.IdeTrabalhador;
+import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
 
 public class AltCadastral extends DadosOcorrencia {
 	

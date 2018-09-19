@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.termino.comum;
+package br.jus.tst.esocial.dominio.trabalhador.identificacaobasica;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

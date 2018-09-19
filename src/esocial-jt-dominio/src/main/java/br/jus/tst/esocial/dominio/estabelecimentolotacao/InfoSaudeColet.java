@@ -1,8 +1,10 @@
-package br.jus.tst.esocial.dominio.termino.comum;
+package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
 import java.util.List;
 
 import javax.validation.Valid;
+
+import br.jus.tst.esocial.dominio.termino.DetOper;
 
 public class InfoSaudeColet {
 

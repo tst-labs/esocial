@@ -70,6 +70,9 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraTSVTermino regraTSVTermino;
+	
+	@Autowired
+	private RegraRemuneracaoRGPS regraRemuneracaoRGPS;
 
 	private Map<Long, Regra> regras;
 
@@ -103,6 +106,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
 			regras.put(TipoEvento.S2306.getCodTipo(), regraTSVAltContr);
 			regras.put(TipoEvento.S2399.getCodTipo(), regraTSVTermino);
+			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 		}
 		return regras;
 	}

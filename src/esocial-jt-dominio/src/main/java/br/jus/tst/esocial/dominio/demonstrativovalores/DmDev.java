@@ -1,9 +1,12 @@
-package br.jus.tst.esocial.dominio.desligamento;
+package br.jus.tst.esocial.dominio.demonstrativovalores;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.estabelecimentolotacao.IdeEstabLot;
 
 public class DmDev {
 	
@@ -11,20 +14,35 @@ public class DmDev {
 	private String ideDmDev;
 	
 	@Valid
-	private InfoPerApur infoPerApur;
+	private List<IdeEstabLot> ideEstabLot;
+
+	private BigInteger codCateg;
 	
 	@Valid
+	private InfoPerApur infoPerApur;
+		
+	@Valid
 	private InfoPerAnt infoPerAnt;
+
+	private InfoComplCont infoComplCont;
 	
 	@Valid
 	private List<InfoTrabInterm> infoTrabInterm;
-
+	
 	public String getIdeDmDev() {
 		return ideDmDev;
 	}
 
 	public void setIdeDmDev(String ideDmDev) {
 		this.ideDmDev = ideDmDev;
+	}
+
+	public List<IdeEstabLot> getIdeEstabLot() {
+		return ideEstabLot;
+	}
+
+	public void setIdeEstabLot(List<IdeEstabLot> ideEstabLot) {
+		this.ideEstabLot = ideEstabLot;
 	}
 
 	public InfoPerApur getInfoPerApur() {
@@ -49,6 +67,22 @@ public class DmDev {
 
 	public void setInfoTrabInterm(List<InfoTrabInterm> infoTrabInterm) {
 		this.infoTrabInterm = infoTrabInterm;
+	}
+
+	public BigInteger getCodCateg() {
+		return codCateg;
+	}
+
+	public void setCodCateg(BigInteger codCateg) {
+		this.codCateg = codCateg;
+	}
+
+	public InfoComplCont getInfoComplCont() {
+		return infoComplCont;
+	}
+
+	public void setInfoComplCont(InfoComplCont infoComplCont) {
+		this.infoComplCont = infoComplCont;
 	}
 	
 }
