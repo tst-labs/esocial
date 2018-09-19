@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 import br.jus.tst.esocial.esquemas.eventos.remun.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.remun.ESocial.EvtRemun;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
+import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.RemunMapper;
@@ -19,9 +20,10 @@ public class GeradorXmlRemuneracaoRGPS extends GeradorXml {
 	public Object criarObjetoESocial(Evento evento) throws GeracaoXmlException {
 		Ocorrencia ocorrencia = evento.getOcorrencia();
 		
-		EvtRemun evtRemun = RemunMapper.INSTANCE.comoEvtRemun((Remun) ocorrencia.getDadosOcorrencia());
+		Remun dados = (Remun) ocorrencia.getDadosOcorrencia();
+		EvtRemun evtRemun = RemunMapper.INSTANCE.comoEvtRemun(dados);
 		evtRemun.setId(evento.getIdEvento());
-//		evtRemun.setIdeEvento(gerarIdeEvento());
+		evtRemun.setIdeEvento(gerarIdeEvento(dados));
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtRemun(evtRemun);
@@ -29,18 +31,17 @@ public class GeradorXmlRemuneracaoRGPS extends GeradorXml {
 		return eSocial;
 	}
 
-//	private IdeEvento gerarIdeEvento() {
-//		IdeEvento ideEvento = new IdeEvento();
-//		ideEvento.setTpAmb(getAmbiente().codigo());
-//		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-//		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-//		ideEvento.setIndRetif((byte) 1);
-//		//FIXME IdeEvento nos eventos de pagamento não são do tipo TIdeEveTrab, aparentemente os campos abaixo precisam ser tratados no domínio
-//		ideEvento.setIndApuracao((byte) 1);
-//		ideEvento.setPerApur("2018-09");
-//		return ideEvento;
-//		
-//	}
+	private EvtRemun.IdeEvento gerarIdeEvento(Remun dados) {
+		EvtRemun.IdeEvento ideEvento = new EvtRemun.IdeEvento();
+		ideEvento.setTpAmb(getAmbiente().codigo());
+		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
+		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
+		ideEvento.setIndRetif((byte) 1);
+		ideEvento.setIndApuracao(dados.getIdeEvento().getIndApuracao());
+		ideEvento.setPerApur(dados.getIdeEvento().getPerApur());
+		return ideEvento;
+		
+	}
 	
 	@Override
 	public String getArquivoXSD() {

@@ -9,8 +9,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
+import br.jus.tst.esocial.dominio.pagamento.IdeEvento;
 import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
-import br.jus.tst.esocial.evento.IdeEvento;
 
 public class Remun extends DadosOcorrencia {
 

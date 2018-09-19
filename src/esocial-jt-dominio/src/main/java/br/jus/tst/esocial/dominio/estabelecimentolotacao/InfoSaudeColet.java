@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.termino.comum.DetOper;
+import br.jus.tst.esocial.dominio.termino.DetOper;
 
 public class InfoSaudeColet {
 

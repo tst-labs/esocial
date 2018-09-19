@@ -5,6 +5,10 @@
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
 		"tipo": ".Remun",
+		"ideEvento":{
+			"indApuracao": 1,
+			"perApur": "2018-07"
+		},
 		"ideEmpregador": {
 			"tpInsc": 1,
 			"nrInsc": "00509968000148"
@@ -14,37 +18,21 @@
 			"nisTrab": "90580722711",
 			"infoMV":{
 				"indMV": null,
-				"remunOutrEmpr": [{
-					"tpInsc": null,
-					"nrInsc": null,
-					"codCateg": null,
-					"vlrRemunOE": null
-				}]
+				"remunOutrEmpr": null 
 			},
 			"infoComplem": {
 				"nmTrab": "LEIA ORGANA SOLO",
 				"dtNascto": 453524400000,
 				"sucessaoVinc": null
 			},
-			"procJudTrab": [{
-				"tpTrib": null,
-				"nrProcJud": null,
-				"codSusp": null
-			}],
+			"procJudTrab": null,
 			"infoInterm": {
 				"qtdDiasInterm": null
 			}
 		},		
 		"dmDev": [{
-			"ideDmDev": null,
-			"codCateg": null,
-			"infoPerApur": null,
-			"infoPerAnt": null,
-			"infoComplCont": {
-				"codCBO": null,
-				"natAtividade": null,
-				"qtdDiasTrab": null
-			}
+			"ideDmDev": "123",
+			"codCateg": "123"
 		}]
 	} 
 }
