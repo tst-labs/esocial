@@ -1,6 +1,6 @@
 {
 	"tipoOcorrencia": "ADMISSAO_TRABALHADOR",
-	"referencia": "12000",
+	"referencia": "12001",
 	"operacao": "INCLUSAO",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
@@ -83,9 +83,9 @@
 			}
 		},
 		"vinculo": {
-			"matricula": "12000",
+			"matricula": "12001",
 			"tpRegTrab": 2,
-			"tpRegPrev": 2,
+			"tpRegPrev": 1,
 			"nrRecInfPrelim": null,
 			"cadIni": "S",
 			"infoRegimeTrab": {
@@ -96,7 +96,7 @@
 					"dtNomeacao": 535341600000,
 					"dtPosse": 535341600000,
 					"dtExercicio": 535341600000,
-					"tpPlanRP": 1,
+					"tpPlanRP": null,
 					"infoDecJud": null
 				}
 			},
