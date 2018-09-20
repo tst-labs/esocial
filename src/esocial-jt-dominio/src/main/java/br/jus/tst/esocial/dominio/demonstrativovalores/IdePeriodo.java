@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.estabelecimento.IdeEstab;
 import br.jus.tst.esocial.dominio.estabelecimentolotacao.IdeEstabLot;
 
 public class IdePeriodo {
@@ -15,6 +16,9 @@ public class IdePeriodo {
 	
 	@Valid
 	private List<IdeEstabLot> ideEstabLot;
+
+	@Valid
+	private List<IdeEstab> ideEstab;
 
 	public String getPerRef() {
 		return perRef;
@@ -30,5 +34,13 @@ public class IdePeriodo {
 
 	public void setIdeEstabLot(List<IdeEstabLot> ideEstabLot) {
 		this.ideEstabLot = ideEstabLot;
+	}
+
+	public List<IdeEstab> getIdeEstab() {
+		return ideEstab;
+	}
+
+	public void setIdeEstab(List<IdeEstab> ideEstab) {
+		this.ideEstab = ideEstab;
 	}
 }

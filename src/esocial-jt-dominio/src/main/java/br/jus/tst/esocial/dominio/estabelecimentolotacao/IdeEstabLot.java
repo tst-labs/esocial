@@ -24,7 +24,7 @@ public class IdeEstabLot {
 	
 	private List<RemunPerApur> remunPerApur;
 	
-	private List<RemumPerAnt> remunPerAnt;
+	private List<RemunPerAnt> remunPerAnt;
 	
 	@Valid
 	private InfoSaudeColet infoSaudeColet;
@@ -83,11 +83,11 @@ public class IdeEstabLot {
 		this.remunPerApur = remunPerApur;
 	}
 
-	public List<RemumPerAnt> getRemunPerAnt() {
+	public List<RemunPerAnt> getRemunPerAnt() {
 		return remunPerAnt;
 	}
 
-	public void setRemunPerAnt(List<RemumPerAnt> remunPerAnt) {
+	public void setRemunPerAnt(List<RemunPerAnt> remunPerAnt) {
 		this.remunPerAnt = remunPerAnt;
 	}
 

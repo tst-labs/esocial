@@ -68,9 +68,12 @@ public class GeradorXmlFactory {
 	
 	@Autowired
 	private GeradorXmlTSVTermino geradorXmlTSVTermino;
-	
+
 	@Autowired
 	private GeradorXmlRemuneracaoRGPS geradorXmlRemuneracaoRGPS;
+
+	@Autowired
+	private GeradorXmlRemuneracaoRPPS geradorXmlRemuneracaoRPPS;
 	
 	@Autowired
 	private GeradorXmlPgtos geradorXmlPgtos;
@@ -108,6 +111,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2306, geradorXmlTSVAltContr);
 			geradores.put(TipoEvento.S2399, geradorXmlTSVTermino);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
+			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
 			geradores.put(TipoEvento.S1210, geradorXmlPgtos);
 		}
 		return geradores;

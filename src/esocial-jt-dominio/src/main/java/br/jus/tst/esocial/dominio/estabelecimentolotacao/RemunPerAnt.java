@@ -1,17 +1,21 @@
 package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.validation.constraints.Size;
 
 import br.jus.tst.esocial.dominio.demonstrativovalores.InfoTrabInterm;
 
-public class RemumPerAnt {
+public class RemunPerAnt {
 
 	@Size(min=1, max=30)
 	private String matricula;
+
+	private BigInteger codCateg;
 	
 	private Byte indSimples;
+	
 	
 	private List<ItemRemuneracao> itensRemun;
 
@@ -25,6 +29,14 @@ public class RemumPerAnt {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public BigInteger getCodCateg() {
+		return codCateg;
+	}
+
+	public void setCodCateg(BigInteger codCateg) {
+		this.codCateg = codCateg;
 	}
 
 	public Byte getIndSimples() {

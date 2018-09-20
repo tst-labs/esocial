@@ -9,6 +9,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class IdeADC {
+
 	@NotNull
 	private Calendar dtAcConv;
 	
@@ -29,6 +30,12 @@ public class IdeADC {
 	@Pattern(regexp="[N|S]")
 	private String remunSuc;
 
+	private Calendar dtLei;
+	
+	private String nrLei;
+	
+	private Calendar dtEf;
+	
 	@Valid
 	private List<IdePeriodo> idePeriodo;
 
@@ -78,6 +85,30 @@ public class IdeADC {
 
 	public void setRemunSuc(String remunSuc) {
 		this.remunSuc = remunSuc;
+	}
+
+	public Calendar getDtLei() {
+		return dtLei;
+	}
+
+	public void setDtLei(Calendar dtLei) {
+		this.dtLei = dtLei;
+	}
+
+	public String getNrLei() {
+		return nrLei;
+	}
+
+	public void setNrLei(String nrLei) {
+		this.nrLei = nrLei;
+	}
+
+	public Calendar getDtEf() {
+		return dtEf;
+	}
+
+	public void setDtEf(Calendar dtEf) {
+		this.dtEf = dtEf;
 	}
 
 	public List<IdePeriodo> getIdePeriodo() {
