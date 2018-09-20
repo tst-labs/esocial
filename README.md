@@ -48,6 +48,7 @@ $ cp ./config/application.properties.example ./config/application.properties
 ```shellscript
 docker-compose up
 ```
+
 > Obs: O docker-compose sobe um banco postgres e a aplicação Java
 
 Verifique se a aplicação está no ar acessando a url
@@ -259,38 +260,39 @@ de eventos especificados pelo eSocial-GOV.
 #### Eventos de Tabelas
 
 | Evento | Nome Evento                         | Versão | Situação |
-| ------ | ----------------------------------- | ----- | ------|
-| S-1000 | Empregador/Contribuinte             | 2.4.02 | Feito |
-| S-1005 | Estabelecimentos                    | 2.4.02 | Feito |
-| S-1010 | Rubricas                            | 2.4.02 | Feito |
-| S-1020 | Lotações Tributárias                | 2.4.02 | Feito |
-| S-1030 | Cargos/Empregos Públicos            | 2.4.02 | Feito |
-| S-1035 | Carreiras Públicas                  | 2.4.02 | Feito |
-| S-1040 | Funções/Cargos em Comissão          | 2.4.02 | Feito |
-| S-1050 | Horários/Turnos de Trabalho         | 2.4.02 | Feito |
-| S-1060 | Ambientes de Trabalho               | 2.4.02 | Feito |
-| S-1070 | Processos Administrativos/Judiciais | 2.4.02 | Feito |
-| S-1080 | Operadores Portuários               |     NA |    NA |
+| ------ | ----------------------------------- | ------ | -------- |
+| S-1000 | Empregador/Contribuinte             | 2.4.02 | Feito    |
+| S-1005 | Estabelecimentos                    | 2.4.02 | Feito    |
+| S-1010 | Rubricas                            | 2.4.02 | Feito    |
+| S-1020 | Lotações Tributárias                | 2.4.02 | Feito    |
+| S-1030 | Cargos/Empregos Públicos            | 2.4.02 | Feito    |
+| S-1035 | Carreiras Públicas                  | 2.4.02 | Feito    |
+| S-1040 | Funções/Cargos em Comissão          | 2.4.02 | Feito    |
+| S-1050 | Horários/Turnos de Trabalho         | 2.4.02 | Feito    |
+| S-1060 | Ambientes de Trabalho               | 2.4.02 | Feito    |
+| S-1070 | Processos Administrativos/Judiciais | 2.4.02 | Feito    |
+| S-1080 | Operadores Portuários               | NA     | NA       |
 
 #### Eventos periódicos
 
     . A fazer
 
 #### Eventos não periódicos
-| Evento | Nome Evento                         | Versão | Situação |
-| -------| ----------------------------------- | ------ | -------- |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador | 2.4.02 | Feito |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador | 2.4.02 | Feito |
-| S-2206 | Alteração de Contrato de Trabalho | 2.4.02 | Feito |
-| S-2230 | Afastamento Temporário | 2.4.02 | Feito |
-| S-2298 | Reintegração | 2.4.02 | Feito |
-| S-2299 | Desligamento | 2.4.02 | Feito |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início | 2.4.02 | Feito |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.4.02 | Feito |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término | 2.4.02 | Feito |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social | 2.4.02 | Feito |
+
+| Evento | Nome Evento                                                                     | Versão | Situação    |
+| ------ | ------------------------------------------------------------------------------- | ------ | ----------- |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador             | 2.4.02 | Feito       |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                                    | 2.4.02 | Feito       |
+| S-2206 | Alteração de Contrato de Trabalho                                               | 2.4.02 | Feito       |
+| S-2230 | Afastamento Temporário                                                          | 2.4.02 | Feito       |
+| S-2298 | Reintegração                                                                    | 2.4.02 | Feito       |
+| S-2299 | Desligamento                                                                    | 2.4.02 | Feito       |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início                         | 2.4.02 | Feito       |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual           | 2.4.02 | Feito       |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término                        | 2.4.02 | Feito       |
+| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.4.02 | Feito       |
 | S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.4.02 | **Fazendo** |
-| S-1210 | Pagamentos de Rendimentos do Trabalho | 2.4.02 | **Fazendo** |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.4.02 | Feito       |
 
 ### Como contribuir?
 

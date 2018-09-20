@@ -18,30 +18,30 @@ import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeradorXmlTSVAltContrTest {
+public class GeradorXmlPgtosTest {
 	
 	@Autowired
-	GeradorXmlTSVAltContr gerador;
+	GeradorXmlPgtos gerador;
 
 	@Test
-	public void deveGerarXmlTSVAltContr() throws Exception {
+	public void deveGerarXmlPgtos() throws Exception {
 		Evento evento = getEvento();
 		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtTSVAltContr");
+		assertThat(xml).contains("evtPgtos");
 	}
 	
 	private Evento getEvento() throws Exception {
 		ExemploOcorrenciaServico exemplo = new ExemploOcorrenciaServico();
-		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL);
+		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.PAGAMENTOS);
 		Evento evento = new Evento();
 		evento.setOcorrencia(ocorrencia);
 		ocorrencia.setEvento(evento);
 		
 		evento.setId(1l);
 		evento.setIdEvento("ID1005099680001482017092708200100001");
-		evento.setTipoEvento(TipoEvento.TSV_ALTERACAO_CONTRATUAL);
-		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(2l));
+		evento.setTipoEvento(TipoEvento.PAGAMENTOS);
+		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(3l));
 		
 		return evento;
 	}

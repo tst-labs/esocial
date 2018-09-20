@@ -1,6 +1,6 @@
 {
 	"tipoOcorrencia": "REMUNERACAO_RGPS",
-	"referencia": "12001",
+	"referencia": "12002",
 	"operacao": "INCLUSAO",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
@@ -14,8 +14,8 @@
 			"nrInsc": "00509968000148"
 		},
 		"ideTrabalhador": {
-			"cpfTrab": "77993893704",
-			"nisTrab": "90580722711",
+			"cpfTrab": "72568274077",
+			"nisTrab": "86958931256",
 			"infoMV":{
 				"indMV": null,
 				"remunOutrEmpr": null 
@@ -34,7 +34,7 @@
 					"nrInsc": "00509968000148",
 					"codLotacao": "TST12345",
 					"remunPerApur": [{
-						"matricula": "12001",
+						"matricula": "12002",
 						"itensRemun": [{
 							"codRubr": "01",
 							"ideTabRubr": "01",
