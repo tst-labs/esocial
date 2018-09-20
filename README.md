@@ -246,7 +246,7 @@ Não tratamos nesse projeto de:
 
 ## Estado atual
 
-Atualmente, o sistema já é capaz de receber dados de eventos de tabela, transmitir de forma automática
+Atualmente, o sistema já é capaz de receber dados de grande parte dos eventos, transmitir de forma automática
 para o eSocial-GOV e exibir o resultado do processamento (sucesso ou mensagens de erro).
 
 A priorização dos eventos a serem transmitidos foi feita com base na necessidade atual do TST e
@@ -275,24 +275,28 @@ de eventos especificados pelo eSocial-GOV.
 
 #### Eventos periódicos
 
-    . A fazer
-
-#### Eventos não periódicos
-
 | Evento | Nome Evento                                                                     | Versão | Situação    |
 | ------ | ------------------------------------------------------------------------------- | ------ | ----------- |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador             | 2.4.02 | Feito       |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                                    | 2.4.02 | Feito       |
-| S-2206 | Alteração de Contrato de Trabalho                                               | 2.4.02 | Feito       |
-| S-2230 | Afastamento Temporário                                                          | 2.4.02 | Feito       |
-| S-2298 | Reintegração                                                                    | 2.4.02 | Feito       |
-| S-2299 | Desligamento                                                                    | 2.4.02 | Feito       |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início                         | 2.4.02 | Feito       |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual           | 2.4.02 | Feito       |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término                        | 2.4.02 | Feito       |
 | S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.4.02 | Feito       |
 | S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.4.02 | **Fazendo** |
 | S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.4.02 | Feito       |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.4.02 | **Fazendo** |
+| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.4.02 | **Fazendo** |
+| S-1299 | Fechamento dos Eventos Periódicos)                                              | 2.4.02 | **Fazendo** |
+
+#### Eventos não periódicos
+
+| Evento | Nome Evento                                                           | Versão | Situação |
+| ------ | --------------------------------------------------------------------- | ------ | -------- |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.4.02 | Feito    |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.4.02 | Feito    |
+| S-2206 | Alteração de Contrato de Trabalho                                     | 2.4.02 | Feito    |
+| S-2230 | Afastamento Temporário                                                | 2.4.02 | Feito    |
+| S-2298 | Reintegração                                                          | 2.4.02 | Feito    |
+| S-2299 | Desligamento                                                          | 2.4.02 | Feito    |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.4.02 | Feito    |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.4.02 | Feito    |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.4.02 | Feito    |
 
 ### Como contribuir?
 
