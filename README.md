@@ -246,7 +246,7 @@ Não tratamos nesse projeto de:
 
 ## Estado atual
 
-Atualmente, o sistema já é capaz de receber dados de eventos de tabela, transmitir de forma automática
+Atualmente, o sistema já é capaz de receber dados de grande parte dos eventos, transmitir de forma automática
 para o eSocial-GOV e exibir o resultado do processamento (sucesso ou mensagens de erro).
 
 A priorização dos eventos a serem transmitidos foi feita com base na necessidade atual do TST e
