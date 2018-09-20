@@ -31,7 +31,7 @@ public class TipoEventoServico {
 		return tipoEvento;
 	}
 
-	private Map<TipoOcorrencia, Integer> mapearTipoEventoEsocial() {
+	protected Map<TipoOcorrencia, Integer> mapearTipoEventoEsocial() {
 		Map<TipoOcorrencia, Integer> map = new EnumMap<>(TipoOcorrencia.class);
 
 		map.put(TipoOcorrencia.INFORMACOES_EMPREGADOR, 1000);
@@ -54,6 +54,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, 2306);
 		map.put(TipoOcorrencia.TSV_TERMINO, 2399);
 		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
+		map.put(TipoOcorrencia.PAGAMENTOS, 1210);
 
 		return map;
 	}

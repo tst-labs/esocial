@@ -1,6 +1,6 @@
 {
 	"tipoOcorrencia": "ADMISSAO_TRABALHADOR",
-	"referencia": "12001",
+	"referencia": "12002",
 	"operacao": "INCLUSAO",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
@@ -10,10 +10,10 @@
 			"nrInsc": "00509968000148"
 		},
 		"trabalhador": {
-			"cpfTrab": "77993893704",
-			"nisTrab": "90580722711",
-			"nmTrab": "LEIA ORGANA SOLO",
-			"sexo": "F",
+			"cpfTrab": "72568274077",
+			"nisTrab": "86958931256",
+			"nmTrab": "LUKE SKYWALKER",
+			"sexo": "M",
 			"racaCor": 6,
 			"estCiv": 2,
 			"grauInstr": "10",
@@ -32,7 +32,7 @@
 				"ctps": null,
 				"ric": null,
 				"rg": {
-					"nrRg": "2200000",
+					"nrRg": "2200001",
 					"orgaoEmissor": "SSP-DF",
 					"dtExped": 1255575600000
 				},
@@ -64,26 +64,16 @@
 				"infoCota": "N",
 				"observacao": null
 			},
-			"dependente": [
-				{
-					"tpDep": "03",
-					"nmDep": "BEN SOLO",
-					"dtNascto": 656391600000,
-					"cpfDep": "99645142393",
-					"depIRRF": "N",
-					"depSF": "N",
-					"incTrab": "N"
-				}
-			],
+			"dependente": [ ],
 			"contato": {
 				"fonePrinc": "6130430001",
 				"foneAlternat": "6130430001",
-				"emailPrinc": "leiaorgana@email.com",
+				"emailPrinc": "lukeskywalker@email.com",
 				"emailAlternat": null
 			}
 		},
 		"vinculo": {
-			"matricula": "12001",
+			"matricula": "12002",
 			"tpRegTrab": 2,
 			"tpRegPrev": 1,
 			"nrRecInfPrelim": null,

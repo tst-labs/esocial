@@ -9,6 +9,7 @@ import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
+import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocial.ocorrencia.dados.TSVAltContr;
@@ -45,7 +46,8 @@ public enum TipoOcorrencia {
 	TSV_INICIO(TSVInicio.class),
 	TSV_ALTERACAO_CONTRATUAL(TSVAltContr.class),
 	TSV_TERMINO(TSVTermino.class),
-	REMUNERACAO_RGPS(Remun.class);	
+	REMUNERACAO_RGPS(Remun.class),
+	PAGAMENTOS(Pgtos.class);	
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 
