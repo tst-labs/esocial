@@ -213,6 +213,16 @@ public class RegrasFactoryTest{
 				RegraNaoHaEventoTabelaEmFila.class
 				);
 	}
+	
+	@Test
+	public void deveProverRegraRemuneracaoRPPS() {
+		Regra regra = getRegra(TipoEvento.S1202);
+		assertThat(regra).isInstanceOf(RegraRemuneracaoRPPS.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+				);
+	}
 
 	@Test
 	public void deveProverRegraPgtos() {

@@ -1,0 +1,42 @@
+{
+	"tipoOcorrencia": "REMUNERACAO_RPPS",
+	"referencia": "12000",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".RmnRPPS",
+		"ideEvento":{
+			"indApuracao": 1,
+			"perApur": "2018-07"
+		},
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideTrabalhador": {
+			"cpfTrab": "72568274077",
+			"nisTrab": "86958931256",
+			"qtdDepFP": 0,
+			"procJudTrab": null
+		},
+		"dmDev": [{
+			"ideDmDev": "123",
+			"infoPerApur": {
+				"ideEstab": [{
+					"tpInsc": 1,
+					"nrInsc": "00509968000148",
+					"remunPerApur": [{
+						"matricula": "12002",
+						"codCateg": 301,
+						"itensRemun": [{
+							"codRubr": "01",
+							"ideTabRubr": "01",
+							"vrRubr": 1234
+						}]
+					}]
+				}]
+			},
+			"infoPerAnt": null
+		}]
+	} 
+}

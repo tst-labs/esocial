@@ -2,6 +2,7 @@ package br.jus.tst.esocial.dominio.trabalhador.identificacaobasica;
 
 import java.util.List;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,6 +20,9 @@ public class IdeTrabalhador {
 	@Size(min=11, max=11)
 	private String nisTrab;
 	
+	@Min(0)
+	private Byte qtdDepFP;
+
 	private InfoMV infoMV;
 	
 	private InfoComplem infoComplem;
@@ -26,7 +30,6 @@ public class IdeTrabalhador {
 	private List<ProcJudTrab> procJudTrab;
 	
 	private InfoInterm infoInterm;
-	
 	
 	public String getCpfTrab() {
 		return cpfTrab;
@@ -42,6 +45,14 @@ public class IdeTrabalhador {
 
 	public void setNisTrab(String nisTrab) {
 		this.nisTrab = nisTrab;
+	}
+
+	public Byte getQtdDepFP() {
+		return qtdDepFP;
+	}
+
+	public void setQtdDepFP(Byte qtdDepFP) {
+		this.qtdDepFP = qtdDepFP;
 	}
 
 	public InfoMV getInfoMV() {

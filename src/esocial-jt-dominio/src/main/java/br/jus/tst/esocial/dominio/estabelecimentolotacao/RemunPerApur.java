@@ -1,5 +1,6 @@
 package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.validation.constraints.Size;
@@ -10,6 +11,8 @@ public class RemunPerApur {
 
 	@Size(min=1, max=30)
 	private String matricula;
+	
+	private BigInteger codCateg;
 	
 	private Byte indSimples;
 	
@@ -27,6 +30,14 @@ public class RemunPerApur {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public BigInteger getCodCateg() {
+		return codCateg;
+	}
+
+	public void setCodCateg(BigInteger codCateg) {
+		this.codCateg = codCateg;
 	}
 
 	public Byte getIndSimples() {

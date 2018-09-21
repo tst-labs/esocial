@@ -19,7 +19,7 @@ public abstract class RemunMapper {
  
 	@Mapping(target = "id", ignore = true) 
 	@Mapping(target = "ideEvento", ignore = true)
-	public abstract ESocial.EvtRemun comoEvtRemun(Remun remun);  
+	public abstract ESocial.EvtRemun comoEvtRemun(Remun remun);
  
 	@AfterMapping 
 	protected void limparNulos(@MappingTarget EvtRemun evtRemun) {
