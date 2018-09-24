@@ -282,7 +282,7 @@ de eventos especificados pelo eSocial-GOV.
 | S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.4.02 | Feito       |
 | S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.4.02 | **Fazendo** |
 | S-1298 | Reabertura dos Eventos Periódicos                                               | 2.4.02 | **Fazendo** |
-| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.4.02 | **Fazendo** |
+| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.4.02 | Feito |
 
 #### Eventos não periódicos
 
