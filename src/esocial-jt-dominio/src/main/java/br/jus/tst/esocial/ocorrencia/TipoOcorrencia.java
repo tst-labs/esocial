@@ -8,11 +8,12 @@ import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
+import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
-import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
+import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
 import br.jus.tst.esocial.ocorrencia.dados.TSVAltContr;
 import br.jus.tst.esocial.ocorrencia.dados.TSVInicio;
 import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
@@ -49,7 +50,8 @@ public enum TipoOcorrencia {
 	TSV_TERMINO(TSVTermino.class),
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
-	PAGAMENTOS(Pgtos.class);	
+	PAGAMENTOS(Pgtos.class),
+	FECHAMENTO_PERIODICOS(FechaEvPer.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 

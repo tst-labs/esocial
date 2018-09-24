@@ -1,0 +1,32 @@
+{
+	"tipoOcorrencia": "FECHAMENTO_PERIODICOS",
+	"referencia": null,
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".FechaEvPer",
+		"ideEvento":{
+			"indApuracao": 1,
+			"perApur": "2018-07"
+		},
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideRespInf": {
+			"nmResp": "Aureliano Buendía",
+			"cpfResp": "72568274077",
+			"telefone": "61991245886",
+			"email": "aureliano.buendia@gmail.com"
+		},
+		"infoFech": {
+			"evtRemun": "S",
+			"evtPgtos": "N",
+			"evtAqProd": "N",
+			"evtComProd": "N",
+			"evtContratAvNP": "N",
+			"evtInfoComplPer": "N",
+			"compSemMovto": null
+		}
+	} 
+}

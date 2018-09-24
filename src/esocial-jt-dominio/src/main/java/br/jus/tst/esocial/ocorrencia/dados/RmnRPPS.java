@@ -58,6 +58,7 @@ public class RmnRPPS extends DadosOcorrencia {
 		}
 		RmnRPPS castOther = (RmnRPPS) other;
 		return new EqualsBuilder()
+				.append(ideEvento, castOther.ideEvento)
 				.append(ideEmpregador, castOther.ideEmpregador)
 				.append(ideTrabalhador, castOther.ideTrabalhador)
 				.append(dmDev, castOther.dmDev)
@@ -67,6 +68,7 @@ public class RmnRPPS extends DadosOcorrencia {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
+				.append(ideEvento)
 				.append(ideEmpregador)
 				.append(ideTrabalhador)
 				.append(dmDev)
