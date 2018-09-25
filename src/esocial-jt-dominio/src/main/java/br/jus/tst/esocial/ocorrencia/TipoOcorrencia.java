@@ -11,6 +11,7 @@ import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
+import br.jus.tst.esocial.ocorrencia.dados.ReabreEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
@@ -51,6 +52,7 @@ public enum TipoOcorrencia {
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	PAGAMENTOS(Pgtos.class),
+	REABERTURA_PERIODICOS(ReabreEvPer.class),
 	FECHAMENTO_PERIODICOS(FechaEvPer.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;

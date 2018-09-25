@@ -56,6 +56,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
 		map.put(TipoOcorrencia.REMUNERACAO_RPPS, 1202);
 		map.put(TipoOcorrencia.PAGAMENTOS, 1210);
+		map.put(TipoOcorrencia.REABERTURA_PERIODICOS, 1298);
 		map.put(TipoOcorrencia.FECHAMENTO_PERIODICOS, 1299);
 
 		return map;
