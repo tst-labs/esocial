@@ -1,29 +1,24 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import java.util.List;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
 import br.jus.tst.esocial.dominio.pagamento.IdeEvento;
-import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
+import br.jus.tst.esocial.dominio.pagamento.IdeRespInf;
+import br.jus.tst.esocial.dominio.pagamento.InfoFech;
 
-public class Remun extends DadosOcorrencia {
+public class FechaEvPer extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
 	private IdeEvento ideEvento;
 	
-	@Valid
-	@NotNull
-	private IdeTrabalhador ideTrabalhador;
+	public IdeRespInf ideRespInf;
 	
-	@NotNull
-	private List<DmDev> dmDev;
+	public InfoFech infoFech;
 
 	public IdeEvento getIdeEvento() {
 		return ideEvento;
@@ -33,35 +28,33 @@ public class Remun extends DadosOcorrencia {
 		this.ideEvento = ideEvento;
 	}
 
-	public IdeTrabalhador getIdeTrabalhador() {
-		return ideTrabalhador;
+	public IdeRespInf getIdeRespInf() {
+		return ideRespInf;
 	}
 
-	public Remun setIdeTrabalhador(IdeTrabalhador ideTrabalhador) {
-		this.ideTrabalhador = ideTrabalhador;
-		return this;
+	public void setIdeRespInf(IdeRespInf ideRespInf) {
+		this.ideRespInf = ideRespInf;
 	}
 
-	public List<DmDev> getDmDev() {
-		return dmDev;
+	public InfoFech getInfoFech() {
+		return infoFech;
 	}
 
-	public Remun setDmDev(List<DmDev> dmDev) {
-		this.dmDev = dmDev;
-		return this;
+	public void setInfoFech(InfoFech infoFech) {
+		this.infoFech = infoFech;
 	}
 
 	@Override
 	public boolean equals(final Object other) {
-		if (!(other instanceof Remun)) {
+		if (!(other instanceof FechaEvPer)) {
 			return false;
 		}
-		Remun castOther = (Remun) other;
+		FechaEvPer castOther = (FechaEvPer) other;
 		return new EqualsBuilder()
 				.append(ideEvento, castOther.ideEvento)
+				.append(ideRespInf, castOther.ideRespInf)
+				.append(infoFech, castOther.infoFech)
 				.append(ideEmpregador, castOther.ideEmpregador)
-				.append(ideTrabalhador, castOther.ideTrabalhador)
-				.append(dmDev, castOther.dmDev)
 				.isEquals();
 	}
 
@@ -69,9 +62,9 @@ public class Remun extends DadosOcorrencia {
 	public int hashCode() {
 		return new HashCodeBuilder()
 				.append(ideEvento)
+				.append(ideRespInf)
+				.append(infoFech)
 				.append(ideEmpregador)
-				.append(ideTrabalhador)
-				.append(dmDev)
 				.toHashCode();
 	}
 }
