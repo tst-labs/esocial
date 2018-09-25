@@ -78,6 +78,9 @@ public class RegrasFactory {
 	private RegraRemuneracaoRPPS regraRemuneracaoRPPS;
 	
 	@Autowired
+	private RegraReaberturaPeriodicos regraReaberturaPeriodicos;
+	
+	@Autowired
 	private RegraFechamentoPeriodicos regraFechamentoPeriodicos;
 	
 	@Autowired
@@ -118,6 +121,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
 			regras.put(TipoEvento.S1210.getCodTipo(), regraPgtos);
+			regras.put(TipoEvento.S1298.getCodTipo(), regraReaberturaPeriodicos);
 			regras.put(TipoEvento.S1299.getCodTipo(), regraFechamentoPeriodicos);
 		}
 		return regras;

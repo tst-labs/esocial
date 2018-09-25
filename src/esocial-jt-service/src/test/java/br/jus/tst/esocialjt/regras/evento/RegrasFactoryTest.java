@@ -235,6 +235,16 @@ public class RegrasFactoryTest{
 	}
 
 	@Test
+	public void deveProverRegraReaberturaPeriodicos() {
+		Regra regra = getRegra(TipoEvento.S1298);
+		assertThat(regra).isInstanceOf(RegraReaberturaPeriodicos.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+				);
+	}
+	
+	@Test
 	public void deveProverRegraFechamentoPeriodicos() {
 		Regra regra = getRegra(TipoEvento.S1299);
 		assertThat(regra).isInstanceOf(RegraFechamentoPeriodicos.class);
