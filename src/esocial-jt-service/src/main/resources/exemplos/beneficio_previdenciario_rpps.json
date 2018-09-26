@@ -1,0 +1,47 @@
+{
+	"tipoOcorrencia": "BENEFICIO_PREVIDENCIARIO_RPPS",
+	"referencia": "12000",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".CdBenPrRP",
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideBenef": {
+			"cpfBenef": "77993893704",
+			"nmBenefic": "LEIA ORGANA SOLO",
+			"dadosBenef": {
+				"dadosNasc": {
+					"dtNascto": 453524400000,
+					"codMunic": 5300108,
+					"uf": "DF",
+					"paisNascto": "105",
+					"paisNac": "105",
+					"nmMae": "PADME AMIDALA",
+					"nmPai": "ANAKIN SKYWALKER"
+				},
+				"endereco": {
+					"brasil": {
+						"tpLograd": "IND",
+						"dscLograd": "SAFS QUADRA 0 LOTE 0",
+						"nrLograd": "1",
+						"complemento": "LOTE 0",
+						"bairro": "ZONA CÍVICO-ADMINISTRATIVA",
+						"cep": "70070943",
+						"codMunic": 5300108,
+						"uf": "DF"
+					},
+					"exterior": null
+				}
+			}
+		},
+		"infoBeneficio": {
+			"tpPlanRP": 1,
+			"iniBeneficio": null,
+			"altBeneficio": null,
+			"fimBeneficio": null			
+		}	
+	}
+}

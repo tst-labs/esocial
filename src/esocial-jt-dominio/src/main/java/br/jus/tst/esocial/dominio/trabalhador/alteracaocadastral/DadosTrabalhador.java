@@ -7,13 +7,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.endereco.Endereco;
+import br.jus.tst.esocial.dominio.nascimento.Nascimento;
 import br.jus.tst.esocial.dominio.trabalhador.Aposentadoria;
 import br.jus.tst.esocial.dominio.trabalhador.Contato;
 import br.jus.tst.esocial.dominio.trabalhador.Dependente;
 import br.jus.tst.esocial.dominio.trabalhador.Documentos;
-import br.jus.tst.esocial.dominio.trabalhador.Endereco;
 import br.jus.tst.esocial.dominio.trabalhador.InfoDeficiencia;
-import br.jus.tst.esocial.dominio.trabalhador.Nascimento;
 import br.jus.tst.esocial.dominio.trabalhador.TrabEstrangeiro;
 
 public class DadosTrabalhador {

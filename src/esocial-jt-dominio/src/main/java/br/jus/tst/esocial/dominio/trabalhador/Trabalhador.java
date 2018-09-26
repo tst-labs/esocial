@@ -12,6 +12,9 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.jus.tst.esocial.dominio.endereco.Endereco;
+import br.jus.tst.esocial.dominio.nascimento.Nascimento;
+
 public class Trabalhador {
 	
 	@NotNull

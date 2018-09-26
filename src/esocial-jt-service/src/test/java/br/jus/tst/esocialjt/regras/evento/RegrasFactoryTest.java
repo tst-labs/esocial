@@ -217,6 +217,17 @@ public class RegrasFactoryTest{
 	}
 	
 	@Test
+	public void deveProverRegraBeneficioPrevidenciarioRPPS() {
+		Regra regra = getRegra(TipoEvento.S2400);
+		assertThat(regra).isInstanceOf(RegraBeneficioPrevidenciarioRPPS.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
+				);
+	}
+	
+	@Test
 	public void deveProverRegraRemuneracaoRGPS() {
 		Regra regra = getRegra(TipoEvento.S1200);
 		assertThat(regra).isInstanceOf(RegraRemuneracaoRGPS.class);

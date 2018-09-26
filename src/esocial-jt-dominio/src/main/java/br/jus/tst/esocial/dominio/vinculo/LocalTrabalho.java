@@ -2,7 +2,7 @@ package br.jus.tst.esocial.dominio.vinculo;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.trabalhador.EnderecoBrasil;
+import br.jus.tst.esocial.dominio.endereco.EnderecoBrasil;
 
 public class LocalTrabalho {
 	@Valid
