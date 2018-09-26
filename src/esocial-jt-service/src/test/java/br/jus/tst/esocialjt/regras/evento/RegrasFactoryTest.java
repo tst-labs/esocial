@@ -13,7 +13,12 @@ import br.jus.tst.esocialjt.evento.EventoDTO;
 import br.jus.tst.esocialjt.regras.Regra;
 import br.jus.tst.esocialjt.regras.RegraEmpregadorCadastrado;
 import br.jus.tst.esocialjt.regras.RegraEventosTabela;
+import br.jus.tst.esocialjt.regras.RegraNaoHaEventoNaoPeriodicoEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaFechamentoFolhaEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaIngressoTrabEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaPagamentoEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaRemuneracaoEmFila;
 import br.jus.tst.esocialjt.regras.RegraVazia;
 
 @RunWith(SpringRunner.class)
@@ -129,7 +134,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraAltCadastral.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 		);
 	}
 
@@ -140,7 +146,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraAltContratual.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 		);
 	}
 	
@@ -150,7 +157,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraAfastTemp.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 				);
 	}
 	
@@ -160,7 +168,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraReintegracao.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 				);
 	}
 	
@@ -170,7 +179,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraDesligamento.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 				);
 	}
 	
@@ -190,7 +200,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraTSVAltContr.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 				);
 	}
 	
@@ -200,7 +211,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraTSVTermino.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
 				);
 	}
 	
@@ -210,7 +222,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraRemuneracaoRGPS.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class
 				);
 	}
 	
@@ -220,7 +233,8 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraRemuneracaoRPPS.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class
 				);
 	}
 
@@ -230,7 +244,9 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraPgtos.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class,
+				RegraNaoHaRemuneracaoEmFila.class
 				);
 	}
 	
@@ -240,7 +256,11 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraSolicitacaoTotalPagamento.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class,
+				RegraNaoHaRemuneracaoEmFila.class,
+				RegraNaoHaPagamentoEmFila.class,
+				RegraNaoHaFechamentoFolhaEmFila.class
 				);
 	}
 
@@ -250,7 +270,11 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraReaberturaPeriodicos.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class,
+				RegraNaoHaRemuneracaoEmFila.class,
+				RegraNaoHaPagamentoEmFila.class,
+				RegraNaoHaFechamentoFolhaEmFila.class
 				);
 	}
 	
@@ -260,7 +284,10 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraFechamentoPeriodicos.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaEventoNaoPeriodicoEmFila.class,
+				RegraNaoHaRemuneracaoEmFila.class,
+				RegraNaoHaPagamentoEmFila.class
 				);
 	}
 
