@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocialjt.regras.Regra;
 import br.jus.tst.esocialjt.regras.RegraEmpregadorCadastrado;
+import br.jus.tst.esocialjt.regras.RegraNaoHaEventoNaoPeriodicoEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
 
 @Component
@@ -19,8 +20,14 @@ public class RegraRemuneracaoRPPS extends Regra {
 	@Autowired
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
+	@Autowired
+	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	
 	@Override
 	public List<Regra> regras(){
-		return Arrays.asList(empregadorCadastrado, naoHaEventoTabelaEmFila);
+		return Arrays.asList(
+				empregadorCadastrado, 
+				naoHaEventoTabelaEmFila, 
+				regraNaoHaEventoNaoPeriodicoEmFila);
 	}
 }

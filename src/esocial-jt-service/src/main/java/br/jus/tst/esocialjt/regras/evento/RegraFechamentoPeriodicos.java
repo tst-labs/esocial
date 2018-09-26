@@ -8,7 +8,10 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocialjt.regras.Regra;
 import br.jus.tst.esocialjt.regras.RegraEmpregadorCadastrado;
+import br.jus.tst.esocialjt.regras.RegraNaoHaEventoNaoPeriodicoEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaPagamentoEmFila;
+import br.jus.tst.esocialjt.regras.RegraNaoHaRemuneracaoEmFila;
 
 @Component
 public class RegraFechamentoPeriodicos extends Regra {
@@ -19,8 +22,22 @@ public class RegraFechamentoPeriodicos extends Regra {
 	@Autowired
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
+	@Autowired
+	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	
+	@Autowired
+	private RegraNaoHaRemuneracaoEmFila regraNaoHaRemuneracaoEmFila; 
+
+	@Autowired
+	private RegraNaoHaPagamentoEmFila regraNaoHaPagamentoEmFila; 
+	
 	@Override
 	public List<Regra> regras(){
-		return Arrays.asList(empregadorCadastrado, naoHaEventoTabelaEmFila);
+		return Arrays.asList(
+				empregadorCadastrado, 
+				naoHaEventoTabelaEmFila, 
+				regraNaoHaEventoNaoPeriodicoEmFila,
+				regraNaoHaRemuneracaoEmFila,
+				regraNaoHaPagamentoEmFila);
 	}
 }
