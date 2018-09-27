@@ -298,7 +298,7 @@ de eventos especificados pelo eSocial-GOV.
 | S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.4.02 | Feito       |
 | S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.4.02 | Feito       |
 | S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.4.02 | Feito       |
-| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.4.02 | **Fazendo** |
+| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.4.02 | Feito       |
 
 ### Como contribuir?
 

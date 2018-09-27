@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.trabalhador;
+package br.jus.tst.esocial.dominio.endereco;
 
 import javax.validation.Valid;
 
