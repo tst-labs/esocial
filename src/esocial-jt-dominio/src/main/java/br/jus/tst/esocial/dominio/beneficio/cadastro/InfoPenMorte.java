@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.beneficio;
+package br.jus.tst.esocial.dominio.beneficio.cadastro;
 
 import javax.validation.constraints.Size;
 

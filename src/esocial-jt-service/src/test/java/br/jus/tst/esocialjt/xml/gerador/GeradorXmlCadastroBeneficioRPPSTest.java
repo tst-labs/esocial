@@ -18,10 +18,10 @@ import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeradorXmlBeneficioPrevidenciarioRPPSTest {
+public class GeradorXmlCadastroBeneficioRPPSTest {
 	
 	@Autowired
-	GeradorXmlBeneficioPrevidenciarioRPPS gerador;
+	GeradorXmlCadastroBeneficioRPPS gerador;
 
 	@Test
 	public void deveGerarXmlCdBenPrRP() throws Exception {
@@ -33,14 +33,14 @@ public class GeradorXmlBeneficioPrevidenciarioRPPSTest {
 	
 	private Evento getEvento() throws Exception {
 		ExemploOcorrenciaServico exemplo = new ExemploOcorrenciaServico();
-		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.BENEFICIO_PREVIDENCIARIO_RPPS);
+		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.CADASTRO_BENEFICIO_RPPS);
 		Evento evento = new Evento();
 		evento.setOcorrencia(ocorrencia);
 		ocorrencia.setEvento(evento);
 		
 		evento.setId(1l);
 		evento.setIdEvento("ID1005099680001482017092708200100001");
-		evento.setTipoEvento(TipoEvento.BENEFICIO_PREVIDENCIARIO_RPPS);
+		evento.setTipoEvento(TipoEvento.CADASTRO_BENEFICIO_RPPS);
 		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(2l));
 		
 		return evento;

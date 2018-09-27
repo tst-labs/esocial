@@ -1,5 +1,5 @@
 {
-	"tipoOcorrencia": "BENEFICIO_PREVIDENCIARIO_RPPS",
+	"tipoOcorrencia": "CADASTRO_BENEFICIO_RPPS",
 	"referencia": "12000",
 	"operacao": "INCLUSAO",
 	"dataOcorrencia": 1522181179561,

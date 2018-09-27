@@ -4,7 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.beneficiario.IdeBenef;
-import br.jus.tst.esocial.dominio.beneficio.InfoBeneficio;
+import br.jus.tst.esocial.dominio.beneficio.cadastro.InfoBeneficio;
 
 public class CdBenPrRP extends DadosOcorrencia {
 

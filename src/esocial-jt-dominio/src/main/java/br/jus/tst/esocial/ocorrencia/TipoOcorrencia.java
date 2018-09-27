@@ -51,7 +51,7 @@ public enum TipoOcorrencia {
 	TSV_INICIO(TSVInicio.class),
 	TSV_ALTERACAO_CONTRATUAL(TSVAltContr.class),
 	TSV_TERMINO(TSVTermino.class),
-	BENEFICIO_PREVIDENCIARIO_RPPS(CdBenPrRP.class),
+	CADASTRO_BENEFICIO_RPPS(CdBenPrRP.class),
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	PAGAMENTOS(Pgtos.class),

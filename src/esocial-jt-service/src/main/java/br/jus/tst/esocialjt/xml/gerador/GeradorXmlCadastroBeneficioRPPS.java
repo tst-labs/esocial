@@ -13,7 +13,7 @@ import br.jus.tst.esocialjt.mapper.CdBenPrRPMapper;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 
 @Component
-public class GeradorXmlBeneficioPrevidenciarioRPPS extends GeradorXml {
+public class GeradorXmlCadastroBeneficioRPPS extends GeradorXml {
 
 	private static final String ARQUIVO_XSD = "xsd/eventos/v02_04_02/evtCdBenPrRP.xsd";
 

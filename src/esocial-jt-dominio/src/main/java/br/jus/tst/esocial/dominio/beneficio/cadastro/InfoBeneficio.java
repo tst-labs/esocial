@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.beneficio;
+package br.jus.tst.esocial.dominio.beneficio.cadastro;
 
 public class InfoBeneficio {
 

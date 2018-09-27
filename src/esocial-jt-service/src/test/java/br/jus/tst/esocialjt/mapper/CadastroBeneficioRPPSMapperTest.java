@@ -7,7 +7,7 @@ import br.jus.tst.esocial.ocorrencia.dados.CdBenPrRP;
 import br.jus.tst.esocialjt.CriadorObjetoAleatorio;
 import br.jus.tst.esocialjt.mapper.infrateste.MapperAssertion;
 
-public class BeneficioPrevidenciarioRPPSMapperTest {
+public class CadastroBeneficioRPPSMapperTest {
 	
 	@Test
 	public void deveMapearEvento() {

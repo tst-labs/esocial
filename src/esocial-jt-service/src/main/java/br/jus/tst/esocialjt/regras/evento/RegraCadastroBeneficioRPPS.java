@@ -12,7 +12,7 @@ import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaIngressoTrabEmFila;
 
 @Component
-public class RegraBeneficioPrevidenciarioRPPS extends Regra {
+public class RegraCadastroBeneficioRPPS extends Regra {
 	
 	@Autowired
 	private RegraEmpregadorCadastrado empregadorCadastrado;
