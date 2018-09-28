@@ -256,7 +256,7 @@ public class RegrasFactoryTest{
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
 				RegraNaoHaEventoTabelaEmFila.class,
-				RegraNaoHaIngressoTrabEmFila.class
+				RegraNaoHaEventoNaoPeriodicoEmFila.class
 				);
 	}
 
