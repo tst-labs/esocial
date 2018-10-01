@@ -39,7 +39,13 @@
 		},
 		"infoBeneficio": {
 			"tpPlanRP": 1,
-			"iniBeneficio": null,
+			"iniBeneficio": {
+				"tpBenef": 99,
+				"nrBenefic": "654321",
+				"dtIniBenef": 1522181179561,
+				"vrBenef": 234.32,
+				"infoPenMorte": null
+			},
 			"altBeneficio": null,
 			"fimBeneficio": null			
 		}	

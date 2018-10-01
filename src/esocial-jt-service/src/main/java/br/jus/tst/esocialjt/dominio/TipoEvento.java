@@ -44,6 +44,7 @@ public class TipoEvento implements Serializable {
 		
 	public static final TipoEvento S1200 = new TipoEvento(1200l);
 	public static final TipoEvento S1202 = new TipoEvento(1202l);
+	public static final TipoEvento S1207 = new TipoEvento(1207l);
 	public static final TipoEvento S1210 = new TipoEvento(1210l);
 	public static final TipoEvento S1295 = new TipoEvento(1295l);
 	public static final TipoEvento S1298 = new TipoEvento(1298l);	
@@ -71,6 +72,7 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento CADASTRO_BENEFICIO_RPPS = S2400;
 	public static final TipoEvento REMUNERACAO_RGPS = S1200;
 	public static final TipoEvento REMUNERACAO_RPPS = S1202;
+	public static final TipoEvento BENEFICIO_RPPS = S1207;
 	public static final TipoEvento PAGAMENTOS = S1210;
 	public static final TipoEvento SOLICITACAO_TOTAL_PAGAMENTO = S1295;
 	public static final TipoEvento REABERTURA_PERIODICOS = S1298;

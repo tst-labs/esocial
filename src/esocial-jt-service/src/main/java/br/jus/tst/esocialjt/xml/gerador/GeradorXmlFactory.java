@@ -79,6 +79,9 @@ public class GeradorXmlFactory {
 	private GeradorXmlRemuneracaoRPPS geradorXmlRemuneracaoRPPS;
 
 	@Autowired
+	private GeradorXmlBeneficioRPPS geradorXmlBeneficioRPPS;
+	
+	@Autowired
 	private GeradorXmlPgtos geradorXmlPgtos;
 	
 	@Autowired
@@ -125,6 +128,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2400, geradorXmlCadastroBeneficioRPPS);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
 			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
+			geradores.put(TipoEvento.S1207, geradorXmlBeneficioRPPS);
 			geradores.put(TipoEvento.S1210, geradorXmlPgtos);
 			geradores.put(TipoEvento.S1295, geradorXmlSolicitacaoTotalPagamento);
 			geradores.put(TipoEvento.S1298, geradorXmlReaberturaPeriodicos);

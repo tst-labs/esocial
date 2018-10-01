@@ -72,14 +72,17 @@ public class RegrasFactory {
 	private RegraTSVTermino regraTSVTermino;
 	
 	@Autowired
+	private RegraCadastroBeneficioRPPS regraCadastroBeneficioRPPS;
+
+	@Autowired
 	private RegraRemuneracaoRGPS regraRemuneracaoRGPS;
 	
 	@Autowired
 	private RegraRemuneracaoRPPS regraRemuneracaoRPPS;
 	
 	@Autowired
-	private RegraCadastroBeneficioRPPS regraCadastroBeneficioRPPS;
-	
+	private RegraBeneficioRPPS regraBeneficioRPPS;
+
 	@Autowired
 	private RegraPgtos regraPgtos;
 
@@ -127,6 +130,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2400.getCodTipo(), regraCadastroBeneficioRPPS);
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
+			regras.put(TipoEvento.S1207.getCodTipo(), regraBeneficioRPPS);
 			regras.put(TipoEvento.S1210.getCodTipo(), regraPgtos);
 			regras.put(TipoEvento.S1295.getCodTipo(), regraSolicitacaoTotalPagamento);
 			regras.put(TipoEvento.S1298.getCodTipo(), regraReaberturaPeriodicos);

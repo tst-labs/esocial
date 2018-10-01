@@ -1,0 +1,30 @@
+{
+	"tipoOcorrencia": "BENEFICIO_RPPS",
+	"referencia": "12000",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".BenPrRP",
+		"ideEvento":{
+			"indApuracao": 1,
+			"perApur": "2018-07"
+		},
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideBenef": {
+			"cpfBenef": "77993893704"
+		},
+		"dmDev": [{
+			"tpBenef": 99,
+			"nrBenefic": 654321,
+			"ideDmDev": "123",
+			"itens": [{
+				"codRubr": "01",
+				"ideTabRubr": "01",
+				"vrRubr": 1234
+			}]
+		}]
+	}
+}
