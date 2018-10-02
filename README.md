@@ -300,6 +300,8 @@ de eventos especificados pelo eSocial-GOV.
 | S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.4.02 | Feito       |
 | S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.4.02 | Feito       |
 
+| S-3000 | Exclusão de eventos                                                   | 2.4.02 | Feito       |
+
 ### Como contribuir?
 
 Leia nosso [guia de contribuição em andamento](CONTRIBUTING.md).

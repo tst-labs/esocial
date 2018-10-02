@@ -227,4 +227,12 @@ public class GeradorXmlFactoryTest {
 		assertThat(gerador).isInstanceOf(GeradorXmlFechamentoPeriodicos.class);
 	}
 
+	@Test
+	public void deveRetornarGeradorXmlExclusao() throws GeracaoXmlException {
+		Evento evento = new Evento();
+		evento.setTipoEvento(new TipoEvento(3000l));
+		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
+		assertThat(gerador).isInstanceOf(GeradorXmlExclusao.class);
+	}
+
 }

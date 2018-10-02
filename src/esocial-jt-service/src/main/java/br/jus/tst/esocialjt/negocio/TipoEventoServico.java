@@ -61,6 +61,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.SOLICITACAO_TOTAL_PAGAMENTO, 1295);
 		map.put(TipoOcorrencia.REABERTURA_PERIODICOS, 1298);
 		map.put(TipoOcorrencia.FECHAMENTO_PERIODICOS, 1299);
+		map.put(TipoOcorrencia.EXCLUSAO, 3000);
 
 		return map;
 	}

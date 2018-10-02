@@ -10,6 +10,7 @@ import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
 import br.jus.tst.esocial.ocorrencia.dados.CdBenPrRP;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
+import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
 import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
@@ -59,7 +60,8 @@ public enum TipoOcorrencia {
 	PAGAMENTOS(Pgtos.class),
 	SOLICITACAO_TOTAL_PAGAMENTO(TotConting.class),
 	REABERTURA_PERIODICOS(ReabreEvPer.class),
-	FECHAMENTO_PERIODICOS(FechaEvPer.class);
+	FECHAMENTO_PERIODICOS(FechaEvPer.class),
+	EXCLUSAO(Exclusao.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 
