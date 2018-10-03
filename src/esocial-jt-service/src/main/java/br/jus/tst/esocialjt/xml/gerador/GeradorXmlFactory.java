@@ -93,6 +93,9 @@ public class GeradorXmlFactory {
 	@Autowired
 	private GeradorXmlFechamentoPeriodicos geradorXmlFechamentoPeriodicos;
 
+	@Autowired
+	private GeradorXmlExclusao geradorXmlExclusao;
+
 	private Map<TipoEvento, GeradorXml> geradores;
 
 	public GeradorXml getGerador(Evento evento) throws GeracaoXmlException {
@@ -133,6 +136,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S1295, geradorXmlSolicitacaoTotalPagamento);
 			geradores.put(TipoEvento.S1298, geradorXmlReaberturaPeriodicos);
 			geradores.put(TipoEvento.S1299, geradorXmlFechamentoPeriodicos);
+			geradores.put(TipoEvento.S3000, geradorXmlExclusao);
 		}
 		return geradores;
 	}

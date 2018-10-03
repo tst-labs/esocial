@@ -312,6 +312,16 @@ public class RegrasFactoryTest{
 				RegraNaoHaPagamentoEmFila.class
 				);
 	}
+	
+	@Test
+	public void deveProverRegraExclusao() {
+		Regra regra = getRegra(TipoEvento.S3000);
+		assertThat(regra).isInstanceOf(RegraExclusao.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+				);
+	}
 
 	private Regra getRegra(TipoEvento tipo) {
 		return regrasFactory.getRegra(new EventoDTO().setCodTipoEvento(tipo.getCodTipo()));

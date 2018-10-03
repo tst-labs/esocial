@@ -49,6 +49,8 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S1295 = new TipoEvento(1295l);
 	public static final TipoEvento S1298 = new TipoEvento(1298l);	
 	public static final TipoEvento S1299 = new TipoEvento(1299l);	
+
+	public static final TipoEvento S3000 = new TipoEvento(3000l);	
 	
 	public static final TipoEvento INFORMACOES_EMPREGADOR = S1000;
 	public static final TipoEvento TABELA_ESTABELECIMENTO = S1005; 
@@ -77,6 +79,8 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento SOLICITACAO_TOTAL_PAGAMENTO = S1295;
 	public static final TipoEvento REABERTURA_PERIODICOS = S1298;
 	public static final TipoEvento FECHAMENTO_PERIODICOS = S1299;
+
+	public static final TipoEvento EXCLUSAO = S3000;
 
 	@Id
 	@Basic(optional = false)
