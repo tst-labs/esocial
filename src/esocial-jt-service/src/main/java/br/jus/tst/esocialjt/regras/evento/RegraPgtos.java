@@ -22,17 +22,17 @@ public class RegraPgtos extends Regra {
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
 	@Autowired
-	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	private RegraNaoHaEventoNaoPeriodicoEmFila naoHaEventoNaoPeriodicoEmFila; 
 	
 	@Autowired
-	private RegraNaoHaRemuneracaoEmFila regraNaoHaRemuneracaoEmFila; 
+	private RegraNaoHaRemuneracaoEmFila naoHaRemuneracaoEmFila; 
 	
 	@Override
 	public List<Regra> regras(){
 		return Arrays.asList(
 				empregadorCadastrado, 
 				naoHaEventoTabelaEmFila, 
-				regraNaoHaEventoNaoPeriodicoEmFila,
-				regraNaoHaRemuneracaoEmFila);
+				naoHaEventoNaoPeriodicoEmFila,
+				naoHaRemuneracaoEmFila);
 	}
 }

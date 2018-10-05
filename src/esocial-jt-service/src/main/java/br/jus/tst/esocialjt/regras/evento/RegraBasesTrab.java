@@ -10,13 +10,10 @@ import br.jus.tst.esocialjt.regras.Regra;
 import br.jus.tst.esocialjt.regras.RegraEmpregadorCadastrado;
 import br.jus.tst.esocialjt.regras.RegraNaoHaEventoNaoPeriodicoEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaFechamentoFolhaEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaPagamentoEmFila;
 import br.jus.tst.esocialjt.regras.RegraNaoHaRemuneracaoEmFila;
 
 @Component
-public class RegraSolicitacaoTotalPagamento extends Regra {
-	
+public class RegraBasesTrab extends Regra {
 	
 	@Autowired
 	private RegraEmpregadorCadastrado empregadorCadastrado;
@@ -30,20 +27,12 @@ public class RegraSolicitacaoTotalPagamento extends Regra {
 	@Autowired
 	private RegraNaoHaRemuneracaoEmFila naoHaRemuneracaoEmFila; 
 	
-	@Autowired
-	private RegraNaoHaPagamentoEmFila naoHaPagamentoEmFila; 
-
-	@Autowired
-	private RegraNaoHaFechamentoFolhaEmFila naoHaFechamentoFolhaEmFila; 
-	
 	@Override
 	public List<Regra> regras(){
 		return Arrays.asList(
 				empregadorCadastrado, 
 				naoHaEventoTabelaEmFila, 
 				naoHaEventoNaoPeriodicoEmFila,
-				naoHaRemuneracaoEmFila,
-				naoHaPagamentoEmFila,
-				naoHaFechamentoFolhaEmFila);
+				naoHaRemuneracaoEmFila);
 	}
 }

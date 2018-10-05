@@ -23,10 +23,10 @@ public class RegraFechamentoPeriodicos extends Regra {
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
 	@Autowired
-	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	private RegraNaoHaEventoNaoPeriodicoEmFila naoHaEventoNaoPeriodicoEmFila; 
 	
 	@Autowired
-	private RegraNaoHaRemuneracaoEmFila regraNaoHaRemuneracaoEmFila; 
+	private RegraNaoHaRemuneracaoEmFila naoHaRemuneracaoEmFila; 
 
 	@Autowired
 	private RegraNaoHaPagamentoEmFila regraNaoHaPagamentoEmFila; 
@@ -36,8 +36,8 @@ public class RegraFechamentoPeriodicos extends Regra {
 		return Arrays.asList(
 				empregadorCadastrado, 
 				naoHaEventoTabelaEmFila, 
-				regraNaoHaEventoNaoPeriodicoEmFila,
-				regraNaoHaRemuneracaoEmFila,
+				naoHaEventoNaoPeriodicoEmFila,
+				naoHaRemuneracaoEmFila,
 				regraNaoHaPagamentoEmFila);
 	}
 }

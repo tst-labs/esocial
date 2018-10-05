@@ -312,7 +312,7 @@ de eventos especificados pelo eSocial-GOV.
 | S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.4.02 | Feito        | Processado com sucesso                      |
 | S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.4.02 | Feito        | Evento não reconhecido pelo eSocial-GOV     |
 | S-3000 | Exclusão de eventos                                                   | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.4.02 | **Fazendo**  |                                             |
+| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.4.02 | Feito        |                                             |
 | S-5002 | Imposto de Renda Retido na Fonte                                      | 2.4.02 | **Fazendo**  |                                             |
 | S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.4.02 | **Fazendo**  |                                             |
 | S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.4.02 | **Fazendo**  |                                             |

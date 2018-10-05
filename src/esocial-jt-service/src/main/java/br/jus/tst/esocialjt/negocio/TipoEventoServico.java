@@ -62,6 +62,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.REABERTURA_PERIODICOS, 1298);
 		map.put(TipoOcorrencia.FECHAMENTO_PERIODICOS, 1299);
 		map.put(TipoOcorrencia.EXCLUSAO, 3000);
+		map.put(TipoOcorrencia.BASES_TRAB, 5001);
 
 		return map;
 	}

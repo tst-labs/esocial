@@ -34,6 +34,8 @@ public class IdeEstabLot {
 	
 	@Valid
 	private InfoSimples infoSimples;
+	
+	private List<InfoCategIncid> infoCategIncid;
 
 	public byte getTpInsc() {
 		return tpInsc;
@@ -114,5 +116,14 @@ public class IdeEstabLot {
 	public void setInfoSimples(InfoSimples infoSimples) {
 		this.infoSimples = infoSimples;
 	}
+
+	public List<InfoCategIncid> getInfoCategIncid() {
+		return infoCategIncid;
+	}
+
+	public void setInfoCategIncid(List<InfoCategIncid> infoCategIncid) {
+		this.infoCategIncid = infoCategIncid;
+	}
+
 	
 }
