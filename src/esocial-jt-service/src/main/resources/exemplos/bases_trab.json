@@ -1,0 +1,40 @@
+{
+	"tipoOcorrencia": "BASES_TRAB",
+	"referencia": "12002",
+	"operacao": "INCLUSAO",
+	"dataOcorrencia": 1522181179561,
+	"dadosOcorrencia": {
+		"tipo": ".BasesTrab",
+		"ideEvento":{
+			"nrRecArqBase": "1.2.0000000000197499577",
+			"indApuracao": 1,
+			"perApur": "2018-07"
+		},
+		"ideEmpregador": {
+			"tpInsc": 1,
+			"nrInsc": "00509968000148"
+		},
+		"ideTrabalhador": {
+			"cpfTrab": "72568274077",
+			"procJudTrab": null,
+			"infoInterm": {
+				"qtdDiasInterm": null
+			}
+		},
+		"infoCpCalc": null,
+		"infoCp": {
+			"ideEstabLot": [{
+				"tpInsc": 1,
+				"nrInsc": "00509968000148",
+				"codLotacao": "TST12345",
+				"infoCategIncid": [{
+					"matricula": "12002",
+					"codCateg": 301,
+					"indSimples": null,
+					"infoBaseCS": null,
+					"calcTerc": null
+				}]	
+			}]
+		}
+	} 
+}

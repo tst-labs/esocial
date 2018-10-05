@@ -25,25 +25,25 @@ public class RegraSolicitacaoTotalPagamento extends Regra {
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
 	@Autowired
-	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	private RegraNaoHaEventoNaoPeriodicoEmFila naoHaEventoNaoPeriodicoEmFila; 
 	
 	@Autowired
-	private RegraNaoHaRemuneracaoEmFila regraNaoHaRemuneracaoEmFila; 
+	private RegraNaoHaRemuneracaoEmFila naoHaRemuneracaoEmFila; 
 	
 	@Autowired
-	private RegraNaoHaPagamentoEmFila regraNaoHaPagamentoEmFila; 
+	private RegraNaoHaPagamentoEmFila naoHaPagamentoEmFila; 
 
 	@Autowired
-	private RegraNaoHaFechamentoFolhaEmFila regraNaoHaFechamentoFolhaEmFila; 
+	private RegraNaoHaFechamentoFolhaEmFila naoHaFechamentoFolhaEmFila; 
 	
 	@Override
 	public List<Regra> regras(){
 		return Arrays.asList(
 				empregadorCadastrado, 
 				naoHaEventoTabelaEmFila, 
-				regraNaoHaEventoNaoPeriodicoEmFila,
-				regraNaoHaRemuneracaoEmFila,
-				regraNaoHaPagamentoEmFila,
-				regraNaoHaFechamentoFolhaEmFila);
+				naoHaEventoNaoPeriodicoEmFila,
+				naoHaRemuneracaoEmFila,
+				naoHaPagamentoEmFila,
+				naoHaFechamentoFolhaEmFila);
 	}
 }

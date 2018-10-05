@@ -21,13 +21,13 @@ public class RegraBeneficioRPPS extends Regra {
 	private RegraNaoHaEventoTabelaEmFila naoHaEventoTabelaEmFila;
 	
 	@Autowired
-	private RegraNaoHaEventoNaoPeriodicoEmFila regraNaoHaEventoNaoPeriodicoEmFila; 
+	private RegraNaoHaEventoNaoPeriodicoEmFila naoHaEventoNaoPeriodicoEmFila; 
 	
 	@Override
 	public List<Regra> regras(){
 		return Arrays.asList(
 				empregadorCadastrado, 
 				naoHaEventoTabelaEmFila, 
-				regraNaoHaEventoNaoPeriodicoEmFila);
+				naoHaEventoNaoPeriodicoEmFila);
 	}
 }

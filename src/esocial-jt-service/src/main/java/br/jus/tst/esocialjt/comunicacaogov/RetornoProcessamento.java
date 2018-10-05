@@ -48,6 +48,10 @@ public class RetornoProcessamento {
 		retornoEvento.setDescricaoRespostaProcessamento(descricaoRespostaProcessamento);
 		retornoEvento.setIdEvento(idEvento);
 		retornoEvento.setXmlRetorno(eventoString);
+		
+		if(evento.getRetornoEvento().getRecibo()!=null) {
+			retornoEvento.setNrRecibo(evento.getRetornoEvento().getRecibo().getNrRecibo());
+		}
 
 		if (evento.getRetornoEvento().getProcessamento().getOcorrencias() != null) {
 			List<Ocorrencia> ocorrencia = evento.getRetornoEvento().getProcessamento().getOcorrencias().getOcorrencia();

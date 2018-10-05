@@ -6,6 +6,7 @@ import br.jus.tst.esocial.ocorrencia.dados.Admissao;
 import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
+import br.jus.tst.esocial.ocorrencia.dados.BasesTrab;
 import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
 import br.jus.tst.esocial.ocorrencia.dados.CdBenPrRP;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
@@ -61,7 +62,8 @@ public enum TipoOcorrencia {
 	SOLICITACAO_TOTAL_PAGAMENTO(TotConting.class),
 	REABERTURA_PERIODICOS(ReabreEvPer.class),
 	FECHAMENTO_PERIODICOS(FechaEvPer.class),
-	EXCLUSAO(Exclusao.class);
+	EXCLUSAO(Exclusao.class),
+	BASES_TRAB(BasesTrab.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 

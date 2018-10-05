@@ -3,6 +3,8 @@ package br.jus.tst.esocialjt.evento;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import br.jus.tst.esocialjt.negocio.EnvioServico;
 import br.jus.tst.esocialjt.negocio.EventoServico;
 
 @RestController
+@Transactional
 @RequestMapping("/eventos")
 public class EventoResource {
 
@@ -29,10 +32,10 @@ public class EventoResource {
 
 	@PostMapping( path = "/acoes/enviar", produces = "application/json;charset=UTF-8" ) 
 	public Object enviarTodosEventos(
-			@RequestParam(value = "id", required = false) Long[] id, 
-			@RequestParam(value = "tipo", required = false) List<Long> tipo,
-			@RequestParam(value = "estado", required = false) List<Long> estado, 
-			@RequestParam(value = "grupo", required = false) List<Long> grupo) {
+			@RequestParam(value = "id", required = false, defaultValue = "") Long[] id, 
+			@RequestParam(value = "tipo", required = false, defaultValue = "") List<Long> tipo,
+			@RequestParam(value = "estado", required = false, defaultValue = "") List<Long> estado, 
+			@RequestParam(value = "grupo", required = false, defaultValue = "") List<Long> grupo) {
 
 		List<Evento> eventos = eventoServico.criarConsulta()
 				.comIds(id)
