@@ -329,9 +329,7 @@ public class RegrasFactoryTest{
 		assertThat(regra).isInstanceOf(RegraBasesTrab.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class,
-				RegraNaoHaEventoNaoPeriodicoEmFila.class,
-				RegraNaoHaRemuneracaoEmFila.class
+				RegraNaoHaEventoTabelaEmFila.class
 				);
 	}
 
