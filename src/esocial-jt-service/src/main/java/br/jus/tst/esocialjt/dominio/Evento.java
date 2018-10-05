@@ -60,6 +60,9 @@ public class Evento implements Serializable {
 	
 	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<EnvioEvento> enviosEvento = new LinkedHashSet<>();
+	
+	@Column(name = "TXT_NR_RECIBO")
+	private String nrRecibo;
 
 	public Long getId() {
 		return id;
@@ -118,4 +121,14 @@ public class Evento implements Serializable {
 	public void adicionarEnvioEvento(EnvioEvento envioEvento) {
 		this.enviosEvento.add(envioEvento);
 	}
+
+	public String getNrRecibo() {
+		return nrRecibo;
+	}
+
+	public void setNrRecibo(String nrRecibo) {
+		System.out.println(nrRecibo);
+		this.nrRecibo = nrRecibo;
+	}
+	
 }
