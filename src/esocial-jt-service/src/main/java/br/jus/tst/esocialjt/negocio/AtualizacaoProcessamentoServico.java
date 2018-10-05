@@ -82,6 +82,8 @@ public class AtualizacaoProcessamentoServico {
 					.findFirst()
 					.get();
 				
+				envioEvento.getEvento().setNrRecibo(retornoEvento.getNrRecibo());
+				
 				long codigoRespostaProcessamento = retornoEvento.getCodigoRespostaProcessamento();
 				CodigoResposta codigoResposta = new CodigoResposta(CodigoResposta.RESPOSTA_GOV_EVENTO, codigoRespostaProcessamento,
 						retornoEvento.getDescricaoRespostaProcessamento());
