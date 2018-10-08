@@ -7,6 +7,7 @@ public class RetornoEvento {
 	private String idEvento;
 	private long codigoRespostaProcessamento;
 	private String descricaoRespostaProcessamento;
+	private String nrRecibo;
 	private List<RetornoErroProcessamento> retornoErrosProcessamento = new ArrayList<>();
 	private String xmlRetorno;
 
@@ -49,4 +50,13 @@ public class RetornoEvento {
 	public void setXmlRetorno(String xmlRetorno) {
 		this.xmlRetorno = xmlRetorno;
 	}
+
+	public String getNrRecibo() {
+		return nrRecibo;
+	}
+
+	public void setNrRecibo(String nrRecibo) {
+		this.nrRecibo = nrRecibo;
+	}
+	
 }

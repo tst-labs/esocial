@@ -34,7 +34,8 @@ create table EST_EVENTO (
   	   COD_OCORRENCIA integer not null,
        COD_TIPO integer, 
        COD_ESTADO integer, 
-       TXT_ID_EVENTO varchar(36));
+       TXT_ID_EVENTO varchar(36),
+       TXT_NR_RECIBO varchar(36));
        
 create table EST_GRUPO_TIPO_EVENTO ( 
        COD_GRUPO_TIPO integer not null, 
