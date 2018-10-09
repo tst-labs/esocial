@@ -70,7 +70,7 @@ No Linux, se ao abrir o *Spoon* e no canto superior direito for selecionado *Rep
 
 Dentro do *Spoon*, selecione Tools -> Repository -> Explore.
 Na aba *Browse* temos as *transformations* e *jobs* que são os objetos de ETL do projeto, organizados em subdiretórios.
-Na aba *Connections* temos as conexões **Conn_RH** e **Conn_C7. Entre no modo de edição de uma delas e observe que o JNDI Name é a constante definida no arquivo *kettle.properties*, cujo valor é o nome da conexão informada no arquivo *pentaho/data-integration/simple-jndi/jdbc.properties*, de onde o *Spoon* busca os parâmetros de conexão em tempo de execução.
+Na aba *Connections* temos as conexões **Conn_RH** e **Conn_C7**. Entre no modo de edição de uma delas e observe que o JNDI Name é a constante definida no arquivo *kettle.properties*, cujo valor é o nome da conexão informada no arquivo *pentaho/data-integration/simple-jndi/jdbc.properties*, de onde o *Spoon* busca os parâmetros de conexão em tempo de execução.
 
 Nas transformações, utiliza-se um fluxo de dados que vem do RH e outro que busca as informações que foram enviadas com sucesso para o eSocial (utilizamos aqui o prefixo C7), e que convergem no *step Merge Rows (diff)*, onde os dados são comparados e onde é decidido pelo Pentaho o que é informação nova, alterada ou excluída *(flagfield)*.
 
