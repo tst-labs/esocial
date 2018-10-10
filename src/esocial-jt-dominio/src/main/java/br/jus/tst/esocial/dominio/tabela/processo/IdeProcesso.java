@@ -21,7 +21,6 @@ public class IdeProcesso {
 	@CheckDate(dateFormat = "YYYY-MM")
 	private String iniValid;
 
-	@NotNull
 	@CheckDate(dateFormat = "YYYY-MM")
 	private String fimValid;
 
