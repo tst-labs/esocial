@@ -8,7 +8,7 @@ façam o mesmo.
 
 Para contribuir com o eSocial-JT, antes de mais nada deve-se iniciar uma discussão com o time do TST (donos desse repositório) sobre a alteração ou melhoria que você deseja ver no projeto via [issue](https://github.com/tst-labs/esocial/issues).
 
-Essa discussão deverá seguir seu curso até que o time do TST aceite a que a alteração/melhoria discutida deva ser incorporada ao projeto, nos termos acertado na discussão da _issue_.
+Essa discussão deverá seguir seu curso até que o time do TST aceite que a alteração/melhoria discutida deva ser incorporada ao projeto, nos termos acertados na discussão da _issue_.
 
 > Neste momento, a _issue_ já deverá ter sido movida para o quadro do projeto, para a coluna _**To do**_.
 
@@ -16,15 +16,15 @@ Em seguida, você (o proponente da alteração/melhoria) deverá trabalhar em um
 
 * Com testes suficientes para validar as regras/lógica introduzidas;
 * Sem falhar os testes existentes;
-* Documentada.
+* Documentada, na própria _issue_ ou com alguma entrada no _Readme_.
 
 > Neste momento, a _issue_ deverá se encontrar na coluna _**In progress**_ no quadro do projeto.
 
 Após enviar a _branch_ sendo trabalhada ao repositório (_push_), você deverá abrir um _pull request_. Isso deixará a alteração/melhoria em estado de revisão.
 
-> Neste momento, a _issue_ deverá se encontrar na coluna _**In progress**_ no quadro do projeto.
+> Neste momento, a _issue_ deverá se encontrar na coluna _**Review**_ no quadro do projeto.
 
-Lembrando que o revisão de revisão poderá implicar em alguns ciclos de correção/adaptação até que a _branch_ possam ser aceita e incorporada (_merged_).
+Lembrando que a revisão poderá implicar em alguns ciclos de correção/adaptação até que a _branch_ possa ser aceita e incorporada (_merged_).
 
 > Finalmente, a _issue_ se encontrará na coluna _**Done**_ no quadro do projeto.
 
