@@ -1,13 +1,17 @@
 package br.jus.tst.esocialjt.xml.gerador;
 
+import java.beans.Statement;
 import java.io.StringWriter;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocialjt.Constantes;
@@ -22,13 +26,21 @@ import br.jus.tst.esocialjt.xml.ValidadorXml;
 public abstract class GeradorXml {
 	
 	@Value("${esocialjt.ambiente}")
-	private TipoAmbiente ambiente;
+	private TipoAmbiente AMBIENTE;
+	
+	@Value("${esocialjt.aplicativoEmpregador:1}")
+	private byte APLICATIVO_DO_EMPREGADOR;
+
+	@Autowired
+	private BuildProperties buildProperties;
 	
 	@Autowired
 	private AssinadorXml assinadorXml;
 	
 	@Autowired
 	private ValidadorXml validadorXml;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(GeradorXml.class);
 	
 	public String gerarXml(Evento evento) throws GeracaoXmlException {
 		Object objetoEsocial = criarObjetoESocial(evento);
@@ -54,8 +66,15 @@ public abstract class GeradorXml {
 		return Constantes.VERSAO_ESQUEMAS_ESOCIAL;
 	}
 	
-	public TipoAmbiente getAmbiente() {
-		return ambiente;
+	protected <T extends Object> T preencherConstantes(T ideEvento) {
+		try {
+			new Statement(ideEvento, "setTpAmb", new Object[]{AMBIENTE.codigo()}).execute();
+			new Statement(ideEvento, "setProcEmi", new Object[]{APLICATIVO_DO_EMPREGADOR}).execute();
+			new Statement(ideEvento, "setVerProc", new Object[]{buildProperties.getVersion()}).execute();
+		} catch (Exception e) {
+			LOGGER.debug(e.getMessage(), e);	
+		}
+		return ideEvento;
 	}
 
 	public abstract Object criarObjetoESocial(Evento evento) throws GeracaoXmlException;

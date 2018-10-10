@@ -10,6 +10,9 @@ import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
 import br.jus.tst.esocial.dominio.vinculo.Vinculo;
 
 public class Admissao extends DadosOcorrencia {
+	
+	@Valid
+	private IdeEvento ideEvento;
 
 	@Valid
 	@NotNull
@@ -35,6 +38,14 @@ public class Admissao extends DadosOcorrencia {
 	public Admissao setVinculo(Vinculo vinculo) {
 		this.vinculo = vinculo;
 		return this;
+	}
+	
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
 	}
 
 	@Override

@@ -11,6 +11,9 @@ import br.jus.tst.esocial.dominio.afasttemp.InfoAfastamento;
 public class AfastTemp extends DadosOcorrencia {
 	
 	@Valid
+	private IdeEvento ideEvento;
+	
+	@Valid
 	private IdeVinculo ideVinculo;
 	
 	@Valid
@@ -30,6 +33,14 @@ public class AfastTemp extends DadosOcorrencia {
 
 	public void setInfoAfastamento(InfoAfastamento infoAfastamento) {
 		this.infoAfastamento = infoAfastamento;
+	}
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
 	}
 
 	@Override

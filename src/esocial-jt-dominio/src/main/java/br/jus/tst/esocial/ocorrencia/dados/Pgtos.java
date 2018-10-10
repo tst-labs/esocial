@@ -3,21 +3,20 @@ package br.jus.tst.esocial.ocorrencia.dados;
 import javax.validation.Valid;
 
 import br.jus.tst.esocial.dominio.pagamento.IdeBenef;
-import br.jus.tst.esocial.dominio.pagamento.IdeEvento;
 
 public class Pgtos extends DadosOcorrencia {
 
 	@Valid
-	private IdeEvento ideEvento;
+	private IdeEventoPagto ideEvento;
 	
 	@Valid
 	private IdeBenef ideBenef;
 	
-	public IdeEvento getIdeEvento() {
+	public IdeEventoPagto getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEvento ideEvento) {
+	public void setIdeEvento(IdeEventoPagto ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 

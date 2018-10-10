@@ -4,9 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.reintegr.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.reintegr.ESocial.EvtReintegr;
-import br.jus.tst.esocial.esquemas.eventos.reintegr.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.ReintegrMapper;
@@ -23,21 +21,12 @@ public class GeradorXmlReintegr extends GeradorXml {
 		
 		EvtReintegr evtReintegr = ReintegrMapper.INSTANCE.comoEvtReintegr((Reintegr) ocorrencia.getDadosOcorrencia());
 		evtReintegr.setId(evento.getIdEvento());
-		evtReintegr.setIdeEvento(gerarIdeEvento());
+		preencherConstantes(evtReintegr.getIdeEvento());
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtReintegr(evtReintegr);
 
 		return eSocial;
-	}
-
-	private TIdeEveTrab gerarIdeEvento() {
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		ideEvento.setIndRetif((byte) 1);
-		return ideEvento;
 	}
 
 	@Override

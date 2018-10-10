@@ -9,6 +9,9 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 
 public class AltContratual extends DadosOcorrencia {
+	
+	@Valid
+	private IdeEvento ideEvento;
 
 	@Valid
 	@NotNull
@@ -32,6 +35,14 @@ public class AltContratual extends DadosOcorrencia {
 
 	public br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.AltContratual getAltContratual() {
 		return altContratual;
+	}
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
+import javax.validation.Valid;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -7,9 +9,14 @@ import br.jus.tst.esocial.dominio.beneficiario.IdeBenef;
 import br.jus.tst.esocial.dominio.beneficio.cadastro.InfoBeneficio;
 
 public class CdBenPrRP extends DadosOcorrencia {
+	
+	@Valid
+	private IdeEvento ideEvento;
 
+	@Valid
 	private IdeBenef ideBenef;
 	
+	@Valid
 	private InfoBeneficio infoBeneficio;
 
 	public IdeBenef getIdeBenef() {
@@ -27,7 +34,14 @@ public class CdBenPrRP extends DadosOcorrencia {
 	public void setInfoBeneficio(InfoBeneficio infoBeneficio) {
 		this.infoBeneficio = infoBeneficio;
 	}
-		
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
+	}
 
 	@Override
 	public boolean equals(final Object other) {

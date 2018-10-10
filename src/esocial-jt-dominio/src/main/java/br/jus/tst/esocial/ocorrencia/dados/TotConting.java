@@ -6,22 +6,21 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.pagamento.IdeEvento;
 import br.jus.tst.esocial.dominio.pagamento.IdeRespInf;
 
 public class TotConting extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private IdeEvento ideEvento;
+	private IdeEventoPagto ideEvento;
 	
 	public IdeRespInf ideRespInf;
 	
-	public IdeEvento getIdeEvento() {
+	public IdeEventoPagto getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEvento ideEvento) {
+	public void setIdeEvento(IdeEventoPagto ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 

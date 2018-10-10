@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.cdbenprrp.ESocial.EvtCdBenPrRP;
@@ -13,6 +14,10 @@ public class CadastroBeneficioRPPSMapperTest {
 	public void deveMapearEvento() {
 		CdBenPrRP cdBenPrRP = CriadorObjetoAleatorio.criarEPreencher(CdBenPrRP.class);
 		EvtCdBenPrRP evtCdBenPrRP =CdBenPrRPMapper.INSTANCE.comoEvtCdBenPrRP(cdBenPrRP);
+		
+		Assertions
+			.assertThat(evtCdBenPrRP.getIdeEvento())
+			.isEqualToIgnoringGivenFields(cdBenPrRP.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtCdBenPrRP.getIdeEmpregador())
@@ -25,5 +30,13 @@ public class CadastroBeneficioRPPSMapperTest {
 		 MapperAssertion
 		 	.assertThat(evtCdBenPrRP.getInfoBeneficio())
 		 	.isEqualToComparingFieldByFieldRecursively(cdBenPrRP.getInfoBeneficio());
+	}
+	
+	@Test
+	public void deveSerPadraoSeNaoHaRetificacao() {
+		CdBenPrRP cdBenPrRP = CriadorObjetoAleatorio.criarEPreencher(CdBenPrRP.class);
+		cdBenPrRP.setIdeEvento(null);
+		EvtCdBenPrRP evtCdBenPrRP =CdBenPrRPMapper.INSTANCE.comoEvtCdBenPrRP(cdBenPrRP);
+		Assertions.assertThat(evtCdBenPrRP.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
 	}
 }

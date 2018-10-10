@@ -3,10 +3,9 @@ package br.jus.tst.esocialjt.xml.gerador;
 import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabcargo.ESocial;
-import br.jus.tst.esocial.esquemas.eventos.tabcargo.TIdeCadastro;
 import br.jus.tst.esocial.esquemas.eventos.tabcargo.ESocial.EvtTabCargo;
+import br.jus.tst.esocial.esquemas.eventos.tabcargo.TIdeCadastro;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaCargo;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.TabelaCargoMapper;
@@ -24,7 +23,7 @@ public class GeradorXmlTabelaCargo extends GeradorXml {
 
 		EvtTabCargo evtTabCargo = converterTabCargo(ocorrencia);
 		evtTabCargo.setId(evento.getIdEvento());
-		evtTabCargo.setIdeEvento(gerarIdeEvento());
+		evtTabCargo.setIdeEvento(preencherConstantes(new TIdeCadastro()));
 		eSocial.setEvtTabCargo(evtTabCargo);
 
 		return eSocial;
@@ -51,14 +50,6 @@ public class GeradorXmlTabelaCargo extends GeradorXml {
 		}
 
 		return evtTabCargo;
-	}
-
-	private TIdeCadastro gerarIdeEvento() {
-		TIdeCadastro ideEvento = new TIdeCadastro();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
 	}
 
 	@Override

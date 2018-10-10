@@ -11,13 +11,12 @@ import br.jus.tst.esocial.esquemas.eventos.afasttemp.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
 public abstract class AfastTempMapper {
 
 	public static final AfastTempMapper INSTANCE = Mappers.getMapper(AfastTempMapper.class);
 
 	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "ideEvento", ignore = true)
 	public abstract EvtAfastTemp comoEvtAfastTemp(AfastTemp afastTemp);
 
 	@AfterMapping

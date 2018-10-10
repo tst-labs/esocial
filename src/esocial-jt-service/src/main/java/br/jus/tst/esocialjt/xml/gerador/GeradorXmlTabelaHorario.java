@@ -6,7 +6,6 @@ import br.jus.tst.esocial.esquemas.eventos.tabhortur.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tabhortur.ESocial.EvtTabHorTur;
 import br.jus.tst.esocial.esquemas.eventos.tabhortur.TIdeCadastro;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaHorario;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.TabelaHorarioMapper;
@@ -24,7 +23,7 @@ public class GeradorXmlTabelaHorario extends GeradorXml {
 
         EvtTabHorTur evtTabHorTur = converterTabFuncao(ocorrencia);
         evtTabHorTur.setId(evento.getIdEvento());
-        evtTabHorTur.setIdeEvento(gerarIdeEvento());
+        evtTabHorTur.setIdeEvento(preencherConstantes(new TIdeCadastro()));
         eSocial.setEvtTabHorTur(evtTabHorTur);
 
         return eSocial;
@@ -53,14 +52,6 @@ public class GeradorXmlTabelaHorario extends GeradorXml {
 
         return evtTabHorTur; 
     }
-
-	private TIdeCadastro gerarIdeEvento() {
-		TIdeCadastro ideEvento = new TIdeCadastro();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
-	}
 
 	@Override
 	public String getArquivoXSD() {

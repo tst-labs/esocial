@@ -12,13 +12,12 @@ import br.jus.tst.esocial.esquemas.eventos.reabreevper.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.ReabreEvPer;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
 public abstract class ReabreEvPerMapper {
 
 	public static final ReabreEvPerMapper INSTANCE = Mappers.getMapper(ReabreEvPerMapper.class);
  
 	@Mapping(target = "id", ignore = true) 
-	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtReabreEvPer comoEvtReabreEvPer(ReabreEvPer reabreEvPer);
  
 	@AfterMapping

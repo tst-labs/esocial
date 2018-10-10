@@ -12,6 +12,9 @@ import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador
 public class AltCadastral extends DadosOcorrencia {
 	
 	@Valid
+	private IdeEvento ideEvento;
+	
+	@Valid
 	@NotNull
 	private IdeTrabalhador ideTrabalhador;
 
@@ -37,6 +40,14 @@ public class AltCadastral extends DadosOcorrencia {
 		return this;
 	}
 	
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (!(other instanceof AltContratual)) {

@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.fechaevper.ESocial.EvtFechaEvPer;
@@ -13,6 +14,10 @@ public class FechaEvPerMapperTest {
 	public void deveMapearEvento() {
 		FechaEvPer fechaEvPer = CriadorObjetoAleatorio.criarEPreencher(FechaEvPer.class);
 		EvtFechaEvPer evtFechaEvPer = FechaEvPerMapper.INSTANCE.comoEvtFechaEvPer(fechaEvPer);
+		
+		Assertions
+			.assertThat(evtFechaEvPer.getIdeEvento())
+			.isEqualToIgnoringGivenFields(fechaEvPer.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 			 .assertThat(evtFechaEvPer.getIdeEmpregador())
@@ -26,4 +31,5 @@ public class FechaEvPerMapperTest {
 		 	.assertThat(evtFechaEvPer.getInfoFech())
 		 	.isEqualToComparingFieldByFieldRecursively(fechaEvPer.getInfoFech());
 	}
+	
 }

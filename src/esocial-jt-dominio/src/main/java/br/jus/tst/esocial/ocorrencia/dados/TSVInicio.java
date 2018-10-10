@@ -11,6 +11,9 @@ import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
 public class TSVInicio extends DadosOcorrencia {
 	
 	@Valid
+	private IdeEvento ideEvento;
+	
+	@Valid
 	private Trabalhador trabalhador;
 	
 	@Valid
@@ -32,6 +35,14 @@ public class TSVInicio extends DadosOcorrencia {
 	public TSVInicio setInfoTSVInicio(InfoTSVInicio informacoesTSV) {
 		this.infoTSVInicio = informacoesTSV;
 		return this;
+	}
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
 	}
 
 	@Override

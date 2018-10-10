@@ -6,7 +6,6 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.pagamento.IdeEvento;
 import br.jus.tst.esocial.dominio.pagamento.IdeRespInf;
 import br.jus.tst.esocial.dominio.pagamento.InfoFech;
 
@@ -14,17 +13,17 @@ public class FechaEvPer extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private IdeEvento ideEvento;
+	private IdeEventoPagto ideEvento;
 	
 	public IdeRespInf ideRespInf;
 	
 	public InfoFech infoFech;
 
-	public IdeEvento getIdeEvento() {
+	public IdeEventoPagto getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEvento ideEvento) {
+	public void setIdeEvento(IdeEventoPagto ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 

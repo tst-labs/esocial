@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.totconting.ESocial.EvtTotConting;
@@ -13,6 +14,10 @@ public class TotContingMapperTest {
 	public void deveMapearEvento() {
 		TotConting totConting = CriadorObjetoAleatorio.criarEPreencher(TotConting.class);
 		EvtTotConting evtTotConting = TotContingMapper.INSTANCE.comoEvtTotConting(totConting);
+		
+		Assertions
+			.assertThat(evtTotConting.getIdeEvento())
+			.isEqualToIgnoringGivenFields(totConting.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 			 .assertThat(evtTotConting.getIdeEmpregador())
@@ -23,4 +28,5 @@ public class TotContingMapperTest {
 		 	.isEqualToComparingFieldByFieldRecursively(totConting.getIdeRespInf());
 
 	}
+	
 }

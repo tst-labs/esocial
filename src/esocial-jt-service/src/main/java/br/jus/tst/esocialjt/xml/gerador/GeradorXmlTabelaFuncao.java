@@ -3,10 +3,9 @@ package br.jus.tst.esocialjt.xml.gerador;
 import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabfuncao.ESocial;
-import br.jus.tst.esocial.esquemas.eventos.tabfuncao.TIdeCadastro;
 import br.jus.tst.esocial.esquemas.eventos.tabfuncao.ESocial.EvtTabFuncao;
+import br.jus.tst.esocial.esquemas.eventos.tabfuncao.TIdeCadastro;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaFuncao;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.TabelaFuncaoMapper;
@@ -24,7 +23,7 @@ public class GeradorXmlTabelaFuncao extends GeradorXml {
 
         EvtTabFuncao evtTabFuncao = converterTabFuncao(ocorrencia);
         evtTabFuncao.setId(evento.getIdEvento());
-        evtTabFuncao.setIdeEvento(gerarIdeEvento());
+        evtTabFuncao.setIdeEvento(preencherConstantes(new TIdeCadastro()));
         eSocial.setEvtTabFuncao(evtTabFuncao);
 
         return eSocial;
@@ -53,14 +52,6 @@ public class GeradorXmlTabelaFuncao extends GeradorXml {
 
         return evtTabFuncao; 
     }
-
-	private TIdeCadastro gerarIdeEvento() {
-		TIdeCadastro ideEvento = new TIdeCadastro();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
-	}
 
 	@Override
 	public String getArquivoXSD() {

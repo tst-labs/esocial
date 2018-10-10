@@ -12,6 +12,9 @@ import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 public class Deslig extends DadosOcorrencia {
 	
 	@Valid
+	private IdeEvento ideEvento;
+	
+	@Valid
 	@NotNull
     private IdeVinculo ideVinculo;
 	
@@ -33,6 +36,14 @@ public class Deslig extends DadosOcorrencia {
 
 	public void setInfoDeslig(InfoDeslig infoDeslig) {
 		this.infoDeslig = infoDeslig;
+	}
+
+	public IdeEvento getIdeEvento() {
+		return ideEvento;
+	}
+
+	public void setIdeEvento(IdeEvento ideEvento) {
+		this.ideEvento = ideEvento;
 	}
 
 	@Override

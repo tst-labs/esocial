@@ -4,9 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.admissao.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.admissao.ESocial.EvtAdmissao;
-import br.jus.tst.esocial.esquemas.eventos.admissao.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.Admissao;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.AdmissaoMapper;
@@ -23,21 +21,12 @@ public class GeradorXmlAdmissao extends GeradorXml {
 		
 		EvtAdmissao evtAdmissao = AdmissaoMapper.INSTANCE.comoEvtAdmissao((Admissao) ocorrencia.getDadosOcorrencia());
 		evtAdmissao.setId(evento.getIdEvento());
-		evtAdmissao.setIdeEvento(gerarIdeEvento());
+		preencherConstantes(evtAdmissao.getIdeEvento());
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtAdmissao(evtAdmissao);
 
 		return eSocial;
-	}
-
-	private TIdeEveTrab gerarIdeEvento() {
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		ideEvento.setIndRetif((byte) 1);
-		return ideEvento;
 	}
 
 	@Override

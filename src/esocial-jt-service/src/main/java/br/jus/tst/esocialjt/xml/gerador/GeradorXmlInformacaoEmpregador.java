@@ -3,10 +3,9 @@ package br.jus.tst.esocialjt.xml.gerador;
 import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial;
-import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeCadastro;
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial.EvtInfoEmpregador;
+import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeCadastro;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.EmpregadorMapper;
@@ -24,7 +23,7 @@ public class GeradorXmlInformacaoEmpregador extends GeradorXml {
 		
 		EvtInfoEmpregador evtInfoEmpregador = converterInfoEmpregador(ocorrencia);
 		evtInfoEmpregador.setId(evento.getIdEvento());
-		evtInfoEmpregador.setIdeEvento(gerarIdeEvento());
+		evtInfoEmpregador.setIdeEvento(preencherConstantes(new TIdeCadastro()));
 		eSocial.setEvtInfoEmpregador(evtInfoEmpregador);
 
 		return eSocial;
@@ -53,14 +52,6 @@ public class GeradorXmlInformacaoEmpregador extends GeradorXml {
 		}
 
 		return evtInfoEmpregador;
-	}
-
-	private TIdeCadastro gerarIdeEvento() {
-		TIdeCadastro ideEvento = new TIdeCadastro();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
 	}
 
 	@Override

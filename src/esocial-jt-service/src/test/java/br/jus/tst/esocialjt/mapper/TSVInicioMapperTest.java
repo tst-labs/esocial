@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.tsvinicio.ESocial.EvtTSVInicio;
@@ -12,8 +13,11 @@ public class TSVInicioMapperTest {
 	@Test
 	public void deveMapearEvento(){
 		TSVInicio tsvInicio = CriadorObjetoAleatorio.criarEPreencher(TSVInicio.class);
-		
 		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicio(tsvInicio);
+		
+		Assertions
+			.assertThat(evtTSVInicio.getIdeEvento())
+			.isEqualToIgnoringGivenFields(tsvInicio.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		MapperAssertion
 			.assertThat(evtTSVInicio.getIdeEmpregador())
@@ -26,5 +30,13 @@ public class TSVInicioMapperTest {
 		MapperAssertion
 			.assertThat(evtTSVInicio.getInfoTSVInicio())
 			.isEqualToComparingFieldByFieldRecursively(tsvInicio.getInfoTSVInicio());
+	}
+	
+	@Test
+	public void deveSerPadraoSeNaoHaRetificacao() {
+		TSVInicio tsvInicio = CriadorObjetoAleatorio.criarEPreencher(TSVInicio.class);
+		tsvInicio.setIdeEvento(null);
+		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicio(tsvInicio);
+		Assertions.assertThat(evtTSVInicio.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
 	}
 }

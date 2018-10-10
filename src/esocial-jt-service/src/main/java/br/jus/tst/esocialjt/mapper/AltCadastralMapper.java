@@ -12,15 +12,14 @@ import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 import br.jus.tst.esocialjt.util.LimpadorNulosConfig;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
 public abstract class AltCadastralMapper {
 
     public static final AltCadastralMapper INSTANCE = Mappers.getMapper(AltCadastralMapper.class);
 
 	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtAltCadastral comoEvtAltCadastral(AltCadastral altCadastral);
-
+	
 	@AfterMapping
 	protected void limparNulos(AltCadastral altCadastral, @MappingTarget ESocial.EvtAltCadastral evtAltCadastral) {
 		LimpadorNulosConfig config = new LimpadorNulosConfig();

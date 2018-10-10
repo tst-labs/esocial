@@ -127,8 +127,6 @@ public class Evento implements Serializable {
 	}
 
 	public void setNrRecibo(String nrRecibo) {
-		System.out.println(nrRecibo);
 		this.nrRecibo = nrRecibo;
 	}
-	
 }

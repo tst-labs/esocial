@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
+import br.jus.tst.esocial.ocorrencia.dados.IdeEvento;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -29,6 +31,18 @@ public class GeradorXmlAltCadastralTest {
 		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtAltCadastral");
+		assertThat(xml).contains("<indRetif>1</indRetif>");
+	}
+
+	@Test
+	public void deveGerarXmlAltCadastralRetificacao() throws Exception {
+		Evento evento = getEvento();
+		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
+		AltCadastral ocorrencia = (AltCadastral) evento.getOcorrencia().getDadosOcorrencia();
+		ocorrencia.setIdeEvento(new IdeEvento().setIndRetif((byte)2).setNrRecibo("1.2.0000000000007498277"));
+		String xml = gerador.gerarXml(evento);
+		assertThat(xml).contains("evtAltCadastral");
+		assertThat(xml).contains("<indRetif>2</indRetif>");
 	}
 	
 	private Evento getEvento() throws Exception {
