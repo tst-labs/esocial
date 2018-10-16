@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.remun.ESocial.EvtRemun;
@@ -13,6 +14,10 @@ public class RemunMapperTest {
 	public void deveMapearEvento() {
 		Remun remun = CriadorObjetoAleatorio.criarEPreencher(Remun.class);
 		EvtRemun evtRemun = RemunMapper.INSTANCE.comoEvtRemun(remun);
+		
+		Assertions
+			.assertThat(evtRemun.getIdeEvento())
+			.isEqualToIgnoringGivenFields(remun.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtRemun.getIdeEmpregador())
@@ -26,4 +31,5 @@ public class RemunMapperTest {
 		 	.assertThat(evtRemun.getDmDev())
 		 	.isEqualToComparingFieldByFieldRecursively(remun.getDmDev());
 	}
+	
 }

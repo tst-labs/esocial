@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
+import javax.validation.Valid;
+
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,8 +10,10 @@ import br.jus.tst.esocial.dominio.semvinculo.alteracaocontratual.InfoTSVAlteraca
 
 public class TSVAltContr extends DadosOcorrencia {
 
+	@Valid
 	private IdeTrabSemVinculo ideTrabSemVinculo;
 	
+	@Valid
 	private InfoTSVAlteracao infoTSVAlteracao;
 
 	public IdeTrabSemVinculo getIdeTrabSemVinculo() {
@@ -29,7 +33,7 @@ public class TSVAltContr extends DadosOcorrencia {
 		this.infoTSVAlteracao = infoTSVAlteracao;
 		return this;
 	}
-	
+
 	@Override
 	public boolean equals(final Object other) {
 		throw new NotImplementedException("Metodo nao implementado");

@@ -12,13 +12,12 @@ import br.jus.tst.esocial.esquemas.eventos.totconting.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.TotConting;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
 public abstract class TotContingMapper {
 
 	public static final TotContingMapper INSTANCE = Mappers.getMapper(TotContingMapper.class);
  
-	@Mapping(target = "id", ignore = true) 
-	@Mapping(target = "ideEvento", ignore = true)
+	@Mapping(target = "id", ignore = true)
 	public abstract ESocial.EvtTotConting comoEvtTotConting(TotConting totConting);
  
 	@AfterMapping

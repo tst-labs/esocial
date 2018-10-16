@@ -20,7 +20,7 @@ public abstract class AltContratualMapper {
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtAltContratual comoEvtAltContratual(AltContratual altContratual);
-
+	
 	@AfterMapping
 	protected void limparNulos(AltContratual altContratual, @MappingTarget ESocial.EvtAltContratual evtAltContratual) {
 		LimpadorNulosConfig config = new LimpadorNulosConfig();

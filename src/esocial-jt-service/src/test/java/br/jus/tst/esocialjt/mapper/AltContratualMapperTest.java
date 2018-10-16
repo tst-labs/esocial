@@ -14,15 +14,15 @@ public class AltContratualMapperTest {
 		AltContratual altContratual = CriadorObjetoAleatorio.criarEPreencher(AltContratual.class);
 		EvtAltContratual evtAltContratual = AltContratualMapper.INSTANCE.comoEvtAltContratual(altContratual);
 
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltContratual.getIdeEmpregador())
 		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeEmpregador());
 		
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltContratual.getIdeVinculo())
 		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeVinculo());
 		
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltContratual.getAltContratual())
 		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getAltContratual());
 	}

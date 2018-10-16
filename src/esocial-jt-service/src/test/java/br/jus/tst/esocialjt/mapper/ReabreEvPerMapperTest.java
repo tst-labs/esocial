@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.reabreevper.ESocial.EvtReabreEvPer;
@@ -13,10 +14,14 @@ public class ReabreEvPerMapperTest {
 	public void deveMapearEvento() {
 		ReabreEvPer reabreEvPer = CriadorObjetoAleatorio.criarEPreencher(ReabreEvPer.class);
 		EvtReabreEvPer evtReabreEvPer = ReabreEvPerMapper.INSTANCE.comoEvtReabreEvPer(reabreEvPer);
+		
+		Assertions
+			.assertThat(evtReabreEvPer.getIdeEvento())
+			.isEqualToIgnoringGivenFields(reabreEvPer.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
-		 MapperAssertion
-			 .assertThat(evtReabreEvPer.getIdeEmpregador())
-			 .isEqualToComparingFieldByFieldRecursively(reabreEvPer.getIdeEmpregador());
+		MapperAssertion
+			.assertThat(evtReabreEvPer.getIdeEmpregador())
+			.isEqualToComparingFieldByFieldRecursively(reabreEvPer.getIdeEmpregador());
 
 	}
 }

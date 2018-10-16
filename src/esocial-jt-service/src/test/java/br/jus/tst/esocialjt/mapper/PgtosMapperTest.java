@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.pgtos.ESocial.EvtPgtos;
@@ -13,6 +14,10 @@ public class PgtosMapperTest {
 	public void deveMapearEvento() {
 		Pgtos pgtos = CriadorObjetoAleatorio.criarEPreencher(Pgtos.class);
 		EvtPgtos evtPgtos = PgtosMapper.INSTANCE.comoEvtPgtos(pgtos);
+		
+		Assertions
+			.assertThat(evtPgtos.getIdeEvento())
+			.isEqualToIgnoringGivenFields(pgtos.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtPgtos.getIdeEmpregador())
@@ -23,4 +28,5 @@ public class PgtosMapperTest {
 		 	.isEqualToComparingFieldByFieldRecursively(pgtos.getIdeBenef());
 		
 	}
+	
 }

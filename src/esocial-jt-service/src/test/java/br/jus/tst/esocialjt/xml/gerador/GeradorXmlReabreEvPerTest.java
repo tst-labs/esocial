@@ -26,7 +26,7 @@ public class GeradorXmlReabreEvPerTest {
 	@Test
 	public void deveGerarXmlReaberturaPeriodicos() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtReabreEvPer");
 	}

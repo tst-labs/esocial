@@ -71,6 +71,9 @@ public class Ocorrencia implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Operacao operacao;
 
+	@Column(name = "TXT_RETIFICAR_RECIBO")
+	private String retificarRecibo;
+
 	@Column(name = "DTA_OCORRENCIA")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataOcorrencia;
@@ -126,6 +129,15 @@ public class Ocorrencia implements Serializable {
 
 	public Ocorrencia setOperacao(Operacao operacao) {
 		this.operacao = operacao;
+		return this;
+	}
+
+	public String getRetificarRecibo() {
+		return retificarRecibo;
+	}
+
+	public Ocorrencia setRetificarRecibo(String retificarRecibo) {
+		this.retificarRecibo = retificarRecibo;
 		return this;
 	}
 

@@ -14,15 +14,15 @@ public class AltCadastralMapperTest {
 		AltCadastral altCadastral = CriadorObjetoAleatorio.criarEPreencher(AltCadastral.class);
 		EvtAltCadastral evtAltCadastral = AltCadastralMapper.INSTANCE.comoEvtAltCadastral(altCadastral);
 
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltCadastral.getIdeEmpregador())
 		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getIdeEmpregador());
 		
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltCadastral.getIdeTrabalhador())
 		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getIdeTrabalhador());
 		
-		 MapperAssertion
+		MapperAssertion
 		 	.assertThat(evtAltCadastral.getAlteracao())
 		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getAlteracao());
 	}

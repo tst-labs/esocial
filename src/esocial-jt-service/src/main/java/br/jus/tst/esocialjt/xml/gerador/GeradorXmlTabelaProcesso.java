@@ -3,10 +3,9 @@ package br.jus.tst.esocialjt.xml.gerador;
 import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabprocesso.ESocial;
-import br.jus.tst.esocial.esquemas.eventos.tabprocesso.TIdeCadastro;
 import br.jus.tst.esocial.esquemas.eventos.tabprocesso.ESocial.EvtTabProcesso;
+import br.jus.tst.esocial.esquemas.eventos.tabprocesso.TIdeCadastro;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaProcesso;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.TabelaProcessoMapper;
@@ -24,7 +23,7 @@ public class GeradorXmlTabelaProcesso extends GeradorXml {
 
 		EvtTabProcesso evtTabProcesso = converteTabProcesso(ocorrencia);
 		evtTabProcesso.setId(evento.getIdEvento());
-		evtTabProcesso.setIdeEvento(gerarIdeEvento());
+		evtTabProcesso.setIdeEvento(preencherConstantes(new TIdeCadastro()));
 		eSocial.setEvtTabProcesso(evtTabProcesso);
 
 		return eSocial;
@@ -53,14 +52,6 @@ public class GeradorXmlTabelaProcesso extends GeradorXml {
 		}
 
 		return evtTabProcesso;
-	}
-
-	private TIdeCadastro gerarIdeEvento() {
-		TIdeCadastro ideEvento = new TIdeCadastro();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
 	}
 
 	@Override

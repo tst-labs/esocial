@@ -26,9 +26,21 @@ public class GeradorXmlPgtosTest {
 	@Test
 	public void deveGerarXmlPgtos() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtPgtos");
+		assertThat(xml).contains("<indRetif>1</indRetif>");
+	}
+
+	@Test
+	public void deveGerarXmlPgtosRetificacao() throws Exception {
+		Evento evento = getEvento();
+		evento.getOcorrencia()
+			.setOperacao(Operacao.RETIFICACAO)
+			.setRetificarRecibo("1.2.0000000000007498277");
+		String xml = gerador.gerarXml(evento);
+		assertThat(xml).contains("evtPgtos");
+		assertThat(xml).contains("<indRetif>2</indRetif>");
 	}
 	
 	private Evento getEvento() throws Exception {

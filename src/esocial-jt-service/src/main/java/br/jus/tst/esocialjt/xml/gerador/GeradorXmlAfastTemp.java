@@ -6,7 +6,6 @@ import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial.EvtAfastTemp;
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.AfastTempMapper;
@@ -23,21 +22,15 @@ public class GeradorXmlAfastTemp extends GeradorXml {
 		
 		EvtAfastTemp evtAfastTemp = AfastTempMapper.INSTANCE.comoEvtAfastTemp((AfastTemp) ocorrencia.getDadosOcorrencia());
 		evtAfastTemp.setId(evento.getIdEvento());
-		evtAfastTemp.setIdeEvento(gerarIdeEvento());
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtAfastTemp.setIdeEvento(ideEvento);
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtAfastTemp(evtAfastTemp);
 
 		return eSocial;
-	}
-
-	private TIdeEveTrab gerarIdeEvento() {
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		ideEvento.setIndRetif((byte) 1);
-		return ideEvento;
 	}
 
 	@Override

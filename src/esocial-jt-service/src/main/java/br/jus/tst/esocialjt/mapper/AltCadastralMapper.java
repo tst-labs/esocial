@@ -20,7 +20,7 @@ public abstract class AltCadastralMapper {
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtAltCadastral comoEvtAltCadastral(AltCadastral altCadastral);
-
+	
 	@AfterMapping
 	protected void limparNulos(AltCadastral altCadastral, @MappingTarget ESocial.EvtAltCadastral evtAltCadastral) {
 		LimpadorNulosConfig config = new LimpadorNulosConfig();

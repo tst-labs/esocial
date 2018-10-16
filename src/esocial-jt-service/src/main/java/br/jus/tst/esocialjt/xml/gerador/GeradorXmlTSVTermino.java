@@ -6,7 +6,6 @@ import br.jus.tst.esocial.esquemas.eventos.tsvtermino.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tsvtermino.ESocial.EvtTSVTermino;
 import br.jus.tst.esocial.esquemas.eventos.tsvtermino.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.TSVTerminoMapper;
@@ -23,21 +22,16 @@ public class GeradorXmlTSVTermino extends GeradorXml {
 		
 		EvtTSVTermino evtTSVTermino = TSVTerminoMapper.INSTANCE.comoEvtTSVTermino((TSVTermino) ocorrencia.getDadosOcorrencia());
 		evtTSVTermino.setId(evento.getIdEvento());
-		evtTSVTermino.setIdeEvento(gerarIdeEvento());
+		
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtTSVTermino.setIdeEvento(ideEvento);
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtTSVTermino(evtTSVTermino);
 
 		return eSocial;
-	}
-
-	private TIdeEveTrab gerarIdeEvento() {
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		ideEvento.setIndRetif((byte) 1);
-		return ideEvento;
 	}
 
 	@Override

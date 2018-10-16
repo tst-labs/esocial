@@ -26,9 +26,21 @@ public class GeradorXmlAltContratualTest {
 	@Test
 	public void deveGerarXmlAltContratual() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtAltContratual");
+		assertThat(xml).contains("<indRetif>1</indRetif>");
+	}
+
+	@Test
+	public void deveGerarXmlAltContratualRetificacao() throws Exception {
+		Evento evento = getEvento();
+		evento.getOcorrencia()
+			.setOperacao(Operacao.RETIFICACAO)
+			.setRetificarRecibo("1.2.0000000000007498277");
+		String xml = gerador.gerarXml(evento);
+		assertThat(xml).contains("evtAltContratual");
+		assertThat(xml).contains("<indRetif>2</indRetif>");
 	}
 	
 	private Evento getEvento() throws Exception {

@@ -12,7 +12,6 @@ public class TSVInicioMapperTest {
 	@Test
 	public void deveMapearEvento(){
 		TSVInicio tsvInicio = CriadorObjetoAleatorio.criarEPreencher(TSVInicio.class);
-		
 		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicio(tsvInicio);
 
 		MapperAssertion
@@ -27,4 +26,5 @@ public class TSVInicioMapperTest {
 			.assertThat(evtTSVInicio.getInfoTSVInicio())
 			.isEqualToComparingFieldByFieldRecursively(tsvInicio.getInfoTSVInicio());
 	}
+	
 }

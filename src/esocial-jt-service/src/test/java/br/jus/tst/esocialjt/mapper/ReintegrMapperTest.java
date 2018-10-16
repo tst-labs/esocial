@@ -26,4 +26,5 @@ public class ReintegrMapperTest {
 		 	.assertThat(evtReintegr.getInfoReintegr())
 		 	.isEqualToComparingFieldByFieldRecursively(reintegr.getInfoReintegr());
 	}
+	
 }

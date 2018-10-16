@@ -1,7 +1,7 @@
 {
 	"tipoOcorrencia": "ADMISSAO_TRABALHADOR",
 	"referencia": "12002",
-	"operacao": "INCLUSAO",
+	"operacao": "NORMAL",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
 		"tipo": ".Admissao",

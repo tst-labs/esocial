@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial.EvtExclusao;
+import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial.EvtExclusao.IdeEvento;
 import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.ExclusaoMapper;
@@ -22,20 +22,12 @@ public class GeradorXmlExclusao extends GeradorXml {
 		
 		EvtExclusao evtExclusao = ExclusaoMapper.INSTANCE.comoEvtExclusao((Exclusao) ocorrencia.getDadosOcorrencia());
 		evtExclusao.setId(evento.getIdEvento());
-		evtExclusao.setIdeEvento(gerarIdeEvento());
+		evtExclusao.setIdeEvento(preencherConstantes(new IdeEvento()));
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtExclusao(evtExclusao);
 
 		return eSocial;
-	}
-
-	private EvtExclusao.IdeEvento gerarIdeEvento() {
-		EvtExclusao.IdeEvento ideEvento = new EvtExclusao.IdeEvento();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		return ideEvento;
 	}
 
 	@Override

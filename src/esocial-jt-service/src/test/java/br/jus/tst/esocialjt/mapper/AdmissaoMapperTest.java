@@ -26,4 +26,5 @@ public class AdmissaoMapperTest {
 			.assertThat(evtAdmissao.getVinculo())
 			.isEqualToComparingFieldByFieldRecursively(admissao.getVinculo());
 	}
+	
 }

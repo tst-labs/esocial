@@ -19,7 +19,7 @@ public abstract class ReintegrMapper {
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
 	public abstract EvtReintegr comoEvtReintegr(Reintegr reintegr);
-
+	
 	@AfterMapping
 	protected void limparNulos(@MappingTarget EvtReintegr evtReintegr) {
 		LimpadorNulos limpadorNulos = new LimpadorNulos();

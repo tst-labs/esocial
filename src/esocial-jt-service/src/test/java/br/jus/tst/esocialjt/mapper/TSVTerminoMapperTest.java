@@ -12,7 +12,6 @@ public class TSVTerminoMapperTest {
 	@Test
 	public void deveMapearEvento(){
 		TSVTermino tsvTermino = CriadorObjetoAleatorio.criarEPreencher(TSVTermino.class);
-		
 		EvtTSVTermino evtTSVTermino = TSVTerminoMapper.INSTANCE.comoEvtTSVTermino(tsvTermino);
 		
 		MapperAssertion

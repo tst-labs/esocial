@@ -4,9 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.pgtos.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.pgtos.ESocial.EvtPgtos;
-import br.jus.tst.esocial.esquemas.eventos.pgtos.TIdeEveFopagMensal;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.PgtosMapper;
@@ -24,24 +22,13 @@ public class GeradorXmlPgtos extends GeradorXml {
 		Pgtos dados = (Pgtos) ocorrencia.getDadosOcorrencia();
 		EvtPgtos evtPgtos = PgtosMapper.INSTANCE.comoEvtPgtos(dados);
 		evtPgtos.setId(evento.getIdEvento());
-		evtPgtos.setIdeEvento(gerarIdeEvento(dados));
-
+		preencherConstantes(evtPgtos.getIdeEvento());
+		preencherDadosRetificacao(evtPgtos.getIdeEvento(), evento.getOcorrencia());
+		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtPgtos(evtPgtos);
 
 		return eSocial;
-	}
-
-	private TIdeEveFopagMensal gerarIdeEvento(Pgtos dados) {
-		TIdeEveFopagMensal ideEvento = new TIdeEveFopagMensal();
-		ideEvento.setTpAmb(getAmbiente().codigo());
-		ideEvento.setProcEmi(Constantes.APLICATIVO_DO_EMPREGADOR);
-		ideEvento.setVerProc(Constantes.VERSAO_APLICATIVO);
-		ideEvento.setIndRetif((byte) 1);
-		ideEvento.setIndApuracao(dados.getIdeEvento().getIndApuracao());
-		ideEvento.setPerApur(dados.getIdeEvento().getPerApur());
-		return ideEvento;
-		
 	}
 	
 	@Override

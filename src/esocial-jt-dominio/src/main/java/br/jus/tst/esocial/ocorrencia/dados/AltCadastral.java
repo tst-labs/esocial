@@ -36,7 +36,7 @@ public class AltCadastral extends DadosOcorrencia {
 		this.alteracao = alteracao;
 		return this;
 	}
-	
+
 	@Override
 	public boolean equals(Object other) {
 		if (!(other instanceof AltContratual)) {

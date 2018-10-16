@@ -20,7 +20,7 @@ public abstract class CdBenPrRPMapper {
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtCdBenPrRP comoEvtCdBenPrRP(CdBenPrRP cdBenPrRP);
-
+	
 	@AfterMapping
 	protected void limparNulos(CdBenPrRP cdBenPrRP, @MappingTarget ESocial.EvtCdBenPrRP evtCdBenPrRP) {
 		LimpadorNulosConfig config = new LimpadorNulosConfig();

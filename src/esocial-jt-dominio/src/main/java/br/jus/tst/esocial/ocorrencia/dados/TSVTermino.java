@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
+import javax.validation.Valid;
+
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
@@ -8,8 +10,10 @@ import br.jus.tst.esocial.dominio.semvinculo.termino.InfoTSVTermino;
 
 public class TSVTermino extends DadosOcorrencia {
 	
+	@Valid
 	private IdeTrabSemVinculo ideTrabSemVinculo;
 	
+	@Valid
 	private InfoTSVTermino infoTSVTermino;
 	
 	public IdeTrabSemVinculo getIdeTrabSemVinculo() {

@@ -12,7 +12,6 @@ public class TSVAltContrMapperTest {
 	@Test
 	public void deveMapearEvento(){
 		TSVAltContr tsvAltContr = CriadorObjetoAleatorio.criarEPreencher(TSVAltContr.class);
-		
 		EvtTSVAltContr evtTSVAltContr = TSVAltContrMapper.INSTANCE.comoEvtTSVAltContr(tsvAltContr);
 
 		MapperAssertion
@@ -27,4 +26,5 @@ public class TSVAltContrMapperTest {
 			.assertThat(evtTSVAltContr.getInfoTSVAlteracao())
 			.isEqualToComparingFieldByFieldRecursively(tsvAltContr.getInfoTSVAlteracao());
 	}
+	
 }

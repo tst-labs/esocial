@@ -10,7 +10,7 @@ import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
 import br.jus.tst.esocial.dominio.vinculo.Vinculo;
 
 public class Admissao extends DadosOcorrencia {
-
+	
 	@Valid
 	@NotNull
 	private Trabalhador trabalhador;
@@ -36,7 +36,7 @@ public class Admissao extends DadosOcorrencia {
 		this.vinculo = vinculo;
 		return this;
 	}
-
+	
 	@Override
 	public boolean equals(final Object other) {
 		if (!(other instanceof Admissao)) {

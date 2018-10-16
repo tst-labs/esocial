@@ -1,8 +1,9 @@
 {
 	"tipoOcorrencia": "ADMISSAO_TRABALHADOR",
 	"referencia": "12000",
-	"operacao": "NORMAL",
+	"operacao": "RETIFICACAO",
 	"dataOcorrencia": 1522181179561,
+	"retificarRecibo":"1.2.0000000000234160664",
 	"dadosOcorrencia": {
 		"tipo": ".Admissao",
 		"ideEmpregador": {
@@ -22,7 +23,7 @@
 			"nascimento": {
 				"dtNascto": 453524400000,
 				"codMunic": 5300108,
-				"uf": "DF",
+				"uf": "GO",
 				"paisNascto": "105",
 				"paisNac": "105",
 				"nmMae": "PADME AMIDALA",

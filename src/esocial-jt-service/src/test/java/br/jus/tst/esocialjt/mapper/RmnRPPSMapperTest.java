@@ -1,5 +1,6 @@
 package br.jus.tst.esocialjt.mapper;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.rmnrpps.ESocial.EvtRmnRPPS;
@@ -13,6 +14,10 @@ public class RmnRPPSMapperTest {
 	public void deveMapearEvento() {
 		RmnRPPS rmnRPPS = CriadorObjetoAleatorio.criarEPreencher(RmnRPPS.class);
 		EvtRmnRPPS evtRmnRPPS = RmnRPPSMapper.INSTANCE.comoEvtRmnRPPS(rmnRPPS);
+		
+		Assertions
+			.assertThat(evtRmnRPPS.getIdeEvento())
+			.isEqualToIgnoringGivenFields(rmnRPPS.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtRmnRPPS.getIdeEmpregador())
