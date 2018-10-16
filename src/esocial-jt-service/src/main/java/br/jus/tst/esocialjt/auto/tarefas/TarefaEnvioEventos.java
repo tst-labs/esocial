@@ -10,9 +10,9 @@ import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.EnvioEvento;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
@@ -35,6 +35,9 @@ public class TarefaEnvioEventos implements Tarefa {
 	
 	@Autowired
 	private RegrasFactory regrasFactory;
+	
+	@Value("${esocialjt.limite-eventos-por-lote: 50}")
+	private Long LIMITE_EVENTOS_LOTE;
 	
 	@Override
 	public boolean executar() {
@@ -59,7 +62,7 @@ public class TarefaEnvioEventos implements Tarefa {
 		
 		List<EventoDTO> eventosHabilitados = eventosEmFila.stream()
 			.filter(evento -> regrasFactory.getRegra(evento).habilitado(evento))
-			.limit(Constantes.LIMITE_EVENTOS_LOTE)
+			.limit(LIMITE_EVENTOS_LOTE)
 			.collect(Collectors.toList());
 		
 		Long[] ids = eventosHabilitados

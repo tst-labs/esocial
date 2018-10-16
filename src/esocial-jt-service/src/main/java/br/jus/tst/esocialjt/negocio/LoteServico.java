@@ -6,10 +6,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.EnvioEvento;
 import br.jus.tst.esocialjt.dominio.Lote;
 
@@ -23,7 +23,8 @@ public class LoteServico {
 	@Autowired
 	private EstadoServico estadoServico;
 
-	private final long LIMITE_EVENTOS_LOTE = Constantes.LIMITE_EVENTOS_LOTE;
+	@Value("${esocialjt.limite-eventos-por-lote: 50}")
+	private Long LIMITE_EVENTOS_LOTE;
 
 	
 	public Lote atualiza(Lote lote) {
