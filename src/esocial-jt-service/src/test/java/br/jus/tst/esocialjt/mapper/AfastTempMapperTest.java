@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.mapper;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial.EvtAfastTemp;
@@ -14,10 +13,6 @@ public class AfastTempMapperTest {
 	public void deveMapearEvento() {
 		AfastTemp afastTemp = CriadorObjetoAleatorio.criarEPreencher(AfastTemp.class);
 		EvtAfastTemp evtAfastTemp =AfastTempMapper.INSTANCE.comoEvtAfastTemp(afastTemp);
-		
-		Assertions
-			.assertThat(evtAfastTemp.getIdeEvento())
-			.isEqualToIgnoringGivenFields(afastTemp.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtAfastTemp.getIdeEmpregador())
@@ -30,13 +25,5 @@ public class AfastTempMapperTest {
 		 MapperAssertion
 		 	.assertThat(evtAfastTemp.getInfoAfastamento())
 		 	.isEqualToComparingFieldByFieldRecursively(afastTemp.getInfoAfastamento());
-	}
-	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		AfastTemp afastTemp = CriadorObjetoAleatorio.criarEPreencher(AfastTemp.class);
-		afastTemp.setIdeEvento(null);
-		EvtAfastTemp evtAfastTemp =AfastTempMapper.INSTANCE.comoEvtAfastTemp(afastTemp);
-		Assertions.assertThat(evtAfastTemp.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
 	}
 }

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.afasttemp.ESocial.EvtAfastTemp;
+import br.jus.tst.esocial.esquemas.eventos.afasttemp.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,7 +22,10 @@ public class GeradorXmlAfastTemp extends GeradorXml {
 		
 		EvtAfastTemp evtAfastTemp = AfastTempMapper.INSTANCE.comoEvtAfastTemp((AfastTemp) ocorrencia.getDadosOcorrencia());
 		evtAfastTemp.setId(evento.getIdEvento());
-		preencherConstantes(evtAfastTemp.getIdeEvento());
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtAfastTemp.setIdeEvento(ideEvento);
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtAfastTemp(evtAfastTemp);

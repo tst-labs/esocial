@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tsvtermino.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tsvtermino.ESocial.EvtTSVTermino;
+import br.jus.tst.esocial.esquemas.eventos.tsvtermino.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,7 +22,11 @@ public class GeradorXmlTSVTermino extends GeradorXml {
 		
 		EvtTSVTermino evtTSVTermino = TSVTerminoMapper.INSTANCE.comoEvtTSVTermino((TSVTermino) ocorrencia.getDadosOcorrencia());
 		evtTSVTermino.setId(evento.getIdEvento());
-		preencherConstantes(evtTSVTermino.getIdeEvento());
+		
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtTSVTermino.setIdeEvento(ideEvento);
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtTSVTermino(evtTSVTermino);

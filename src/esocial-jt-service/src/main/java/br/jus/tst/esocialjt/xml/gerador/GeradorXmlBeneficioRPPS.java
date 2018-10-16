@@ -23,6 +23,7 @@ public class GeradorXmlBeneficioRPPS extends GeradorXml {
 		EvtBenPrRP evtBenPrRP = BenPrRPMapper.INSTANCE.comoEvtBenPrRP(dados);
 		evtBenPrRP.setId(evento.getIdEvento());
 		preencherConstantes(evtBenPrRP.getIdeEvento());
+		preencherDadosRetificacao(evtBenPrRP.getIdeEvento(), evento.getOcorrencia());
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtBenPrRP(evtBenPrRP);

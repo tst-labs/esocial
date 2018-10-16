@@ -23,6 +23,7 @@ public class GeradorXmlPgtos extends GeradorXml {
 		EvtPgtos evtPgtos = PgtosMapper.INSTANCE.comoEvtPgtos(dados);
 		evtPgtos.setId(evento.getIdEvento());
 		preencherConstantes(evtPgtos.getIdeEvento());
+		preencherDadosRetificacao(evtPgtos.getIdeEvento(), evento.getOcorrencia());
 		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtPgtos(evtPgtos);

@@ -1,7 +1,7 @@
 {
 	"tipoOcorrencia": "ALTERACAO_CADASTRAL",
 	"referencia": "12000",
-	"operacao": "ALTERACAO",
+	"operacao": "NORMAL",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
 		"tipo": ".AltCadastral",

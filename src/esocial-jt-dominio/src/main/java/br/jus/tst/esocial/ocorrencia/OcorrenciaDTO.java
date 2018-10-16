@@ -12,21 +12,11 @@ public class OcorrenciaDTO {
 
 	private Operacao operacao;
 
+	private String retificarRecibo;
+
 	private Date dataOcorrencia;
 
 	private DadosOcorrencia dadosOcorrencia;
-
-	public OcorrenciaDTO() {
-		super();
-	}
-
-	public OcorrenciaDTO(TipoOcorrencia tipoOcorrencia, Operacao operacao, String identificador,
-			Date dataOcorrencia) {
-		this.tipoOcorrencia = tipoOcorrencia;
-		this.referencia = identificador;
-		this.operacao = operacao;
-		this.dataOcorrencia = dataOcorrencia;
-	}
 
 	public TipoOcorrencia getTipoOcorrencia() {
 		return tipoOcorrencia;
@@ -54,6 +44,15 @@ public class OcorrenciaDTO {
 		this.operacao = operacao;
 		return this;
 	}
+	
+	public String getRetificarRecibo() {
+		return retificarRecibo;
+	}
+
+	public OcorrenciaDTO setRetificarRecibo(String retificarRecibo) {
+		this.retificarRecibo = retificarRecibo;
+		return this;
+	}
 
 	public DadosOcorrencia getDadosOcorrencia() {
 		return dadosOcorrencia;
@@ -72,4 +71,5 @@ public class OcorrenciaDTO {
 		this.dataOcorrencia = dataOcorrencia;
 		return this;
 	}
+
 }

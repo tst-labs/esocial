@@ -17,7 +17,7 @@ public class BeneficioRPPSMapperTest {
 		
 		Assertions
 			.assertThat(evtBenPrRP.getIdeEvento())
-			.isEqualToIgnoringGivenFields(cbenPrRP.getIdeEvento(), "tpAmb", "procEmi", "verProc");
+			.isEqualToIgnoringGivenFields(cbenPrRP.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtBenPrRP.getIdeEmpregador())
@@ -32,11 +32,4 @@ public class BeneficioRPPSMapperTest {
 		 	.isEqualToComparingFieldByFieldRecursively(cbenPrRP.getDmDev());
 	}
 	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		BenPrRP cbenPrRP = CriadorObjetoAleatorio.criarEPreencher(BenPrRP.class);
-		cbenPrRP.setIdeEvento(null);
-		EvtBenPrRP evtBenPrRP =BenPrRPMapper.INSTANCE.comoEvtBenPrRP(cbenPrRP);
-		Assertions.assertThat(evtBenPrRP.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
-	}
 }

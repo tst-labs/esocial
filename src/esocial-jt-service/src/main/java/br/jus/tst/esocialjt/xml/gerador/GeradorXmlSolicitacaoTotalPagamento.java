@@ -23,6 +23,7 @@ public class GeradorXmlSolicitacaoTotalPagamento extends GeradorXml {
 		EvtTotConting evtTotConting = TotContingMapper.INSTANCE.comoEvtTotConting(dados);
 		evtTotConting.setId(evento.getIdEvento());
 		preencherConstantes(evtTotConting.getIdeEvento());
+		preencherDadosRetificacao(evtTotConting.getIdeEvento(), evento.getOcorrencia());
 		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtTotConting(evtTotConting);

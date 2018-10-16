@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.mapper;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.reintegr.ESocial.EvtReintegr;
@@ -14,10 +13,6 @@ public class ReintegrMapperTest {
 	public void deveMapearEvento() {
 		Reintegr reintegr = CriadorObjetoAleatorio.criarEPreencher(Reintegr.class);
 		EvtReintegr evtReintegr =ReintegrMapper.INSTANCE.comoEvtReintegr(reintegr);
-		
-		Assertions
-			.assertThat(evtReintegr.getIdeEvento())
-			.isEqualToIgnoringGivenFields(reintegr.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtReintegr.getIdeEmpregador())
@@ -32,11 +27,4 @@ public class ReintegrMapperTest {
 		 	.isEqualToComparingFieldByFieldRecursively(reintegr.getInfoReintegr());
 	}
 	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		Reintegr reintegr = CriadorObjetoAleatorio.criarEPreencher(Reintegr.class);
-		reintegr.setIdeEvento(null);
-		EvtReintegr evtReintegr =ReintegrMapper.INSTANCE.comoEvtReintegr(reintegr);
-		Assertions.assertThat(evtReintegr.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
-	}
 }

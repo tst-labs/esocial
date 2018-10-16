@@ -17,7 +17,7 @@ public abstract class RmnRPPSMapper {
 
 	public static final RmnRPPSMapper INSTANCE = Mappers.getMapper(RmnRPPSMapper.class);
  
-	@Mapping(target = "id", ignore = true) 
+	@Mapping(target = "id", ignore = true)
 	public abstract ESocial.EvtRmnRPPS comoEvtRmnRPPS(RmnRPPS rmnRPPS); 
 
 	@AfterMapping 

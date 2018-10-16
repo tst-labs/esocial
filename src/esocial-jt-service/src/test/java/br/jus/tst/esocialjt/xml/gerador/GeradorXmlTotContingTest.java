@@ -26,7 +26,7 @@ public class GeradorXmlTotContingTest {
 	@Test
 	public void deveGerarXmlSolicitacaoTotalPagamento() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtTotConting");
 	}

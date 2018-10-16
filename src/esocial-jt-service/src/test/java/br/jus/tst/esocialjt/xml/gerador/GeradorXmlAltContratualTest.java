@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
-import br.jus.tst.esocial.ocorrencia.dados.IdeEvento;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -28,7 +26,7 @@ public class GeradorXmlAltContratualTest {
 	@Test
 	public void deveGerarXmlAltContratual() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtAltContratual");
 		assertThat(xml).contains("<indRetif>1</indRetif>");
@@ -37,9 +35,9 @@ public class GeradorXmlAltContratualTest {
 	@Test
 	public void deveGerarXmlAltContratualRetificacao() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.ALTERACAO);
-		AltContratual ocorrencia = (AltContratual) evento.getOcorrencia().getDadosOcorrencia();
-		ocorrencia.setIdeEvento(new IdeEvento().setIndRetif((byte)2).setNrRecibo("1.2.0000000000007498277"));
+		evento.getOcorrencia()
+			.setOperacao(Operacao.RETIFICACAO)
+			.setRetificarRecibo("1.2.0000000000007498277");
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtAltContratual");
 		assertThat(xml).contains("<indRetif>2</indRetif>");

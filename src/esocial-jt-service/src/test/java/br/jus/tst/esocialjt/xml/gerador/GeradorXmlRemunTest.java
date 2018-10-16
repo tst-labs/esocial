@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -27,7 +26,7 @@ public class GeradorXmlRemunTest {
 	@Test
 	public void deveGerarXmlRemuneracaoRGPS() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtRemun");
 		assertThat(xml).contains("<indRetif>1</indRetif>");
@@ -36,9 +35,9 @@ public class GeradorXmlRemunTest {
 	@Test
 	public void deveGerarXmlRemuneracaoRGPSReintegracao() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
-		Remun ocorrencia = (Remun) evento.getOcorrencia().getDadosOcorrencia();
-		ocorrencia.setIdeEvento(ocorrencia.getIdeEvento().setIndRetif((byte)2).setNrRecibo("1.2.0000000000007498277"));
+		evento.getOcorrencia()
+			.setOperacao(Operacao.RETIFICACAO)
+			.setRetificarRecibo("1.2.0000000000007498277");
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtRemun");
 		assertThat(xml).contains("<indRetif>2</indRetif>");

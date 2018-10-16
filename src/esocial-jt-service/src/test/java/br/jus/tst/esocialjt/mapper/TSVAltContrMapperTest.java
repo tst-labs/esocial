@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.mapper;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.tsvaltcontr.ESocial.EvtTSVAltContr;
@@ -14,10 +13,6 @@ public class TSVAltContrMapperTest {
 	public void deveMapearEvento(){
 		TSVAltContr tsvAltContr = CriadorObjetoAleatorio.criarEPreencher(TSVAltContr.class);
 		EvtTSVAltContr evtTSVAltContr = TSVAltContrMapper.INSTANCE.comoEvtTSVAltContr(tsvAltContr);
-		
-		Assertions
-			.assertThat(evtTSVAltContr.getIdeEvento())
-			.isEqualToIgnoringGivenFields(tsvAltContr.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		MapperAssertion
 			.assertThat(evtTSVAltContr.getIdeEmpregador())
@@ -32,11 +27,4 @@ public class TSVAltContrMapperTest {
 			.isEqualToComparingFieldByFieldRecursively(tsvAltContr.getInfoTSVAlteracao());
 	}
 	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		TSVAltContr tsvAltContr = CriadorObjetoAleatorio.criarEPreencher(TSVAltContr.class);
-		tsvAltContr.setIdeEvento(null);
-		EvtTSVAltContr evtTSVAltContr = TSVAltContrMapper.INSTANCE.comoEvtTSVAltContr(tsvAltContr);
-		Assertions.assertThat(evtTSVAltContr.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
-	}
 }

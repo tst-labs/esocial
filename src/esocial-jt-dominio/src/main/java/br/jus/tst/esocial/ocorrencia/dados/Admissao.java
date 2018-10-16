@@ -12,9 +12,6 @@ import br.jus.tst.esocial.dominio.vinculo.Vinculo;
 public class Admissao extends DadosOcorrencia {
 	
 	@Valid
-	private IdeEvento ideEvento;
-
-	@Valid
 	@NotNull
 	private Trabalhador trabalhador;
 
@@ -40,14 +37,6 @@ public class Admissao extends DadosOcorrencia {
 		return this;
 	}
 	
-	public IdeEvento getIdeEvento() {
-		return ideEvento;
-	}
-
-	public void setIdeEvento(IdeEvento ideEvento) {
-		this.ideEvento = ideEvento;
-	}
-
 	@Override
 	public boolean equals(final Object other) {
 		if (!(other instanceof Admissao)) {

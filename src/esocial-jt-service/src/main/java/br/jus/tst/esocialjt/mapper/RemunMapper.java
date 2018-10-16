@@ -17,7 +17,7 @@ public abstract class RemunMapper {
 
 	public static final RemunMapper INSTANCE = Mappers.getMapper(RemunMapper.class);
  
-	@Mapping(target = "id", ignore = true) 
+	@Mapping(target = "id", ignore = true)
 	public abstract ESocial.EvtRemun comoEvtRemun(Remun remun);
  
 	@AfterMapping 

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tsvaltcontr.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tsvaltcontr.ESocial.EvtTSVAltContr;
+import br.jus.tst.esocial.esquemas.eventos.tsvaltcontr.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.TSVAltContr;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,7 +22,11 @@ public class GeradorXmlTSVAltContr extends GeradorXml {
 		
 		EvtTSVAltContr evtTSVAltContr = TSVAltContrMapper.INSTANCE.comoEvtTSVAltContr((TSVAltContr) ocorrencia.getDadosOcorrencia());
 		evtTSVAltContr.setId(evento.getIdEvento());
-		preencherConstantes(evtTSVAltContr.getIdeEvento());
+		
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtTSVAltContr.setIdeEvento(ideEvento);
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtTSVAltContr(evtTSVAltContr);

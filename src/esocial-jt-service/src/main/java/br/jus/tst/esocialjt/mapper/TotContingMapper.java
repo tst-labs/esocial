@@ -17,7 +17,7 @@ public abstract class TotContingMapper {
 
 	public static final TotContingMapper INSTANCE = Mappers.getMapper(TotContingMapper.class);
  
-	@Mapping(target = "id", ignore = true) 
+	@Mapping(target = "id", ignore = true)
 	public abstract ESocial.EvtTotConting comoEvtTotConting(TotConting totConting);
  
 	@AfterMapping

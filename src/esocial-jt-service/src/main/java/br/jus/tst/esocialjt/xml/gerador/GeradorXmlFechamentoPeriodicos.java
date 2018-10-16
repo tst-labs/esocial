@@ -23,6 +23,7 @@ public class GeradorXmlFechamentoPeriodicos extends GeradorXml {
 		EvtFechaEvPer evtFechaEvPer = FechaEvPerMapper.INSTANCE.comoEvtFechaEvPer(dados);
 		evtFechaEvPer.setId(evento.getIdEvento());
 		preencherConstantes(evtFechaEvPer.getIdeEvento());
+		preencherDadosRetificacao(evtFechaEvPer.getIdeEvento(), evento.getOcorrencia());
 		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtFechaEvPer(evtFechaEvPer);

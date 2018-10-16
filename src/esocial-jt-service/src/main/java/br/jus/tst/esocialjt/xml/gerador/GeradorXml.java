@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.TipoAmbiente;
 import br.jus.tst.esocialjt.dominio.Evento;
+import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 import br.jus.tst.esocialjt.negocio.exception.ValidacaoXMLException;
 import br.jus.tst.esocialjt.xml.AssinadorXml;
@@ -25,6 +26,10 @@ import br.jus.tst.esocialjt.xml.ValidadorXml;
 @Component
 public abstract class GeradorXml {
 	
+	private static final byte IND_RETIFICACAO = (byte) 2;
+
+	private static final byte IND_NORMAL = (byte) 1;
+
 	@Value("${esocialjt.ambiente}")
 	private TipoAmbiente AMBIENTE;
 	
@@ -75,6 +80,37 @@ public abstract class GeradorXml {
 			LOGGER.debug(e.getMessage(), e);	
 		}
 		return ideEvento;
+	}
+	
+	protected <T extends Object> T preencherDadosRetificacao(T ideEvento, Ocorrencia ocorrencia) throws GeracaoXmlException {
+		byte indRetificacao = getIndRetificacao(ocorrencia);
+		
+		try {
+			new Statement(ideEvento, "setIndRetif", new Object[]{indRetificacao}).execute();
+			new Statement(ideEvento, "setNrRecibo", new Object[]{ocorrencia.getRetificarRecibo()}).execute();
+		} catch (Exception e) {
+			LOGGER.debug(e.getMessage(), e);	
+		}
+		return ideEvento;
+	}
+
+	private byte getIndRetificacao(Ocorrencia ocorrencia) throws GeracaoXmlException {
+		byte indRetificacao;
+		
+		switch (ocorrencia.getOperacao()) {
+		case NORMAL:
+			indRetificacao = IND_NORMAL;
+			break;
+
+		case RETIFICACAO:
+			indRetificacao = IND_RETIFICACAO;
+			break;
+
+		default:
+			throw new GeracaoXmlException(ocorrencia.getEvento(),
+					"Operação não suportada: \"" + ocorrencia.getOperacao() + "\". Usar \"NORMAL\" ou \"RETIFICACAO\"");
+		}
+		return indRetificacao;
 	}
 
 	public abstract Object criarObjetoESocial(Evento evento) throws GeracaoXmlException;

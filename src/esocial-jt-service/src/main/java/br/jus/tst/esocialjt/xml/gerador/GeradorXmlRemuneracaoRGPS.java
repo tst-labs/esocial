@@ -22,7 +22,9 @@ public class GeradorXmlRemuneracaoRGPS extends GeradorXml {
 		Remun dados = (Remun) ocorrencia.getDadosOcorrencia();
 		EvtRemun evtRemun = RemunMapper.INSTANCE.comoEvtRemun(dados);
 		evtRemun.setId(evento.getIdEvento());
+		
 		preencherConstantes(evtRemun.getIdeEvento());	
+		preencherDadosRetificacao(evtRemun.getIdeEvento(), evento.getOcorrencia());
 		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtRemun(evtRemun);

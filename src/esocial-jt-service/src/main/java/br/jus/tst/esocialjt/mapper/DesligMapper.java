@@ -11,12 +11,13 @@ import br.jus.tst.esocial.esquemas.eventos.deslig.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class})
 public abstract class DesligMapper {
 
 	public static final DesligMapper INSTANCE = Mappers.getMapper(DesligMapper.class);
 
 	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "ideEvento", ignore = true)
 	public abstract EvtDeslig comoEvtDeslig(Deslig deslig);
 	
 	@AfterMapping

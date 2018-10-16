@@ -1,7 +1,7 @@
 {
 	"tipoOcorrencia": "SOLICITACAO_TOTAL_PAGAMENTO",
 	"referencia": null,
-	"operacao": "INCLUSAO",
+	"operacao": "NORMAL",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
 		"tipo": ".TotConting",

@@ -17,7 +17,7 @@ public class PgtosMapperTest {
 		
 		Assertions
 			.assertThat(evtPgtos.getIdeEvento())
-			.isEqualToIgnoringGivenFields(pgtos.getIdeEvento(), "tpAmb", "procEmi", "verProc");
+			.isEqualToIgnoringGivenFields(pgtos.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtPgtos.getIdeEmpregador())
@@ -29,11 +29,4 @@ public class PgtosMapperTest {
 		
 	}
 	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		Pgtos pgtos = CriadorObjetoAleatorio.criarEPreencher(Pgtos.class);
-		pgtos.setIdeEvento(null);
-		EvtPgtos evtPgtos = PgtosMapper.INSTANCE.comoEvtPgtos(pgtos);
-		Assertions.assertThat(evtPgtos.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
-	}
 }

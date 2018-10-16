@@ -22,7 +22,9 @@ public class GeradorXmlRemuneracaoRPPS extends GeradorXml {
 		RmnRPPS dados = (RmnRPPS) ocorrencia.getDadosOcorrencia();
 		EvtRmnRPPS evtRmnRPPS = RmnRPPSMapper.INSTANCE.comoEvtRmnRPPS(dados);
 		evtRmnRPPS.setId(evento.getIdEvento());
+
 		preencherConstantes(evtRmnRPPS.getIdeEvento());
+		preencherDadosRetificacao(evtRmnRPPS.getIdeEvento(), evento.getOcorrencia());
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtRmnRPPS(evtRmnRPPS);

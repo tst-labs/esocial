@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.mapper;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.altcadastral.ESocial.EvtAltCadastral;
@@ -14,10 +13,6 @@ public class AltCadastralMapperTest {
 	public void deveMapearEvento() {
 		AltCadastral altCadastral = CriadorObjetoAleatorio.criarEPreencher(AltCadastral.class);
 		EvtAltCadastral evtAltCadastral = AltCadastralMapper.INSTANCE.comoEvtAltCadastral(altCadastral);
-		
-		Assertions
-			.assertThat(evtAltCadastral.getIdeEvento())
-			.isEqualToIgnoringGivenFields(altCadastral.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		MapperAssertion
 		 	.assertThat(evtAltCadastral.getIdeEmpregador())
@@ -30,14 +25,5 @@ public class AltCadastralMapperTest {
 		MapperAssertion
 		 	.assertThat(evtAltCadastral.getAlteracao())
 		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getAlteracao());
-	}
-	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		AltCadastral altCadastral = CriadorObjetoAleatorio.criarEPreencher(AltCadastral.class);
-		altCadastral.setIdeEvento(null);
-		EvtAltCadastral evtAltCadastral = AltCadastralMapper.INSTANCE.comoEvtAltCadastral(altCadastral);
-		
-		Assertions.assertThat(evtAltCadastral.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
 	}
 }

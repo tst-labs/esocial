@@ -46,6 +46,7 @@ create table EST_OCORRENCIA (
        TXT_TIPO_OCORRENCIA varchar(30), 
        TXT_REFERENCIA varchar(100), 
        TXT_OPERACAO varchar(15), 
+       TXT_RETIFICAR_RECIBO varchar(100),
        DTA_OCORRENCIA date, 
        DTA_RECEBIMENTO date, 
        TXT_DADOS_OCORRENCIA text);

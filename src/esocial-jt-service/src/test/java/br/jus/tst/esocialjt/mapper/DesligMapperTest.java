@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.mapper;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import br.jus.tst.esocial.esquemas.eventos.deslig.ESocial.EvtDeslig;
@@ -14,10 +13,6 @@ public class DesligMapperTest {
 	public void deveMapearEvento() {
 		Deslig deslig = CriadorObjetoAleatorio.criarEPreencher(Deslig.class);
 		EvtDeslig evtDeslig =DesligMapper.INSTANCE.comoEvtDeslig(deslig);
-		
-		Assertions
-			.assertThat(evtDeslig.getIdeEvento())
-			.isEqualToIgnoringGivenFields(deslig.getIdeEvento(), "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtDeslig.getIdeEmpregador())
@@ -30,13 +25,5 @@ public class DesligMapperTest {
 		 MapperAssertion
 		 	.assertThat(evtDeslig.getInfoDeslig())
 		 	.isEqualToComparingFieldByFieldRecursively(deslig.getInfoDeslig());
-	}
-	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		Deslig deslig = CriadorObjetoAleatorio.criarEPreencher(Deslig.class);
-		deslig.setIdeEvento(null);
-		EvtDeslig evtDeslig =DesligMapper.INSTANCE.comoEvtDeslig(deslig);
-		Assertions.assertThat(evtDeslig.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
 	}
 }

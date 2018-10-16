@@ -26,7 +26,7 @@ public class GeradorXmlExclusaoTest {
 	@Test
 	public void deveGerarXmlExclusao() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtExclusao");
 	}

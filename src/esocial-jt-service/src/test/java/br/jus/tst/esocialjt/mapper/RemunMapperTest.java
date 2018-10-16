@@ -17,7 +17,7 @@ public class RemunMapperTest {
 		
 		Assertions
 			.assertThat(evtRemun.getIdeEvento())
-			.isEqualToIgnoringGivenFields(remun.getIdeEvento(), "tpAmb", "procEmi", "verProc");
+			.isEqualToIgnoringGivenFields(remun.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
 
 		 MapperAssertion
 		 	.assertThat(evtRemun.getIdeEmpregador())
@@ -32,11 +32,4 @@ public class RemunMapperTest {
 		 	.isEqualToComparingFieldByFieldRecursively(remun.getDmDev());
 	}
 	
-	@Test
-	public void deveSerPadraoSeNaoHaRetificacao() {
-		Remun remun = CriadorObjetoAleatorio.criarEPreencher(Remun.class);
-		remun.setIdeEvento(null);
-		EvtRemun evtRemun = RemunMapper.INSTANCE.comoEvtRemun(remun);
-		Assertions.assertThat(evtRemun.getIdeEvento().getIndRetif()).isEqualTo((byte)1);
-	}
 }

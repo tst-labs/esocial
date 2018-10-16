@@ -11,12 +11,13 @@ import br.jus.tst.esocial.esquemas.eventos.tsvtermino.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
+@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
 public abstract class TSVTerminoMapper {
 	
 	public static final TSVTerminoMapper INSTANCE = Mappers.getMapper(TSVTerminoMapper.class);
 
 	@Mapping(target = "id", ignore = true)
+	@Mapping(target = "ideEvento", ignore = true)
 	public abstract ESocial.EvtTSVTermino comoEvtTSVTermino(TSVTermino tsvTermino); 
 
 	@AfterMapping

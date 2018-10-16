@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.cdbenprrp.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.cdbenprrp.ESocial.EvtCdBenPrRP;
+import br.jus.tst.esocial.esquemas.eventos.cdbenprrp.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.CdBenPrRP;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,7 +22,10 @@ public class GeradorXmlCadastroBeneficioRPPS extends GeradorXml {
 		
 		EvtCdBenPrRP evtCdBenPrRP = CdBenPrRPMapper.INSTANCE.comoEvtCdBenPrRP((CdBenPrRP) ocorrencia.getDadosOcorrencia());
 		evtCdBenPrRP.setId(evento.getIdEvento());
-		preencherConstantes(evtCdBenPrRP.getIdeEvento());
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtCdBenPrRP.setIdeEvento(ideEvento);
 		
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtCdBenPrRP(evtCdBenPrRP);

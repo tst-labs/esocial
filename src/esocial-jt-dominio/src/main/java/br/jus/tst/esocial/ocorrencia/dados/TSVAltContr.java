@@ -9,9 +9,6 @@ import br.jus.tst.esocial.dominio.semvinculo.alteracaocontratual.IdeTrabSemVincu
 import br.jus.tst.esocial.dominio.semvinculo.alteracaocontratual.InfoTSVAlteracao;
 
 public class TSVAltContr extends DadosOcorrencia {
-	
-	@Valid
-	private IdeEvento ideEvento;
 
 	@Valid
 	private IdeTrabSemVinculo ideTrabSemVinculo;
@@ -35,14 +32,6 @@ public class TSVAltContr extends DadosOcorrencia {
 	public TSVAltContr setInfoTSVAlteracao(InfoTSVAlteracao infoTSVAlteracao) {
 		this.infoTSVAlteracao = infoTSVAlteracao;
 		return this;
-	}
-	
-	public IdeEvento getIdeEvento() {
-		return ideEvento;
-	}
-
-	public void setIdeEvento(IdeEvento ideEvento) {
-		this.ideEvento = ideEvento;
 	}
 
 	@Override

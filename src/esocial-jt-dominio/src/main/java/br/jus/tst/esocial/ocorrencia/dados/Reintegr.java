@@ -12,9 +12,6 @@ import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 public class Reintegr extends DadosOcorrencia {
 	
 	@Valid
-	private IdeEvento ideEvento;
-	
-	@Valid
 	@NotNull
     private IdeVinculo ideVinculo;
 	
@@ -36,14 +33,6 @@ public class Reintegr extends DadosOcorrencia {
 
 	public void setInfoReintegr(InfoReintegr infoReintegr) {
 		this.infoReintegr = infoReintegr;
-	}
-
-	public IdeEvento getIdeEvento() {
-		return ideEvento;
-	}
-
-	public void setIdeEvento(IdeEvento ideEvento) {
-		this.ideEvento = ideEvento;
 	}
 
 	@Override

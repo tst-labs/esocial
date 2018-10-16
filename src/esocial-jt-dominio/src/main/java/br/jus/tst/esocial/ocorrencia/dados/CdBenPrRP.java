@@ -9,9 +9,6 @@ import br.jus.tst.esocial.dominio.beneficiario.IdeBenef;
 import br.jus.tst.esocial.dominio.beneficio.cadastro.InfoBeneficio;
 
 public class CdBenPrRP extends DadosOcorrencia {
-	
-	@Valid
-	private IdeEvento ideEvento;
 
 	@Valid
 	private IdeBenef ideBenef;
@@ -33,14 +30,6 @@ public class CdBenPrRP extends DadosOcorrencia {
 
 	public void setInfoBeneficio(InfoBeneficio infoBeneficio) {
 		this.infoBeneficio = infoBeneficio;
-	}
-
-	public IdeEvento getIdeEvento() {
-		return ideEvento;
-	}
-
-	public void setIdeEvento(IdeEvento ideEvento) {
-		this.ideEvento = ideEvento;
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public abstract class PgtosMapper {
 
 	public static final PgtosMapper INSTANCE = Mappers.getMapper(PgtosMapper.class);
  
-	@Mapping(target = "id", ignore = true) 
+	@Mapping(target = "id", ignore = true)
 	public abstract ESocial.EvtPgtos comoEvtPgtos(Pgtos pgtos);
 	
 	@AfterMapping 

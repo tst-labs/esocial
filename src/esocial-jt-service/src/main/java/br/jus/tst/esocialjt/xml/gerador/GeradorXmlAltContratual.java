@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.altcontratual.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.altcontratual.ESocial.EvtAltContratual;
+import br.jus.tst.esocial.esquemas.eventos.altcontratual.TIdeEveTrab;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,7 +22,10 @@ public class GeradorXmlAltContratual extends GeradorXml {
 		
 		EvtAltContratual evtAltContratual = AltContratualMapper.INSTANCE.comoEvtAltContratual((AltContratual) ocorrencia.getDadosOcorrencia());
 		evtAltContratual.setId(evento.getIdEvento());
-		preencherConstantes(evtAltContratual.getIdeEvento());
+		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		preencherConstantes(ideEvento);
+		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
+		evtAltContratual.setIdeEvento(ideEvento);
 		
 		ESocial eSocial = new ESocial();
 		eSocial. setEvtAltContratual(evtAltContratual);

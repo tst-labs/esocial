@@ -10,8 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.IdeEvento;
-import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -28,7 +26,7 @@ public class GeradorXmlReintegrTest {
 	@Test
 	public void deveGerarXmlReintegr() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
+		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtReintegr");
 		assertThat(xml).contains("<indRetif>1</indRetif>");
@@ -37,9 +35,9 @@ public class GeradorXmlReintegrTest {
 	@Test
 	public void deveGerarXmlReintegrRetificacao() throws Exception {
 		Evento evento = getEvento();
-		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
-		Reintegr ocorrencia = (Reintegr) evento.getOcorrencia().getDadosOcorrencia();
-		ocorrencia.setIdeEvento(new IdeEvento().setIndRetif((byte)2).setNrRecibo("1.2.0000000000007498277"));
+		evento.getOcorrencia()
+			.setOperacao(Operacao.RETIFICACAO)
+			.setRetificarRecibo("1.2.0000000000007498277");
 		String xml = gerador.gerarXml(evento);
 		assertThat(xml).contains("evtReintegr");
 		assertThat(xml).contains("<indRetif>2</indRetif>");
