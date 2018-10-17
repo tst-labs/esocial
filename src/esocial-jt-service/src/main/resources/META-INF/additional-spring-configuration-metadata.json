@@ -43,5 +43,15 @@
     "name": "esocialjt.periodoAutoMilis",
     "type": "java.lang.Long",
     "description": "Período entre as execuções de envio automático em MILISEGUNDOS ou 0 (zero) para desabilitar."
+  },
+  {
+    "name": "esocialjt.versao-esquemas-esocial",
+    "type": "java.lang.String",
+    "description": "Versão dos esquemas do eSocial-Gov"
+  },
+  {
+    "name": "esocialjt.limite-eventos-por-lote",
+    "type": "java.lang.Long",
+    "description": "Quantidade máxima de eventos por lote"
   }
 ]}

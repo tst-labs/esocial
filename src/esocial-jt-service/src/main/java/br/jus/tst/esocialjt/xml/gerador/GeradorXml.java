@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.info.BuildProperties;
 import org.springframework.stereotype.Component;
 
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.TipoAmbiente;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -35,6 +34,9 @@ public abstract class GeradorXml {
 	
 	@Value("${esocialjt.aplicativoEmpregador:1}")
 	private byte APLICATIVO_DO_EMPREGADOR;
+	
+	@Value("${esocialjt.versao-esquemas-esocial}")
+	private String VERSAO_ESQUEMAS_ESOCIAL;
 
 	@Autowired
 	private BuildProperties buildProperties;
@@ -68,7 +70,7 @@ public abstract class GeradorXml {
 	}
 	
 	public String getVersao() {
-		return Constantes.VERSAO_ESQUEMAS_ESOCIAL;
+		return VERSAO_ESQUEMAS_ESOCIAL;
 	}
 	
 	protected <T extends Object> T preencherConstantes(T ideEvento) {

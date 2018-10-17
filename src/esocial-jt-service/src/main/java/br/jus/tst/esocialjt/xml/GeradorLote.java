@@ -12,6 +12,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
@@ -22,7 +23,6 @@ import br.jus.esocialjt.comunicacao.envio.ESocial.EnvioLoteEventos.Eventos;
 import br.jus.esocialjt.comunicacao.envio.TArquivoEsocial;
 import br.jus.esocialjt.comunicacao.envio.TIdeEmpregador;
 import br.jus.esocialjt.comunicacao.envio.TIdeTransmissor;
-import br.jus.tst.esocialjt.Constantes;
 import br.jus.tst.esocialjt.dominio.EnvioEvento;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
@@ -31,6 +31,9 @@ import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 
 @Component
 public class GeradorLote {
+	
+	@Value("${esocialjt.limite-eventos-por-lote: 50}")
+	private Long LIMITE_EVENTOS_LOTE;
 	
 	public String gerarXmlLote(Lote lote) throws GeracaoXmlException {
 		List<EnvioEvento> enviosEvento = lote.getEnviosEvento();
@@ -54,7 +57,7 @@ public class GeradorLote {
 			throws GeracaoXmlException {
 		if (!this.validarLimitesGeracaolote(xmlsEventos)) {
 			throw new GeracaoXmlException(
-					"Não é possível gerar lotes com mais de " + Constantes.LIMITE_EVENTOS_LOTE + " eventos");
+					"Não é possível gerar lotes com mais de " + LIMITE_EVENTOS_LOTE + " eventos");
 		}
 		try {
 
@@ -72,7 +75,7 @@ public class GeradorLote {
 	}
 
 	private boolean validarLimitesGeracaolote(Collection<String> xmlEventos) {
-		boolean resultado = (xmlEventos != null && xmlEventos.size() <= Constantes.LIMITE_EVENTOS_LOTE);
+		boolean resultado = (xmlEventos != null && xmlEventos.size() <= LIMITE_EVENTOS_LOTE);
 		return resultado;
 	}
 
