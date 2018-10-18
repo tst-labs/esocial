@@ -7,10 +7,10 @@ import { messageTypeShape } from "./MessageType";
 import { childrenDefaultPropType } from "../../../app/components/shared/PropTypesHelper";
 
 export const messageShape = shape({
-  id: oneOfType([string, number]).isRequired,
+  id: oneOfType([string, number]),
   text: string,
-  close: func.isRequired,
-  type: messageTypeShape.isRequired
+  close: func,
+  type: messageTypeShape
 });
 
 export const messagePropTypes = shape({
