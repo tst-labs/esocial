@@ -1,4 +1,4 @@
-import { shape, string, func, arrayOf } from "prop-types";
+import { shape, string, number, func, arrayOf, oneOfType } from "prop-types";
 
 import React, { Component } from "react";
 import uniqid from "uniqid";
@@ -7,7 +7,7 @@ import { messageTypeShape } from "./MessageType";
 import { childrenDefaultPropType } from "../../../app/components/shared/PropTypesHelper";
 
 export const messageShape = shape({
-  id: string.isRequired,
+  id: oneOfType([string, number]).isRequired,
   text: string,
   close: func.isRequired,
   type: messageTypeShape.isRequired

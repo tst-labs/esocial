@@ -1,4 +1,4 @@
-import { arrayOf } from "prop-types";
+import { objectOf } from "prop-types";
 
 import React, { Fragment } from "react";
 import { Message } from "semantic-ui-react";
@@ -23,7 +23,7 @@ function MessageList({ messages }) {
 }
 
 MessageList.propTypes = {
-  messages: arrayOf(messageShape)
+  messages: objectOf(messageShape)
 };
 
 export default MessageList;
