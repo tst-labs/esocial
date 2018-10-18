@@ -1,6 +1,19 @@
 {
-  "extends": "react-app",
-  "rules": {
-    "no-restricted-globals": 0
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "16.0"
+    }
   }
 }

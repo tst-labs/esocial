@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 
 import { MessageProvider } from "../shared/components/message/MessageContext";
 import { LoaderProvider } from "../shared/components/loader/LoaderContext";
+import { childrenDefaultPropType } from "./components/shared/PropTypesHelper";
 
 export const history = createBrowserHistory({
   basename: process.env.NODE_ENV === "production" ? "esocial-cockpit" : ""
@@ -18,3 +19,5 @@ export default function Factory({ children }) {
     </Router>
   );
 }
+
+Factory.propTypes = { children: childrenDefaultPropType };

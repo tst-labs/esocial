@@ -1,6 +1,6 @@
 import React from "react";
 import { Loader as SemanticLoader, Dimmer } from "semantic-ui-react";
-import { withLoader } from "./LoaderContext";
+import { withLoader, loaderPropTypes } from "./LoaderContext";
 
 export function generalLoadingState(loading) {
   return Object.values(loading).reduce(
@@ -22,6 +22,10 @@ function PureBlockedLoader({ loading }) {
   );
 }
 
+PureBlockedLoader.propTypes = {
+  ...loaderPropTypes
+};
+
 function PureLoader({ loading }) {
   const generalLoading = generalLoadingState(loading);
   if (generalLoading.blockui) return null;
@@ -31,6 +35,10 @@ function PureLoader({ loading }) {
     </div>
   );
 }
+
+PureLoader.propTypes = {
+  ...loaderPropTypes
+};
 
 export const Loader = withLoader(PureLoader);
 export const BlockedLoader = withLoader(PureBlockedLoader);

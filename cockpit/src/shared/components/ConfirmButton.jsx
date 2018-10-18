@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { func, string } from "prop-types";
 import { Button, Confirm, Icon } from "semantic-ui-react";
+import { loaderPropTypes } from "./loader/LoaderContext";
 
 export default class ConfirmButton extends Component {
   static propTypes = {
+    ...loaderPropTypes,
     onConfirm: func.isRequired,
     buttonText: string.isRequired,
     buttonIcon: string.isRequired,
