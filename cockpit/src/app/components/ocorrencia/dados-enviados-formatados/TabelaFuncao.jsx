@@ -1,7 +1,9 @@
+import { object } from "prop-types";
+
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-export default function TabelaFuncao({ dados }) {
+function TabelaFuncao({ dados }) {
   return (
     <Table celled textAlign="center">
       <Table.Header>
@@ -26,3 +28,9 @@ export default function TabelaFuncao({ dados }) {
     </Table>
   );
 }
+
+TabelaFuncao.propTypes = {
+  dados: object
+};
+
+export default TabelaFuncao;

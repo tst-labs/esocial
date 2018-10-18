@@ -1,7 +1,9 @@
+import { object } from "prop-types";
+
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-export default function TabelaCargo({ dados }) {
+function TabelaCargo({ dados }) {
   return (
     <Table celled textAlign="center">
       <Table.Header>
@@ -26,3 +28,9 @@ export default function TabelaCargo({ dados }) {
     </Table>
   );
 }
+
+TabelaCargo.propTypes = {
+  dados: object
+};
+
+export default TabelaCargo;

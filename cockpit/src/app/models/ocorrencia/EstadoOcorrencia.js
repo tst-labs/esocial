@@ -1,3 +1,11 @@
+import { shape, string, number } from "prop-types";
+
+export const estadoShape = shape({
+  id: number,
+  descricao: string,
+  cor: string
+});
+
 class EstadosApi {
   static FILA = 1;
   static PROCESSAMENTO = 2;

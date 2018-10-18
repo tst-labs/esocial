@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Icon } from "semantic-ui-react";
 
-export default function() {
+export default function BotaoFechar() {
   return (
     <Button animated onClick={() => window.open("", "_self").close()}>
       <Button.Content visible>Voltar</Button.Content>

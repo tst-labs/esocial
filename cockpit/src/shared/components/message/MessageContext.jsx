@@ -1,4 +1,4 @@
-import { shape, string, func } from "prop-types";
+import { shape, string, func, arrayOf } from "prop-types";
 
 import React, { Component } from "react";
 import uniqid from "uniqid";
@@ -11,6 +11,11 @@ export const messageShape = shape({
   text: string,
   close: func.isRequired,
   type: messageTypeShape.isRequired
+});
+
+export const messagePropTypes = shape({
+  messages: arrayOf(messageShape),
+  addMessage: func
 });
 
 const MessageContext = React.createContext({

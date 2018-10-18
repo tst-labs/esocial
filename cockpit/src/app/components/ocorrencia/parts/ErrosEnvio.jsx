@@ -1,5 +1,13 @@
+import { shape, string, arrayOf } from "prop-types";
+
 import React, { Fragment } from "react";
 import { Header, Segment, List } from "semantic-ui-react";
+
+const erroShape = shape({
+  titulo: string,
+  descricao: string,
+  localizacao: string
+});
 
 function Erro({ erro }) {
   return (
@@ -25,7 +33,11 @@ function Erro({ erro }) {
   );
 }
 
-export default function ErrosEnvio({ erros }) {
+Erro.propTypes = {
+  erro: erroShape
+};
+
+function ErrosEnvio({ erros }) {
   return (
     <Fragment>
       <Header
@@ -46,3 +58,9 @@ export default function ErrosEnvio({ erros }) {
     </Fragment>
   );
 }
+
+ErrosEnvio.propTypes = {
+  erros: arrayOf(erroShape)
+};
+
+export default ErrosEnvio;

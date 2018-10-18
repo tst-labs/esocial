@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 
 import LabelEstadoOcorrencia from "../../shared/LabelEstadoOcorrencia";
+import { ocorrenciaShape } from "../../../models/ocorrencia/Ocorrencia";
 
 function DadosBasicos({ ocorrencia }) {
   return (
@@ -33,5 +34,9 @@ function DadosBasicos({ ocorrencia }) {
     </Table>
   );
 }
+
+DadosBasicos.propTypes = {
+  ocorrencia: ocorrenciaShape
+};
 
 export default DadosBasicos;

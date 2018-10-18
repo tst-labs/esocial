@@ -1,7 +1,9 @@
+import { object } from "prop-types";
+
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-export default function TabelaCarreira({ dados }) {
+function TabelaCarreira({ dados }) {
   return (
     <Table celled textAlign="center">
       <Table.Header>
@@ -28,3 +30,9 @@ export default function TabelaCarreira({ dados }) {
     </Table>
   );
 }
+
+TabelaCarreira.propTypes = {
+  dados: object
+};
+
+export default TabelaCarreira;
