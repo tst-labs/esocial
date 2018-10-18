@@ -1,17 +1,26 @@
+import { arrayOf, string } from "prop-types";
+
 import React, { Component, Fragment } from "react";
 
 import TabelaOcorrencias from "./TabelaOcorrencias";
 import InputFiltroPesquisa from "./InputFiltroPesquisa";
 
-import Ocorrencia from "../../../models/ocorrencia/Ocorrencia";
+import Ocorrencia, {
+  ocorrenciaShape
+} from "../../../models/ocorrencia/Ocorrencia";
 
 export default class PesquisaOcorrencias extends Component {
+  static propTypes = {
+    ocorrencias: arrayOf(ocorrenciaShape),
+    filtroEstado: string
+  };
+
   state = {
     filtro: ""
   };
 
   __filtrar(filtro) {
-    this.setState(state => ({ filtro }));
+    this.setState({ filtro });
   }
 
   __ocorrenciasFiltradas() {

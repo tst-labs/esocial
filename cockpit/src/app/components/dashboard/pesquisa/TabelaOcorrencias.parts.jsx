@@ -2,6 +2,7 @@ import React from "react";
 import { Popup, Icon, Button, Table } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import LabelEstadoOcorrencia from "../../shared/LabelEstadoOcorrencia";
+import { ocorrenciaShape } from "../../../models/ocorrencia/Ocorrencia";
 
 function BotaoVisualizarOcorrencia({ ocorrencia }) {
   return (
@@ -21,7 +22,11 @@ function BotaoVisualizarOcorrencia({ ocorrencia }) {
   );
 }
 
-export function ItemTabelaOcorrencia({ ocorrencia }) {
+BotaoVisualizarOcorrencia.propTypes = {
+  ocorrencia: ocorrenciaShape
+};
+
+function ItemTabelaOcorrencia({ ocorrencia }) {
   return (
     <Table.Row key={ocorrencia.id}>
       <Table.Cell>{ocorrencia.id}</Table.Cell>
@@ -36,3 +41,9 @@ export function ItemTabelaOcorrencia({ ocorrencia }) {
     </Table.Row>
   );
 }
+
+ItemTabelaOcorrencia.propTypes = {
+  ocorrencia: ocorrenciaShape
+};
+
+export { ItemTabelaOcorrencia };

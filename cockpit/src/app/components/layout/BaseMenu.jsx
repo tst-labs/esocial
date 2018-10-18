@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu, Icon } from "semantic-ui-react";
+import { childrenDefaultPropType } from "../shared/PropTypesHelper";
 
 function BaseMenu({ extraItems }) {
   return (
@@ -13,5 +14,9 @@ function BaseMenu({ extraItems }) {
     </Menu>
   );
 }
+
+BaseMenu.propTypes = {
+  extraItems: childrenDefaultPropType
+};
 
 export default BaseMenu;

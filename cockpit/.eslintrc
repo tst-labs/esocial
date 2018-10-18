@@ -15,5 +15,8 @@
     "react": {
       "version": "16.0"
     }
+  },
+  "rules": {
+    "no-console": ["error", { "allow": ["warn", "error"] }]
   }
 }

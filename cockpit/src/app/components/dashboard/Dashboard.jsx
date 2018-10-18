@@ -1,3 +1,6 @@
+import { arrayOf, func, string } from "prop-types";
+import { ocorrenciaShape } from "../../models/ocorrencia/Ocorrencia";
+
 import React, { Fragment } from "react";
 import { Menu } from "semantic-ui-react";
 
@@ -37,5 +40,11 @@ function Dashboard({ ocorrencias, onSelectSumario, filtroEstado }) {
     </BaseLayout>
   );
 }
+
+Dashboard.propTypes = {
+  ocorrencias: arrayOf(ocorrenciaShape),
+  onSelectSumario: func,
+  filtroEstado: string
+};
 
 export default Dashboard;

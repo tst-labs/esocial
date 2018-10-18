@@ -1,9 +1,13 @@
+import { arrayOf, string } from "prop-types";
+
 import React from "react";
 import { Table } from "semantic-ui-react";
-import Ocorrencia from "../../../models/ocorrencia/Ocorrencia";
+import Ocorrencia, {
+  ocorrenciaShape
+} from "../../../models/ocorrencia/Ocorrencia";
 import { ItemTabelaOcorrencia } from "./TabelaOcorrencias.parts";
 
-export default function TabelaOcorrencias({ ocorrencias, cor }) {
+function TabelaOcorrencias({ ocorrencias, cor }) {
   return (
     <Table color={cor} selectable>
       <Table.Header>
@@ -26,3 +30,10 @@ export default function TabelaOcorrencias({ ocorrencias, cor }) {
     </Table>
   );
 }
+
+TabelaOcorrencias.propTypes = {
+  ocorrencias: arrayOf(ocorrenciaShape),
+  cor: string
+};
+
+export default TabelaOcorrencias;
