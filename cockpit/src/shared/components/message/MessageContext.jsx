@@ -1,6 +1,22 @@
+import { shape, string, number, func, arrayOf, oneOfType } from "prop-types";
+
 import React, { Component } from "react";
 import uniqid from "uniqid";
 import produce from "immer";
+import { messageTypeShape } from "./MessageType";
+import { childrenDefaultPropType } from "../../../app/components/shared/PropTypesHelper";
+
+export const messageShape = shape({
+  id: oneOfType([string, number]),
+  text: string,
+  close: func,
+  type: messageTypeShape
+});
+
+export const messagePropTypes = shape({
+  messages: arrayOf(messageShape),
+  addMessage: func
+});
 
 const MessageContext = React.createContext({
   messages: {},
@@ -18,6 +34,10 @@ export function withMessages(Component) {
 }
 
 export class MessageProvider extends Component {
+  static propTypes = {
+    children: childrenDefaultPropType
+  };
+
   state = {
     messages: {}
   };

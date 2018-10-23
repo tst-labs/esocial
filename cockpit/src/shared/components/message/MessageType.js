@@ -1,3 +1,12 @@
+import { shape, string } from "prop-types";
+
+export const messageTypeShape = shape({
+  type: string,
+  color: string,
+  title: string,
+  icon: string
+});
+
 class MessageType {
   constructor(type, color, title, icon) {
     this.type = type;

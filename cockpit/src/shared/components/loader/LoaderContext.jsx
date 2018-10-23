@@ -1,5 +1,18 @@
+import { func, shape, bool, string } from "prop-types";
+
 import React, { Component } from "react";
 import produce from "immer";
+import { childrenDefaultPropType } from "../../../app/components/shared/PropTypesHelper";
+
+export const loaderPropTypes = {
+  getLoading: func,
+  setLoading: func,
+  loading: shape({
+    active: bool,
+    blockui: bool,
+    id: string
+  })
+};
 
 const LoaderContext = React.createContext({
   loading: {
@@ -21,6 +34,10 @@ export function withLoader(Component) {
 }
 
 export class LoaderProvider extends Component {
+  static propTypes = {
+    children: childrenDefaultPropType
+  };
+
   state = {
     loading: {}
   };

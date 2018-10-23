@@ -10,6 +10,7 @@ import DadosEvento from "./parts/DadosEvento";
 import ErrosEnvio from "./parts/ErrosEnvio";
 
 import ErroOcorrencia from "../../models/ocorrencia/ErroOcorrencia";
+import { ocorrenciaShape } from "../../models/ocorrencia/Ocorrencia";
 
 function exibirErrosUltimoEnvio(ocorrencia) {
   const errosUltimoEnvio = ErroOcorrencia.listarErrosOcorrenciaUltimoEnvio(
@@ -28,7 +29,7 @@ function exibirErrosUltimoEnvio(ocorrencia) {
   }
 }
 
-export default function({ ocorrencia }) {
+function OcorrenciaDetalhada({ ocorrencia }) {
   return (
     <BaseLayout
       menuItems={
@@ -61,3 +62,9 @@ export default function({ ocorrencia }) {
     </BaseLayout>
   );
 }
+
+OcorrenciaDetalhada.propTypes = {
+  ocorrencia: ocorrenciaShape
+};
+
+export default OcorrenciaDetalhada;

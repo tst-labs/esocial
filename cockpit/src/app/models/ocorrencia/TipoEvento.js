@@ -1,3 +1,11 @@
+import { shape, string, number } from "prop-types";
+
+export const tipoEventoShape = shape({
+  id: number,
+  descricao: string,
+  descricaoCompleta: string
+});
+
 export default class TipoEvento {
   static criarComDadosApi(ocorrenciaApi) {
     const tipoEvento = new TipoEvento();

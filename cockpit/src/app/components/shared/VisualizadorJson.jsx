@@ -1,11 +1,22 @@
+import { object, bool } from "prop-types";
+
 import React from "react";
 import ReactJson from "react-json-view";
 
-export default ({ json, collapsed }) => (
-  <ReactJson
-    src={json}
-    collapsed={collapsed}
-    enableClipboard={false}
-    displayDataTypes={false}
-  />
-);
+function VisualizadorJson({ json, collapsed }) {
+  return (
+    <ReactJson
+      src={json}
+      collapsed={collapsed}
+      enableClipboard={false}
+      displayDataTypes={false}
+    />
+  );
+}
+
+VisualizadorJson.propTypes = {
+  json: object,
+  collapsed: bool
+};
+
+export default VisualizadorJson;

@@ -1,7 +1,25 @@
+import { shape, number, instanceOf, string, object } from "prop-types";
+
 import { format } from "date-fns";
 import { filterAny } from "../../../shared/libs/utils";
 
 import OcorrenciaParser from "./OcorrenciaParser";
+import { estadoShape } from "./EstadoOcorrencia";
+import { tipoEventoShape } from "./TipoEvento";
+
+export const ocorrenciaShape = shape({
+  id: number,
+  estado: estadoShape,
+  tipoEvento: tipoEventoShape,
+  data: instanceOf(Date),
+  textoData: string,
+  dataRecebimento: instanceOf(Date),
+  textoDataRecebimento: string,
+  operacao: string,
+  referencia: string,
+  dados: object,
+  evento: object
+});
 
 export default class Ocorrencia {
   static criarComDadosApi(ocorrenciaApi) {
