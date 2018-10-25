@@ -1,5 +1,8 @@
+import { objectOf } from "prop-types";
+
 import React, { Fragment } from "react";
 import { Message } from "semantic-ui-react";
+import { messageShape } from "./MessageContext";
 
 function MessageList({ messages }) {
   return (
@@ -18,5 +21,9 @@ function MessageList({ messages }) {
     </Fragment>
   );
 }
+
+MessageList.propTypes = {
+  messages: objectOf(messageShape)
+};
 
 export default MessageList;

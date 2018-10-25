@@ -3,13 +3,20 @@ import React, { Component } from "react";
 import { listarOcorrencias } from "../../api/esocial-jt";
 
 import Dashboard from "./Dashboard";
-import { withLoader } from "../../../shared/components/loader/LoaderContext";
+import {
+  withLoader,
+  loaderPropTypes
+} from "../../../shared/components/loader/LoaderContext";
 import { withMessages } from "../../../shared/components/message/MessageContext";
 
 const LOAD_OCORRENCIAS_INTERVAL = 3000;
 const LOADER_ID = "load-ocorrencias";
 
 class DashboardRoute extends Component {
+  static propTypes = {
+    ...loaderPropTypes
+  };
+
   state = {
     ocorrencias: null,
     filtroEstadoOcorrencia: null

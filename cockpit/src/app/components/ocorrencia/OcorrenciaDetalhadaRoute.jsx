@@ -1,13 +1,26 @@
+import { match } from "react-router-prop-types";
 import React, { Component } from "react";
 
 import { obterOcorrencia } from "../../api/esocial-jt";
 
 import OcorrenciaDetalhada from "./OcorrenciaDetalhada";
-import { withLoader } from "../../../shared/components/loader/LoaderContext";
-import { withMessages } from "../../../shared/components/message/MessageContext";
+import {
+  withLoader,
+  loaderPropTypes
+} from "../../../shared/components/loader/LoaderContext";
+import {
+  withMessages,
+  messagePropTypes
+} from "../../../shared/components/message/MessageContext";
 import { ERROR } from "../../../shared/components/message/MessageType";
 
 class DashboardRoute extends Component {
+  static propTypes = {
+    ...loaderPropTypes,
+    ...messagePropTypes,
+    match
+  };
+
   state = {
     ocorrencia: null
   };

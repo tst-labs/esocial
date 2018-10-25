@@ -1,7 +1,9 @@
+import { object } from "prop-types";
+
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-export default function InformacoesEmpregador({ dados }) {
+function InformacoesEmpregador({ dados }) {
   return (
     <Table celled textAlign="center">
       <Table.Header>
@@ -26,3 +28,9 @@ export default function InformacoesEmpregador({ dados }) {
     </Table>
   );
 }
+
+InformacoesEmpregador.propTypes = {
+  dados: object
+};
+
+export default InformacoesEmpregador;

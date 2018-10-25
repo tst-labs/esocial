@@ -2,8 +2,9 @@ import React, { Fragment } from "react";
 import { Header, Segment } from "semantic-ui-react";
 
 import VisualizadorJson from "../../shared/VisualizadorJson";
+import { ocorrenciaShape } from "../../../models/ocorrencia/Ocorrencia";
 
-export default function({ ocorrencia }) {
+function DadosEvento({ ocorrencia }) {
   return (
     <Fragment>
       <Header as="h3" attached="top" inverted>
@@ -15,3 +16,9 @@ export default function({ ocorrencia }) {
     </Fragment>
   );
 }
+
+DadosEvento.propTypes = {
+  ocorrencia: ocorrenciaShape
+};
+
+export default DadosEvento;

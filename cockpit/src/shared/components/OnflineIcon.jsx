@@ -1,7 +1,16 @@
+import { shape, string } from "prop-types";
+
 import React from "react";
 import { Icon } from "semantic-ui-react";
 
-export class OnflineStatus {
+const statusShape = shape({
+  id: string,
+  color: string,
+  icon: string,
+  descricao: string
+});
+
+class OnflineStatus {
   static Offline = new OnflineStatus("offline", "red", "dont", "offline");
   static Online = new OnflineStatus("online", "green", "signal", "online");
   static Fetching = new OnflineStatus(
@@ -29,6 +38,13 @@ export class OnflineStatus {
   }
 }
 
-export default function OnflineIcon({ status }) {
+function OnflineIcon({ status }) {
   return <Icon name={status.icon} color={status.color} />;
 }
+
+OnflineIcon.propTypes = {
+  status: statusShape
+};
+
+export { OnflineStatus };
+export default OnflineIcon;

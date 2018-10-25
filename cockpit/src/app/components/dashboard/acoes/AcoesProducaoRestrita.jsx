@@ -1,7 +1,11 @@
+import { bool } from "prop-types";
 import React, { Component } from "react";
 
 import ConfirmButton from "../../../../shared/components/ConfirmButton";
-import { withLoader } from "../../../../shared/components/loader/LoaderContext";
+import {
+  withLoader,
+  loaderPropTypes
+} from "../../../../shared/components/loader/LoaderContext";
 import { withMessages } from "../../../../shared/components/message/MessageContext";
 import { ERROR } from "../../../../shared/components/message/MessageType";
 
@@ -10,6 +14,11 @@ import { limparProducaoRestrita } from "../../../api/esocial-jt";
 const LOADER_ID = "limpar-producao-restrita";
 
 class AcoesProducaoRestrita extends Component {
+  static propTypes = {
+    ...loaderPropTypes,
+    disabled: bool
+  };
+
   __limparProducaoRestrita = async () => {
     const { setLoading, addMessage } = this.props;
     setLoading(LOADER_ID, true);
