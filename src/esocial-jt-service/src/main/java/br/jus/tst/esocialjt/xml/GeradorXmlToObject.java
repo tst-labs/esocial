@@ -25,7 +25,13 @@ public class GeradorXmlToObject {
 			Unmarshaller unmarshaller = context.createUnmarshaller();
 			instance = (clazz.cast(unmarshaller.unmarshal(new StringReader(xml))));
 		} catch (JAXBException ex) {
-			LOGGER.error(ex.getCause().getMessage(), ex);
+			if (ex!=null) {
+				if(ex.getCause()!=null) {
+					if(ex.getCause().getMessage()!=null){
+						LOGGER.error(ex.getCause().getMessage(), ex);
+					}
+				}
+			}
 		}
 		return instance;
 	}

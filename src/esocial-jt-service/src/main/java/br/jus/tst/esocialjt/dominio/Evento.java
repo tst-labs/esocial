@@ -21,6 +21,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import br.jus.tst.esocialjt.util.OcorrenciaJsonSerializer;
@@ -61,8 +63,13 @@ public class Evento implements Serializable {
 	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<EnvioEvento> enviosEvento = new LinkedHashSet<>();
 	
+	@Size(max = 40)
 	@Column(name = "TXT_NR_RECIBO")
 	private String nrRecibo;
+	
+	@JsonInclude(Include.NON_EMPTY)
+	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<EventoTotalizador> eventoTotalizador = new LinkedHashSet<>();
 
 	public Long getId() {
 		return id;
@@ -128,5 +135,13 @@ public class Evento implements Serializable {
 
 	public void setNrRecibo(String nrRecibo) {
 		this.nrRecibo = nrRecibo;
+	}
+
+	public Set<EventoTotalizador> getEventoTotalizador() {
+		return eventoTotalizador;
+	}
+
+	public void setEventoTotalizador(Set<EventoTotalizador> eventoTotalizador) {
+		this.eventoTotalizador = eventoTotalizador;
 	}
 }

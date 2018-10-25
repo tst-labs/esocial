@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
 import br.jus.tst.esocialjt.comunicacaogov.RetornoEvento;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoEventoTotalizador;
 import br.jus.tst.esocialjt.comunicacaogov.RetornoLote;
 import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
 import br.jus.tst.esocialjt.dominio.CodigoResposta;
 import br.jus.tst.esocialjt.dominio.EnvioEvento;
 import br.jus.tst.esocialjt.dominio.ErroProcessamento;
 import br.jus.tst.esocialjt.dominio.Estado;
+import br.jus.tst.esocialjt.dominio.EventoTotalizador;
 import br.jus.tst.esocialjt.dominio.Lote;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 
@@ -40,6 +42,9 @@ public class AtualizacaoProcessamentoServico {
 	@Autowired
 	private ComunicacaoEsocialGov comunicacaoEsocialGov;
 	
+	@Autowired
+	private EventoTotalizadorServico eventoTotalizadorServico;
+	
 	public List<Lote> atualizarTodosEmProcessamento(){
 		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
 		return atualizarProcessamentoLote(lotes);
@@ -60,16 +65,37 @@ public class AtualizacaoProcessamentoServico {
 				preencherDadosProcessamentoLote(lote, retornoLote);
 				preencherProcessamentoEnviosEvento(lote.getEnviosEvento(), retornoProcessamento);
 				
+				
 				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio.getEvento()));
 				estadoServico.atualizarEstado(lote);
 				
 				lotesAtualizados.add(loteServico.atualiza(lote));
+				
+				salvaEventosTotalizadores(retornoLote);
+				
 			} catch (ComunicacaoEsocialGovException e) {
 				LOGGER.debug(e.getMessage(), e);
 			}
 		});
 		
 		return lotesAtualizados;
+	}
+
+	public void salvaEventosTotalizadores(RetornoLote retornoLote) {
+		List<RetornoEventoTotalizador> listaRetornoEventoTotalizador = retornoLote.getRetornoEventoTotalizador();
+		
+		if (!listaRetornoEventoTotalizador.isEmpty()) {
+			for (RetornoEventoTotalizador eventoTot : listaRetornoEventoTotalizador) {
+				EventoTotalizador eventoTotalizador = new EventoTotalizador();
+				eventoTotalizador.setTipo(eventoTot.getTipo());
+				eventoTotalizador.setNrReciboArquivoBase(eventoTot.getNrReciboArquivoBase());
+				eventoTotalizador.setIndApuracao(eventoTot.getIndApuracao());
+				eventoTotalizador.setPerApuracao(eventoTot.getPerApuracao());
+				eventoTotalizador.setCpfTrabalhador(eventoTot.getCpfTrabalhador());
+				eventoTotalizador.setXmlEventoTotalizador(eventoTot.getXmlEventoTotalizador());
+				eventoTotalizadorServico.salvar(eventoTotalizador);
+			}
+		}
 	}
 	
 	public void preencherProcessamentoEnviosEvento(List<EnvioEvento> enviosEvento, RetornoProcessamento retornoProcessamento) {
@@ -95,6 +121,7 @@ public class AtualizacaoProcessamentoServico {
 				envioEvento.setErrosProcessamento(errosProcessamento);
 			});
 		}
+				
 	}
 	
 	public Lote preencherDadosProcessamentoLote(Lote lote, RetornoLote retornoLote) {
