@@ -1,7 +1,7 @@
 {
 	"tipoOcorrencia": "FECHAMENTO_PERIODICOS",
 	"referencia": null,
-	"operacao": "INCLUSAO",
+	"operacao": "NORMAL",
 	"dataOcorrencia": 1522181179561,
 	"dadosOcorrencia": {
 		"tipo": ".FechaEvPer",

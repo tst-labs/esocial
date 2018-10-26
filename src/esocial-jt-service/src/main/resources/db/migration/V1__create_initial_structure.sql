@@ -35,7 +35,7 @@ create table EST_EVENTO (
        COD_TIPO integer, 
        COD_ESTADO integer, 
        TXT_ID_EVENTO varchar(36),
-       TXT_NR_RECIBO varchar(36));
+       TXT_NR_RECIBO varchar(40));
        
 create table EST_GRUPO_TIPO_EVENTO ( 
        COD_GRUPO_TIPO integer not null, 
@@ -46,7 +46,7 @@ create table EST_OCORRENCIA (
        TXT_TIPO_OCORRENCIA varchar(30), 
        TXT_REFERENCIA varchar(100), 
        TXT_OPERACAO varchar(15), 
-       TXT_RETIFICAR_RECIBO varchar(100),
+       TXT_RETIFICAR_RECIBO varchar(40),
        DTA_OCORRENCIA date, 
        DTA_RECEBIMENTO date, 
        TXT_DADOS_OCORRENCIA text);
@@ -65,17 +65,28 @@ create table EST_RESPOSTA_GOV (
        DES_RESPOSTA varchar(300),
        COD_GRUPO_RESPOSTA integer,
        COD_RESPOSTA integer);
+       
+create table EST_EVENTO_TOTALIZADOR (
+       COD_EVENTO_TOTALIZADOR integer not null, 
+       TXT_TIPO varchar(5),
+       TXT_NR_RECIBO_ARQ_BASE varchar(40),
+       NUM_IND_APURACAO integer,
+       TXT_PER_APURACAO varchar(7),
+       NUM_CPF_TRABALHADOR varchar(11),
+  	   TXT_XML_EVENTO_TOTALIZADOR text);
 
 alter table EST_ENVIO_EVENTO add constraint EST_ENVIO_EVENTO_PK primary key (COD_ENVIO_EVENTO);
 alter table EST_ERRO_PROCESSAMENTO add constraint EST_ERRO_PROCESSAMENTO_PK primary key (COD_ERRO_PROCESSAMENTO);
 alter table EST_ESTADO add constraint EST_ESTADO_PK primary key (COD_ESTADO);
 alter table EST_LOTE add constraint EST_LOTE_PK primary key (COD_LOTE);
 alter table EST_EVENTO add constraint EST_EVENTO_PK primary key (COD_EVENTO);
+alter table EST_EVENTO add constraint EST_EVENTO_UK01 unique (TXT_NR_RECIBO);
 alter table EST_GRUPO_TIPO_EVENTO add constraint EST_GRUPO_TIPO_PK primary key (COD_GRUPO_TIPO);
 alter table EST_OCORRENCIA add constraint EST_OCORRENCIA_PK primary key (COD_OCORRENCIA) ;
 alter table EST_TIPO add constraint EST_TIPO_PK primary key (COD_TIPO) ;
 alter table EST_TIPO_ERRO_PROCESSAMENTO add constraint EST_TIPO_OCORRENCIA_RETORNO_PK primary key (COD_TIPO_ERRO_PROCESSAMENTO)  ;
 alter table EST_RESPOSTA_GOV add constraint EST_RESPOSTA_PK primary key (COD_IDENTIFICADOR);
+alter table EST_EVENTO_TOTALIZADOR add constraint EST_EVENTO_TOTALIZADOR_PK primary key (COD_EVENTO_TOTALIZADOR);
 
 alter table EST_ENVIO_EVENTO add constraint EST_ENVIO_EVENTO_FK01 foreign key (COD_RESPOSTA)
       references EST_RESPOSTA_GOV (COD_IDENTIFICADOR);
@@ -114,6 +125,10 @@ alter table EST_LOTE add constraint EST_LOTE_FK02 foreign key (COD_RESPOSTA)
     references EST_RESPOSTA_GOV (COD_IDENTIFICADOR);                                    
 create index EST_LOTE_FK01 on EST_LOTE (COD_ESTADO);  
 create index EST_LOTE_FK02 on EST_LOTE (COD_RESPOSTA);  
+
+alter table EST_EVENTO_TOTALIZADOR add constraint EST_EVENTO_TOTALIZADOR_FK01 foreign key (TXT_NR_RECIBO_ARQ_BASE)
+	  references EST_EVENTO (TXT_NR_RECIBO);
+create index EST_EVENTO_TOTALIZADOR_FK01 on EST_EVENTO_TOTALIZADOR (TXT_NR_RECIBO_ARQ_BASE);
 
 insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values (1,'EM FILA');
 insert into EST_ESTADO (COD_ESTADO,TXT_DESCRICAO) values (5,'ERRO');
@@ -206,3 +221,4 @@ create sequence SEQ_OCORRENCIA_ID minvalue 1 maxvalue 99999999 increment by 1 st
 create sequence SEQ_LOTE_ID minvalue 1 maxvalue 99999999999999999 increment by 1 start with 1 cache 20 no cycle;
 create sequence SEQ_RESPOSTA_ID minvalue 1 maxvalue 800 increment by 1 start with 21 cache 20 no cycle;
 create sequence SEQ_ENV_EVT_ID minvalue 1 maxvalue 99999999999999999 increment by 1 start with 1 cache 20 no cycle;
+create sequence SEQ_EVT_TOT_ID minvalue 1 maxvalue 99999999999 increment by 1 start with 1 cache 20 no cycle;

@@ -37,6 +37,7 @@ public class RetornoProcessamento {
 
 	private RetornoEvento criarRetornoEvento(Element elemento) {
 		String eventoString = (XmlTools.asString(elemento));
+
 		ESocial evento = geradorXmlToObject.convertXMLToObject(ESocial.class, eventoString);
 
 		long codigoRespostaProcessamento = evento.getRetornoEvento().getProcessamento().getCdResposta();
@@ -75,6 +76,8 @@ public class RetornoProcessamento {
 			retornoLote.setProtocolo(protocolo);
 			List<Element> elementos = new RetornoProcessamentoUtil().obterElementosDeEventos(xmlRetorno);
 			elementos.forEach(elemento -> retornoLote.getRetornoEvento().add(criarRetornoEvento(elemento)));
+			
+			buscaEventosTotalizadores(xmlRetorno);
 		}
 
 		if (status != null) {
@@ -120,6 +123,33 @@ public class RetornoProcessamento {
 			errosProcessamento.add(erroProcessamento);
 		}
 		return errosProcessamento;
+	}
+
+	public void buscaEventosTotalizadores(String xmlRetorno) {
+		List<Element> eventosTot = new RetornoProcessamentoUtil().obterElementosDeEventosTotalizadores(xmlRetorno);
+		eventosTot.forEach(eventoTot -> retornoLote.getRetornoEventoTotalizador().add(criarRetornoEventoTotalizador(eventoTot)));
+	}
+
+	private RetornoEventoTotalizador criarRetornoEventoTotalizador(Element elemento) {
+		
+		RetornoEventoTotalizador retornoEventoTotalizador = new RetornoEventoTotalizador();
+		
+		retornoEventoTotalizador.setTipo(elemento.getAttribute("tipo"));
+		if (elemento.getElementsByTagName("nrRecArqBase").item(0) != null) {
+			retornoEventoTotalizador.setNrReciboArquivoBase(elemento.getElementsByTagName("nrRecArqBase").item(0).getTextContent());
+		}
+		retornoEventoTotalizador.setPerApuracao(elemento.getElementsByTagName("perApur").item(0).getTextContent());
+		if (elemento.getElementsByTagName("indApuracao").item(0) != null) {
+			retornoEventoTotalizador.setIndApuracao(Byte.valueOf(elemento.getElementsByTagName("indApuracao").item(0).getTextContent()));
+		}
+		if (elemento.getElementsByTagName("cpfTrab").item(0) != null) {
+			retornoEventoTotalizador.setCpfTrabalhador(elemento.getElementsByTagName("cpfTrab").item(0).getTextContent());
+		}
+
+		retornoEventoTotalizador.setXmlEventoTotalizador(XmlTools.asString(elemento));
+		
+		return retornoEventoTotalizador;
+
 	}
 
 	public void setXmlRetorno(String xmlRetorno) {

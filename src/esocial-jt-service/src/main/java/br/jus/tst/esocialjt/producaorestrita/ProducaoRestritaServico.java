@@ -83,15 +83,17 @@ public class ProducaoRestritaServico {
 
 		Query q1 = em.createQuery("DELETE FROM ErroProcessamento");
 		Query q2 = em.createQuery("DELETE FROM EnvioEvento");
-		Query q3 = em.createQuery("DELETE FROM Evento");
-		Query q4 = em.createQuery("DELETE FROM Ocorrencia");
-		Query q5 = em.createQuery("DELETE FROM Lote");
+		Query q3 = em.createQuery("DELETE FROM EventoTotalizador");
+		Query q4 = em.createQuery("DELETE FROM Evento");
+		Query q5 = em.createQuery("DELETE FROM Ocorrencia");
+		Query q6 = em.createQuery("DELETE FROM Lote");
 
 		q1.executeUpdate();
 		q2.executeUpdate();
 		q3.executeUpdate();
 		q4.executeUpdate();
 		q5.executeUpdate();
+		q6.executeUpdate();
 	}
 
 	private void verificarResposta(List<EnvioEvento> enviosEvento) {

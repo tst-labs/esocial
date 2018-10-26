@@ -9,6 +9,7 @@ public class RetornoLote {
 	private String protocolo;
 	private List<RetornoErroProcessamento> retornoErrosProcessamento = new ArrayList<>();
 	private List<RetornoEvento> retornoEvento = new ArrayList<>();
+	private List<RetornoEventoTotalizador> retornoEventoTotalizador = new ArrayList<>();
 
 	public long getCodigoRespostaProcessamento() {
 		return codigoRespostaProcessamento;
@@ -52,6 +53,15 @@ public class RetornoLote {
 
 	public RetornoLote setDescricaoRespostaProcessamento(String descricaoRespostaProcessamento) {
 		this.descricaoRespostaProcessamento = descricaoRespostaProcessamento;
+		return this;
+	}
+
+	public List<RetornoEventoTotalizador> getRetornoEventoTotalizador() {
+		return retornoEventoTotalizador;
+	}
+
+	public RetornoLote setRetornoEventoTotalizador(List<RetornoEventoTotalizador> retornoEventoTotalizador) {
+		this.retornoEventoTotalizador = retornoEventoTotalizador;
 		return this;
 	}
 
