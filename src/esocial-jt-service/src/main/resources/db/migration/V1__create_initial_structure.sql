@@ -117,7 +117,7 @@ create index EST_EVENTO_FK03 on EST_EVENTO (COD_TIPO);
 
 alter table EST_TIPO add constraint EST_TIPO_FK01 foreign key (COD_GRUPO_TIPO)
     references EST_GRUPO_TIPO_EVENTO (COD_GRUPO_TIPO);
-create index EST_TIPO_FK01 on EST_GRUPO_TIPO_EVENTO (COD_GRUPO_TIPO);  
+create index EST_TIPO_FK01 on EST_TIPO (COD_GRUPO_TIPO); 
 
 alter table EST_LOTE add constraint EST_LOTE_FK01 foreign key (COD_ESTADO)
     references EST_ESTADO (COD_ESTADO);
