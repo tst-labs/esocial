@@ -1,8 +1,7 @@
 package br.jus.tst.esocialjt.comunicacaogov;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +15,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import br.jus.esocialjt.comunicacao.retorno.processamento.ESocial;
@@ -49,9 +49,9 @@ public class RetornoProcessamentoUtil {
 
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			InputStream is = new ByteArrayInputStream(xmlRetorno.getBytes());
-			Document doc = dBuilder.parse(is);
+			
+			DocumentBuilder docBuilder = dbFactory.newDocumentBuilder(); 
+			Document doc = docBuilder.parse(new InputSource(new StringReader(xmlRetorno))); 
 			
 			NodeList nodeList = doc.getElementsByTagName("tot");
 			for (int i = 0; i < nodeList.getLength(); i++) {
