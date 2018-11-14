@@ -35,6 +35,12 @@ public class GeradorLote {
 	@Value("${esocialjt.limite-eventos-por-lote: 50}")
 	private Long LIMITE_EVENTOS_LOTE;
 	
+	@Value("${esocialjt.tpInscIdeTransmissor:0}")
+	private String tpInscIdeTransmissor;
+ 
+	@Value("${esocialjt.nrInscIdeTransmissor:0}")
+	private String nrInscIdeTransmissor;
+	
 	public String gerarXmlLote(Lote lote) throws GeracaoXmlException {
 		List<EnvioEvento> enviosEvento = lote.getEnviosEvento();
 		
@@ -88,9 +94,17 @@ public class GeradorLote {
 	}
 
 	private TIdeTransmissor gerarTransmissor(String cnpj) {
+
 		TIdeTransmissor transmissor = new TIdeTransmissor();
-		transmissor.setNrInsc(cnpj);
-		transmissor.setTpInsc((byte) 1);
+
+		if (!"0".equals(tpInscIdeTransmissor.trim()) && !"0".equals(nrInscIdeTransmissor.trim())) {
+			transmissor.setNrInsc(nrInscIdeTransmissor.trim());
+			transmissor.setTpInsc((byte) Integer.parseInt(tpInscIdeTransmissor.trim()));
+		} else {
+			transmissor.setNrInsc(cnpj);
+			transmissor.setTpInsc((byte) 1);
+		}
+
 		return transmissor;
 	}
 

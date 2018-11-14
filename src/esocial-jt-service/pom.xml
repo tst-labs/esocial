@@ -6,7 +6,7 @@
 	<groupId>br.jus.tst</groupId>
 	<artifactId>esocial-jt-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>${project.packaging}</packaging>
 
 	<name>esocial-jt-service</name>
 	<description>Web service que provê funcionalidades de envios de eventos para o eSocial</description>
@@ -30,11 +30,29 @@
 		<fork.count>1</fork.count>
 	</properties>
 
-	<dependencies>
+	<profiles>
+		<profile>
+			<id>jar</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.packaging>jar</project.packaging>
+			</properties>
+		</profile>
+		<profile>
+			<id>war</id>
+			<properties>
+				<project.packaging>war</project.packaging>
+			</properties>					
+		</profile>
+	</profiles>
+
+	<dependencies>		 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-		</dependency>
+		</dependency> 		
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct-jdk8</artifactId>
