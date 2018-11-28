@@ -16,6 +16,7 @@ Em seguida, você (o proponente da alteração/melhoria) deverá trabalhar em um
 
 * Com testes suficientes para validar as regras/lógica introduzidas;
 * Sem falhar os testes existentes;
+* Construindo no travis-ci sem erros (https://travis-ci.org/);
 * Documentada, na própria _issue_ ou com alguma entrada no _Readme_.
 
 > Neste momento, a _issue_ deverá se encontrar na coluna _**In progress**_ no quadro do projeto.
