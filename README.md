@@ -255,67 +255,75 @@ de eventos especificados pelo eSocial-GOV.
 
 ## Status por evento
 
-### 0.1.0
+### 0.2.0
+
+#### Versões do eSocial-GOV
+
+Pacote de esquemas : 2.5 
+
+Pacote de comunicação : 1.4*
+
+* A versão 1.5 do pacote de comunicação só estará disponível para uso a partir do dia 21/01/2019
 
 #### Eventos de Tabelas
 
 | Evento | Nome Evento                         | Versão | Situação | Resultado do envio para a produção restrita |
 | ------ | ----------------------------------- | ------ | -------- | ----------------------------------------    |
-| S-1000 | Empregador/Contribuinte             | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1005 | Estabelecimentos                    | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1010 | Rubricas                            | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1020 | Lotações Tributárias                | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1030 | Cargos/Empregos Públicos            | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1035 | Carreiras Públicas                  | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1040 | Funções/Cargos em Comissão          | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1050 | Horários/Turnos de Trabalho         | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1060 | Ambientes de Trabalho               | 2.4.02 | Feito    | Evento não reconhecido pelo eSocial-GOV     |
-| S-1070 | Processos Administrativos/Judiciais | 2.4.02 | Feito    | Processado com sucesso                      |
-| S-1080 | Operadores Portuários               | 2.4.02 | NA       | NA                                          |
+| S-1000 | Empregador/Contribuinte             | 2.5 | Feito    | Processado com sucesso                      |
+| S-1005 | Estabelecimentos                    | 2.5 | Feito    | Processado com sucesso                      |
+| S-1010 | Rubricas                            | 2.5 | Feito    | Processado com sucesso                      |
+| S-1020 | Lotações Tributárias                | 2.5 | Feito    | Processado com sucesso                      |
+| S-1030 | Cargos/Empregos Públicos            | 2.5 | Feito    | Processado com sucesso                      |
+| S-1035 | Carreiras Públicas                  | 2.5 | Feito    | Processado com sucesso                      |
+| S-1040 | Funções/Cargos em Comissão          | 2.5 | Feito    | Processado com sucesso                      |
+| S-1050 | Horários/Turnos de Trabalho         | 2.5 | Feito    | Processado com sucesso                      |
+| S-1060 | Ambientes de Trabalho               | 2.5 | Feito    | Processado com sucesso                      |
+| S-1070 | Processos Administrativos/Judiciais | 2.5 | Feito    | Processado com sucesso                      |
+| S-1080 | Operadores Portuários               | 2.5 | NA       | NA                                          |
 
 #### Eventos periódicos
 
 | Evento | Nome Evento                                                                     | Versão | Situação    | Resultado do envio para a produção restrita |
 | ------ | ------------------------------------------------------------------------------- | ------ | ----------- | ----------------------------------------    |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.4.02 | Feito       | Processado com sucesso                      |
-| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.4.02 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
-| S-1207 | Benefícios previdenciários - RPPS                                               | 2.4.02 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.4.02 | Feito       | Processado com sucesso                      |
-| S-1250 | Aquisição de Produção Rural                                                     | 2.4.02 | NA          | NA                                          |
-| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | 2.4.02 | NA          | NA                                          |
-| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | 2.4.02 | NA          | NA                                          |
-| S-1280 | Informações Complementares aos Eventos Periódicos                               | 2.4.02 | NA          | NA                                          |
-| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.4.02 | Feito       | Processado com sucesso                      |
-| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.4.02 | Feito       | Processado com sucesso                      |
-| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.4.02 | Feito       | Processado com sucesso                      |
-| S-1300 | Contribuição Sindical Patronal                                                  | 2.4.02 | NA          | NA                                          |
+| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.5 | Feito       | Processado com sucesso                      |
+| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.5 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
+| S-1207 | Benefícios previdenciários - RPPS                                               | 2.5 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.5 | Feito       | Processado com sucesso                      |
+| S-1250 | Aquisição de Produção Rural                                                     | 2.5 | NA          | NA                                          |
+| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | 2.5 | NA          | NA                                          |
+| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | 2.5 | NA          | NA                                          |
+| S-1280 | Informações Complementares aos Eventos Periódicos                               | 2.5 | NA          | NA                                          |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.5 | Feito       | Processado com sucesso                      |
+| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.5 | Feito       | Processado com sucesso                      |
+| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.5 | Feito       | Processado com sucesso                      |
+| S-1300 | Contribuição Sindical Patronal                                                  | 2.5 | NA          | NA                                          |
 
 #### Eventos não periódicos
 
 | Evento | Nome Evento                                                           | Versão | Situação     | Resultado do envio para a produção restrita |
 | ------ | --------------------------------------------------------------------- | ------ | -----------  | ----------------------------------------    |
-| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | 2.4.02 | NA           | NA                                          |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2206 | Alteração de Contrato de Trabalho                                     | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2210 | Comunicação de Acidente de Trabalho                                   | 2.4.02 | Impl. futura |                                             |
-| S-2220 | Monitoramento da Saúde do Trabalhador                                 | 2.4.02 | Impl. futura |                                             |
-| S-2230 | Afastamento Temporário                                                | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | 2.4.02 | Impl. futura |                                             |
-| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | 2.4.02 | Impl. futura |                                             |
-| S-2250 | Aviso Prévio                                                          | 2.4.02 | NA           | NA                                          |
-| S-2260 | Convocação para Trabalho Intermitente                                 | 2.4.02 | NA           | NA                                          |
-| S-2298 | Reintegração                                                          | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2299 | Desligamento                                                          | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.4.02 | Feito        | Evento não reconhecido pelo eSocial-GOV     |
-| S-3000 | Exclusão de eventos                                                   | 2.4.02 | Feito        | Processado com sucesso                      |
-| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.4.02 | Feito  | Evento totalizador gravado no formato XML                                            |
-| S-5002 | Imposto de Renda Retido na Fonte                                      | 2.4.02 | Feito  | Evento totalizador gravado no formato XML         |
-| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.4.02 | Feito  | Evento totalizador gravado no formato XML         |
-| S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.4.02 | Feito  | Evento totalizador gravado no formato XML         |
+| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | 2.5 | NA           | NA                                          |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.5 | Feito        | Processado com sucesso                      |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.5 | Feito        | Processado com sucesso                      |
+| S-2206 | Alteração de Contrato de Trabalho                                     | 2.5 | Feito        | Processado com sucesso                      |
+| S-2210 | Comunicação de Acidente de Trabalho                                   | 2.5 | Impl. futura |                                             |
+| S-2220 | Monitoramento da Saúde do Trabalhador                                 | 2.5 | Impl. futura |                                             |
+| S-2230 | Afastamento Temporário                                                | 2.5 | Feito        | Processado com sucesso                      |
+| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | 2.5 | Impl. futura |                                             |
+| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | 2.5 | Impl. futura |                                             |
+| S-2250 | Aviso Prévio                                                          | 2.5 | NA           | NA                                          |
+| S-2260 | Convocação para Trabalho Intermitente                                 | 2.5 | NA           | NA                                          |
+| S-2298 | Reintegração                                                          | 2.5 | Feito        | Processado com sucesso                      |
+| S-2299 | Desligamento                                                          | 2.5 | Feito        | Processado com sucesso                      |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.5 | Feito        | Processado com sucesso                      |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.5 | Feito        | Processado com sucesso                      |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.5 | Feito        | Processado com sucesso                      |
+| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.5 | Feito        | Evento não reconhecido pelo eSocial-GOV     |
+| S-3000 | Exclusão de eventos                                                   | 2.5 | Feito        | Processado com sucesso                      |
+| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.5 | Feito        | Evento totalizador gravado no formato XML                                            |
+| S-5002 | Imposto de Renda Retido na Fonte                                      | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
+| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
+| S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
 
 #### Como contribuir?
 
