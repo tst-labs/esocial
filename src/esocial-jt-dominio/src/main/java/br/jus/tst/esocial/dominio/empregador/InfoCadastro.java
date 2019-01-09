@@ -35,6 +35,8 @@ public class InfoCadastro {
 	
 	@NotNull
 	private Byte indDesFolha;
+
+	private Byte indOpcCP;
 	
 	@NotNull
 	private Byte indOptRegEletron;
@@ -398,6 +400,14 @@ public class InfoCadastro {
 		return this;
 	}
 	
+	public Byte getIndOpcCP() {
+		return this.indOpcCP;
+	}
+
+	public InfoCadastro setIndOpcCP(Byte indOpcCP) {
+		this.indOpcCP = indOpcCP;
+		return this;
+	}
 
 	@Override
 	public int hashCode() {

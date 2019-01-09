@@ -29,6 +29,10 @@ public class DadosAmbiente {
 	@NotNull
 	private List<FatorRisco> fatorRisco;
 
+	private String nmAmb;
+
+	private String codLotacao;
+
 	/**
 	 * @return the dscAmb
 	 */
@@ -108,5 +112,19 @@ public class DadosAmbiente {
 		return this;
 	}
 	
+	public String getNmAmb() {
+        return nmAmb;
+	}
 	
+    public void setNmAmb(String value) {
+        this.nmAmb = value;
+	}
+	
+	public String getCodLotacao() {
+        return codLotacao;
+    }
+
+    public void setCodLotacao(String value) {
+        this.codLotacao = value;
+    }
 }

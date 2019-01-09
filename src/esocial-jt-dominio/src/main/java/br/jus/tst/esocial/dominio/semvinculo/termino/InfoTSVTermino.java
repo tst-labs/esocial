@@ -1,11 +1,13 @@
 package br.jus.tst.esocial.dominio.semvinculo.termino;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import br.jus.tst.esocial.dominio.termino.Quarentena;
+import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 public class InfoTSVTermino {
 	
@@ -19,6 +21,15 @@ public class InfoTSVTermino {
 
 	@Valid
 	private Quarentena quarentena;
+
+	private Byte pensAlim;
+	
+	@NotNull
+	private BigDecimal percAliment;
+	
+	private BigDecimal vrAlim;
+
+	private MudancaCPF mudancaCPF;
 
 	public Calendar getDtTerm() {
 		return dtTerm;
@@ -51,5 +62,36 @@ public class InfoTSVTermino {
 	public void setQuarentena(Quarentena quarentena) {
 		this.quarentena = quarentena;
 	}
+
+	public Byte getPensAlim() {
+		return pensAlim;
+	}
+
+	public void setPensAlim(Byte pensAlim) {
+		this.pensAlim = pensAlim;
+	}
 	
+	public  BigDecimal getPercAliment() {
+		return percAliment;
+	}
+
+	public void setPercAliment (BigDecimal percAliment) {
+		this.percAliment = percAliment;
+	}
+
+	public BigDecimal getVrAlim() {
+		return vrAlim;
+	}
+
+	public void setVrAlim (BigDecimal vrAlim) {
+		this.vrAlim = vrAlim;
+	}
+
+	public MudancaCPF getMudancaCPF() {
+		return mudancaCPF;
+	}
+
+	public void setMudancaCPF(MudancaCPF mudancaCPF) {
+		this.mudancaCPF = mudancaCPF;
+	}
 }

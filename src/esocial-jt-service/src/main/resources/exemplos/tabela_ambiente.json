@@ -17,6 +17,7 @@
 			},
 			"dadosAmbiente": {
 				"dscAmb": "Descrição do ambiente de trabalho",
+				"nmAmb": "Nome do ambiente",
 				"localAmb": 1,
     			"tpInsc": 1,
 	    		"nrInsc": "00509968000148",
