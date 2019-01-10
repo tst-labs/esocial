@@ -10,6 +10,7 @@ import { withMessages } from "../../../../shared/components/message/MessageConte
 import { ERROR } from "../../../../shared/components/message/MessageType";
 
 import { limparProducaoRestrita } from "../../../api/esocial-jt";
+import { limpar, conectorUp } from "../../../api/conector";
 
 const LOADER_ID = "limpar-producao-restrita";
 
@@ -24,6 +25,10 @@ class AcoesProducaoRestrita extends Component {
     setLoading(LOADER_ID, true);
     try {
       await limparProducaoRestrita();
+      let up = await conectorUp();
+      if (up) {
+        await limpar();
+      }
     } catch (error) {
       let errorMessage = error;
       if (error.message) {
