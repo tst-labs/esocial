@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import br.jus.tst.esocial.dominio.vinculo.Afastamento;
+import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 public class InfoTSVInicio {
 	
@@ -28,6 +29,8 @@ public class InfoTSVInicio {
 	
 	@Valid
 	private Termino termino;
+
+	@Valid MudancaCPF mudancaCPF;
 
 	public Integer getCodCateg() {
 		return codCateg;
@@ -87,5 +90,13 @@ public class InfoTSVInicio {
 
 	public void setTermino(Termino termino) {
 		this.termino = termino;
+	}
+
+	public MudancaCPF getMudancaCPF() {
+		return mudancaCPF;
+	}
+
+	public void setMudancaCPF(MudancaCPF mudancaCPF) {
+		this.mudancaCPF = mudancaCPF;
 	}
 }

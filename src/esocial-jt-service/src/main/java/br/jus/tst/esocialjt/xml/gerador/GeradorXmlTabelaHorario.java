@@ -14,7 +14,7 @@ import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 @Component
 public class GeradorXmlTabelaHorario extends GeradorXml {
 
-	private static final String ARQUIVO_XSD = "xsd/eventos/v02_04_02/evtTabHorTur.xsd";
+	private static final String ARQUIVO_XSD = "xsd/eventos/v02_05/evtTabHorTur.xsd";
 
 	@Override
 	public Object criarObjetoESocial(Evento evento) throws GeracaoXmlException {

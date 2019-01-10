@@ -5,6 +5,8 @@ import javax.validation.constraints.Pattern;
 
 public class SucessaoVinc {
 
+	private byte tpInscSuc;
+
 	@NotNull
 	@Pattern(regexp="\\d{8,14}")
 	private String cnpjSucessora;
@@ -16,5 +18,12 @@ public class SucessaoVinc {
 	public void setCnpjSucessora(String cnpjSucessora) {
 		this.cnpjSucessora = cnpjSucessora;
 	}
-	
+
+	public byte getTpInscSuc() {
+		return tpInscSuc;
+	}	
+
+	public void setTpInscSuc(byte tpInscSuc) {
+		this.tpInscSuc = tpInscSuc;
+	}
 }

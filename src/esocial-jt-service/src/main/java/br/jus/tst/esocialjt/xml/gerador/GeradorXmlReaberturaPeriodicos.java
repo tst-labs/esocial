@@ -13,7 +13,7 @@ import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 @Component
 public class GeradorXmlReaberturaPeriodicos extends GeradorXml {
 
-	private static final String ARQUIVO_XSD = "xsd/eventos/v02_04_02/evtReabreEvPer.xsd";
+	private static final String ARQUIVO_XSD = "xsd/eventos/v02_05/evtReabreEvPer.xsd";
 
 	@Override
 	public Object criarObjetoESocial(Evento evento) throws GeracaoXmlException {

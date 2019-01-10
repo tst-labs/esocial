@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import br.jus.tst.esocial.dominio.termino.Quarentena;
+import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 public class InfoDeslig {
 
@@ -49,7 +50,10 @@ public class InfoDeslig {
     private SucessaoVinc sucessaoVinc;
     
     @Valid
-    private TransfTit transfTit;
+	private TransfTit transfTit;
+	
+	@Valid
+	private MudancaCPF mudancaCPF;
     
     @Valid
     private VerbasResc verbasResc;
@@ -195,5 +199,12 @@ public class InfoDeslig {
 	public void setConsigFGTS(List<ConsigFGTS> consigFGTS) {
 		this.consigFGTS = consigFGTS;
 	}
-    
+	
+	public MudancaCPF getMudancaCPF() {
+		return mudancaCPF;
+	}
+
+	public void setMudancaCPF(MudancaCPF mudancaCPF) {
+		this.mudancaCPF = mudancaCPF;
+	}
 }

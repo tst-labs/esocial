@@ -9,6 +9,8 @@ import org.hibernate.validator.constraints.br.CNPJ;
 
 public class SucessaoVinc {
 
+	private byte tpInscAnt;
+
 	@NotNull
 	@CNPJ
 	private String cnpjEmpregAnt;
@@ -24,7 +26,16 @@ public class SucessaoVinc {
 
 	@Size(min=3, max=255)
 	private String observacao;
+
+	public byte getTpInscAnt() {
+		return tpInscAnt;
+	}
 	
+	public SucessaoVinc setTpInscAnt(byte tpInscAnt) {
+		this.tpInscAnt = tpInscAnt;
+		return this;
+	}
+
 	public String getCnpjEmpregAnt() {
 		return cnpjEmpregAnt;
 	}

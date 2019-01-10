@@ -1,6 +1,6 @@
 #!/bin/sh
 DIR=src/main/resources/xsd/eventos
-VERSAO=v02_04_02
+VERSAO=v02_05
 DEST=target/generated-sources/xsd/java
 BASE_PACKAGE=br.jus.tst.esocial.esquemas.eventos
 

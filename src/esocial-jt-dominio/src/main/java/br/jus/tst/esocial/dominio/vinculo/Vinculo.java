@@ -44,6 +44,9 @@ public class Vinculo {
 	
 	@Valid
 	private Desligamento desligamento;
+
+	@Valid
+	private MudancaCPF mudancaCPF;
 	
 	public String getMatricula() {
 		return matricula;
@@ -141,6 +144,15 @@ public class Vinculo {
 
 	public Vinculo setDesligamento(Desligamento desligamento) {
 		this.desligamento = desligamento;
+		return this;
+	}
+
+	public MudancaCPF getMudancaCPF() {
+		return mudancaCPF;
+	}
+
+	public Vinculo setMudancaCPF(MudancaCPF mudancaCPF) {
+		this.mudancaCPF = mudancaCPF;
 		return this;
 	}
 

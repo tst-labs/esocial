@@ -6,15 +6,15 @@ import javax.validation.constraints.NotNull;
 
 public class FGTS {
 	@NotNull
-	private Integer opcFGTS;
+	private byte opcFGTS;
 	
 	private Calendar dtOpcFGTS;
 
-	public Integer getOpcFGTS() {
+	public byte getOpcFGTS() {
 		return opcFGTS;
 	}
 
-	public void setOpcFGTS(Integer opcaoFGTS) {
+	public void setOpcFGTS(byte opcaoFGTS) {
 		this.opcFGTS = opcaoFGTS;
 	}
 
