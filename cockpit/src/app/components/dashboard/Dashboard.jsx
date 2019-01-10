@@ -11,6 +11,7 @@ import SumarioOcorrencias from "./sumario/SumarioOcorrencias";
 import PesquisaOcorrencias from "./pesquisa/PesquisaOcorrencias";
 import StatusEsocialJt from "./status/StatusEsocialJt";
 import StatusEsocialGov from "./status/StatusEsocialGov";
+import StatusConector from "./status/StatusConector";
 
 function MenuItems() {
   return (
@@ -18,6 +19,7 @@ function MenuItems() {
       <Menu.Item>
         <StatusEsocialJt />
         <StatusEsocialGov />
+        <StatusConector />
       </Menu.Item>
       <ListaAcoes />
     </Fragment>

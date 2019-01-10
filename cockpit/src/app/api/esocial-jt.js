@@ -1,7 +1,6 @@
-import { getBaseUrlForProject } from "./base";
 import Ocorrencia from "../models/ocorrencia/Ocorrencia";
 
-const baseUrl = getBaseUrlForProject("esocial-jt-service");
+const baseUrl = process.env.ESOCIAL_SERVICE_URL;
 
 export function statusEsocialJt() {
   return fetch(`${baseUrl}/actuator/health`).then(response => response.json());

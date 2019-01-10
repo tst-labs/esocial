@@ -2,10 +2,21 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const webpack = require("webpack");
+const webpackEnv = require("./webpack.env");
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: "./src/index.html",
   inject: "body"
+});
+
+const DefinePlugin = new webpack.DefinePlugin({
+  "process.env.ESOCIAL_SERVICE_URL": JSON.stringify(
+    webpackEnv.ESOCIAL_SERVICE_URL
+  ),
+  "process.env.CONECTOR_ETL_SERVICE_URL": JSON.stringify(
+    webpackEnv.CONECTOR_ETL_SERVICE_URL
+  )
 });
 
 const WebpackPwaManifestConfig = new WebpackPwaManifest({
@@ -38,6 +49,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
+    DefinePlugin,
     HtmlWebpackPluginConfig,
     WebpackPwaManifestConfig
   ]
