@@ -1,39 +1,93 @@
 import { arrayOf, string } from "prop-types";
 
 import React from "react";
-import { Table } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
+import { AutoSizer, Column, Table } from "react-virtualized";
+import { Popup, Icon, Button } from "semantic-ui-react";
+
 import Ocorrencia, {
   ocorrenciaShape
 } from "../../../models/ocorrencia/Ocorrencia";
-import { ItemTabelaOcorrencia } from "./TabelaOcorrencias.parts";
+import LabelEstadoOcorrencia from "../../shared/LabelEstadoOcorrencia";
 
-function TabelaOcorrencias({ ocorrencias, cor }) {
+const style = {
+  header: {
+    textTransform: "none"
+  }
+};
+
+function BotaoVisualizarOcorrencia({ id }) {
   return (
-    <Table color={cor} selectable>
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell width={1}>ID</Table.HeaderCell>
-          <Table.HeaderCell>Tipo</Table.HeaderCell>
-          <Table.HeaderCell width={2}>Data geração</Table.HeaderCell>
-          <Table.HeaderCell width={3} textAlign="center">
-            Situação
-          </Table.HeaderCell>
-          <Table.HeaderCell width={1}>Ações</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
+    <Popup
+      inverted
+      trigger={
+        <Button
+          as={Link}
+          target="_blank"
+          to={`/ocorrencia/${id}`}
+          icon={<Icon name="eye" />}
+        />
+      }
+      content="Visualizar detalhes"
+      position="top center"
+    />
+  );
+}
 
-      <Table.Body>
-        {ocorrencias.sort(Ocorrencia.sort).map(ocorrencia => (
-          <ItemTabelaOcorrencia key={ocorrencia.id} ocorrencia={ocorrencia} />
-        ))}
-      </Table.Body>
-    </Table>
+BotaoVisualizarOcorrencia.propTypes = {
+  id: string
+};
+
+function TabelaOcorrencias({ ocorrencias }) {
+  ocorrencias.sort(Ocorrencia.sort);
+
+  return (
+    <AutoSizer disableHeight>
+      {({ width }) => (
+        <Table
+          width={width}
+          height={550}
+          headerHeight={50}
+          headerStyle={style.header}
+          rowHeight={60}
+          rowCount={ocorrencias.length}
+          rowGetter={({ index }) => ocorrencias[index]}
+        >
+          <Column width={100} label="ID" dataKey="id" />
+          <Column
+            width={900}
+            label="Tipo"
+            dataKey="tipoEvento"
+            cellRenderer={({ cellData: tipoEvento }) =>
+              tipoEvento.descricaoCompleta
+            }
+          />
+          <Column width={200} label="Data geração" dataKey="textoData" />
+          <Column
+            width={300}
+            label="Situação"
+            dataKey="estado"
+            cellRenderer={({ cellData: estado }) => (
+              <LabelEstadoOcorrencia estado={estado} />
+            )}
+          />
+          <Column
+            width={100}
+            label="Ações"
+            dataKey="id"
+            cellRenderer={({ cellData: id }) => (
+              <BotaoVisualizarOcorrencia id={id} />
+            )}
+          />
+        </Table>
+      )}
+    </AutoSizer>
   );
 }
 
 TabelaOcorrencias.propTypes = {
-  ocorrencias: arrayOf(ocorrenciaShape),
-  cor: string
+  ocorrencias: arrayOf(ocorrenciaShape)
 };
 
 export default TabelaOcorrencias;

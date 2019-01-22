@@ -9,7 +9,7 @@ import {
 } from "../../../shared/components/loader/LoaderContext";
 import { withMessages } from "../../../shared/components/message/MessageContext";
 
-const LOAD_OCORRENCIAS_INTERVAL = 3000;
+const LOAD_OCORRENCIAS_INTERVAL = 5000;
 const LOADER_ID = "load-ocorrencias";
 
 class DashboardRoute extends Component {
