@@ -1,7 +1,7 @@
 create table EST_ENVIO_EVENTO (
        COD_ENVIO_EVENTO integer not null, 
        TXT_ERRO_INTERNO text, 
-       DTA_GERACAO_EVENTO date, 
+       DTA_GERACAO_EVENTO timestamp, 
        COD_RESPOSTA integer, 
        COD_EVENTO integer, 
        COD_LOTE integer, 
@@ -25,7 +25,7 @@ create table EST_LOTE (
        COD_RESPOSTA integer, 
        TXT_PROTOCOLO varchar(35), 
        TXT_RETORNO text, 
-       DTA_ENVIO date, 
+       DTA_ENVIO timestamp, 
        TXT_ERRO_INTERNO text, 
        TXT_XML_LOTE text);
 
@@ -47,8 +47,8 @@ create table EST_OCORRENCIA (
        TXT_REFERENCIA varchar(100), 
        TXT_OPERACAO varchar(15), 
        TXT_RETIFICAR_RECIBO varchar(40),
-       DTA_OCORRENCIA date, 
-       DTA_RECEBIMENTO date, 
+       DTA_OCORRENCIA timestamp, 
+       DTA_RECEBIMENTO timestamp, 
        TXT_DADOS_OCORRENCIA text);
 
 create table EST_TIPO ( 
