@@ -26,7 +26,7 @@
 			<evento Id="ID1005099680001482017112112365700004">
 				<retornoEvento>
 					<eSocial
-						xmlns="http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_0">
+						xmlns="http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1">
 						<retornoEvento Id="ID1005099680001482017112112365700004">
 							<ideEmpregador>
 								<tpInsc>1</tpInsc>
