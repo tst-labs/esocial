@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.w3c.dom.Element;
 
-import br.jus.esocialjt.comunicacao.retorno.evento.ESocial;
-import br.jus.esocialjt.comunicacao.retorno.evento.TOcorrencias.Ocorrencia;
-import br.jus.esocialjt.comunicacao.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos;
-import br.jus.esocialjt.comunicacao.retorno.processamento.TDadosRecepcao;
-import br.jus.esocialjt.comunicacao.retorno.processamento.TStatus;
+import br.jus.esocialjt.comunicacao.eventos.retorno.evento.ESocial;
+import br.jus.esocialjt.comunicacao.eventos.retorno.evento.TOcorrencias.Ocorrencia;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.TDadosRecepcao;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.TStatus;
 import br.jus.tst.esocialjt.xml.GeradorXmlToObject;
 import br.jus.tst.esocialjt.xml.XmlTools;
 
@@ -64,8 +64,8 @@ public class RetornoProcessamento {
 	}
 
 	private RetornoLote criarRetornoLote(String xmlRetorno) {
-		br.jus.esocialjt.comunicacao.retorno.processamento.ESocial lote = geradorXmlToObject
-				.convertXMLToObject(br.jus.esocialjt.comunicacao.retorno.processamento.ESocial.class, xmlRetorno);
+		br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial lote = geradorXmlToObject
+				.convertXMLToObject(br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial.class, xmlRetorno);
 
 		RetornoProcessamentoLoteEventos retornoProcessamentoLote = lote.getRetornoProcessamentoLoteEventos();
 		TDadosRecepcao dadosRecepcaoLote = retornoProcessamentoLote.getDadosRecepcaoLote();
@@ -97,10 +97,10 @@ public class RetornoProcessamento {
 	}
 
 	private List<RetornoErroProcessamento> criarErrosProcessamentoLote(
-			List<br.jus.esocialjt.comunicacao.retorno.processamento.TOcorrencias.Ocorrencia> ocorrenciasDeErro) {
+			List<br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.TOcorrencias.Ocorrencia> ocorrenciasDeErro) {
 		List<RetornoErroProcessamento> errosProcessamento = new ArrayList<>();
 		RetornoErroProcessamento erroProcessamento;
-		for (br.jus.esocialjt.comunicacao.retorno.processamento.TOcorrencias.Ocorrencia ocorrenciaErro : ocorrenciasDeErro) {
+		for (br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.TOcorrencias.Ocorrencia ocorrenciaErro : ocorrenciasDeErro) {
 			erroProcessamento = new RetornoErroProcessamento();
 			erroProcessamento.setTipo(ocorrenciaErro.getTipo());
 			erroProcessamento.setLocalizacao(ocorrenciaErro.getLocalizacao());

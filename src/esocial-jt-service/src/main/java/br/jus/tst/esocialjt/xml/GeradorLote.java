@@ -18,11 +18,11 @@ import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import br.jus.esocialjt.comunicacao.envio.ESocial;
-import br.jus.esocialjt.comunicacao.envio.ESocial.EnvioLoteEventos.Eventos;
-import br.jus.esocialjt.comunicacao.envio.TArquivoEsocial;
-import br.jus.esocialjt.comunicacao.envio.TIdeEmpregador;
-import br.jus.esocialjt.comunicacao.envio.TIdeTransmissor;
+import br.jus.esocialjt.comunicacao.lote.eventos.envio.ESocial;
+import br.jus.esocialjt.comunicacao.lote.eventos.envio.ESocial.EnvioLoteEventos.Eventos;
+import br.jus.esocialjt.comunicacao.lote.eventos.envio.TArquivoEsocial;
+import br.jus.esocialjt.comunicacao.lote.eventos.envio.TIdeEmpregador;
+import br.jus.esocialjt.comunicacao.lote.eventos.envio.TIdeTransmissor;
 import br.jus.tst.esocialjt.dominio.EnvioEvento;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;

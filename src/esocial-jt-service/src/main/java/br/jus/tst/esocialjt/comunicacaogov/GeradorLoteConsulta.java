@@ -11,8 +11,8 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.springframework.stereotype.Component;
 
-import br.jus.esocialjt.comunicacao.consulta.ESocial;
-import br.jus.esocialjt.comunicacao.consulta.ESocial.ConsultaLoteEventos;
+import br.jus.esocialjt.comunicacao.lote.eventos.consulta.ESocial;
+import br.jus.esocialjt.comunicacao.lote.eventos.consulta.ESocial.ConsultaLoteEventos;
 import br.jus.esocialjt.comunicacao.wsdl.ServicoConsultarLoteEventosStub;
 import br.jus.esocialjt.comunicacao.wsdl.ServicoConsultarLoteEventosStub.ConsultarLoteEventos;
 

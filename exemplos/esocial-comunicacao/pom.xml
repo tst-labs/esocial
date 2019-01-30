@@ -80,7 +80,7 @@
                         </goals>
                         <configuration>
                             <packageName>br.jus.esocialjt.comunicacao.wsdl</packageName>
-                            <wsdlFile>src/main/resources/wsdl/WsConsultarLoteEventos-v1_1_0.wsdl</wsdlFile>
+                            <wsdlFile>src/main/resources/wsdl/LoteEventos/WsConsultarLoteEventos-v1_1_0.wsdl</wsdlFile>
                         </configuration>
                     </execution>
                     <execution>
@@ -90,7 +90,27 @@
                         </goals>
                         <configuration>
                             <packageName>br.jus.esocialjt.comunicacao.wsdl</packageName>
-                            <wsdlFile>src/main/resources/wsdl/WsEnviarLoteEventos-v1_1_0.wsdl</wsdlFile>
+                            <wsdlFile>src/main/resources/wsdl/LoteEventos/WsEnviarLoteEventos-v1_1_0.wsdl</wsdlFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>3</id>
+                        <goals>
+                            <goal>wsdl2code</goal>
+                        </goals>
+                        <configuration>
+                            <packageName>br.jus.esocialjt.comunicacao.wsdl</packageName>
+                            <wsdlFile>src/main/resources/wsdl/Eventos/WsConsultarIdentificadoresEventos-v1_0_0.wsdl</wsdlFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>4</id>
+                        <goals>
+                            <goal>wsdl2code</goal>
+                        </goals>
+                        <configuration>
+                            <packageName>br.jus.esocialjt.comunicacao.wsdl</packageName>
+                            <wsdlFile>src/main/resources/wsdl/Eventos/WsSolicitarDownloadEventos-v1_0_0.wsdl</wsdlFile>
                         </configuration>
                     </execution>
                 </executions>

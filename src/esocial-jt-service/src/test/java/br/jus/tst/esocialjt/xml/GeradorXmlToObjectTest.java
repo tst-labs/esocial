@@ -27,8 +27,8 @@ public class GeradorXmlToObjectTest {
 
 	@Test
 	public void deveConverterUmXMLEmObjeto() {
-		final br.jus.esocialjt.comunicacao.retorno.envio.ESocial retorno = geradorXmlToObject
-				.convertXMLToObject(br.jus.esocialjt.comunicacao.retorno.envio.ESocial.class, XML_RETORNO);
+		final br.jus.esocialjt.comunicacao.lote.eventos.retorno.envio.ESocial retorno = geradorXmlToObject
+				.convertXMLToObject(br.jus.esocialjt.comunicacao.lote.eventos.retorno.envio.ESocial.class, XML_RETORNO);
 
 		assertThat(retorno).isNotNull();
 		assertThat(retorno.getRetornoEnvioLoteEventos()).isNotNull();

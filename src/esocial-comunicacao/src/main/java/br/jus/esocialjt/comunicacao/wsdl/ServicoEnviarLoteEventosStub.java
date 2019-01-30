@@ -3,15 +3,13 @@
  * ServicoEnviarLoteEventosStub.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis2 version: 1.7.6  Built on : Jul 30, 2017 (09:08:31 BST)
+ * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
         package br.jus.esocialjt.comunicacao.wsdl;
 
-import javax.xml.namespace.QName;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
+        
 
-/*
+        /*
         *  ServicoEnviarLoteEventosStub java implementation
         */
 
@@ -56,9 +54,9 @@ import javax.xml.stream.XMLStreamReader;
 	    
 
 	    
-	    (__operation).getMessage(org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_OUT_VALUE).getPolicySubject().attachPolicy(getPolicy("<wsp:Policy wsu:Id=\"WsEnviarLoteEventos_policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\"><wsp:ExactlyOne><wsp:All><sp:TransportBinding xmlns:sp=\"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy\"><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:TransportToken><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:HttpsToken RequireClientCertificate=\"true\"></sp:HttpsToken></wsp:Policy></sp:TransportToken><sp:AlgorithmSuite><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Basic256/></wsp:Policy></sp:AlgorithmSuite><sp:Layout><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Strict/></wsp:Policy></sp:Layout></wsp:Policy></sp:TransportBinding></wsp:All></wsp:ExactlyOne></wsp:Policy>"));
+	    (__operation).getMessage(org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_OUT_VALUE).getPolicySubject().attachPolicy(getPolicy("<wsp:Policy wsu:Id=\"WsEnviarLoteEventos_policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\"><wsp:ExactlyOne><wsp:All><sp:TransportBinding xmlns:sp=\"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy\"><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:TransportToken><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:HttpsToken RequireClientCertificate=\"true\"></sp:HttpsToken></wsp:Policy></sp:TransportToken><sp:AlgorithmSuite><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Basic256 /></wsp:Policy></sp:AlgorithmSuite><sp:Layout><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Strict /></wsp:Policy></sp:Layout></wsp:Policy></sp:TransportBinding></wsp:All></wsp:ExactlyOne></wsp:Policy>"));
 	    
-	    (__operation).getMessage(org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE).getPolicySubject().attachPolicy(getPolicy("<wsp:Policy wsu:Id=\"WsEnviarLoteEventos_policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\"><wsp:ExactlyOne><wsp:All><sp:TransportBinding xmlns:sp=\"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy\"><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:TransportToken><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:HttpsToken RequireClientCertificate=\"true\"></sp:HttpsToken></wsp:Policy></sp:TransportToken><sp:AlgorithmSuite><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Basic256/></wsp:Policy></sp:AlgorithmSuite><sp:Layout><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Strict/></wsp:Policy></sp:Layout></wsp:Policy></sp:TransportBinding></wsp:All></wsp:ExactlyOne></wsp:Policy>"));
+	    (__operation).getMessage(org.apache.axis2.wsdl.WSDLConstants.MESSAGE_LABEL_IN_VALUE).getPolicySubject().attachPolicy(getPolicy("<wsp:Policy wsu:Id=\"WsEnviarLoteEventos_policy\" xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\"><wsp:ExactlyOne><wsp:All><sp:TransportBinding xmlns:sp=\"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy\"><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:TransportToken><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:HttpsToken RequireClientCertificate=\"true\"></sp:HttpsToken></wsp:Policy></sp:TransportToken><sp:AlgorithmSuite><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Basic256 /></wsp:Policy></sp:AlgorithmSuite><sp:Layout><wsp:Policy xmlns:wsp=\"http://schemas.xmlsoap.org/ws/2004/09/policy\"><sp:Strict /></wsp:Policy></sp:Layout></wsp:Policy></sp:TransportBinding></wsp:All></wsp:ExactlyOne></wsp:Policy>"));
 	    
 	    
             _operations[0]=__operation;
@@ -132,18 +130,19 @@ import javax.xml.stream.XMLStreamReader;
     }
 
 
-    
+
         
                     /**
                      * Auto generated method signature
                      * 
-                     * @see br.ServicoEnviarLoteEventosStub.teste.ServicoEnviarLoteEventosStub#enviarLoteEventos
+                     * @see br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventos#enviarLoteEventos
                      * @param enviarLoteEventos0
                     
                      */
 
                     
-                            public br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse enviarLoteEventos(
+
+                            public  br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse enviarLoteEventos(
 
                             br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos enviarLoteEventos0)
                         
@@ -151,7 +150,7 @@ import javax.xml.stream.XMLStreamReader;
                     throws java.rmi.RemoteException
                     
                     {
-              org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
+              org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
               _operationClient.getOptions().setAction("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0/ServicoEnviarLoteEventos/EnviarLoteEventos");
@@ -162,6 +161,9 @@ import javax.xml.stream.XMLStreamReader;
                   addPropertyToOperationClient(_operationClient,org.apache.axis2.description.WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR,"&");
               
 
+              // create a message context
+              _messageContext = new org.apache.axis2.context.MessageContext();
+
               
 
               // create SOAP envelope with that payload
@@ -170,8 +172,9 @@ import javax.xml.stream.XMLStreamReader;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     enviarLoteEventos0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0", "enviarLoteEventos")),
-                                                    new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0", "EnviarLoteEventos"));
+                                                    optimizeContent(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                    "enviarLoteEventos")), new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                    "enviarLoteEventos"));
                                                 
         //adding SOAP soap_headers
          _serviceClient.addHeadersToEnvelope(env);
@@ -192,7 +195,8 @@ import javax.xml.stream.XMLStreamReader;
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.class);
+                                             br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.class,
+                                              getEnvelopeNamespaces(_returnEnv));
 
                                
                                         return (br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse)object;
@@ -206,12 +210,12 @@ import javax.xml.stream.XMLStreamReader;
                     try{
                         java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"EnviarLoteEventos"));
                         java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-                        java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(java.lang.String.class);
+                        java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
                         java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
                         //message class
                         java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"EnviarLoteEventos"));
                         java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-                        java.lang.Object messageObject = fromOM(faultElt,messageClass);
+                        java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
                         java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
                                    new java.lang.Class[]{messageClass});
                         m.invoke(ex,new java.lang.Object[]{messageObject});
@@ -253,7 +257,7 @@ import javax.xml.stream.XMLStreamReader;
                 /**
                 * Auto generated method signature for Asynchronous Invocations
                 * 
-                * @see br.ServicoEnviarLoteEventosStub.teste.ServicoEnviarLoteEventosStub#startenviarLoteEventos
+                * @see br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventos#startenviarLoteEventos
                     * @param enviarLoteEventos0
                 
                 */
@@ -285,8 +289,9 @@ import javax.xml.stream.XMLStreamReader;
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     enviarLoteEventos0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0", "enviarLoteEventos")),
-                                                    new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0", "EnviarLoteEventos"));
+                                                    optimizeContent(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                    "enviarLoteEventos")), new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                    "enviarLoteEventos"));
                                                 
         // adding SOAP soap_headers
          _serviceClient.addHeadersToEnvelope(env);
@@ -304,7 +309,8 @@ import javax.xml.stream.XMLStreamReader;
                                 org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
                                 
                                         java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                                                         br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.class);
+                                                                         br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.class,
+                                                                         getEnvelopeNamespaces(resultEnv));
                                         callback.receiveResultenviarLoteEventos(
                                         (br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse)object);
                                         
@@ -323,12 +329,12 @@ import javax.xml.stream.XMLStreamReader;
 											try{
 													java.lang.String exceptionClassName = (java.lang.String)faultExceptionClassNameMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"EnviarLoteEventos"));
 													java.lang.Class exceptionClass = java.lang.Class.forName(exceptionClassName);
-													java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(java.lang.String.class);
+													java.lang.reflect.Constructor constructor = exceptionClass.getConstructor(String.class);
                                                     java.lang.Exception ex = (java.lang.Exception) constructor.newInstance(f.getMessage());
 													//message class
 													java.lang.String messageClassName = (java.lang.String)faultMessageMap.get(new org.apache.axis2.client.FaultMapKey(faultElt.getQName(),"EnviarLoteEventos"));
 														java.lang.Class messageClass = java.lang.Class.forName(messageClassName);
-													java.lang.Object messageObject = fromOM(faultElt,messageClass);
+													java.lang.Object messageObject = fromOM(faultElt,messageClass,null);
 													java.lang.reflect.Method m = exceptionClass.getMethod("setFaultMessage",
 															new java.lang.Class[]{messageClass});
 													m.invoke(ex,new java.lang.Object[]{messageObject});
@@ -395,6 +401,22 @@ import javax.xml.stream.XMLStreamReader;
 
                     }
                 
+
+
+       /**
+        *  A utility method that copies the namepaces from the SOAPEnvelope
+        */
+       private java.util.Map getEnvelopeNamespaces(org.apache.axiom.soap.SOAPEnvelope env){
+        java.util.Map returnMap = new java.util.HashMap();
+        java.util.Iterator namespaceIterator = env.getAllDeclaredNamespaces();
+        while (namespaceIterator.hasNext()) {
+            org.apache.axiom.om.OMNamespace ns = (org.apache.axiom.om.OMNamespace) namespaceIterator.next();
+            returnMap.put(ns.getPrefix(),ns.getNamespaceURI());
+        }
+       return returnMap;
+    }
+
+    
     ////////////////////////////////////////////////////////////////////////
     
     private static org.apache.neethi.Policy getPolicy (java.lang.String policyString) {
@@ -427,7 +449,7 @@ import javax.xml.stream.XMLStreamReader;
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
                 "EnviarLoteEventos",
-                "");
+                "ns2");
 
             
 
@@ -468,7 +490,7 @@ import javax.xml.stream.XMLStreamReader;
                             localLoteEventosTracker = param != null;
                                    
                                             this.localLoteEventos=param;
-                                       
+                                    
 
                                }
                             
@@ -487,9 +509,9 @@ import javax.xml.stream.XMLStreamReader;
 
 
         
-    	   org.apache.axiom.om.OMDataSource dataSource =
-                   new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-           return factory.createOMElement(dataSource,MY_QNAME);
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -545,7 +567,7 @@ import javax.xml.stream.XMLStreamReader;
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0")){
-                return "";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -557,7 +579,7 @@ import javax.xml.stream.XMLStreamReader;
                                        javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
-                xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
+                xmlWriter.writeStartElement(namespace, localPart);
             } else {
                 if (namespace.length() == 0) {
                     prefix = "";
@@ -576,14 +598,11 @@ import javax.xml.stream.XMLStreamReader;
          */
         private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
                                     java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
-            if (writerPrefix != null) {
-                xmlWriter.writeAttribute(writerPrefix, namespace,attName,attValue);
-            } else {
+            if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
-                xmlWriter.writeAttribute(prefix, namespace,attName,attValue);
             }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
         }
 
         /**
@@ -594,7 +613,8 @@ import javax.xml.stream.XMLStreamReader;
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName,attValue);
             } else {
-                xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace,attName,attValue);
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
             }
         }
 
@@ -621,7 +641,7 @@ import javax.xml.stream.XMLStreamReader;
                     xmlWriter.writeAttribute(attName, attributeValue);
                 } else {
                     registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
                 }
             }
         /**
@@ -712,12 +732,41 @@ import javax.xml.stream.XMLStreamReader;
 
 
   
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                 if (localLoteEventosTracker){
+                            elementList.add(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                                      "loteEventos"));
+                            
+                            
+                                    if (localLoteEventos==null){
+                                         throw new org.apache.axis2.databinding.ADBException("loteEventos cannot be null!!");
+                                    }
+                                    elementList.add(localLoteEventos);
+                                }
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
-        private static org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(Factory.class);
 
         
         
@@ -734,7 +783,6 @@ import javax.xml.stream.XMLStreamReader;
                 new EnviarLoteEventos();
 
             int event;
-            javax.xml.namespace.QName currentQName = null;
             java.lang.String nillableValue = null;
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
@@ -743,7 +791,6 @@ import javax.xml.stream.XMLStreamReader;
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                currentQName = reader.getName();
                 
                 if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
                   java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
@@ -781,11 +828,11 @@ import javax.xml.stream.XMLStreamReader;
                 
                     
                     reader.next();
-                   
-                while(!reader.isEndElement()) {
-                    if (reader.isStartElement() ){
                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0","loteEventos").equals(reader.getName()) || new javax.xml.namespace.QName("","loteEventos").equals(reader.getName()) ){
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0","loteEventos").equals(reader.getName())){
                                 
                                                 object.setLoteEventos(LoteEventos_type0.Factory.parse(reader));
                                               
@@ -793,18 +840,17 @@ import javax.xml.stream.XMLStreamReader;
                                     
                               }  // End of if for expected property start element
                                 
-                             else{
-                                        // 3 - A start element we are not expecting indicates an invalid parameter was passed
+                                    else {
                                         
-                                            throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                        
-                             }
-                          
-                             } else {
+                                    }
+                                  
+                            while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
-                             }  
-                           }  // end of while loop
-                        
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
 
 
 
@@ -817,15 +863,6 @@ import javax.xml.stream.XMLStreamReader;
 
         }//end of factory class
 
-
-
-
-	@Override
-	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
         
 
         }
@@ -837,7 +874,7 @@ import javax.xml.stream.XMLStreamReader;
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
                 "http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
                 "EnviarLoteEventosResponse",
-                "");
+                "ns2");
 
             
 
@@ -878,7 +915,7 @@ import javax.xml.stream.XMLStreamReader;
                             localEnviarLoteEventosResultTracker = param != null;
                                    
                                             this.localEnviarLoteEventosResult=param;
-                                       
+                                    
 
                                }
                             
@@ -897,9 +934,9 @@ import javax.xml.stream.XMLStreamReader;
 
 
         
-    	   org.apache.axiom.om.OMDataSource dataSource =
-                   new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
-           return factory.createOMElement(dataSource,MY_QNAME);
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,MY_QNAME);
+               return factory.createOMElement(dataSource,MY_QNAME);
             
         }
 
@@ -955,7 +992,7 @@ import javax.xml.stream.XMLStreamReader;
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0")){
-                return "";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -967,7 +1004,7 @@ import javax.xml.stream.XMLStreamReader;
                                        javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
-                xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
+                xmlWriter.writeStartElement(namespace, localPart);
             } else {
                 if (namespace.length() == 0) {
                     prefix = "";
@@ -986,14 +1023,11 @@ import javax.xml.stream.XMLStreamReader;
          */
         private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
                                     java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
-            if (writerPrefix != null) {
-                xmlWriter.writeAttribute(writerPrefix, namespace,attName,attValue);
-            } else {
+            if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
-                xmlWriter.writeAttribute(prefix, namespace,attName,attValue);
             }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
         }
 
         /**
@@ -1004,7 +1038,8 @@ import javax.xml.stream.XMLStreamReader;
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName,attValue);
             } else {
-                xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace,attName,attValue);
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
             }
         }
 
@@ -1031,7 +1066,7 @@ import javax.xml.stream.XMLStreamReader;
                     xmlWriter.writeAttribute(attName, attributeValue);
                 } else {
                     registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
                 }
             }
         /**
@@ -1122,12 +1157,41 @@ import javax.xml.stream.XMLStreamReader;
 
 
   
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                 if (localEnviarLoteEventosResultTracker){
+                            elementList.add(new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0",
+                                                                      "EnviarLoteEventosResult"));
+                            
+                            
+                                    if (localEnviarLoteEventosResult==null){
+                                         throw new org.apache.axis2.databinding.ADBException("EnviarLoteEventosResult cannot be null!!");
+                                    }
+                                    elementList.add(localEnviarLoteEventosResult);
+                                }
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
-        private static org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(Factory.class);
 
         
         
@@ -1144,7 +1208,6 @@ import javax.xml.stream.XMLStreamReader;
                 new EnviarLoteEventosResponse();
 
             int event;
-            javax.xml.namespace.QName currentQName = null;
             java.lang.String nillableValue = null;
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
@@ -1153,7 +1216,6 @@ import javax.xml.stream.XMLStreamReader;
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                currentQName = reader.getName();
                 
                 if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
                   java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
@@ -1191,11 +1253,11 @@ import javax.xml.stream.XMLStreamReader;
                 
                     
                     reader.next();
-                   
-                while(!reader.isEndElement()) {
-                    if (reader.isStartElement() ){
                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0","EnviarLoteEventosResult").equals(reader.getName()) || new javax.xml.namespace.QName("","EnviarLoteEventosResult").equals(reader.getName()) ){
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0","EnviarLoteEventosResult").equals(reader.getName())){
                                 
                                                 object.setEnviarLoteEventosResult(EnviarLoteEventosResult_type0.Factory.parse(reader));
                                               
@@ -1203,18 +1265,17 @@ import javax.xml.stream.XMLStreamReader;
                                     
                               }  // End of if for expected property start element
                                 
-                             else{
-                                        // 3 - A start element we are not expecting indicates an invalid parameter was passed
+                                    else {
                                         
-                                            throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                        
-                             }
-                          
-                             } else {
+                                    }
+                                  
+                            while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
-                             }  
-                           }  // end of while loop
-                        
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
 
 
 
@@ -1226,15 +1287,6 @@ import javax.xml.stream.XMLStreamReader;
         }
 
         }//end of factory class
-
-
-
-
-	@Override
-	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
         
 
@@ -1278,7 +1330,7 @@ import javax.xml.stream.XMLStreamReader;
         /* This type was generated from the piece of schema that had
                 name = loteEventos_type0
                 Namespace URI = http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0
-                Namespace Prefix = 
+                Namespace Prefix = ns2
                 */
             
 
@@ -1307,7 +1359,7 @@ import javax.xml.stream.XMLStreamReader;
                                public void setExtraElement(org.apache.axiom.om.OMElement param){
                             
                                             this.localExtraElement=param;
-                                       
+                                    
 
                                }
                             
@@ -1326,9 +1378,9 @@ import javax.xml.stream.XMLStreamReader;
 
 
         
-    	   org.apache.axiom.om.OMDataSource dataSource =
-                   new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-           return factory.createOMElement(dataSource,parentQName);
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
             
         }
 
@@ -1385,7 +1437,7 @@ import javax.xml.stream.XMLStreamReader;
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0")){
-                return "";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1397,7 +1449,7 @@ import javax.xml.stream.XMLStreamReader;
                                        javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
-                xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
+                xmlWriter.writeStartElement(namespace, localPart);
             } else {
                 if (namespace.length() == 0) {
                     prefix = "";
@@ -1416,14 +1468,11 @@ import javax.xml.stream.XMLStreamReader;
          */
         private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
                                     java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
-            if (writerPrefix != null) {
-                xmlWriter.writeAttribute(writerPrefix, namespace,attName,attValue);
-            } else {
+            if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
-                xmlWriter.writeAttribute(prefix, namespace,attName,attValue);
             }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
         }
 
         /**
@@ -1434,7 +1483,8 @@ import javax.xml.stream.XMLStreamReader;
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName,attValue);
             } else {
-                xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace,attName,attValue);
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
             }
         }
 
@@ -1461,7 +1511,7 @@ import javax.xml.stream.XMLStreamReader;
                     xmlWriter.writeAttribute(attName, attributeValue);
                 } else {
                     registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
                 }
             }
         /**
@@ -1552,12 +1602,39 @@ import javax.xml.stream.XMLStreamReader;
 
 
   
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                
+                            if (localExtraElement != null){
+                                elementList.add(org.apache.axis2.databinding.utils.Constants.OM_ELEMENT_KEY);
+                                elementList.add(localExtraElement);
+                            } else {
+                               throw new org.apache.axis2.databinding.ADBException("extraElement cannot be null!!");
+                            }
+                        
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
-        private static org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(Factory.class);
 
         
         
@@ -1574,7 +1651,6 @@ import javax.xml.stream.XMLStreamReader;
                 new LoteEventos_type0();
 
             int event;
-            javax.xml.namespace.QName currentQName = null;
             java.lang.String nillableValue = null;
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
@@ -1583,7 +1659,6 @@ import javax.xml.stream.XMLStreamReader;
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                currentQName = reader.getName();
                 
                 if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
                   java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
@@ -1621,10 +1696,10 @@ import javax.xml.stream.XMLStreamReader;
                 
                     
                     reader.next();
-                   
-                while(!reader.isEndElement()) {
-                    if (reader.isStartElement() ){
                 
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
                                    if (reader.isStartElement()){
                                 
                                     
@@ -1643,18 +1718,18 @@ import javax.xml.stream.XMLStreamReader;
                                      
                               }  // End of if for expected property start element
                                 
-                             else{
-                                        // 3 - A start element we are not expecting indicates an invalid parameter was passed
-                                        
-                                            throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                        
-                             }
-                          
-                             } else {
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
+                            while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
-                             }  
-                           }  // end of while loop
-                        
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
 
 
 
@@ -1667,15 +1742,6 @@ import javax.xml.stream.XMLStreamReader;
 
         }//end of factory class
 
-
-
-
-	@Override
-	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
         
 
         }
@@ -1686,7 +1752,7 @@ import javax.xml.stream.XMLStreamReader;
         /* This type was generated from the piece of schema that had
                 name = EnviarLoteEventosResult_type0
                 Namespace URI = http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0
-                Namespace Prefix = 
+                Namespace Prefix = ns2
                 */
             
 
@@ -1715,7 +1781,7 @@ import javax.xml.stream.XMLStreamReader;
                                public void setExtraElement(org.apache.axiom.om.OMElement param){
                             
                                             this.localExtraElement=param;
-                                       
+                                    
 
                                }
                             
@@ -1734,9 +1800,9 @@ import javax.xml.stream.XMLStreamReader;
 
 
         
-    	   org.apache.axiom.om.OMDataSource dataSource =
-                   new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
-           return factory.createOMElement(dataSource,parentQName);
+               org.apache.axiom.om.OMDataSource dataSource =
+                       new org.apache.axis2.databinding.ADBDataSource(this,parentQName);
+               return factory.createOMElement(dataSource,parentQName);
             
         }
 
@@ -1793,7 +1859,7 @@ import javax.xml.stream.XMLStreamReader;
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
             if(namespace.equals("http://www.esocial.gov.br/servicos/empregador/lote/eventos/envio/v1_1_0")){
-                return "";
+                return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
         }
@@ -1805,7 +1871,7 @@ import javax.xml.stream.XMLStreamReader;
                                        javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException {
             java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
             if (writerPrefix != null) {
-                xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
+                xmlWriter.writeStartElement(namespace, localPart);
             } else {
                 if (namespace.length() == 0) {
                     prefix = "";
@@ -1824,14 +1890,11 @@ import javax.xml.stream.XMLStreamReader;
          */
         private void writeAttribute(java.lang.String prefix,java.lang.String namespace,java.lang.String attName,
                                     java.lang.String attValue,javax.xml.stream.XMLStreamWriter xmlWriter) throws javax.xml.stream.XMLStreamException{
-            java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
-            if (writerPrefix != null) {
-                xmlWriter.writeAttribute(writerPrefix, namespace,attName,attValue);
-            } else {
+            if (xmlWriter.getPrefix(namespace) == null) {
                 xmlWriter.writeNamespace(prefix, namespace);
                 xmlWriter.setPrefix(prefix, namespace);
-                xmlWriter.writeAttribute(prefix, namespace,attName,attValue);
             }
+            xmlWriter.writeAttribute(namespace,attName,attValue);
         }
 
         /**
@@ -1842,7 +1905,8 @@ import javax.xml.stream.XMLStreamReader;
             if (namespace.equals("")) {
                 xmlWriter.writeAttribute(attName,attValue);
             } else {
-                xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace,attName,attValue);
+                registerPrefix(xmlWriter, namespace);
+                xmlWriter.writeAttribute(namespace,attName,attValue);
             }
         }
 
@@ -1869,7 +1933,7 @@ import javax.xml.stream.XMLStreamReader;
                     xmlWriter.writeAttribute(attName, attributeValue);
                 } else {
                     registerPrefix(xmlWriter, namespace);
-                    xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
+                    xmlWriter.writeAttribute(namespace, attName, attributeValue);
                 }
             }
         /**
@@ -1960,12 +2024,39 @@ import javax.xml.stream.XMLStreamReader;
 
 
   
+        /**
+        * databinding method to get an XML representation of this object
+        *
+        */
+        public javax.xml.stream.XMLStreamReader getPullParser(javax.xml.namespace.QName qName)
+                    throws org.apache.axis2.databinding.ADBException{
+
+
+        
+                 java.util.ArrayList elementList = new java.util.ArrayList();
+                 java.util.ArrayList attribList = new java.util.ArrayList();
+
+                
+                            if (localExtraElement != null){
+                                elementList.add(org.apache.axis2.databinding.utils.Constants.OM_ELEMENT_KEY);
+                                elementList.add(localExtraElement);
+                            } else {
+                               throw new org.apache.axis2.databinding.ADBException("extraElement cannot be null!!");
+                            }
+                        
+
+                return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
+            
+            
+
+        }
+
+  
 
      /**
       *  Factory class that keeps the parse method
       */
     public static class Factory{
-        private static org.apache.commons.logging.Log log = org.apache.commons.logging.LogFactory.getLog(Factory.class);
 
         
         
@@ -1982,7 +2073,6 @@ import javax.xml.stream.XMLStreamReader;
                 new EnviarLoteEventosResult_type0();
 
             int event;
-            javax.xml.namespace.QName currentQName = null;
             java.lang.String nillableValue = null;
             java.lang.String prefix ="";
             java.lang.String namespaceuri ="";
@@ -1991,7 +2081,6 @@ import javax.xml.stream.XMLStreamReader;
                 while (!reader.isStartElement() && !reader.isEndElement())
                     reader.next();
 
-                currentQName = reader.getName();
                 
                 if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","type")!=null){
                   java.lang.String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
@@ -2029,10 +2118,10 @@ import javax.xml.stream.XMLStreamReader;
                 
                     
                     reader.next();
-                   
-                while(!reader.isEndElement()) {
-                    if (reader.isStartElement() ){
                 
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
                                    if (reader.isStartElement()){
                                 
                                     
@@ -2051,18 +2140,18 @@ import javax.xml.stream.XMLStreamReader;
                                      
                               }  // End of if for expected property start element
                                 
-                             else{
-                                        // 3 - A start element we are not expecting indicates an invalid parameter was passed
-                                        
-                                            throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                        
-                             }
-                          
-                             } else {
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
+                            while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
-                             }  
-                           }  // end of while loop
-                        
+                            
+                                if (reader.isStartElement())
+                                // A start element we are not expecting indicates a trailing invalid property
+                                throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                            
 
 
 
@@ -2074,15 +2163,6 @@ import javax.xml.stream.XMLStreamReader;
         }
 
         }//end of factory class
-
-
-
-
-	@Override
-	public XMLStreamReader getPullParser(QName arg0) throws XMLStreamException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
         
 
@@ -2118,7 +2198,7 @@ import javax.xml.stream.XMLStreamReader;
             }
         
                                     
-                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos param, boolean optimizeContent, javax.xml.namespace.QName elementQName)
+                                        private  org.apache.axiom.soap.SOAPEnvelope toEnvelope(org.apache.axiom.soap.SOAPFactory factory, br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos param, boolean optimizeContent, javax.xml.namespace.QName methodQName)
                                         throws org.apache.axis2.AxisFault{
 
                                              
@@ -2150,24 +2230,25 @@ import javax.xml.stream.XMLStreamReader;
 
         private  java.lang.Object fromOM(
         org.apache.axiom.om.OMElement param,
-        java.lang.Class type) throws org.apache.axis2.AxisFault{
+        java.lang.Class type,
+        java.util.Map extraNamespaces) throws org.apache.axis2.AxisFault{
 
         try {
         
                 if (br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos.class.equals(type)){
                 
-                        return br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventos.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
-            
+           
                 if (br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.class.equals(type)){
                 
-                        return br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                           return br.jus.esocialjt.comunicacao.wsdl.ServicoEnviarLoteEventosStub.EnviarLoteEventosResponse.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
-            
+           
         } catch (java.lang.Exception e) {
         throw org.apache.axis2.AxisFault.makeFault(e);
         }

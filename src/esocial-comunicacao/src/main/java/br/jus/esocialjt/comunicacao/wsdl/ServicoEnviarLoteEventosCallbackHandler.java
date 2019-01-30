@@ -3,7 +3,7 @@
  * ServicoEnviarLoteEventosCallbackHandler.java
  *
  * This file was auto-generated from WSDL
- * by the Apache Axis2 version: 1.7.6  Built on : Jul 30, 2017 (09:08:31 BST)
+ * by the Apache Axis2 version: 1.6.2  Built on : Apr 17, 2012 (05:33:49 IST)
  */
 
     package br.jus.esocialjt.comunicacao.wsdl;

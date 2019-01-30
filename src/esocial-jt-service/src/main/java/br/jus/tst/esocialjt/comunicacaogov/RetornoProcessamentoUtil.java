@@ -18,9 +18,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import br.jus.esocialjt.comunicacao.retorno.processamento.ESocial;
-import br.jus.esocialjt.comunicacao.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos.RetornoEventos;
-import br.jus.esocialjt.comunicacao.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos.RetornoEventos.Evento;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos.RetornoEventos;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.processamento.ESocial.RetornoProcessamentoLoteEventos.RetornoEventos.Evento;
 import br.jus.tst.esocialjt.xml.GeradorXmlToObject;
 
 public class RetornoProcessamentoUtil {

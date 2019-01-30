@@ -1,8 +1,8 @@
 package br.jus.tst.esocialjt.comunicacaogov;
 
-import br.jus.esocialjt.comunicacao.retorno.envio.ESocial;
-import br.jus.esocialjt.comunicacao.retorno.envio.TDadosRecepcao;
-import br.jus.esocialjt.comunicacao.retorno.envio.ESocial.RetornoEnvioLoteEventos;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.envio.ESocial;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.envio.TDadosRecepcao;
+import br.jus.esocialjt.comunicacao.lote.eventos.retorno.envio.ESocial.RetornoEnvioLoteEventos;
 import br.jus.tst.esocialjt.xml.GeradorXmlToObject;
 
 public class RetornoEnvio {
