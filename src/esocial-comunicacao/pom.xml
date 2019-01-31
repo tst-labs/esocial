@@ -6,7 +6,7 @@
 
 	<groupId>br.jus.tst</groupId>
 	<artifactId>esocial-comunicacao</artifactId>
-	<version>1.4.1</version>
+	<version>1.5</version>
 	<packaging>jar</packaging>
 
 	<name>esocial-comunicacao</name>
