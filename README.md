@@ -261,9 +261,7 @@ de eventos especificados pelo eSocial-GOV.
 
 Pacote de esquemas : 2.5 
 
-Pacote de comunicação : 1.4*
-
-* A versão 1.5 do pacote de comunicação só estará disponível para uso a partir do dia 21/01/2019
+Pacote de comunicação : 1.5
 
 #### Eventos de Tabelas
 
