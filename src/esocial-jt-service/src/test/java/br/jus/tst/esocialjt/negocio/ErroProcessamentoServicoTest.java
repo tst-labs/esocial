@@ -28,9 +28,6 @@ public class ErroProcessamentoServicoTest {
 	@Autowired
 	ErroProcessamentoServico erroProcessamentoServico;
 
-	@Autowired
-	ConsultaLoteServico consultarLote;
-
 	@MockBean
 	ComunicacaoEsocialGov comunicacaoEsocialGov;
 	

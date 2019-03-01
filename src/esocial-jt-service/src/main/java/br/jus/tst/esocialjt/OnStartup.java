@@ -7,14 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.ws.client.WebServiceIOException;
 
 import br.jus.tst.esocialjt.auto.TimerEnvio;
-import br.jus.tst.esocialjt.certificado.Certificado;
 import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
-import br.jus.tst.esocialjt.infraestrutura.socket.ConexaoSSL;
-import br.jus.tst.esocialjt.infraestrutura.socket.ProxyParams;
-import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import br.jus.tst.esocialjt.infraestrutura.ProxyParams;
 
 @Component
 public class OnStartup {
@@ -23,12 +20,6 @@ public class OnStartup {
 
 	@Autowired
 	private TimerEnvio timerEnvio;
-	
-	@Autowired
-	private ConexaoSSL conexaoSSL;
-
-	@Autowired
-	private Certificado certificado;
 	
 	@Autowired
 	private ComunicacaoEsocialGov comunicacaoEsocialGov;
@@ -42,7 +33,7 @@ public class OnStartup {
 	@PostConstruct
 	public void postConstruct() {
 		if(runStartup) {
-			configurarSSL();
+			configurarProxy();
 			testarConexaoEsocial();
 			iniciarTimer();
 		}
@@ -53,24 +44,26 @@ public class OnStartup {
 		LOGGER.info(timerEnvio.getStatus().toString());
 	}
 	
-	private void configurarSSL() {
-		LOGGER.info("Configurando SSL...");
-		conexaoSSL.configurarSslUtilizandoCertificado(certificado, proxyParams);
+	private void configurarProxy() {
+		if(proxyParams.usaProxy()) {
+			LOGGER.info("Configurando Proxy...");
+			System.getProperties().put("https.proxyHost", proxyParams.getProxyServ());
+			System.getProperties().put("https.proxyPort", proxyParams.getProxyPort());
+			System.getProperties().put("http.proxyUser", proxyParams.getProxyUser());
+			System.getProperties().put("http.proxyPassword", proxyParams.getProxyPass());
+		}
 	}
 	
 	private void testarConexaoEsocial() {
 		LOGGER.info("Testando conexão com eSocial...");
 		try {
-			RetornoProcessamento retornoProcessamento = comunicacaoEsocialGov.consultarLoteEventos("0000");
-			String resposta = retornoProcessamento.getXmlRetorno();
-			if (resposta.indexOf("retornoProcessamentoLoteEventos") > -1) {
+			if (comunicacaoEsocialGov.testarConexaoEsocial()) {
 				LOGGER.info("Conexão com eSocial OK ");
-				LOGGER.debug("RetornoEnvio: {}", resposta);
 			} else {
-				LOGGER.error("Ocorreu um erro ao tentar conectar com o eSocial. RetornoEnvio: {}", resposta);
+				LOGGER.error("Ocorreu um erro ao tentar conectar com o eSocial");
 			}
-		} catch (ComunicacaoEsocialGovException e) {
-			LOGGER.error(e.getMessage(), e);
+		} catch (WebServiceIOException e) {
+			LOGGER.error(e.getMessage()+". Is proxyServer configured?", e);
 		}
 	}
 }

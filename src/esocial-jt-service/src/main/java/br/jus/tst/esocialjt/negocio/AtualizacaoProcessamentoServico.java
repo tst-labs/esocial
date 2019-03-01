@@ -74,6 +74,7 @@ public class AtualizacaoProcessamentoServico {
 				salvaEventosTotalizadores(retornoLote);
 				
 			} catch (ComunicacaoEsocialGovException e) {
+				LOGGER.error(e.getMessage());
 				LOGGER.debug(e.getMessage(), e);
 			}
 		});

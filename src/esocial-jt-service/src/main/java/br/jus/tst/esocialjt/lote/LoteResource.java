@@ -1,15 +1,16 @@
 package br.jus.tst.esocialjt.lote;
 
-import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
+import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoServico;
 import br.jus.tst.esocialjt.negocio.AtualizacaoProcessamentoServico;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 
@@ -21,11 +22,16 @@ public class LoteResource {
 	private AtualizacaoProcessamentoServico atualizacaoProcessamentoServico;
 
 	@Autowired
-	private ComunicacaoEsocialGov comunicacaoEsocialGov;
+	private ComunicacaoServico comunicacaoServico;
 
-	@GetMapping(path = "/consulta/{protocolo:.+}", produces = MediaType.APPLICATION_XML)
-	public String consultaProtocolo(@PathVariable("protocolo") String protocolo) throws ComunicacaoEsocialGovException {
-		return comunicacaoEsocialGov.consultarLoteEventos(protocolo).getXmlRetorno();
+	@GetMapping(path = "/consulta/{protocolo:.+}", produces = "text/xml")
+	public String consultaProtocolo(@PathVariable("protocolo") String protocolo) throws IOException {
+		return comunicacaoServico.consultarLote(protocolo);
+	}
+
+	@PostMapping(value = "/acoes/enviar", consumes = "text/xml", produces = "text/xml")
+	public String enviarParaEsocialGov(@RequestBody String lote) throws IOException {
+		return comunicacaoServico.enviarLote(lote);
 	}
 	
 	@PostMapping("/acoes/atualizar-processamento")

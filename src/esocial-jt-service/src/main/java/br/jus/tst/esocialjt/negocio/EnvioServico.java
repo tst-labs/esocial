@@ -76,6 +76,7 @@ public class EnvioServico {
 				preencherDadosEnvioLote(lote, retorno);		
 			} catch (GeracaoXmlException | ComunicacaoEsocialGovException e) {
 				lote.setErroInterno(e.getMessage());
+				LOGGER.error(e.getMessage());
 				LOGGER.debug(e.getMessage(), e);
 			}
 		});

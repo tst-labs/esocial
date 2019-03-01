@@ -1,5 +1,7 @@
 package br.jus.tst.esocialjt.certificado;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class Certificado {
 
 	private String pathArquivoCertificado;
@@ -25,5 +27,11 @@ public class Certificado {
 	}
 	public char[] getSenhaCacerts() {
 		return senhaCacerts;
+	}
+	public boolean existeConfiguracaoCertificado() {
+		return StringUtils.isNotBlank(pathArquivoCertificado);
+	}
+	public boolean existeConfiguracaoCacerts() {
+		return StringUtils.isNotBlank(pathArquivoCacerts);
 	}
 }

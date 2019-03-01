@@ -37,7 +37,7 @@ public class AssinadorXml {
 	
 	private String assinarRemoto(String xml, String signedXML) {
 		try {
-			signedXML = new Http(urlServicoAssinatura).post(xml);
+			signedXML = new Http().post(urlServicoAssinatura, xml);
 		} catch (IOException ex) {
 			LOGGER.error("Erro ao assinar em " + urlServicoAssinatura, ex);
 		}
