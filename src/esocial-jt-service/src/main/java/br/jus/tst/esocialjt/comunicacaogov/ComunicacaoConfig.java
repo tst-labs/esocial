@@ -20,10 +20,10 @@ public class ComunicacaoConfig {
 	Certificado certificado;
 	
 	@Value("${esocialjt.ambiente}")
-	private TipoAmbiente ambiente;
+	TipoAmbiente ambiente;
 	
 	@Bean
-	public ComunicacaoServico consultarLoteCliente(Jaxb2Marshaller marshaller) {
+	public ComunicacaoServico criarComunicacaoServico(Jaxb2Marshaller marshaller) {
 		ComunicacaoServico servico = new ComunicacaoServico();
 		servico.setMarshaller(marshaller);
 		servico.setUnmarshaller(marshaller);

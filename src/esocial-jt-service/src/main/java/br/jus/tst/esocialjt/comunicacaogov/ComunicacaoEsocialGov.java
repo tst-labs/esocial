@@ -21,10 +21,10 @@ public class ComunicacaoEsocialGov {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ComunicacaoEsocialGov.class);
 	
 	@Value("${esocialjt.urlServicoEnvioLote:}")
-	private String urlServicoEnvioLote;
+	String urlServicoEnvioLote;
 
 	@Value("${esocialjt.urlServicoConsultaProcessamento:}")
-	private String urlServicoConsultaProcessamento;
+	String urlServicoConsultaProcessamento;
 	
 	@Autowired
 	ComunicacaoServico servico;
