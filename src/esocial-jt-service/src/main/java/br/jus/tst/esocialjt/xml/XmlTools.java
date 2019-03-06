@@ -1,8 +1,6 @@
 package br.jus.tst.esocialjt.xml;
 
 import java.io.StringWriter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
@@ -19,14 +17,7 @@ public final class XmlTools {
 
 	private XmlTools() {
 	}
-
-	public static String retornaValor(String inicio, String fim, String xml) {
-		final Pattern pattern = Pattern.compile(inicio + "(.+?)" + fim);
-		Matcher matcher = pattern.matcher(xml);
-		matcher.find();
-		return xml.substring(matcher.start(1), matcher.end(1));
-	}
-
+	
 	public static String asString(Node node) {
 		StringWriter writer = new StringWriter();
 		try {
@@ -42,19 +33,7 @@ public final class XmlTools {
 		} catch (final TransformerException ex) {
 			throw new IllegalArgumentException(ex);
 		}
-		return writer.toString();
-	}
-
-	public static String modificaValor(String inicio, String fim, String novoValor, String xml) {
-		final Pattern pattern = Pattern.compile(inicio + "(.+?)" + fim);
-		
-		Matcher matcher = pattern.matcher(xml);
-		while(matcher.find()) {
-			xml = xml.replace(xml.substring(matcher.start(1) - 1, matcher.end(1)), novoValor);
-			matcher = pattern.matcher(xml);
-		}
-		return xml;
-
+		return writer.toString().trim();
 	}
 
 }

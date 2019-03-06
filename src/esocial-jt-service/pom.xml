@@ -192,31 +192,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>keytool-maven-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generateKeyPair</goal>
-						</goals>
-						<phase>generate-test-resources</phase>
-					</execution>
-				</executions>
-				<configuration>
-					<keystore>${project.build.testOutputDirectory}/keystore.pfx</keystore>
-					<dname>cn=tst.jus.br, ou=SETIN, o=CDS, l=Brasilia, st=Distrito Federal, c=BR</dname>
-					<keypass>123456</keypass>
-					<storepass>123456</storepass>
-					<alias>esocial</alias>
-					<storetype>pkcs12</storetype>
-					<keyalg>RSA</keyalg>
-					<sigalg>SHA256withRSA</sigalg>
-					<validity>100</validity>
-					<skipIfExist>true</skipIfExist>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.4.3</version>

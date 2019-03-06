@@ -1,18 +1,9 @@
 package br.jus.tst.esocialjt.xml.assinatura;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
-import java.security.Key;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
@@ -44,22 +35,20 @@ import br.jus.tst.esocialjt.xml.XMLDocumentBuilderFactory;
 
 @Service
 public class AssinaturaXmlServico {
-	
+
 	@Autowired
 	private Certificado certificado;
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(AssinaturaXmlServico.class);
+
+	private final String signatureMethod = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
+	private final String[] transformList = { 
+			"http://www.w3.org/2000/09/xmldsig#enveloped-signature",
+			"http://www.w3.org/TR/2001/REC-xml-c14n-20010315" };
+	private final String digestMethod = "http://www.w3.org/2001/04/xmlenc#sha256";
 
 	public String assinar(String xml) {
 		String signedXML = null;
-		
-		String signatureMethod = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-		String[] transformList = { 
-				"http://www.w3.org/2000/09/xmldsig#enveloped-signature",
-				"http://www.w3.org/TR/2001/REC-xml-c14n-20010315" 
-			};
-		String digestMethod = "http://www.w3.org/2001/04/xmlenc#sha256";
-		
 		try {
 			Init.init();
 			ElementProxy.setDefaultPrefix(Constants.SignatureSpecNS, "");
@@ -72,17 +61,11 @@ public class AssinaturaXmlServico {
 			final Transforms transforms = criarTransformacoes(transformList, doc);
 			sig.addDocument("", transforms, digestMethod);
 
-			KeyStore keyStore = carregarKeyStore();
-			String alias = keyStore.aliases().nextElement();
-			final X509Certificate cert = (X509Certificate) keyStore.getCertificate(alias);
-			sig.addKeyInfo(cert);
-
-			final Key privateKey = keyStore.getKey(alias, certificado.getSenhaCertificado());
-			sig.sign(privateKey);
+			sig.addKeyInfo(certificado.getX509Certificate());
+			sig.sign(certificado.getPrivateKey());
 
 			signedXML = getDocString(doc);
-		} catch (XMLSecurityException | SAXException | IOException | ParserConfigurationException | KeyStoreException
-				| NoSuchAlgorithmException | CertificateException | UnrecoverableKeyException
+		} catch (XMLSecurityException | SAXException | IOException | ParserConfigurationException
 				| TransformerFactoryConfigurationError | TransformerException ex) {
 			LOGGER.error("Erro ao assinar", ex);
 		}
@@ -97,16 +80,6 @@ public class AssinaturaXmlServico {
 		return transforms;
 	}
 
-	private KeyStore carregarKeyStore()
-			throws IOException, KeyStoreException, NoSuchAlgorithmException, CertificateException {
-		File fileCertificado = new File(certificado.getPathArquivoCertificado());
-		try (FileInputStream keyStoreStream = new FileInputStream(fileCertificado)) {
-			KeyStore keyStore = KeyStore.getInstance("pkcs12");
-			keyStore.load(keyStoreStream, certificado.getSenhaCertificado());
-			return keyStore;
-		}
-	}
-
 	private String getDocString(Document doc)
 			throws TransformerFactoryConfigurationError, TransformerException, UnsupportedEncodingException {
 
@@ -117,7 +90,6 @@ public class AssinaturaXmlServico {
 		trans.transform(new DOMSource(doc), new StreamResult(os));
 
 		return os.toString("UTF-8");
-
 	}
 
 	private DocumentBuilder getDocumentBuilder() throws ParserConfigurationException {
