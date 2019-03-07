@@ -66,8 +66,8 @@ public class PGPDataType {
      * <p>
      * You are getting this "catch-all" property because of the following reason: 
      * The field name "PGPKeyPacket" is used by two different parts of a schema. See: 
-     * line 220 of file:/home/guilherme/Development/ESOCIAL-JT/github/exemplos/esocial-esquemas/src/main/resources/xsd/eventos/v02_05/xmldsig-core-schema.xsd
-     * line 215 of file:/home/guilherme/Development/ESOCIAL-JT/github/exemplos/esocial-esquemas/src/main/resources/xsd/eventos/v02_05/xmldsig-core-schema.xsd
+     * line 220 of file:/home/guilherme/Development/ESOCIAL-JT/github/exemplos/esocial-esquemas/src/main/resources/xsd/xmldsig-core-schema.xsd
+     * line 215 of file:/home/guilherme/Development/ESOCIAL-JT/github/exemplos/esocial-esquemas/src/main/resources/xsd/xmldsig-core-schema.xsd
      * <p>
      * To get rid of this property, apply a property customization to one 
      * of both of the following declarations to change their names: 
