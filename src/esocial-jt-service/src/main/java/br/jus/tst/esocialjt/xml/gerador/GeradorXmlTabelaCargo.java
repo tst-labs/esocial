@@ -14,7 +14,7 @@ import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 @Component
 public class GeradorXmlTabelaCargo extends GeradorXml {
 
-	private static final String ARQUIVO_XSD = "xsd/eventos/v02_05/evtTabCargo.xsd";
+	private static final String ARQUIVO_XSD = "xsd/evtTabCargo.xsd";
 
 	@Override
 	public Object criarObjetoESocial(Evento evento) throws GeracaoXmlException {
