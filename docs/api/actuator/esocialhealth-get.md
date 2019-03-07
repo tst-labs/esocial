@@ -2,7 +2,7 @@
 
 Consulta se há comunicação com o eSocial-Gov. Pode indicar problemas locais (como certificado digital inválido) ou problemas no próprio eSocial-Gov.
 
-**URL** : `/esocial-jt-service/actuator/esocial-health`
+**URL** : `/esocial-jt-service/actuator/esocialhealth`
 
 **Method** : `GET`
 
@@ -19,7 +19,7 @@ Consulta se há comunicação com o eSocial-Gov. Pode indicar problemas locais (
 **Request**
 
 ```
-GET: /esocial-jt-service/actuator/esocial-health
+GET: /esocial-jt-service/actuator/esocialhealth
 ```
 
 **Response**

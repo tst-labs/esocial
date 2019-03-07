@@ -281,8 +281,8 @@ Controla, em tempo de execução, se a aplicação deve ou não executar tarefas
 Verifica o status da aplicação
 
 - [Status da aplicação](./docs/api/actuator/health-get.md): `GET` `/esocial-jt-service/actuator/health`
-- [Informações sobre a aplicação](./docs/api/actuator/esocial-health-get.md): `GET` `/esocial-jt-service/actuator/info`
-- [Status da comunicação com eSocial-Gov](./docs/api/actuator/info-get.md): `GET` `/esocial-jt-service/actuator/esocial-health`
+- [Informações sobre a aplicação](./docs/api/actuator/info-get.md): `GET` `/esocial-jt-service/actuator/info`
+- [Status da comunicação com eSocial-Gov](./docs/api/actuator/esocialhealth-get.md): `GET` `/esocial-jt-service/actuator/esocialhealth`
 
 ## Visão Geral
 
