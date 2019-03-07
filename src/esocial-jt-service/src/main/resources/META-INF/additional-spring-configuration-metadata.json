@@ -53,5 +53,20 @@
     "name": "esocialjt.limite-eventos-por-lote",
     "type": "java.lang.Long",
     "description": "Quantidade máxima de eventos por lote"
+  },
+  {
+    "name": "esocialjt.urlServicoConsultaProcessamento",
+    "type": "java.lang.String",
+    "description": "URL de servico de consulta de processamento quando for usar um servico remoto"
+  },
+  {
+    "name": "esocialjt.urlServicoEnvioLote",
+    "type": "java.lang.String",
+    "description": "URL de servico de envio de lote quando for usar um servico remoto"
+  },
+  {
+    "name": "esocialjt.urlServicoAssinatura",
+    "type": "java.lang.String",
+    "description": "URL de servico de assinatura quando for usar um servico remoto"
   }
 ]}

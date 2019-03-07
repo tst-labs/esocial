@@ -1,6 +1,6 @@
 package br.jus.tst.esocialjt.xml;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -15,14 +15,6 @@ import org.xml.sax.SAXException;
 public class XmlToolsTest {
 
 	@Test
-	public void deveRetornarTextoEntreTags() {
-		String texto = "<inicio>RESPOSTA TESTE</inicio>";
-
-		String retorno = XmlTools.retornaValor("<inicio>", "</inicio>", texto);
-		assertEquals("RESPOSTA TESTE", retorno);
-
-	}
-
 	public void deveTransformarXmlemString() {
 
 		Element node = null;
@@ -34,8 +26,8 @@ public class XmlToolsTest {
 		}
 
 		String retorno = XmlTools.asString(node);
-		assertEquals("<inicio>RESPOSTA TESTE</inicio>", retorno);
-
+		
+		assertThat(retorno).isEqualTo("<inicio>RESPOSTA TESTE</inicio>");
 	}
 
 }

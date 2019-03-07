@@ -63,6 +63,17 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.6</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.santuario</groupId>
+			<artifactId>xmlsec</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-httpclient</groupId>
+		    <artifactId>commons-httpclient</artifactId>
+		    <version>3.1</version>
+		</dependency>
+		
 		<!-- MODULES -->
 		<dependency>
 			<groupId>br.jus.tst</groupId>
@@ -93,7 +104,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-support</artifactId>
+        </dependency>
 		<!-- DEV/TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -110,7 +128,12 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
-
+		<dependency>
+		    <groupId>com.github.tomakehurst</groupId>
+		    <artifactId>wiremock-jre8</artifactId>
+		    <version>2.21.0</version>
+		    <scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>com.github.database-rider</groupId>
 			<artifactId>rider-spring</artifactId>
@@ -167,31 +190,6 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>keytool-maven-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>generateKeyPair</goal>
-						</goals>
-						<phase>generate-test-resources</phase>
-					</execution>
-				</executions>
-				<configuration>
-					<keystore>${project.build.testOutputDirectory}/keystore.pfx</keystore>
-					<dname>cn=tst.jus.br, ou=SETIN, o=CDS, l=Brasilia, st=Distrito Federal, c=BR</dname>
-					<keypass>123456</keypass>
-					<storepass>123456</storepass>
-					<alias>esocial</alias>
-					<storetype>pkcs12</storetype>
-					<keyalg>RSA</keyalg>
-					<sigalg>SHA256withRSA</sigalg>
-					<validity>100</validity>
-					<skipIfExist>true</skipIfExist>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

@@ -133,8 +133,7 @@ public class GeradorLote {
 		Marshaller marshaller = context.createMarshaller();
 		StringWriter sw = new StringWriter();
 		marshaller.marshal(instance, sw);
-		String xml = sw.toString();
-		return XmlTools.modificaValor("<eSocial:", "xmlns=", " ", xml.replace("</eSocial:eSocial>", "</eSocial>"));
+		return sw.toString();
 	}
 
 }

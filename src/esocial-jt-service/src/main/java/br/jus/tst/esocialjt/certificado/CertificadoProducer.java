@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class CertificadoProducer {
 
-	@Value("${esocialjt.arquivoCertificado}")
+	@Value("${esocialjt.arquivoCertificado:''}")
 	private String arquivoCertificado;
 	
 	@Value("${esocialjt.arquivoCacerts:''}")
 	private String arquivoCacerts;
 	
-	@Value("${esocialjt.senhaCertificado}")
+	@Value("${esocialjt.senhaCertificado:''}")
 	private String senhaCertificado;
 	
 	@Value("${esocialjt.senhaCacerts:''}")

@@ -19,8 +19,8 @@ import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 import br.jus.tst.esocialjt.negocio.exception.ValidacaoXMLException;
-import br.jus.tst.esocialjt.xml.AssinadorXml;
 import br.jus.tst.esocialjt.xml.ValidadorXml;
+import br.jus.tst.esocialjt.xml.assinatura.AssinadorXml;
 
 @Component
 public abstract class GeradorXml {
