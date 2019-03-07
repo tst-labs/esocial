@@ -89,7 +89,6 @@ cd src
 mvn clean package -P war
 ```
 
-
 ### Testando o primeiro envio
 
 O **esocial-jt-service** foi projetado para receber dados de ocorrência via JSON a partir dos sistemas de origem ou de um conector. Porém, para um primeiro teste, no ambiente de [Produção Restrita](http://portal.esocial.gov.br/institucional/ambiente-de-producao-restrita), é possível enviar manualmente dados para o **esocial-jt-service**. Para isso, faça uma cópia do arquivo [/src/main/resources/exemplos/informacoes_empregador.json](./src/main/resources/exemplos/informacoes_empregador.json), edite com as informações referentes à instituição (o CNPJ deve ser o mesmo do proprietário do Certificado Digital) e envia usando o método **POST** (via linha de comando ou [Postman](https://www.getpostman.com/)) para o _endpoint_:
@@ -114,48 +113,4 @@ http://localhost:8080/esocial-jt-service/ocorrencias
 
 ## API Rest
 
-### Ocorrências
-
-Relacionado ao recebimento ou consulta de **ocorrências**
-
-- [Receber ocorrência](./docs/api/ocorrencias/post.md): `POST` `/esocial-jt-service/ocorrencias`
-- [Consultar todas ocorrências](./docs/api/ocorrencias/get.md): `GET` `/esocial-jt-service/ocorrencias`
-- [Consultar ocorrência por ID](./docs/api/ocorrencias/id-get.md): `GET` `/esocial-jt-service/ocorrencias/{id}`
-- [Consultar dados básicos das ocorrências](./docs/api/ocorrencias/dados-basicos-get.md): `GET` `/esocial-jt-service/ocorrencias/dados-basicos`
-- [Consultar exemplos de JSON de ocorrências](./docs/api/ocorrencias/exemplos-get.md): `GET` `/esocial-jt-service/ocorrencias/exemplos`
-- [Consultar exemplo de JSON de um tipo](./docs/api/ocorrencias/exemplos-tipo-get.md): `GET` `/esocial-jt-service/ocorrencias/exemplos/{tipo}`
-
-### Eventos
-
-Serve para forçar um reenvio de um **evento** para o eSocial-Gov
-
-- [Enviar evento](./docs/api/eventos/acoes-enviar-post.md): `POST` `/esocial-jt-service/eventos/acoes/enviar`
-
-### Lote
-
-Controle manual da consulta do processamento no eSocial-Gov. Não precisa ser executado se a atualização automática está ativada.
-
-- [Consulta protocolo](./docs/api/lote/consulta-protocolo-get.md); `GET` `/esocial-jt-service/lote/consulta/{protocolo}`
-- [Atualiza todos lotes pendentes](./docs/api/lote/acoes-atualizar-processamento-post.md); `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento`
-- [Atualiza lote por protcolo](./docs/api/lote/acoes-atualizar-processamento-protocolo-post.md); `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento/{protocolo}`
-
-### Produção restrita
-
-Comandos exclusivos para o ambiente de produção restrita
-
-- [Limpar produção restrita](./docs/api/producao-restrita/acoes-limpar-post.md): `POST` `/esocial-jt-service/producao-restrita/acoes/limpar`
-
-### Automação
-
-Controla, em tempo de execução, se a aplicação deve ou não executar tarefas automaticamente (envio para o eSocial-Gov, consulta do processamento, etc) . Também pode ser configurado no arquivo `application.properties`.
-
-- [Consultar status](./docs/api/automacao/get.md): `GET` `/esocial-jt-service/automacao`
-- [Configurar automação](./docs/api/automacao/post.md): `POST` `/esocial-jt-service/automacao`
-
-### Status
-
-Verifica o status da aplicação
-
-- [Status da aplicação](./docs/api/actuator/health-get.md): `GET` `/esocial-jt-service/actuator/health`
-- [Informações sobre a aplicação](./docs/api/actuator/esocial-health-get.md): `GET` `/esocial-jt-service/actuator/info`
-- [Status da comunicação com eSocial-Gov](./docs/api/actuator/info-get.md): `GET` `/esocial-jt-service/actuator/esocial-health`
+Ver documentação na raiz do projeto.

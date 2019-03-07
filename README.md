@@ -125,6 +125,67 @@ spring.jpa.database-platform=
 
 > Obs.: Como qualquer aplicação Spring Boot, existem outras maneiras de [sobreescrever os parâmetros de configuração](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
+### Configuração de serviços que usam certificado digital (assinatura de xml e envio para eSocial-Gov)
+
+Para comunicação com o eSocial-Gov, é necessário um certificado digital válido, mesmo para o ambiente de Produção Restrita. Para flexibilizar o uso do certificado, o **esocial-jt-service** permite três configurações para essa funcionalidade:
+
+1. Instalação do **esocial-jt-service** e certificado no mesmo servidor
+2. Instalação do **esocial-jt-service** sem certificado e usar serviços de outra instância do **esocial-jt-service** que possui um certificado
+3. Instalação do **esocial-jt-service** sem certificado e usar serviços de outra aplicação que forneça api REST para assinatura e envio de lotes
+
+#### 1. Instalação do **esocial-jt-service** e certificado no mesmo servidor
+
+Nesta configuração, o arquivo do certificado A1 deverá ficar disponível no sistema de arquivos da máquina que executa o **esocial-jt-service**. O caminho para o arquivo e a senha de acesso são passados no arquivo de configuração.
+
+**Exemplo de uso**:
+
+- Instalação em ambiente de homologação ou produção
+- Instalação na máquina do desenvolvedor, desde que este tenha acesso ao arquivo do certificado digital e à senha.
+
+**Configuração**:
+
+```properties
+esocialjt.arquivoCertificado=/path/to/certificado.pfx
+esocialjt.senhaCertificado=senh@
+```
+
+Obs.: as propriedades `esocialjt.urlServicoEnvioLote`, `esocialjt.urlServicoConsultaProcessamento` e `esocialjt.urlServicoAssinatura` não devem ser preenchidas neste caso.
+
+#### 2. Instalação do **esocial-jt-service** sem certificado e usar serviços de outra instância do **esocial-jt-service** que possui um certificado
+
+Nesta configuração, uma instalação do **esocial-jt-service** manterá o arquivo e senha do certificado digital utilizando a configuração anterior. Outras instalações do **esocial-jt-service** poderão usar a api REST da primeira para fazer uso de serviços que necessitam de certificado digital.
+
+**Exemplo de uso**:
+
+- Uma instalação do **esocial-jt-service**, com certificado digital e senha, ficará disponível em ambiente controlado pela equipe de infraestrutura enquanto desenvolvedores configuram instalações locais para utilizar esse ambiente. O desenvolvedor não precisará ter acesso ao arquivo do certificado digital e à senha.
+
+**Configuração**:
+
+Supondo que a instalação do **esocial-jt-service** com certificado digital esteja disponível em `10.0.0.100` na porta `8080`, as demais instalações devem fazer a seguinte configuração:
+
+```properties
+esocialjt.urlServicoConsultaProcessamento=http://10.0.0.100:8080/esocial-jt-service/lote/consulta/
+esocialjt.urlServicoEnvioLote=http://10.0.0.100:8080/esocial-jt-service/lote/acoes/enviar/
+esocialjt.urlServicoAssinatura=http://10.0.0.100:8080/esocial-jt-service/xml/acoes/assinar/
+```
+
+#### 3. Instalação do **esocial-jt-service** sem certificado e usar serviços de outra aplicação que forneça api REST para assinatura e envio de lotes
+
+Dado que o **esocial-jt-service** usa os serviços da configuração anterior por meio de uma api REST, é possível criar um serviço independente para as mesmas funcionalidades, desde que atenda aos critérios estabelecido pelo eSocial-Gov. **Tal serviço independente não é parte desta solução, cabendo a cada instiuição elaborar da forma que achar mais conveniente**.
+
+**Exemplo de uso**:
+
+- A instituição cria uma aplicação (em Java, Javascript, PHP, etc) que disponibiliza uma api REST que assina um arquivo XML de evento usando seu certificado digital. Esta aplicação também recebe um XML de um lote e envia ao eSocial-Gov usando o protocolo HTTPS. Da mesma forma, a aplicação permite a consulta do resultado do processamento a partir de um número de protocolo. Assim, todas instalações do **esocial-jt-service** usarão esse serviço.
+
+**Configuração**:
+Supondo que a aplicação esteja disponível em `10.0.0.100` na porta `8080`, as instalações do **esocial-jt-service** devem fazer a seguinte configuração:
+
+```properties
+esocialjt.urlServicoConsultaProcessamento=http://10.0.0.100:8080/consulta/
+esocialjt.urlServicoEnvioLote=http://10.0.0.100:8080/enviar/
+esocialjt.urlServicoAssinatura=http://10.0.0.100:8080/assinar/
+```
+
 ### Build e execução
 
 Para fazer build do projeto, execute:
@@ -148,7 +209,7 @@ http://localhost:8080/esocial-jt-service/actuator/health
 
 ### Testando o primeiro envio
 
-O **esocial-jt-service** foi projetado para receber dados de ocorrência via JSON a partir dos sistemas de origem ou de um conector. Porém, para um primeiro teste, no ambiente de [Produção Restrita](http://portal.esocial.gov.br/institucional/ambiente-de-producao-restrita), é possível enviar manualmente dados para o **esocial-jt-service**. Para isso, faça uma cópia do arquivo [/src/main/resources/exemplos/informacoes_empregador.json](./src/main/resources/exemplos/informacoes_empregador.json), edite com as informações referentes à instituição (o CNPJ deve ser o mesmo do proprietário do Certificado Digital) e envia usando o método **POST** (via linha de comando ou [Postman](https://www.getpostman.com/)) para o _endpoint_:
+O **esocial-jt-service** foi projetado para receber dados de ocorrência via JSON a partir dos sistemas de origem ou de um conector. Porém, para um primeiro teste, no ambiente de [Produção Restrita](http://portal.esocial.gov.br/institucional/ambiente-de-producao-restrita), é possível enviar manualmente dados para o **esocial-jt-service**. Para isso, faça uma cópia do arquivo [src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json](.src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json), edite com as informações referentes à instituição (o CNPJ deve ser o mesmo do proprietário do Certificado Digital) e envia usando o método **POST** (via linha de comando ou [Postman](https://www.getpostman.com/)) para o _endpoint_:
 
 ```
 http://localhost:8080/esocial-jt-service/ocorrencias
@@ -191,9 +252,16 @@ Serve para forçar um reenvio de um **evento** para o eSocial-Gov
 
 Controle manual da consulta do processamento no eSocial-Gov. Não precisa ser executado se a atualização automática está ativada.
 
-- [Consulta protocolo](./docs/api/lote/consulta-protocolo-get.md); `GET` `/esocial-jt-service/lote/consulta/{protocolo}`
-- [Atualiza todos lotes pendentes](./docs/api/lote/acoes-atualizar-processamento-post.md); `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento`
-- [Atualiza lote por protcolo](./docs/api/lote/acoes-atualizar-processamento-protocolo-post.md); `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento/{protocolo}`
+- [Consulta protocolo](./docs/api/lote/consulta-protocolo-get.md): `GET` `/esocial-jt-service/lote/consulta/{protocolo}`
+- [Atualiza todos lotes pendentes](./docs/api/lote/acoes-atualizar-processamento-post.md): `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento`
+- [Atualiza lote por protcolo](./docs/api/lote/acoes-atualizar-processamento-protocolo-post.md): `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento/{protocolo}`
+- [Enviar lote para o eSocial-Gov](./docs/api/lote/acoes-enviar-lote-post.md): `POST` `/esocial-jt-service/lote/acoes/enviar/`
+
+### XML
+
+Disponibiliza o serviço de assinatura de xml para uso por outra aplicação.
+
+- [Assinar xml](./docs/api/xml/acoes-assinar-post.md): `POST` `/esocial-jt-service/xml/acoes/assinar/`
 
 ### Produção restrita
 
@@ -259,69 +327,69 @@ de eventos especificados pelo eSocial-GOV.
 
 #### Versões do eSocial-GOV
 
-Pacote de esquemas : 2.5 
+Pacote de esquemas : 2.5
 
 Pacote de comunicação : 1.5
 
 #### Eventos de Tabelas
 
 | Evento | Nome Evento                         | Versão | Situação | Resultado do envio para a produção restrita |
-| ------ | ----------------------------------- | ------ | -------- | ----------------------------------------    |
-| S-1000 | Empregador/Contribuinte             | 2.5 | Feito    | Processado com sucesso                      |
-| S-1005 | Estabelecimentos                    | 2.5 | Feito    | Processado com sucesso                      |
-| S-1010 | Rubricas                            | 2.5 | Feito    | Processado com sucesso                      |
-| S-1020 | Lotações Tributárias                | 2.5 | Feito    | Processado com sucesso                      |
-| S-1030 | Cargos/Empregos Públicos            | 2.5 | Feito    | Processado com sucesso                      |
-| S-1035 | Carreiras Públicas                  | 2.5 | Feito    | Processado com sucesso                      |
-| S-1040 | Funções/Cargos em Comissão          | 2.5 | Feito    | Processado com sucesso                      |
-| S-1050 | Horários/Turnos de Trabalho         | 2.5 | Feito    | Processado com sucesso                      |
-| S-1060 | Ambientes de Trabalho               | 2.5 | Feito    | Processado com sucesso                      |
-| S-1070 | Processos Administrativos/Judiciais | 2.5 | Feito    | Processado com sucesso                      |
-| S-1080 | Operadores Portuários               | 2.5 | NA       | NA                                          |
+| ------ | ----------------------------------- | ------ | -------- | ------------------------------------------- |
+| S-1000 | Empregador/Contribuinte             | 2.5    | Feito    | Processado com sucesso                      |
+| S-1005 | Estabelecimentos                    | 2.5    | Feito    | Processado com sucesso                      |
+| S-1010 | Rubricas                            | 2.5    | Feito    | Processado com sucesso                      |
+| S-1020 | Lotações Tributárias                | 2.5    | Feito    | Processado com sucesso                      |
+| S-1030 | Cargos/Empregos Públicos            | 2.5    | Feito    | Processado com sucesso                      |
+| S-1035 | Carreiras Públicas                  | 2.5    | Feito    | Processado com sucesso                      |
+| S-1040 | Funções/Cargos em Comissão          | 2.5    | Feito    | Processado com sucesso                      |
+| S-1050 | Horários/Turnos de Trabalho         | 2.5    | Feito    | Processado com sucesso                      |
+| S-1060 | Ambientes de Trabalho               | 2.5    | Feito    | Processado com sucesso                      |
+| S-1070 | Processos Administrativos/Judiciais | 2.5    | Feito    | Processado com sucesso                      |
+| S-1080 | Operadores Portuários               | 2.5    | NA       | NA                                          |
 
 #### Eventos periódicos
 
-| Evento | Nome Evento                                                                     | Versão | Situação    | Resultado do envio para a produção restrita |
-| ------ | ------------------------------------------------------------------------------- | ------ | ----------- | ----------------------------------------    |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.5 | Feito       | Processado com sucesso                      |
-| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.5 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
-| S-1207 | Benefícios previdenciários - RPPS                                               | 2.5 | Feito       | Evento não reconhecido pelo eSocial-GOV     |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.5 | Feito       | Processado com sucesso                      |
-| S-1250 | Aquisição de Produção Rural                                                     | 2.5 | NA          | NA                                          |
-| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | 2.5 | NA          | NA                                          |
-| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | 2.5 | NA          | NA                                          |
-| S-1280 | Informações Complementares aos Eventos Periódicos                               | 2.5 | NA          | NA                                          |
-| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.5 | Feito       | Processado com sucesso                      |
-| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.5 | Feito       | Processado com sucesso                      |
-| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.5 | Feito       | Processado com sucesso                      |
-| S-1300 | Contribuição Sindical Patronal                                                  | 2.5 | NA          | NA                                          |
+| Evento | Nome Evento                                                                     | Versão | Situação | Resultado do envio para a produção restrita |
+| ------ | ------------------------------------------------------------------------------- | ------ | -------- | ------------------------------------------- |
+| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.5    | Feito    | Processado com sucesso                      |
+| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.5    | Feito    | Evento não reconhecido pelo eSocial-GOV     |
+| S-1207 | Benefícios previdenciários - RPPS                                               | 2.5    | Feito    | Evento não reconhecido pelo eSocial-GOV     |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.5    | Feito    | Processado com sucesso                      |
+| S-1250 | Aquisição de Produção Rural                                                     | 2.5    | NA       | NA                                          |
+| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | 2.5    | NA       | NA                                          |
+| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | 2.5    | NA       | NA                                          |
+| S-1280 | Informações Complementares aos Eventos Periódicos                               | 2.5    | NA       | NA                                          |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.5    | Feito    | Processado com sucesso                      |
+| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.5    | Feito    | Processado com sucesso                      |
+| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.5    | Feito    | Processado com sucesso                      |
+| S-1300 | Contribuição Sindical Patronal                                                  | 2.5    | NA       | NA                                          |
 
 #### Eventos não periódicos
 
 | Evento | Nome Evento                                                           | Versão | Situação     | Resultado do envio para a produção restrita |
-| ------ | --------------------------------------------------------------------- | ------ | -----------  | ----------------------------------------    |
-| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | 2.5 | NA           | NA                                          |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.5 | Feito        | Processado com sucesso                      |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.5 | Feito        | Processado com sucesso                      |
-| S-2206 | Alteração de Contrato de Trabalho                                     | 2.5 | Feito        | Processado com sucesso                      |
-| S-2210 | Comunicação de Acidente de Trabalho                                   | 2.5 | Impl. futura |                                             |
-| S-2220 | Monitoramento da Saúde do Trabalhador                                 | 2.5 | Impl. futura |                                             |
-| S-2230 | Afastamento Temporário                                                | 2.5 | Feito        | Processado com sucesso                      |
-| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | 2.5 | Impl. futura |                                             |
-| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | 2.5 | Impl. futura |                                             |
-| S-2250 | Aviso Prévio                                                          | 2.5 | NA           | NA                                          |
-| S-2260 | Convocação para Trabalho Intermitente                                 | 2.5 | NA           | NA                                          |
-| S-2298 | Reintegração                                                          | 2.5 | Feito        | Processado com sucesso                      |
-| S-2299 | Desligamento                                                          | 2.5 | Feito        | Processado com sucesso                      |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.5 | Feito        | Processado com sucesso                      |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.5 | Feito        | Processado com sucesso                      |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.5 | Feito        | Processado com sucesso                      |
-| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.5 | Feito        | Evento não reconhecido pelo eSocial-GOV     |
-| S-3000 | Exclusão de eventos                                                   | 2.5 | Feito        | Processado com sucesso                      |
-| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.5 | Feito        | Evento totalizador gravado no formato XML                                            |
-| S-5002 | Imposto de Renda Retido na Fonte                                      | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
-| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
-| S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.5 | Feito  | Evento totalizador gravado no formato XML         |
+| ------ | --------------------------------------------------------------------- | ------ | ------------ | ------------------------------------------- |
+| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | 2.5    | NA           | NA                                          |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.5    | Feito        | Processado com sucesso                      |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.5    | Feito        | Processado com sucesso                      |
+| S-2206 | Alteração de Contrato de Trabalho                                     | 2.5    | Feito        | Processado com sucesso                      |
+| S-2210 | Comunicação de Acidente de Trabalho                                   | 2.5    | Impl. futura |                                             |
+| S-2220 | Monitoramento da Saúde do Trabalhador                                 | 2.5    | Impl. futura |                                             |
+| S-2230 | Afastamento Temporário                                                | 2.5    | Feito        | Processado com sucesso                      |
+| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | 2.5    | Impl. futura |                                             |
+| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | 2.5    | Impl. futura |                                             |
+| S-2250 | Aviso Prévio                                                          | 2.5    | NA           | NA                                          |
+| S-2260 | Convocação para Trabalho Intermitente                                 | 2.5    | NA           | NA                                          |
+| S-2298 | Reintegração                                                          | 2.5    | Feito        | Processado com sucesso                      |
+| S-2299 | Desligamento                                                          | 2.5    | Feito        | Processado com sucesso                      |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.5    | Feito        | Processado com sucesso                      |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.5    | Feito        | Processado com sucesso                      |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.5    | Feito        | Processado com sucesso                      |
+| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.5    | Feito        | Evento não reconhecido pelo eSocial-GOV     |
+| S-3000 | Exclusão de eventos                                                   | 2.5    | Feito        | Processado com sucesso                      |
+| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
+| S-5002 | Imposto de Renda Retido na Fonte                                      | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
+| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
+| S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
 
 #### Como contribuir?
 
