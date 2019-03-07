@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
 
 @Component
-@Endpoint(id="esocial-health")
+@Endpoint(id="esocialhealth")
 public class ComunicacaoEsocialHealth {
 
 	@Autowired

@@ -7,7 +7,7 @@ export function statusEsocialJt() {
 }
 
 export function statusEsocialGov() {
-  return fetch(`${baseUrl}/actuator/esocial-health`).then(response =>
+  return fetch(`${baseUrl}/actuator/esocialhealth`).then(response =>
     response.json()
   );
 }
