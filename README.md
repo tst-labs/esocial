@@ -209,7 +209,7 @@ http://localhost:8080/esocial-jt-service/actuator/health
 
 ### Testando o primeiro envio
 
-O **esocial-jt-service** foi projetado para receber dados de ocorrência via JSON a partir dos sistemas de origem ou de um conector. Porém, para um primeiro teste, no ambiente de [Produção Restrita](http://portal.esocial.gov.br/institucional/ambiente-de-producao-restrita), é possível enviar manualmente dados para o **esocial-jt-service**. Para isso, faça uma cópia do arquivo [src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json](.src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json), edite com as informações referentes à instituição (o CNPJ deve ser o mesmo do proprietário do Certificado Digital) e envia usando o método **POST** (via linha de comando ou [Postman](https://www.getpostman.com/)) para o _endpoint_:
+O **esocial-jt-service** foi projetado para receber dados de ocorrência via JSON a partir dos sistemas de origem ou de um conector. Porém, para um primeiro teste, no ambiente de [Produção Restrita](http://portal.esocial.gov.br/institucional/ambiente-de-producao-restrita), é possível enviar manualmente dados para o **esocial-jt-service**. Para isso, faça uma cópia do arquivo [src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json](./src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json), edite com as informações referentes à instituição (o CNPJ deve ser o mesmo do proprietário do Certificado Digital) e envia usando o método **POST** (via linha de comando ou [Postman](https://www.getpostman.com/)) para o _endpoint_:
 
 ```
 http://localhost:8080/esocial-jt-service/ocorrencias
