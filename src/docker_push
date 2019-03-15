@@ -1,6 +1,5 @@
 #!/bin/bash
-pwd
-ls ./esocial-jt-service/target/
+mvn install -DskipTests -B
 docker build -t tstlabs/esocial-jt-service .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker push tstlabs/esocial-jt-service
