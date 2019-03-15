@@ -31,7 +31,7 @@ create table EST_LOTE (
 
 create table EST_EVENTO ( 
        COD_EVENTO integer not null, 
-  	   COD_OCORRENCIA integer not null,
+  	   COD_OCORRENCIA integer,
        COD_TIPO integer, 
        COD_ESTADO integer, 
        TXT_ID_EVENTO varchar(36),
@@ -82,9 +82,9 @@ alter table EST_LOTE add constraint EST_LOTE_PK primary key (COD_LOTE);
 alter table EST_EVENTO add constraint EST_EVENTO_PK primary key (COD_EVENTO);
 alter table EST_EVENTO add constraint EST_EVENTO_UK01 unique (TXT_NR_RECIBO);
 alter table EST_GRUPO_TIPO_EVENTO add constraint EST_GRUPO_TIPO_PK primary key (COD_GRUPO_TIPO);
-alter table EST_OCORRENCIA add constraint EST_OCORRENCIA_PK primary key (COD_OCORRENCIA) ;
-alter table EST_TIPO add constraint EST_TIPO_PK primary key (COD_TIPO) ;
-alter table EST_TIPO_ERRO_PROCESSAMENTO add constraint EST_TIPO_OCORRENCIA_RETORNO_PK primary key (COD_TIPO_ERRO_PROCESSAMENTO)  ;
+alter table EST_OCORRENCIA add constraint EST_OCORRENCIA_PK primary key (COD_OCORRENCIA);
+alter table EST_TIPO add constraint EST_TIPO_PK primary key (COD_TIPO);
+alter table EST_TIPO_ERRO_PROCESSAMENTO add constraint EST_TIPO_OCORRENCIA_RETORNO_PK primary key (COD_TIPO_ERRO_PROCESSAMENTO);
 alter table EST_RESPOSTA_GOV add constraint EST_RESPOSTA_PK primary key (COD_IDENTIFICADOR);
 alter table EST_EVENTO_TOTALIZADOR add constraint EST_EVENTO_TOTALIZADOR_PK primary key (COD_EVENTO_TOTALIZADOR);
 
@@ -219,6 +219,6 @@ create sequence SEQ_EVE_ID minvalue 1 maxvalue 99999999999999999 increment by 1 
 create sequence SEQ_EVT_ID minvalue 1 maxvalue 99999999999 increment by 1 start with 1 cache 20 no cycle;
 create sequence SEQ_OCORRENCIA_ID minvalue 1 maxvalue 99999999 increment by 1 start with 1 cache 20 no cycle;
 create sequence SEQ_LOTE_ID minvalue 1 maxvalue 99999999999999999 increment by 1 start with 1 cache 20 no cycle;
-create sequence SEQ_RESPOSTA_ID minvalue 1 maxvalue 800 increment by 1 start with 21 cache 20 no cycle;
+create sequence SEQ_RESPOSTA_ID minvalue 100 maxvalue 99999999 increment by 1 start with 100 cache 20 no cycle;
 create sequence SEQ_ENV_EVT_ID minvalue 1 maxvalue 99999999999999999 increment by 1 start with 1 cache 20 no cycle;
 create sequence SEQ_EVT_TOT_ID minvalue 1 maxvalue 99999999999 increment by 1 start with 1 cache 20 no cycle;

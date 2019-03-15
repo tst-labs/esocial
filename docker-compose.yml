@@ -1,11 +1,8 @@
 version: "3.5"
 services:
   app:
-    build:
-      dockerfile: Dockerfile
-      context: ./src
-    image: tst-labs/esocial-app:latest
-    container_name: esocial-app
+    image: tstlabs/esocial-jt-service:latest
+    container_name: esocial-jt-service
     ports:
       - "8080:8080"
     depends_on:
@@ -13,7 +10,7 @@ services:
     networks:
       - esocial-net
     volumes:
-      - "./config:/usr/src/esocial/config/"
+      - "./config:/config"
 
   db:
     image: postgres:10
