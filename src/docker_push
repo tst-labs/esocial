@@ -1,6 +1,6 @@
 #!/bin/bash
 pwd
-ls *
+ls ./esocial-jt-service/target/
 docker build -t tstlabs/esocial-jt-service .
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 docker push tstlabs/esocial-jt-service
