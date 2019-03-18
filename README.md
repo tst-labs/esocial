@@ -94,7 +94,13 @@ $ cd esocial
 $ cp local/da/chave/esocial.pfx ./config/esocial.pfx
 ```
 
-2. Edite o arquivo de configuração `./config/application.properties` para ficar de acordo com seu ambiente
+2. Copie o arquivo `./config/application.properties.example` para `./config/application.properties`
+
+```shellscript
+$ cp ./config/application.properties.example ./config/application.properties
+```
+
+3. Edite o arquivo de configuração `./config/application.properties` para ficar de acordo com seu ambiente
 
 ```properties
 esocialjt.cnpj-empregador=
