@@ -13,7 +13,7 @@ public class AssinaturaXmlResource {
 	@Autowired
 	private AssinaturaXmlServico servico;
 	
-	@PostMapping(consumes = "text/xml", produces = "text/xml")
+	@PostMapping(consumes = "text/xml;charset=UTF-8", produces = "text/xml;charset=UTF-8")
 	public Object assinar(@RequestBody String xml) throws AssinaturaResourceNaoDisponivelException{
 		return servico.assinar(xml);
 	}

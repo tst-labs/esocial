@@ -24,12 +24,12 @@ public class LoteResource {
 	@Autowired
 	private ComunicacaoServico comunicacaoServico;
 
-	@GetMapping(path = "/consulta/{protocolo:.+}", produces = "text/xml")
+	@GetMapping(path = "/consulta/{protocolo:.+}", produces = "text/xml;charset=UTF-8")
 	public String consultaProtocolo(@PathVariable("protocolo") String protocolo) throws IOException {
 		return comunicacaoServico.consultarLote(protocolo);
 	}
 
-	@PostMapping(value = "/acoes/enviar", consumes = "text/xml", produces = "text/xml")
+	@PostMapping(value = "/acoes/enviar", consumes = "text/xml;charset=UTF-8", produces = "text/xml;charset=UTF-8")
 	public String enviarParaEsocialGov(@RequestBody String lote) throws IOException {
 		return comunicacaoServico.enviarLote(lote);
 	}
