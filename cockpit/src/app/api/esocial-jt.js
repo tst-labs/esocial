@@ -1,6 +1,10 @@
 import Ocorrencia from "../models/ocorrencia/Ocorrencia";
 
-const baseUrl = process.env.ESOCIAL_SERVICE_URL;
+const baseUrlDefault = "http://localhost:8080/esocial-jt-service";
+const baseUrl =
+  window.env && window.env.ESOCIAL_SERVICE_URL
+    ? window.env.ESOCIAL_SERVICE_URL
+    : baseUrlDefault;
 
 export function statusEsocialJt() {
   return fetch(`${baseUrl}/actuator/health`).then(response => response.json());

@@ -1,4 +1,8 @@
-const baseUrl = process.env.CONECTOR_ETL_SERVICE_URL;
+const baseUrlDefault = "http://localhost:8888/esocial-pentaho-server";
+const baseUrl =
+  window.env && window.env.CONECTOR_ETL_SERVICE_URL
+    ? window.env.CONECTOR_ETL_SERVICE_URL
+    : baseUrlDefault;
 
 export function statusConector() {
   return fetch(`${baseUrl}/actuator/health`).then(response => response.json());

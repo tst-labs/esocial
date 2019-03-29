@@ -9,7 +9,7 @@ function BaseMenu({ extraItems }) {
       <Menu.Item>
         <Icon name="users" size="large" color="teal" />
       </Menu.Item>
-      <Menu.Item name="ESOCIAL COCKPIT" as={Link} to="/" active={false} />
+      <Menu.Item name="ESOCIAL" as={Link} to="/" active={false} />
       {extraItems}
     </Menu>
   );

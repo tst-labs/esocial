@@ -7,7 +7,7 @@ import { LoaderProvider } from "../shared/components/loader/LoaderContext";
 import { childrenDefaultPropType } from "./components/shared/PropTypesHelper";
 
 export const history = createBrowserHistory({
-  basename: process.env.NODE_ENV === "production" ? "esocial-cockpit" : ""
+  basename: process.env.NODE_ENV === ""
 });
 
 export default function Factory({ children }) {

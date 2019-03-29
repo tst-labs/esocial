@@ -5,9 +5,9 @@ const common = require("./webpack.common.js");
 
 module.exports = merge(common, {
   devtool: "source-map",
-  mode: 'production',
+  mode: "production",
   output: {
-    publicPath: "/esocial-cockpit/"
+    publicPath: "/"
   },
   plugins: [
     new UglifyJSPlugin({
