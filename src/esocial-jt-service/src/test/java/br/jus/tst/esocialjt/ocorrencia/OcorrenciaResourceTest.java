@@ -38,9 +38,15 @@ public class OcorrenciaResourceTest {
 
 	@Test
 	public void deveReceberUmaOcorrencia() {
-		Object obj = ocorrenciaResource.receber(ocorrenciaDTO);
+		Object obj = ocorrenciaResource.receber(ocorrenciaDTO, false);
 		ObjectMapper objectMapper = new ObjectMapper();
 		ObjectNode objectNode = objectMapper.valueToTree(obj);
 		assertThat(objectNode.findValue("id").asLong()).isGreaterThan(0);
+	}
+	
+	@Test
+	public void deveReceberUmaOcorrenciaERetornarID() {
+		Object obj = ocorrenciaResource.receber(ocorrenciaDTO, true);
+		assertThat((Long)obj).isGreaterThan(0);
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.oxm.XmlMappingException;
 import org.springframework.stereotype.Component;
+import org.springframework.ws.soap.client.SoapFaultClientException;
 
 import br.jus.tst.esocialjt.infraestrutura.Http;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
@@ -76,7 +77,7 @@ public class ComunicacaoEsocialGov {
 	private String servicoEnvioLocal(String lote) throws ComunicacaoEsocialGovException {
 		try {
 			return servico.enviarLote(lote);
-		} catch (IOException | XmlMappingException e) {
+		} catch (IOException | XmlMappingException | SoapFaultClientException e) {
 			throw new ComunicacaoEsocialGovException("Ocorreu um erro ao tentar enviar lote para eSocial-Gov em:\n"
 					+ servico.getUrlEnviarLoteGov()
 					+ "\nCom a ACTION:"
@@ -108,11 +109,13 @@ public class ComunicacaoEsocialGov {
 	private String servicoConsultaLocal(String protocolo) throws ComunicacaoEsocialGovException {
 		try {
 			return servico.consultarLote(protocolo);
-		} catch (IOException  e) {
+		} catch (IOException | SoapFaultClientException e) {
 			throw new ComunicacaoEsocialGovException("Ocorreu um erro ao tentar consultar lote do eSocial-Gov em:\n"
 					+ servico.getUrlConsultaLoteGov()
 					+ "\nCom a ACTION:"
 					+ servico.getActionConsultaLoteGov()
+					+ "\n"
+					+ e.getMessage()
 					, e);
 		}
 	}

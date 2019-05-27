@@ -24,13 +24,7 @@
 			"infoRegimeTrab": {
 				"infoCeletista": null,
 				"infoEstatutario": {
-					"indProvim": 1,
-					"tpProv": 1,
-					"dtNomeacao": 535341600000,
-					"dtPosse": 535341600000,
-					"dtExercicio": 535341600000,
-					"tpPlanRP": 1,
-					"infoDecJud": null
+					"tpPlanRP": 1
 				}
 			},
 			"infoContrato": {
@@ -47,7 +41,7 @@
 				"duracao": {
 					"tpContr": 1,
 					"dtTerm": null,
-					"clauAssec": null
+					"objDet": null
 				},
 				"localTrabalho": {
 					"localTrabGeral": {

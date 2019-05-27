@@ -8,6 +8,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.springframework.oxm.XmlMappingException;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
+import org.springframework.ws.soap.client.SoapFaultClientException;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 import org.springframework.xml.transform.StringResult;
 import org.w3c.dom.Element;
@@ -44,7 +45,7 @@ public class ComunicacaoServico extends WebServiceGatewaySupport {
 		return XmlTools.asString(element);
 	}
 	
-	public String consultarLote(String protocolo) throws IOException{
+	public String consultarLote(String protocolo) throws IOException, SoapFaultClientException {
 		ConsultarLoteEventos consultarLoteEventos = new GeradorLoteConsulta().gerarConsulta(protocolo);
 		ConsultarLoteEventosResponse resposta = (ConsultarLoteEventosResponse) getWebServiceTemplate()
 				.marshalSendAndReceive(

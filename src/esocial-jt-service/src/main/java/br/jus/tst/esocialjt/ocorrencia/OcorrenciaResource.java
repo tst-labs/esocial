@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
@@ -47,13 +48,22 @@ public class OcorrenciaResource {
 	}
 	
 	@PostMapping(consumes = "application/json", produces = "application/json;charset=UTF-8")
-	public Object receber(@RequestBody OcorrenciaDTO ocorrenciaDTO) {
+	public Object receber(@RequestBody OcorrenciaDTO ocorrenciaDTO, 
+			@RequestParam(value = "retornar-somente-id", required = false) boolean retornarSomenteId) {
 
 		Ocorrencia ocorrencia = OcorrenciaMapper.INSTANCE.comoOcorrencia(ocorrenciaDTO);
 		ocorrencia.setDataRecebimento(
 				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 
-		return ocorrenciaServico.salvar(ocorrencia);
+		Ocorrencia ocorrenciaSalva = ocorrenciaServico.salvar(ocorrencia);
+		Object resposta;
+		if(retornarSomenteId) {
+			resposta = ocorrenciaSalva.getId();
+		} else {
+			resposta = ocorrenciaSalva;
+		}
+		
+		return resposta;
 	}
 	
 	@GetMapping("/exemplos")
