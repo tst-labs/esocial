@@ -22,9 +22,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import org.hibernate.annotations.Type;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * The persistent class for the EST_LOTE database table.
@@ -54,7 +54,7 @@ public class Lote implements Serializable {
 
 	@Column(name = "DTA_ENVIO")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date dataEnvio;
+	private Date dtaEnvio;
 
 	@Column(name = "TXT_PROTOCOLO")
 	private String protocolo;
@@ -84,14 +84,6 @@ public class Lote implements Serializable {
 
 	public void setCodigoResposta(CodigoResposta codigoResposta) {
 		this.codigoResposta = codigoResposta;
-	}
-
-	public Date getDataEnvio() {
-		return dataEnvio;
-	}
-
-	public void setDataEnvio(Date dataEnvio) {
-		this.dataEnvio = dataEnvio;
 	}
 
 	public List<EnvioEvento> getEnviosEvento() {
@@ -129,11 +121,11 @@ public class Lote implements Serializable {
 	}
 
 	public Date getDtaEnvio() {
-		return this.dataEnvio;
+		return this.dtaEnvio;
 	}
 
 	public Lote setDtaEnvio(Date dataEnvio) {
-		this.dataEnvio = dataEnvio;
+		this.dtaEnvio = dataEnvio;
 		return this;
 	}
 
