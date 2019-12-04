@@ -44,5 +44,19 @@ public class GeradorIdTest {
 		long diferencaTempo = Math.abs(tempoGeracao-tempoAgora);
 		return diferencaTempo;
 	}
+        
+        @Test
+	public void verificarGeracaoDoIdCNPJRaiz() throws ParseException {
+
+                String cnpjRaiz = CNPJ.substring(0,8);
+                
+		String id = geradorId.gerarId(cnpjRaiz);
+		SoftAssertions soft = new SoftAssertions();
+		soft.assertThat(id.substring(0, 3)).isEqualTo("ID1");
+		soft.assertThat(id.substring(3, 11)).isEqualTo(cnpjRaiz);
+                soft.assertThat(id.substring(11, 17)).isEqualTo("000000");
+		soft.assertAll();
+                
+	}
 
 }
