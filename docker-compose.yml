@@ -1,19 +1,5 @@
 version: "3.5"
 services:
-  app:
-    image: tstlabs/esocial-jt-service:latest
-    container_name: esocial-jt-service
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    networks:
-      - esocial-net
-    volumes:
-      - "./config:/config"
-    environment:
-      - spring.datasource.url=jdbc:postgresql://esocial-db/postgres
-
   db:
     image: postgres:10
     container_name: esocial-db
