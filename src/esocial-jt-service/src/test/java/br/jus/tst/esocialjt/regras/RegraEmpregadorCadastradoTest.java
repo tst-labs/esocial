@@ -70,7 +70,7 @@ public class RegraEmpregadorCadastradoTest{
 	@DataSet(executeScriptsBefore = "cleanup.sql")
 	public void deveSerFalsoSeExisteOutroEvento() {
 		Evento eventoEmpregador = new Evento()
-				.setTipoEvento(TipoEvento.TABELA_CARGO)
+				.setTipoEvento(TipoEvento.TABELA_LOTACAO)
 				.setEstado(Estado.PROCESSADO_COM_SUCESSO);
 		
 		salvar(eventoEmpregador);

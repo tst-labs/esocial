@@ -2,6 +2,9 @@ package br.jus.tst.esocial.dominio.empregador.orgaointernacional;
 
 import javax.validation.constraints.NotNull;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 /**
  *
  * Informações exclusivas de organismos internacionais e outras instituições
@@ -45,5 +48,30 @@ public class InfoOrgInternacional {
 	 */
 	public void setIndAcordoIsenMulta(Byte acordoIsencaoMulta) {
 		this.indAcordoIsenMulta = acordoIsencaoMulta;
+	}
+	
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder()
+			.append(this.indAcordoIsenMulta)
+			.toHashCode();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final InfoOrgInternacional other = (InfoOrgInternacional) obj;
+		
+		return new EqualsBuilder()
+				.append(this.indAcordoIsenMulta, other.indAcordoIsenMulta)
+				.isEquals();
 	}
 }

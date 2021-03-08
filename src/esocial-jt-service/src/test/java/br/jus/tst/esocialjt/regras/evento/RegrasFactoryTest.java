@@ -63,51 +63,6 @@ public class RegrasFactoryTest{
 				RegraEventosTabela.class
 		);
 	}
-
-	@Test
-	public void deveProverRegraTabelaCargo() {
-		Regra regra = getRegra(TipoEvento.S1030);
-		assertThat(regra).isInstanceOf(RegraTabelaCargo.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEventosTabela.class
-		);
-	}
-	
-	@Test
-	public void deveProverRegraTabelaCarreira() {
-		Regra regra = getRegra(TipoEvento.S1035);
-		assertThat(regra).isInstanceOf(RegraTabelaCarreira.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEventosTabela.class
-		);
-	}
-	
-	@Test
-	public void deveProverRegraTabelaFuncao() {
-		Regra regra = getRegra(TipoEvento.S1040);
-		assertThat(regra).isInstanceOf(RegraTabelaFuncao.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEventosTabela.class
-		);
-	}
-	
-	@Test
-	public void deveProverRegraTabelaHorario() {
-		Regra regra = getRegra(TipoEvento.S1050);
-		assertThat(regra).isInstanceOf(RegraTabelaHorario.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEventosTabela.class
-				);
-	}
-	
-	@Test
-	public void deveProverRegraTabelaAmbiente() {
-		Regra regra = getRegra(TipoEvento.S1060);
-		assertThat(regra).isInstanceOf(RegraTabelaAmbiente.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEventosTabela.class
-		);
-	}
 	
 	@Test
 	public void deveProverRegraTabelaProcesso() {
@@ -209,17 +164,6 @@ public class RegrasFactoryTest{
 	public void deveProverRegraTSVTermino() {
 		Regra regra = getRegra(TipoEvento.S2399);
 		assertThat(regra).isInstanceOf(RegraTSVTermino.class);
-		assertThat(regra.regras()).extracting("class").containsOnly(
-				RegraEmpregadorCadastrado.class,
-				RegraNaoHaEventoTabelaEmFila.class,
-				RegraNaoHaIngressoTrabEmFila.class
-				);
-	}
-	
-	@Test
-	public void deveProverRegraCadastroBeneficioRPPS() {
-		Regra regra = getRegra(TipoEvento.S2400);
-		assertThat(regra).isInstanceOf(RegraCadastroBeneficioRPPS.class);
 		assertThat(regra.regras()).extracting("class").containsOnly(
 				RegraEmpregadorCadastrado.class,
 				RegraNaoHaEventoTabelaEmFila.class,

@@ -70,7 +70,7 @@ public class GeradorXmlInformacaoEmpregadorTest {
 		evento.getOcorrencia().setOperacao(Operacao.INCLUSAO);
 		InformacoesEmpregador informacaoEmpregador = (InformacoesEmpregador) evento.getOcorrencia()
 				.getDadosOcorrencia();
-		informacaoEmpregador.getInfoEmpregador().getInfoCadastro().getContato().setCpfCtt("123");
+		informacaoEmpregador.getInfoEmpregador().getInfoCadastro().setCnpjEFR("123");
 		gerador.gerarXml(evento);
 	}
 

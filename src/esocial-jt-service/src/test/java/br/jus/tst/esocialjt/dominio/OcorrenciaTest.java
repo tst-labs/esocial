@@ -11,13 +11,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaFuncao;
+import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 
 public class OcorrenciaTest {
 
 	@Test
 	public void deveCriarJsonAoAtribuirDadosOcorrencia() throws JsonProcessingException, IOException {
-		TabelaFuncao tabelaFuncao = new TabelaFuncao();
+		TabelaLotacao tabelaFuncao = new TabelaLotacao();
 		tabelaFuncao.setIdeEmpregador(new IdeEmpregador().setNrInsc("1"));
 		Ocorrencia ocorrencia = new Ocorrencia();
 		

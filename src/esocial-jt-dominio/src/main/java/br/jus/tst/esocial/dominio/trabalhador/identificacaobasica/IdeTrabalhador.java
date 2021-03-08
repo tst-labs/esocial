@@ -29,7 +29,7 @@ public class IdeTrabalhador {
 	
 	private List<ProcJudTrab> procJudTrab;
 	
-	private InfoInterm infoInterm;
+	private List<InfoInterm> infoInterm;
 	
 	public String getCpfTrab() {
 		return cpfTrab;
@@ -79,11 +79,11 @@ public class IdeTrabalhador {
 		this.procJudTrab = procJudTrab;
 	}
 
-	public InfoInterm getInfoInterm() {
+	public List<InfoInterm> getInfoInterm() {
 		return infoInterm;
 	}
 
-	public void setInfoInterm(InfoInterm infoInterm) {
+	public void setInfoInterm(List<InfoInterm> infoInterm) {
 		this.infoInterm = infoInterm;
 	}
 

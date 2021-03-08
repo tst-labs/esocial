@@ -25,11 +25,6 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S1005 = new TipoEvento(1005l);
 	public static final TipoEvento S1010 = new TipoEvento(1010l);
 	public static final TipoEvento S1020 = new TipoEvento(1020l);
-	public static final TipoEvento S1030 = new TipoEvento(1030l);
-	public static final TipoEvento S1035 = new TipoEvento(1035l);
-	public static final TipoEvento S1040 = new TipoEvento(1040l);
-	public static final TipoEvento S1050 = new TipoEvento(1050l);
-	public static final TipoEvento S1060 = new TipoEvento(1060l);
 	public static final TipoEvento S1070 = new TipoEvento(1070l);
 	public static final TipoEvento S2200 = new TipoEvento(2200l);
 	public static final TipoEvento S2205 = new TipoEvento(2205l);
@@ -40,7 +35,6 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S2300 = new TipoEvento(2300l);
 	public static final TipoEvento S2306 = new TipoEvento(2306l);
 	public static final TipoEvento S2399 = new TipoEvento(2399l);
-	public static final TipoEvento S2400 = new TipoEvento(2400l);
 		
 	public static final TipoEvento S1200 = new TipoEvento(1200l);
 	public static final TipoEvento S1202 = new TipoEvento(1202l);
@@ -56,11 +50,6 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento TABELA_ESTABELECIMENTO = S1005; 
 	public static final TipoEvento TABELA_RUBRICA = S1010; 
 	public static final TipoEvento TABELA_LOTACAO = S1020; 
-	public static final TipoEvento TABELA_CARGO = S1030;  
-	public static final TipoEvento TABELA_CARREIRA = S1035;  
-	public static final TipoEvento TABELA_FUNCAO = S1040;  
-	public static final TipoEvento TABELA_HORARIO = S1050; 
-	public static final TipoEvento TABELA_AMBIENTE = S1060; 
 	public static final TipoEvento TABELA_PROCESSO = S1070;  
 	public static final TipoEvento ADMISSAO_TRABALHADOR = S2200;  
 	public static final TipoEvento ALTERACAO_CADASTRAL = S2205;  
@@ -71,7 +60,6 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento TSV_INICIO = S2300;
 	public static final TipoEvento TSV_ALTERACAO_CONTRATUAL = S2306;
 	public static final TipoEvento TSV_TERMINO = S2399;
-	public static final TipoEvento CADASTRO_BENEFICIO_RPPS = S2400;
 	public static final TipoEvento REMUNERACAO_RGPS = S1200;
 	public static final TipoEvento REMUNERACAO_RPPS = S1202;
 	public static final TipoEvento BENEFICIO_RPPS = S1207;

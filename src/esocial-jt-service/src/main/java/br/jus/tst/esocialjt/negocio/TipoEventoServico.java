@@ -38,11 +38,6 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TABELA_ESTABELECIMENTO, 1005);
 		map.put(TipoOcorrencia.TABELA_RUBRICA, 1010);
 		map.put(TipoOcorrencia.TABELA_LOTACAO, 1020);
-		map.put(TipoOcorrencia.TABELA_CARGO, 1030);
-		map.put(TipoOcorrencia.TABELA_CARREIRA, 1035);
-		map.put(TipoOcorrencia.TABELA_FUNCAO, 1040);
-		map.put(TipoOcorrencia.TABELA_HORARIO, 1050);
-		map.put(TipoOcorrencia.TABELA_AMBIENTE, 1060);
 		map.put(TipoOcorrencia.TABELA_PROCESSO, 1070);
 		map.put(TipoOcorrencia.ADMISSAO_TRABALHADOR, 2200);
 		map.put(TipoOcorrencia.ALTERACAO_CADASTRAL, 2205);
@@ -53,7 +48,6 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TSV_INICIO, 2300);
 		map.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, 2306);
 		map.put(TipoOcorrencia.TSV_TERMINO, 2399);
-		map.put(TipoOcorrencia.CADASTRO_BENEFICIO_RPPS, 2400);
 		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
 		map.put(TipoOcorrencia.REMUNERACAO_RPPS, 1202);
 		map.put(TipoOcorrencia.BENEFICIO_RPPS, 1207);

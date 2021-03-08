@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial.EvtInfoEmpregador;
-import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeCadastro;
+import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeEventoEvtTabInicial;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlInformacaoEmpregador extends GeradorXml {
 		
 		EvtInfoEmpregador evtInfoEmpregador = converterInfoEmpregador(ocorrencia);
 		evtInfoEmpregador.setId(evento.getIdEvento());
-		evtInfoEmpregador.setIdeEvento(preencherConstantes(new TIdeCadastro()));
+		evtInfoEmpregador.setIdeEvento(preencherConstantes(new TIdeEventoEvtTabInicial()));
 		eSocial.setEvtInfoEmpregador(evtInfoEmpregador);
 
 		return eSocial;

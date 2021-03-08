@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tsvinicio.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tsvinicio.ESocial.EvtTSVInicio;
-import br.jus.tst.esocial.esquemas.eventos.tsvinicio.TIdeEveTrab;
+import br.jus.tst.esocial.esquemas.eventos.tsvinicio.TIdeEventoTrab;
 import br.jus.tst.esocial.ocorrencia.dados.TSVInicio;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlTSVInicio extends GeradorXml {
 		EvtTSVInicio evtTSVInicio = TSVInicioMapper.INSTANCE.comoEvtTSVInicio((TSVInicio) ocorrencia.getDadosOcorrencia());
 		evtTSVInicio.setId(evento.getIdEvento());
 		
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		TIdeEventoTrab ideEvento = new TIdeEventoTrab();
 		preencherConstantes(ideEvento);
 		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
 		evtTSVInicio.setIdeEvento(ideEvento);

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.altcadastral.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.altcadastral.ESocial.EvtAltCadastral;
-import br.jus.tst.esocial.esquemas.eventos.altcadastral.TIdeEveTrab;
+import br.jus.tst.esocial.esquemas.eventos.altcadastral.TIdeEventoTrab;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -22,7 +22,7 @@ public class GeradorXmlAltCadastral extends GeradorXml {
 		
 		EvtAltCadastral evtAltCadastral = AltCadastralMapper.INSTANCE.comoEvtAltCadastral((AltCadastral) ocorrencia.getDadosOcorrencia());
 		evtAltCadastral.setId(evento.getIdEvento());
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		TIdeEventoTrab ideEvento = new TIdeEventoTrab();
 		preencherConstantes(ideEvento);
 		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
 		evtAltCadastral.setIdeEvento(ideEvento);

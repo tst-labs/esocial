@@ -45,7 +45,7 @@ public class BenPrRP extends DadosOcorrencia {
 
 	@Override
 	public boolean equals(final Object other) {
-		if (!(other instanceof CdBenPrRP)) {
+		if (!(other instanceof BenPrRP)) {
 			return false;
 		}
 		BenPrRP castOther = (BenPrRP) other;

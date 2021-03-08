@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.deslig.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.deslig.ESocial.EvtDeslig;
-import br.jus.tst.esocial.esquemas.eventos.deslig.TIdeEveTrab;
+import br.jus.tst.esocial.esquemas.eventos.deslig.TIdeEventoTrabIndGuia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -22,7 +22,7 @@ public class GeradorXmlDeslig extends GeradorXml {
 		
 		EvtDeslig evtDeslig = DesligMapper.INSTANCE.comoEvtDeslig((Deslig) ocorrencia.getDadosOcorrencia());
 		evtDeslig.setId(evento.getIdEvento());
-		TIdeEveTrab ideEvento = new TIdeEveTrab();
+		TIdeEventoTrabIndGuia ideEvento = new TIdeEventoTrabIndGuia();
 		preencherConstantes(ideEvento);
 		preencherDadosRetificacao(ideEvento, evento.getOcorrencia());
 		evtDeslig.setIdeEvento(ideEvento);

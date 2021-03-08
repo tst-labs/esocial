@@ -19,12 +19,10 @@ import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
 
 import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
-import br.jus.tst.esocial.dominio.tabela.funcao.DadosFuncao;
-import br.jus.tst.esocial.dominio.tabela.funcao.IdeFuncao;
-import br.jus.tst.esocial.dominio.tabela.funcao.InfoFuncao;
+import br.jus.tst.esocial.dominio.empregador.InfoEmpregador;
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaFuncao;
+import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
@@ -45,8 +43,8 @@ public class EventoServicoTest {
 	public void deveGerarEvento() {
 
 		Ocorrencia ocorrencia = new Ocorrencia();
-		ocorrencia.setTipoOcorrencia(TipoOcorrencia.TABELA_FUNCAO);
-		ocorrencia.setDadosOcorrencia(getTabelaFuncao());
+		ocorrencia.setTipoOcorrencia(TipoOcorrencia.INFORMACOES_EMPREGADOR);
+		ocorrencia.setDadosOcorrencia(getInformacoesEmpregador());
 		ocorrencia.setOperacao(Operacao.INCLUSAO);
 		ocorrencia.setReferencia("123");
 		ocorrencia.setDataOcorrencia(
@@ -54,10 +52,10 @@ public class EventoServicoTest {
 		ocorrencia.setDataRecebimento(
 				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 
-		Evento evento = eventoServico.gerarEvento(ocorrencia, TipoEvento.TABELA_FUNCAO);
+		Evento evento = eventoServico.gerarEvento(ocorrencia, TipoEvento.INFORMACOES_EMPREGADOR);
 
 		assertNotNull(evento);
-		assertEquals(TipoOcorrencia.TABELA_FUNCAO.name(), evento.getOcorrencia().getTipoOcorrencia().name());
+		assertEquals(TipoOcorrencia.INFORMACOES_EMPREGADOR.name(), evento.getOcorrencia().getTipoOcorrencia().name());
 		assertThat(evento.getIdEvento()).isNotNull().isNotBlank();
 
 	}
@@ -187,25 +185,16 @@ public class EventoServicoTest {
 		assertThat(existe).isFalse();
 	}
 
-	private TabelaFuncao getTabelaFuncao() {
-		TabelaFuncao tabelaFuncao = new TabelaFuncao();
-		tabelaFuncao.setIdeEmpregador(new IdeEmpregador());
-		tabelaFuncao.getIdeEmpregador().setNrInsc("00509968000148");
+	private InformacoesEmpregador getInformacoesEmpregador() {
+		InformacoesEmpregador informacoesEmpregador = new InformacoesEmpregador();
+		informacoesEmpregador.setIdeEmpregador(new IdeEmpregador());
+		informacoesEmpregador.getIdeEmpregador().setNrInsc("00509968000148");
+		
+		InfoEmpregador infoEmpregador = new InfoEmpregador();
+		
+		informacoesEmpregador.setInfoEmpregador(infoEmpregador);
 
-		InfoFuncao informacao = new InfoFuncao();
-		DadosFuncao dados = new DadosFuncao();
-		dados.setDscFuncao("TESTE");
-		dados.setCodCBO("123456");
-
-		informacao.setDadosFuncao(dados);
-
-		IdeFuncao ideFuncao = new IdeFuncao();
-		ideFuncao.setCodFuncao("1");
-		ideFuncao.setIniValid("2017-01");
-		informacao.setIdeFuncao(ideFuncao);
-		tabelaFuncao.setInfoFuncao(informacao);
-
-		return tabelaFuncao;
+		return informacoesEmpregador;
 	}
 
 }

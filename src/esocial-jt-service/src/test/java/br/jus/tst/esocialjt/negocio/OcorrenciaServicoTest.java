@@ -18,12 +18,12 @@ import com.github.database.rider.core.api.dataset.DataSet;
 import com.github.database.rider.spring.api.DBRider;
 
 import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
-import br.jus.tst.esocial.dominio.tabela.funcao.DadosFuncao;
-import br.jus.tst.esocial.dominio.tabela.funcao.IdeFuncao;
-import br.jus.tst.esocial.dominio.tabela.funcao.InfoFuncao;
+import br.jus.tst.esocial.dominio.tabela.lotacao.DadosLotacao;
+import br.jus.tst.esocial.dominio.tabela.lotacao.IdeLotacao;
+import br.jus.tst.esocial.dominio.tabela.lotacao.InfoLotacao;
 import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaFuncao;
+import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaDadosBasicosDTO;
@@ -108,7 +108,7 @@ public class OcorrenciaServicoTest{
 	@Test
 	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
 	public void deveAguardarSeExisteEventoEmProcessamento() throws Exception{
-		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S1040, "2");
+		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S1020, "2");
 		assertThat(deveAguardar).isTrue();
 	}
 	
@@ -166,8 +166,8 @@ public class OcorrenciaServicoTest{
 	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
 	public void deveSerInclusaoSeNaoExisteOutroIgual() throws Exception{
 		Ocorrencia ocorrencia = em.find(Ocorrencia.class, 2l);
-		TabelaFuncao dados =  (TabelaFuncao) ocorrencia.getDadosOcorrencia();
-		dados.getInfoFuncao().getIdeFuncao().setIniValid("2039-12");
+		TabelaLotacao dados =  (TabelaLotacao) ocorrencia.getDadosOcorrencia();
+		dados.getInfoLotacao().getIdeLotacao().setIniValid("2039-12");
 		
 		ocorrencia.setOperacao(Operacao.ALTERACAO);
 		servico.atualizarOperacaoTabela(ocorrencia);
@@ -177,28 +177,25 @@ public class OcorrenciaServicoTest{
 	
 	private Ocorrencia getOcorrencia() {
 		Ocorrencia ocorrencia = new Ocorrencia();
-		ocorrencia.setTipoOcorrencia(TipoOcorrencia.TABELA_FUNCAO).setReferencia("10000").setOperacao(Operacao.INCLUSAO)
-				.setDataOcorrencia(new Date()).setDadosOcorrencia(getTabelaFuncao());
+		ocorrencia.setTipoOcorrencia(TipoOcorrencia.TABELA_LOTACAO).setReferencia("10000").setOperacao(Operacao.INCLUSAO)
+				.setDataOcorrencia(new Date()).setDadosOcorrencia(getTabelaLotacao());
 		return ocorrencia;
 	}
 
-	private TabelaFuncao getTabelaFuncao() {
-		TabelaFuncao evento = new TabelaFuncao();
+	private TabelaLotacao getTabelaLotacao() {
+		TabelaLotacao evento = new TabelaLotacao();
 		evento.setIdeEmpregador(new IdeEmpregador());
 		evento.getIdeEmpregador().setNrInsc("00509968000148");
 
-		InfoFuncao informacao = new InfoFuncao();
-		DadosFuncao dados = new DadosFuncao();
-		dados.setDscFuncao("TESTE");
-		dados.setCodCBO("123456");
+		InfoLotacao informacao = new InfoLotacao();
+		DadosLotacao dados = new DadosLotacao();
+		informacao.setDadosLotacao(dados);
 
-		informacao.setDadosFuncao(dados);
-
-		IdeFuncao ideFuncao = new IdeFuncao();
-		ideFuncao.setCodFuncao("1");
-		ideFuncao.setIniValid("2017-01");
-		informacao.setIdeFuncao(ideFuncao);
-		evento.setInfoFuncao(informacao);
+		IdeLotacao ideLotacao = new IdeLotacao();
+		ideLotacao.setCodLotacao("1");
+		ideLotacao.setIniValid("2017-01");
+		informacao.setIdeLotacao(ideLotacao);
+		evento.setInfoLotacao(informacao);
 		return evento;
 	}
 

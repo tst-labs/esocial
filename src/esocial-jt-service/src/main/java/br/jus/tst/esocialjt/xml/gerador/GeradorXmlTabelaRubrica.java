@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabrubrica.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tabrubrica.ESocial.EvtTabRubrica;
-import br.jus.tst.esocial.esquemas.eventos.tabrubrica.TIdeCadastro;
+import br.jus.tst.esocial.esquemas.eventos.tabrubrica.TIdeEventoEvtTab;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaRubrica;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlTabelaRubrica extends GeradorXml {
 
 		EvtTabRubrica evtTabRubrica = converteTabRubrica(ocorrencia);
 		evtTabRubrica.setId(evento.getIdEvento());
-		evtTabRubrica.setIdeEvento(preencherConstantes(new TIdeCadastro()));
+		evtTabRubrica.setIdeEvento(preencherConstantes(new TIdeEventoEvtTab()));
 		eSocial.setEvtTabRubrica(evtTabRubrica);
 
 		return eSocial;

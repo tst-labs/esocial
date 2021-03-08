@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tablotacao.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tablotacao.ESocial.EvtTabLotacao;
-import br.jus.tst.esocial.esquemas.eventos.tablotacao.TIdeCadastro;
+import br.jus.tst.esocial.esquemas.eventos.tablotacao.TIdeEventoEvtTab;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlTabelaLotacao extends GeradorXml {
 
 		EvtTabLotacao evtTabLotacao = selecionaMapper(ocorrencia);
 		evtTabLotacao.setId(evento.getIdEvento());
-		evtTabLotacao.setIdeEvento(preencherConstantes(new TIdeCadastro()));
+		evtTabLotacao.setIdeEvento(preencherConstantes(new TIdeEventoEvtTab()));
 		eSocial.setEvtTabLotacao(evtTabLotacao);
 
 		return eSocial;

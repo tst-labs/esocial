@@ -24,10 +24,6 @@ public class FechaEvPerMapperTest {
 			 .isEqualToComparingFieldByFieldRecursively(fechaEvPer.getIdeEmpregador());		 
 
 		 MapperAssertion
-		 	.assertThat(evtFechaEvPer.getIdeRespInf())
-		 	.isEqualToComparingFieldByFieldRecursively(fechaEvPer.getIdeRespInf());
-
-		 MapperAssertion
 		 	.assertThat(evtFechaEvPer.getInfoFech())
 		 	.isEqualToComparingFieldByFieldRecursively(fechaEvPer.getInfoFech());
 	}
