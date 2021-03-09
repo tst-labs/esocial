@@ -9,12 +9,9 @@ import javax.validation.constraints.Size;
 
 import br.jus.tst.esocial.dominio.endereco.Endereco;
 import br.jus.tst.esocial.dominio.nascimento.Nascimento;
-import br.jus.tst.esocial.dominio.trabalhador.Aposentadoria;
 import br.jus.tst.esocial.dominio.trabalhador.Contato;
 import br.jus.tst.esocial.dominio.trabalhador.Dependente;
-import br.jus.tst.esocial.dominio.trabalhador.Documentos;
 import br.jus.tst.esocial.dominio.trabalhador.InfoDeficiencia;
-import br.jus.tst.esocial.dominio.trabalhador.TrabEstrangeiro;
 
 public class DadosTrabalhador {
 
@@ -46,14 +43,8 @@ public class DadosTrabalhador {
 	private Nascimento nascimento;
 	
 	@Valid
-	private Documentos documentos;
-	
-	@Valid
 	@NotNull
 	private Endereco endereco;
-	
-	@Valid
-	private TrabEstrangeiro trabEstrangeiro;
 	
 	@Valid
 	private InfoDeficiencia infoDeficiencia;
@@ -61,9 +52,6 @@ public class DadosTrabalhador {
 	@Valid
 	private List<Dependente> dependente;
 	
-	@Valid
-	private Aposentadoria aposentadoria;
-
 	@Valid
 	private Contato contato;
 
@@ -131,28 +119,12 @@ public class DadosTrabalhador {
 		this.nascimento = nascimento;
 	}
 
-	public Documentos getDocumentos() {
-		return documentos;
-	}
-
-	public void setDocumentos(Documentos documentos) {
-		this.documentos = documentos;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public TrabEstrangeiro getTrabEstrangeiro() {
-		return trabEstrangeiro;
-	}
-
-	public void setTrabEstrangeiro(TrabEstrangeiro trabEstrangeiro) {
-		this.trabEstrangeiro = trabEstrangeiro;
 	}
 
 	public InfoDeficiencia getInfoDeficiencia() {
@@ -235,14 +207,6 @@ public class DadosTrabalhador {
 		this.dependente = dependente;
 	}
 
-	public Aposentadoria getAposentadoria() {
-		return aposentadoria;
-	}
-
-	public void setAposentadoria(Aposentadoria aposentadoria) {
-		this.aposentadoria = aposentadoria;
-	}
-
 	public Contato getContato() {
 		return contato;
 	}
@@ -250,7 +214,4 @@ public class DadosTrabalhador {
 	public void setContato(Contato contato) {
 		this.contato = contato;
 	}
-
-
-	
 }

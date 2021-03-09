@@ -12,6 +12,7 @@ public class MapperAssertion {
 	public static AbstractObjectAssert assertThat(Object o) {
 		return Assertions.assertThat(o)
 			.usingComparatorForType(new XMLGregorianCalendarComparator(), XMLGregorianCalendar.class)
-			.usingComparatorForType(new BigIntegerComparator(), BigInteger.class);
+			.usingComparatorForType(new BigIntegerComparator(), BigInteger.class)
+			.usingComparatorForType(new EnumComparator(), Enum.class);
 	}
 }

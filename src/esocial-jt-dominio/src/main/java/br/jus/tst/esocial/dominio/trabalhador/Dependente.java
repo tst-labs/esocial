@@ -5,8 +5,10 @@ import java.util.Calendar;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hibernate.validator.constraints.br.CPF;
+
+import br.jus.tst.esocial.dominio.enums.Sexo;
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class Dependente {
 	@NotNull
@@ -22,76 +24,80 @@ public class Dependente {
 
 	@CPF
 	private String cpfDep;
+	
+	private Sexo sexoDep;
 
 	@NotNull
-	private String depIRRF;
+	private SimNao depIRRF;
 
 	@NotNull
-	private String depSF;
+	private SimNao depSF;
 
 	@NotNull
-	private String incTrab;
+	private SimNao incTrab;
 
 	public String getTpDep() {
 		return tpDep;
 	}
 
-	public Dependente setTpDep(String tipo) {
-		this.tpDep = StringUtils.leftPad(tipo, 2, '0');
-		return this;
+	public void setTpDep(String tpDep) {
+		this.tpDep = tpDep;
 	}
 
 	public String getNmDep() {
 		return nmDep;
 	}
 
-	public Dependente setNmDep(String nome) {
-		this.nmDep = StringUtils.trim(nome);
-		return this;
+	public void setNmDep(String nmDep) {
+		this.nmDep = nmDep;
 	}
 
 	public Calendar getDtNascto() {
 		return dtNascto;
 	}
 
-	public Dependente setDtNascto(Calendar dataNascimento) {
-		this.dtNascto = dataNascimento;
-		return this;
+	public void setDtNascto(Calendar dtNascto) {
+		this.dtNascto = dtNascto;
 	}
 
 	public String getCpfDep() {
 		return cpfDep;
 	}
 
-	public Dependente setCpfDep(String cpf) {
-		this.cpfDep = cpf;
-		return this;
+	public void setCpfDep(String cpfDep) {
+		this.cpfDep = cpfDep;
 	}
 
-	public String getDepIRRF() {
+	public Sexo getSexoDep() {
+		return sexoDep;
+	}
+
+	public void setSexoDep(Sexo sexoDep) {
+		this.sexoDep = sexoDep;
+	}
+
+	public SimNao getDepIRRF() {
 		return depIRRF;
 	}
 
-	public Dependente setDepIRRF(String dependenteIRRF) {
-		this.depIRRF = dependenteIRRF;
-		return this;
+	public void setDepIRRF(SimNao depIRRF) {
+		this.depIRRF = depIRRF;
 	}
 
-	public String getDepSF() {
+	public SimNao getDepSF() {
 		return depSF;
 	}
 
-	public Dependente setDepSF(String dependenteSF) {
-		this.depSF = dependenteSF;
-		return this;
+	public void setDepSF(SimNao depSF) {
+		this.depSF = depSF;
 	}
 
-	public String getIncTrab() {
+	public SimNao getIncTrab() {
 		return incTrab;
 	}
 
-	public Dependente setIncTrab(String incapacitadoParaTrabalho) {
-		this.incTrab = incapacitadoParaTrabalho;
-		return this;
+	public void setIncTrab(SimNao incTrab) {
+		this.incTrab = incTrab;
 	}
+
 }

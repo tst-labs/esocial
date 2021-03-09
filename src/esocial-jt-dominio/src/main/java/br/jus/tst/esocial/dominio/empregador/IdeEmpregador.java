@@ -35,6 +35,7 @@ public class IdeEmpregador {
 
 	@Override
 	public boolean equals(final Object other) {
+		System.out.println("IdeEmpregador");
 		if (!(other instanceof IdeEmpregador)) {
 			return false;
 		}

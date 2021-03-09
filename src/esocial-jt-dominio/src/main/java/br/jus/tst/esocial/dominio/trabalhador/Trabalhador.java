@@ -13,6 +13,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.br.CPF;
 
 import br.jus.tst.esocial.dominio.endereco.Endereco;
+import br.jus.tst.esocial.dominio.enums.Sexo;
 import br.jus.tst.esocial.dominio.nascimento.Nascimento;
 
 public class Trabalhador {
@@ -22,16 +23,11 @@ public class Trabalhador {
 	private String cpfTrab;
 	
 	@NotNull
-	@Size(min=11, max=11)
-	private String nisTrab;
-	
-	@NotNull
 	@Size(min=2, max=70)
 	private String nmTrab;
 	
 	@NotNull
-	@Pattern(regexp="[F|M]")
-	private String sexo;
+	private Sexo sexo;
 	
 	@NotNull
 	private byte racaCor;
@@ -42,8 +38,6 @@ public class Trabalhador {
 	@Pattern(regexp="\\d{2}")
 	private String grauInstr;
 	
-	private String indPriEmpr;
-	
 	@Size(min=2, max=70)
 	private String nmSoc;
 	
@@ -51,14 +45,9 @@ public class Trabalhador {
 	private Nascimento nascimento;
 	
 	@Valid
-	private Documentos documentos;
-	
-	@Valid
-	@NotNull
 	private Endereco endereco;
 	
-	@Valid
-	private TrabEstrangeiro trabEstrangeiro;
+	private TrabImig trabImig;
 	
 	@Valid
 	private InfoDeficiencia infoDeficiencia;
@@ -66,9 +55,6 @@ public class Trabalhador {
 	@Valid
 	private List<Dependente> dependente;
 	
-	@Valid
-	private Aposentadoria aposentadoria;
-
 	@Valid
 	private Contato contato;
 
@@ -81,15 +67,6 @@ public class Trabalhador {
 		return this;
 	}
 
-	public String getNisTrab() {
-		return nisTrab;
-	}
-
-	public Trabalhador setNisTrab(String nis) {
-		this.nisTrab = nis;
-		return this;
-	}
-
 	public String getNmTrab() {
 		return nmTrab;
 	}
@@ -99,11 +76,11 @@ public class Trabalhador {
 		return this;
 	}
 
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public Trabalhador setSexo(String sexo) {
+	public Trabalhador setSexo(Sexo sexo) {
 		this.sexo = sexo;
 		return this;
 	}
@@ -135,15 +112,6 @@ public class Trabalhador {
 		return this;
 	}
 
-	public String getIndPriEmpr() {
-		return indPriEmpr;
-	}
-
-	public Trabalhador setIndPriEmpr(String indPrimEmpr) {
-		this.indPriEmpr = indPrimEmpr;
-		return this;
-	}
-
 	public String getNmSoc() {
 		return nmSoc;
 	}
@@ -162,15 +130,6 @@ public class Trabalhador {
 		return this;
 	}
 
-	public Documentos getDocumentos() {
-		return documentos;
-	}
-
-	public Trabalhador setDocumentos(Documentos documentos) {
-		this.documentos = documentos;
-		return this;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -180,13 +139,12 @@ public class Trabalhador {
 		return this;
 	}
 
-	public TrabEstrangeiro getTrabEstrangeiro() {
-		return trabEstrangeiro;
+	public TrabImig getTrabImig() {
+		return trabImig;
 	}
 
-	public Trabalhador setTrabEstrangeiro(TrabEstrangeiro trabEstrangeiro) {
-		this.trabEstrangeiro = trabEstrangeiro;
-		return this;
+	public void setTrabImig(TrabImig trabImig) {
+		this.trabImig = trabImig;
 	}
 
 	public InfoDeficiencia getInfoDeficiencia() {
@@ -204,15 +162,6 @@ public class Trabalhador {
 
 	public Trabalhador setDependente(List<Dependente> dependentes) {
 		this.dependente = dependentes;
-		return this;
-	}
-
-	public Aposentadoria getAposentadoria() {
-		return aposentadoria;
-	}
-
-	public Trabalhador setAposentadoria(Aposentadoria aposentadoria) {
-		this.aposentadoria = aposentadoria;
 		return this;
 	}
 

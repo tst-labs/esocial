@@ -1,27 +1,27 @@
 {
-	"tipoOcorrencia": "TABELA_PROCESSO",
-	"referencia": "501991-2016",
-	"operacao": "INCLUSAO",
-	"dataOcorrencia": 1522181304444,
-	"dadosOcorrencia": {
-		"tipo": ".TabelaProcesso",
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"infoProcesso": {
-			"ideProcesso": {
-				"tpProc": 3,
-				"nrProc": "_NrBeneficioValido_",
-				"iniValid": "2018-07",
-				"fimValid": null
-			},
-			"dadosProc": {
-				"indAutoria": 2,
-				"indMatProc": 6,
-				"dadosProcJud": null,
-				"infoSusp": null
-			}
-		}
-	}
+  "tipoOcorrencia": "TABELA_PROCESSO",
+  "referencia": "501991-2016",
+  "operacao": "INCLUSAO",
+  "dataOcorrencia": 1522181304444,
+  "dadosOcorrencia": {
+    "tipo": ".TabelaProcesso",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "infoProcesso": {
+      "ideProcesso": {
+        "tpProc": 1,
+        "nrProc": "1000000000000000",
+        "iniValid": "2018-07",
+        "fimValid": null
+      },
+      "dadosProc": {
+        "indAutoria": 2,
+        "indMatProc": 7,
+        "dadosProcJud": null,
+        "infoSusp": null
+      }
+    }
+  }
 }

@@ -4,11 +4,13 @@ import java.util.Calendar;
 
 import javax.validation.constraints.NotNull;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class Duracao {
 	@NotNull
 	private byte tpContr;
 	private Calendar dtTerm;
-	private String clauAssec;
+	private SimNao clauAssec;
 
 	public byte getTpContr() {
 		return tpContr;
@@ -28,11 +30,11 @@ public class Duracao {
 		return this;
 	}
 
-	public String getClauAssec() {
+	public SimNao getClauAssec() {
 		return clauAssec;
 	}
 
-	public Duracao setClauAssec(String clauAssec) {
+	public Duracao setClauAssec(SimNao clauAssec) {
 		this.clauAssec = clauAssec;
 		return this;
 	}

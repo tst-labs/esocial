@@ -3,84 +3,85 @@ package br.jus.tst.esocial.dominio.trabalhador;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class InfoDeficiencia {
 	@NotNull
-	private String defFisica;
+	private SimNao defFisica;
 	
 	@NotNull
-	private String defVisual;
+	private SimNao defVisual;
 	
 	@NotNull
-	private String defAuditiva;
+	private SimNao defAuditiva;
 	
 	@NotNull
-	private String defMental;
+	private SimNao defMental;
 	
 	@NotNull
-	private String defIntelectual;
+	private SimNao defIntelectual;
 	
 	@NotNull
-	private String reabReadap;
+	private SimNao reabReadap;
 	
-	@NotNull
-	private String infoCota;
+	private SimNao infoCota;
 	
 	@Size(min = 3, max = 255)
 	private String observacao;
 
-	public String getDefFisica() {
+	public SimNao getDefFisica() {
 		return defFisica;
 	}
 
-	public void setDefFisica(String defFisica) {
+	public void setDefFisica(SimNao defFisica) {
 		this.defFisica = defFisica;
 	}
 
-	public String getDefVisual() {
+	public SimNao getDefVisual() {
 		return defVisual;
 	}
 
-	public void setDefVisual(String defVisual) {
+	public void setDefVisual(SimNao defVisual) {
 		this.defVisual = defVisual;
 	}
 
-	public String getDefAuditiva() {
+	public SimNao getDefAuditiva() {
 		return defAuditiva;
 	}
 
-	public void setDefAuditiva(String defAuditiva) {
+	public void setDefAuditiva(SimNao defAuditiva) {
 		this.defAuditiva = defAuditiva;
 	}
 
-	public String getDefMental() {
+	public SimNao getDefMental() {
 		return defMental;
 	}
 
-	public void setDefMental(String defMental) {
+	public void setDefMental(SimNao defMental) {
 		this.defMental = defMental;
 	}
 
-	public String getDefIntelectual() {
+	public SimNao getDefIntelectual() {
 		return defIntelectual;
 	}
 
-	public void setDefIntelectual(String defIntelectual) {
+	public void setDefIntelectual(SimNao defIntelectual) {
 		this.defIntelectual = defIntelectual;
 	}
 
-	public String getReabReadap() {
+	public SimNao getReabReadap() {
 		return reabReadap;
 	}
 
-	public void setReabReadap(String reabilitadoReadaptado) {
-		this.reabReadap = reabilitadoReadaptado;
+	public void setReabReadap(SimNao reabReadap) {
+		this.reabReadap = reabReadap;
 	}
 
-	public String getInfoCota() {
+	public SimNao getInfoCota() {
 		return infoCota;
 	}
 
-	public void setInfoCota(String infoCota) {
+	public void setInfoCota(SimNao infoCota) {
 		this.infoCota = infoCota;
 	}
 
@@ -91,5 +92,4 @@ public class InfoDeficiencia {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-
 }

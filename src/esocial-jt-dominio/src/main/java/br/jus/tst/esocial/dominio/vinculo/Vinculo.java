@@ -19,9 +19,6 @@ public class Vinculo {
 	@NotNull
 	private byte tpRegPrev;
 
-	@Size(min = 1, max = 40)
-	private String nrRecInfPrelim;
-
 	@NotNull
 	private String cadIni;
 
@@ -40,120 +37,111 @@ public class Vinculo {
 	private TransfDom transfDom;
 
 	@Valid
+	private MudancaCPF mudancaCPF;
+
+	@Valid
 	private Afastamento afastamento;
 	
 	@Valid
 	private Desligamento desligamento;
 
 	@Valid
-	private MudancaCPF mudancaCPF;
+	private Cessao cessao;
 	
 	public String getMatricula() {
 		return matricula;
 	}
 
-	public Vinculo setMatricula(String matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
-		return this;
 	}
 
 	public byte getTpRegTrab() {
 		return tpRegTrab;
 	}
 
-	public Vinculo setTpRegTrab(byte tipoRegimeTrabalhista) {
-		this.tpRegTrab = tipoRegimeTrabalhista;
-		return this;
+	public void setTpRegTrab(byte tpRegTrab) {
+		this.tpRegTrab = tpRegTrab;
 	}
 
 	public byte getTpRegPrev() {
 		return tpRegPrev;
 	}
 
-	public Vinculo setTpRegPrev(byte tipoRegimePrevidencia) {
-		this.tpRegPrev = tipoRegimePrevidencia;
-		return this;
-	}
-
-	public String getNrRecInfPrelim() {
-		return nrRecInfPrelim;
-	}
-
-	public Vinculo setNrRecInfPrelim(String numeroReciboInfoPreliminares) {
-		this.nrRecInfPrelim = numeroReciboInfoPreliminares;
-		return this;
-	}
-
-	public InfoRegimeTrab getInfoRegimeTrab() {
-		return infoRegimeTrab;
-	}
-
-	public Vinculo setInfoRegimeTrab(InfoRegimeTrab regimeTrabalhista) {
-		this.infoRegimeTrab = regimeTrabalhista;
-		return this;
-	}
-
-	public InfoContrato getInfoContrato() {
-		return infoContrato;
-	}
-
-	public Vinculo setInfoContrato(InfoContrato contrato) {
-		this.infoContrato = contrato;
-		return this;
-	}
-
-	public SucessaoVinc getSucessaoVinc() {
-		return sucessaoVinc;
-	}
-
-	public Vinculo setSucessaoVinc(SucessaoVinc sucessaoVinculo) {
-		this.sucessaoVinc = sucessaoVinculo;
-		return this;
+	public void setTpRegPrev(byte tpRegPrev) {
+		this.tpRegPrev = tpRegPrev;
 	}
 
 	public String getCadIni() {
 		return cadIni;
 	}
 
-	public Vinculo setCadIni(String indCadastroInicial) {
-		this.cadIni = indCadastroInicial;
-		return this;
+	public void setCadIni(String cadIni) {
+		this.cadIni = cadIni;
+	}
+
+	public InfoRegimeTrab getInfoRegimeTrab() {
+		return infoRegimeTrab;
+	}
+
+	public void setInfoRegimeTrab(InfoRegimeTrab infoRegimeTrab) {
+		this.infoRegimeTrab = infoRegimeTrab;
+	}
+
+	public InfoContrato getInfoContrato() {
+		return infoContrato;
+	}
+
+	public void setInfoContrato(InfoContrato infoContrato) {
+		this.infoContrato = infoContrato;
+	}
+
+	public SucessaoVinc getSucessaoVinc() {
+		return sucessaoVinc;
+	}
+
+	public void setSucessaoVinc(SucessaoVinc sucessaoVinc) {
+		this.sucessaoVinc = sucessaoVinc;
 	}
 
 	public TransfDom getTransfDom() {
 		return transfDom;
 	}
 
-	public Vinculo setTransfDom(TransfDom transfDom) {
+	public void setTransfDom(TransfDom transfDom) {
 		this.transfDom = transfDom;
-		return this;
-	}
-
-	public Afastamento getAfastamento() {
-		return afastamento;
-	}
-
-	public Vinculo setAfastamento(Afastamento afastamento) {
-		this.afastamento = afastamento;
-		return this;
-	}
-
-	public Desligamento getDesligamento() {
-		return desligamento;
-	}
-
-	public Vinculo setDesligamento(Desligamento desligamento) {
-		this.desligamento = desligamento;
-		return this;
 	}
 
 	public MudancaCPF getMudancaCPF() {
 		return mudancaCPF;
 	}
 
-	public Vinculo setMudancaCPF(MudancaCPF mudancaCPF) {
+	public void setMudancaCPF(MudancaCPF mudancaCPF) {
 		this.mudancaCPF = mudancaCPF;
-		return this;
+	}
+
+	public Afastamento getAfastamento() {
+		return afastamento;
+	}
+
+	public void setAfastamento(Afastamento afastamento) {
+		this.afastamento = afastamento;
+	}
+
+	public Desligamento getDesligamento() {
+		return desligamento;
+	}
+
+	public void setDesligamento(Desligamento desligamento) {
+		this.desligamento = desligamento;
+	}
+
+	public Cessao getCessao() {
+		return cessao;
+	}
+
+	public void setCessao(Cessao cessao) {
+		this.cessao = cessao;
 	}
 
 	@Override

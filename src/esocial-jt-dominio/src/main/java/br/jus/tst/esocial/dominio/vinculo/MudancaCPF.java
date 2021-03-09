@@ -10,9 +10,6 @@ public class MudancaCPF {
 	private String cpfAnt;
 
 	@NotNull
-	private String novoCPF;
-
-	@NotNull
 	private String matricAnt;
 
 	@NotNull
@@ -50,13 +47,5 @@ public class MudancaCPF {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
-	}
-
-	public String getNovoCPF() {
-		return novoCPF;
-	}
-
-	public void setNovoCPF(String novoCPF) {
-		this.novoCPF = novoCPF;
 	}
 }

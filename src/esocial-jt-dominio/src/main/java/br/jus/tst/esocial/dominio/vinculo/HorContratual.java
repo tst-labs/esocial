@@ -1,30 +1,28 @@
 package br.jus.tst.esocial.dominio.vinculo;
 
 import java.math.BigDecimal;
-import java.util.List;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class HorContratual {
 
 	@NotNull
 	private BigDecimal qtdHrsSem;
 
-	@NotNull
 	private byte tpJornada;
 
 	@Size(min = 3, max = 100)
 	private String dscTpJorn;
 
-	@NotNull
 	private byte tmpParc;
+	
+	private SimNao horNoturno;
 
-	@NotNull
-	@Valid
-	@Size(min = 1, max = 99)
-	private List<Horario> horario;
+	private String dscJorn;
+
 
 	public BigDecimal getQtdHrsSem() {
 		return qtdHrsSem;
@@ -62,13 +60,19 @@ public class HorContratual {
 		return this;
 	}
 
-	public List<Horario> getHorario() {
-		return horario;
+	public SimNao getHorNoturno() {
+		return horNoturno;
 	}
 
-	public HorContratual setHorario(List<Horario> horarios) {
-		this.horario = horarios;
-		return this;
+	public void setHorNoturno(SimNao horNoturno) {
+		this.horNoturno = horNoturno;
 	}
 
+	public String getDscJorn() {
+		return dscJorn;
+	}
+
+	public void setDscJorn(String dscJorn) {
+		this.dscJorn = dscJorn;
+	}
 }

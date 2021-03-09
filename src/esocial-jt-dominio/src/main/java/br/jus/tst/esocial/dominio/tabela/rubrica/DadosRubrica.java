@@ -7,6 +7,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class DadosRubrica {
 
 	@NotNull
@@ -21,13 +23,14 @@ public class DadosRubrica {
 	private String codIncCP;
 
 	@NotNull
-	private String codIncIRRF;
+	private BigInteger codIncIRRF;
 
 	@NotNull
 	private String codIncFGTS;
 
-	@NotNull
-	private String codIncSIND;
+	private String codIncCPRP;
+	
+	private SimNao tetoRemun;
 
 	@Size(min = 0, max = 255)
 	private String observacao;
@@ -40,9 +43,6 @@ public class DadosRubrica {
 
 	@Valid
 	private List<IdeProcessoFGTS> ideProcessoFGTS;
-
-	@Valid
-	private List<IdeProcessoSIND> ideProcessoSIND;
 
 	public String getDscRubr() {
 		return dscRubr;
@@ -76,11 +76,11 @@ public class DadosRubrica {
 		this.codIncCP = codIncCP;
 	}
 
-	public String getCodIncIRRF() {
+	public BigInteger getCodIncIRRF() {
 		return codIncIRRF;
 	}
 
-	public void setCodIncIRRF(String codIncIRRF) {
+	public void setCodIncIRRF(BigInteger codIncIRRF) {
 		this.codIncIRRF = codIncIRRF;
 	}
 
@@ -91,13 +91,21 @@ public class DadosRubrica {
 	public void setCodIncFGTS(String codIncFGTS) {
 		this.codIncFGTS = codIncFGTS;
 	}
-
-	public String getCodIncSIND() {
-		return codIncSIND;
+	
+	public String getCodIncCPRP() {
+		return codIncCPRP;
 	}
 
-	public void setCodIncSIND(String codIncSIND) {
-		this.codIncSIND = codIncSIND;
+	public void setCodIncCPRP(String codIncCPRP) {
+		this.codIncCPRP = codIncCPRP;
+	}
+
+	public SimNao getTetoRemun() {
+		return tetoRemun;
+	}
+
+	public void setTetoRemun(SimNao tetoRemun) {
+		this.tetoRemun = tetoRemun;
 	}
 
 	public String getObservacao() {
@@ -130,14 +138,6 @@ public class DadosRubrica {
 
 	public void setIdeProcessoFGTS(List<IdeProcessoFGTS> ideProcessoFGTS) {
 		this.ideProcessoFGTS = ideProcessoFGTS;
-	}
-
-	public List<IdeProcessoSIND> getIdeProcessoSIND() {
-		return ideProcessoSIND;
-	}
-
-	public void setIdeProcessoSIND(List<IdeProcessoSIND> ideProcessoSIND) {
-		this.ideProcessoSIND = ideProcessoSIND;
 	}
 
 }

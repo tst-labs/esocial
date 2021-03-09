@@ -18,7 +18,6 @@ public class TabelaRubricaMapperTest {
 
 	@Test
 	public void deveMapearObjetoDominioParaJaxbInclusao() {
-
 		TabelaRubrica tabelaRubrica = CriadorObjetoAleatorio.criarEPreencher(TabelaRubrica.class);
 		EvtTabRubrica evtTabRubrica = TabelaRubricaMapper.INSTANCE.comoEvtTabRubricaInclusao(tabelaRubrica);
 		
@@ -36,7 +35,6 @@ public class TabelaRubricaMapperTest {
 
 	@Test
 	public void deveMapearObjetoDominioParaJaxbAlteracao() {
-		
 		TabelaRubrica tabelaRubrica = CriadorObjetoAleatorio.criarEPreencher(TabelaRubrica.class);
 		EvtTabRubrica evtTabRubrica = TabelaRubricaMapper.INSTANCE.comoEvtTabRubricaAlteracao(tabelaRubrica);
 		
@@ -55,7 +53,6 @@ public class TabelaRubricaMapperTest {
 
 	@Test
 	public void deveMapearObjetoDominioParaJaxbExclusao() throws JsonGenerationException, JsonMappingException, IOException {
-
 		TabelaRubrica tabelaRubrica = CriadorObjetoAleatorio.criarEPreencher(TabelaRubrica.class);
 		EvtTabRubrica evtTabRubrica = TabelaRubricaMapper.INSTANCE.comoEvtTabRubricaExclusao(tabelaRubrica);
 		
@@ -69,7 +66,5 @@ public class TabelaRubricaMapperTest {
 				
 		assertThat(evtTabRubrica.getInfoRubrica().getInclusao()).isNull();
 		assertThat(evtTabRubrica.getInfoRubrica().getAlteracao()).isNull();
-
 	}
-
 }

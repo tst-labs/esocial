@@ -1,14 +1,10 @@
 package br.jus.tst.esocial.dominio.tabela.estabelecimento;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 import javax.validation.Valid;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotNull;
-
-import br.jus.tst.esocial.validacao.OneOf;
 
 /**
  * 
@@ -17,10 +13,7 @@ import br.jus.tst.esocial.validacao.OneOf;
  */
 public class AliqGilrat {
 
-	@NotNull
-	@Valid
-	@OneOf({ 1, 2, 3 })
-	private BigInteger aliqRat;
+	private Byte aliqRat;
 
 	@Valid
 	@Digits(integer = 5, fraction = 4)
@@ -102,7 +95,7 @@ public class AliqGilrat {
 		return this;
 	}
 
-	public BigInteger getAliqRat() {
+	public Byte getAliqRat() {
 		return aliqRat;
 	}
 
@@ -120,7 +113,7 @@ public class AliqGilrat {
 	 * definida na legislação vigente para o CNAE informado deverá haver
 	 * informações de processo em {procAdmJudRat}
 	 */
-	public AliqGilrat setAliqRat(BigInteger aliqRat) {
+	public AliqGilrat setAliqRat(Byte aliqRat) {
 		this.aliqRat = aliqRat;
 		return this;
 	}
