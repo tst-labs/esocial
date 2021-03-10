@@ -1,37 +1,24 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
-import java.util.List;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 public class InfoPgto {
-	
+
 	@NotNull
 	private Calendar dtPgto;
-	
+
 	private Byte tpPgto;
+
+	private String perRef;
 	
 	@NotNull
-	@Pattern(regexp="[N|S]")
-	private String indResBr;
+	private String ideDmDev;
 	
-	@Valid
-	private List<DetPgtoFl> detPgtoFl;
-
-	@Valid
-	private DetPgtoBenPr detPgtoBenPr;
-
-	@Valid
-	private List<DetPgtoFer> detPgtoFer;
-
-	@Valid
-	private List<DetPgtoAnt> detPgtoAnt;
-
-	@Valid
-	private IdePgtoExt idePgtoExt;
+	@NotNull
+	private BigDecimal vrLiq;
 
 	public Calendar getDtPgto() {
 		return dtPgto;
@@ -49,52 +36,27 @@ public class InfoPgto {
 		this.tpPgto = tpPgto;
 	}
 
-	public String getIndResBr() {
-		return indResBr;
+	public String getPerRef() {
+		return perRef;
 	}
 
-	public void setIndResBr(String indResBr) {
-		this.indResBr = indResBr;
+	public void setPerRef(String perRef) {
+		this.perRef = perRef;
 	}
 
-	public List<DetPgtoFl> getDetPgtoFl() {
-		return detPgtoFl;
+	public String getIdeDmDev() {
+		return ideDmDev;
 	}
 
-	public void setDetPgtoFl(List<DetPgtoFl> detPgtoFl) {
-		this.detPgtoFl = detPgtoFl;
+	public void setIdeDmDev(String ideDmDev) {
+		this.ideDmDev = ideDmDev;
 	}
 
-	public DetPgtoBenPr getDetPgtoBenPr() {
-		return detPgtoBenPr;
+	public BigDecimal getVrLiq() {
+		return vrLiq;
 	}
 
-	public void setDetPgtoBenPr(DetPgtoBenPr detPgtoBenPr) {
-		this.detPgtoBenPr = detPgtoBenPr;
+	public void setVrLiq(BigDecimal vrLiq) {
+		this.vrLiq = vrLiq;
 	}
-
-	public List<DetPgtoFer> getDetPgtoFer() {
-		return detPgtoFer;
-	}
-
-	public void setDetPgtoFer(List<DetPgtoFer> detPgtoFer) {
-		this.detPgtoFer = detPgtoFer;
-	}
-
-	public List<DetPgtoAnt> getDetPgtoAnt() {
-		return detPgtoAnt;
-	}
-
-	public void setDetPgtoAnt(List<DetPgtoAnt> detPgtoAnt) {
-		this.detPgtoAnt = detPgtoAnt;
-	}
-
-	public IdePgtoExt getIdePgtoExt() {
-		return idePgtoExt;
-	}
-
-	public void setIdePgtoExt(IdePgtoExt idePgtoExt) {
-		this.idePgtoExt = idePgtoExt;
-	}
-	
 }

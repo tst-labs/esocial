@@ -13,9 +13,6 @@ public class IdeBenef {
 	private String cpfBenef;
 	
 	@Valid
-	private Deps deps;
-	
-	@Valid
 	private List<InfoPgto> infoPgto;
 
 	public String getCpfBenef() {
@@ -24,14 +21,6 @@ public class IdeBenef {
 
 	public void setCpfBenef(String cpfBenef) {
 		this.cpfBenef = cpfBenef;
-	}
-
-	public Deps getDeps() {
-		return deps;
-	}
-
-	public void setDeps(Deps deps) {
-		this.deps = deps;
 	}
 
 	public List<InfoPgto> getInfoPgto() {

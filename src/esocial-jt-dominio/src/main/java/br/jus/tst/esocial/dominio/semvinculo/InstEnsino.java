@@ -6,6 +6,8 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CNPJ;
 
+import br.jus.tst.esocial.dominio.enums.UF;
+
 public class InstEnsino {
 	
 	@CNPJ
@@ -29,7 +31,7 @@ public class InstEnsino {
 	
 	private Integer codMunic;
 	
-	private String uf;
+	private UF uf;
 
 	public String getCnpjInstEnsino() {
 		return cnpjInstEnsino;
@@ -94,11 +96,11 @@ public class InstEnsino {
 		return this;
 	}
 
-	public String getUf() {
+	public UF getUf() {
 		return uf;
 	}
 
-	public InstEnsino setUf(String uf) {
+	public InstEnsino setUf(UF uf) {
 		this.uf = uf;
 		return this;
 	}

@@ -3,8 +3,9 @@ package br.jus.tst.esocial.dominio.reintegracao;
 import java.util.Calendar;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class InfoReintegr {
 
@@ -24,8 +25,7 @@ public class InfoReintegr {
 	private Calendar dtEfeito;
 
 	@NotNull
-	@Pattern(regexp="[N|S]")
-	private String indPagtoJuizo;
+	private SimNao indPagtoJuizo;
 
 	public byte getTpReint() {
 		return tpReint;
@@ -72,11 +72,11 @@ public class InfoReintegr {
 		return this;
 	}
 
-	public String getIndPagtoJuizo() {
+	public SimNao getIndPagtoJuizo() {
 		return indPagtoJuizo;
 	}
 
-	public InfoReintegr setIndPagtoJuizo(String indPagtoJuizo) {
+	public InfoReintegr setIndPagtoJuizo(SimNao indPagtoJuizo) {
 		this.indPagtoJuizo = indPagtoJuizo;
 		return this;
 	}

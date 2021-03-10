@@ -1,92 +1,63 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class InfoFech {
 
 	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtRemun;
+	private SimNao evtRemun;
 	
 	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtPgtos;
+	private SimNao evtComProd;
 	
 	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtAqProd;
+	private SimNao evtContratAvNP;
 	
 	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtComProd;
+	private SimNao evtInfoComplPer;
 	
-	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtContratAvNP;
-	
-	@NotNull
-	@Pattern(regexp="[S|N]")
-	private String evtInfoComplPer;
-	
-	@Size(min=0, max=7)
-	private String compSemMovto;
+	private String indExcApur1250;
 
-	public String getEvtRemun() {
+	public SimNao getEvtRemun() {
 		return evtRemun;
 	}
 
-	public void setEvtRemun(String evtRemun) {
+	public void setEvtRemun(SimNao evtRemun) {
 		this.evtRemun = evtRemun;
 	}
 
-	public String getEvtPgtos() {
-		return evtPgtos;
-	}
-
-	public void setEvtPgtos(String evtPgtos) {
-		this.evtPgtos = evtPgtos;
-	}
-
-	public String getEvtAqProd() {
-		return evtAqProd;
-	}
-
-	public void setEvtAqProd(String evtAqProd) {
-		this.evtAqProd = evtAqProd;
-	}
-
-	public String getEvtComProd() {
+	public SimNao getEvtComProd() {
 		return evtComProd;
 	}
 
-	public void setEvtComProd(String evtComProd) {
+	public void setEvtComProd(SimNao evtComProd) {
 		this.evtComProd = evtComProd;
 	}
 
-	public String getEvtContratAvNP() {
+	public SimNao getEvtContratAvNP() {
 		return evtContratAvNP;
 	}
 
-	public void setEvtContratAvNP(String evtContratAvNP) {
+	public void setEvtContratAvNP(SimNao evtContratAvNP) {
 		this.evtContratAvNP = evtContratAvNP;
 	}
 
-	public String getEvtInfoComplPer() {
+	public SimNao getEvtInfoComplPer() {
 		return evtInfoComplPer;
 	}
 
-	public void setEvtInfoComplPer(String evtInfoComplPer) {
+	public void setEvtInfoComplPer(SimNao evtInfoComplPer) {
 		this.evtInfoComplPer = evtInfoComplPer;
 	}
 
-	public String getCompSemMovto() {
-		return compSemMovto;
+	public String getIndExcApur1250() {
+		return indExcApur1250;
 	}
 
-	public void setCompSemMovto(String compSemMovto) {
-		this.compSemMovto = compSemMovto;
+	public void setIndExcApur1250(String indExcApur1250) {
+		this.indExcApur1250 = indExcApur1250;
 	}
 
 }

@@ -6,30 +6,20 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.pagamento.IdeRespInf;
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
 
 public class TotConting extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private IdeEventoPagto ideEvento;
+	private IdeEventoFolha ideEvento;
 	
-	public IdeRespInf ideRespInf;
-	
-	public IdeEventoPagto getIdeEvento() {
+	public IdeEventoFolha getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEventoPagto ideEvento) {
+	public void setIdeEvento(IdeEventoFolha ideEvento) {
 		this.ideEvento = ideEvento;
-	}
-
-	public IdeRespInf getIdeRespInf() {
-		return ideRespInf;
-	}
-
-	public void setIdeRespInf(IdeRespInf ideRespInf) {
-		this.ideRespInf = ideRespInf;
 	}
 
 	@Override
@@ -40,7 +30,6 @@ public class TotConting extends DadosOcorrencia {
 		TotConting castOther = (TotConting) other;
 		return new EqualsBuilder()
 				.append(ideEvento, castOther.ideEvento)
-				.append(ideRespInf, castOther.ideRespInf)
 				.append(ideEmpregador, castOther.ideEmpregador)
 				.isEquals();
 	}
@@ -49,7 +38,6 @@ public class TotConting extends DadosOcorrencia {
 	public int hashCode() {
 		return new HashCodeBuilder()
 				.append(ideEvento)
-				.append(ideRespInf)
 				.append(ideEmpregador)
 				.toHashCode();
 	}

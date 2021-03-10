@@ -8,24 +8,20 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import br.jus.tst.esocial.dominio.endereco.Endereco;
-import br.jus.tst.esocial.dominio.nascimento.Nascimento;
+import br.jus.tst.esocial.dominio.enums.Sexo;
 import br.jus.tst.esocial.dominio.trabalhador.Contato;
 import br.jus.tst.esocial.dominio.trabalhador.Dependente;
 import br.jus.tst.esocial.dominio.trabalhador.InfoDeficiencia;
+import br.jus.tst.esocial.dominio.trabalhador.TrabImig;
 
 public class DadosTrabalhador {
 
-	@NotNull
-	@Size(min=11, max=11)
-	private String nisTrab;
-	
 	@NotNull
 	@Size(min=2, max=70)
 	private String nmTrab;
 	
 	@NotNull
-	@Pattern(regexp="[F|M]")
-	private String sexo;
+	private Sexo sexo;
 	
 	@NotNull
 	private byte racaCor;
@@ -40,11 +36,14 @@ public class DadosTrabalhador {
 	private String nmSoc;
 	
 	@NotNull
-	private Nascimento nascimento;
+	@Size(min=3, max=3)
+	private String paisNac;
 	
 	@Valid
 	@NotNull
 	private Endereco endereco;
+	
+	private TrabImig trabImig;
 	
 	@Valid
 	private InfoDeficiencia infoDeficiencia;
@@ -55,14 +54,6 @@ public class DadosTrabalhador {
 	@Valid
 	private Contato contato;
 
-	public String getNisTrab() {
-		return nisTrab;
-	}
-
-	public void setNisTrab(String nisTrab) {
-		this.nisTrab = nisTrab;
-	}
-
 	public String getNmTrab() {
 		return nmTrab;
 	}
@@ -71,11 +62,11 @@ public class DadosTrabalhador {
 		this.nmTrab = nmTrab;
 	}
 
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(String sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 
@@ -111,14 +102,6 @@ public class DadosTrabalhador {
 		this.nmSoc = nmSoc;
 	}
 
-	public Nascimento getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(Nascimento nascimento) {
-		this.nascimento = nascimento;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
@@ -139,6 +122,34 @@ public class DadosTrabalhador {
 		return dependente;
 	}
 
+	public void setDependente(List<Dependente> dependente) {
+		this.dependente = dependente;
+	}
+
+	public Contato getContato() {
+		return contato;
+	}
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+	public String getPaisNac() {
+		return paisNac;
+	}
+
+	public void setPaisNac(String paisNac) {
+		this.paisNac = paisNac;
+	}
+	
+	public TrabImig getTrabImig() {
+		return trabImig;
+	}
+
+	public void setTrabImig(TrabImig trabImig) {
+		this.trabImig = trabImig;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -146,7 +157,6 @@ public class DadosTrabalhador {
 		result = prime * result + ((dependente == null) ? 0 : dependente.hashCode());
 		result = prime * result + ((estCiv == null) ? 0 : estCiv.hashCode());
 		result = prime * result + ((grauInstr == null) ? 0 : grauInstr.hashCode());
-		result = prime * result + ((nisTrab == null) ? 0 : nisTrab.hashCode());
 		result = prime * result + ((nmSoc == null) ? 0 : nmSoc.hashCode());
 		result = prime * result + ((nmTrab == null) ? 0 : nmTrab.hashCode());
 		result = prime * result + racaCor;
@@ -178,11 +188,6 @@ public class DadosTrabalhador {
 				return false;
 		} else if (!grauInstr.equals(other.grauInstr))
 			return false;
-		if (nisTrab == null) {
-			if (other.nisTrab != null)
-				return false;
-		} else if (!nisTrab.equals(other.nisTrab))
-			return false;
 		if (nmSoc == null) {
 			if (other.nmSoc != null)
 				return false;
@@ -201,17 +206,5 @@ public class DadosTrabalhador {
 		} else if (!sexo.equals(other.sexo))
 			return false;
 		return true;
-	}
-
-	public void setDependente(List<Dependente> dependente) {
-		this.dependente = dependente;
-	}
-
-	public Contato getContato() {
-		return contato;
-	}
-
-	public void setContato(Contato contato) {
-		this.contato = contato;
 	}
 }

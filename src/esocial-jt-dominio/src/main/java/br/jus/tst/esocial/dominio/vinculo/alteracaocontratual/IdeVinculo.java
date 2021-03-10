@@ -14,10 +14,6 @@ public class IdeVinculo {
     private String cpfTrab;
 
     @NotNull
-	@Size(min = 1, max = 11)
-    private String nisTrab;
-
-    @NotNull
 	@Size(min = 1, max = 30)
     private String matricula;
 
@@ -27,14 +23,6 @@ public class IdeVinculo {
 
     public void setCpfTrab(String cpfTrab) {
         this.cpfTrab = cpfTrab;
-    }
-
-    public String getNisTrab() {
-        return nisTrab;
-    }
-
-    public void setNisTrab(String nisTrab) {
-        this.nisTrab = nisTrab;
     }
 
     public String getMatricula() {

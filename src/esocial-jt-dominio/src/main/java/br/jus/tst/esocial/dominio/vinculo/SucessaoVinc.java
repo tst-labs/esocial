@@ -16,8 +16,13 @@ public class SucessaoVinc {
 	@NotNull
 	private String matricAnt;
 	
-	@NotNull
 	private Calendar dtTransf;
+
+	private Calendar dtAdm;
+
+	private String cnpjOrgaoAnt;
+	
+	private Calendar dtExercicio;
 
 	@Size(min=3, max=255)
 	private String observacao;
@@ -60,5 +65,29 @@ public class SucessaoVinc {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+
+	public Calendar getDtAdm() {
+		return dtAdm;
+	}
+
+	public void setDtAdm(Calendar dtAdm) {
+		this.dtAdm = dtAdm;
+	}
+
+	public String getCnpjOrgaoAnt() {
+		return cnpjOrgaoAnt;
+	}
+
+	public void setCnpjOrgaoAnt(String cnpjOrgaoAnt) {
+		this.cnpjOrgaoAnt = cnpjOrgaoAnt;
+	}
+
+	public Calendar getDtExercicio() {
+		return dtExercicio;
+	}
+
+	public void setDtExercicio(Calendar dtExercicio) {
+		this.dtExercicio = dtExercicio;
 	}
 }

@@ -6,17 +6,19 @@ import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolhaSemRetificacao;
+
 public class ReabreEvPer extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private IdeEventoPagto ideEvento;
+	private IdeEventoFolhaSemRetificacao ideEvento;
 	
-	public IdeEventoPagto getIdeEvento() {
+	public IdeEventoFolhaSemRetificacao getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEventoPagto ideEvento) {
+	public void setIdeEvento(IdeEventoFolhaSemRetificacao ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 

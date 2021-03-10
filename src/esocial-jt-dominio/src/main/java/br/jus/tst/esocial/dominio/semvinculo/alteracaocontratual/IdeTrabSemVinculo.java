@@ -1,7 +1,6 @@
 package br.jus.tst.esocial.dominio.semvinculo.alteracaocontratual;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -11,9 +10,7 @@ public class IdeTrabSemVinculo {
 	@CPF
 	private String cpfTrab;
 	
-	@NotNull
-	@Size(min=11, max=11)
-	private String nisTrab;
+	private String matricula;
 	
 	@NotNull
 	private Integer codCateg;
@@ -27,13 +24,12 @@ public class IdeTrabSemVinculo {
 		return this;
 	}
 
-	public String getNisTrab() {
-		return nisTrab;
+	public String getMatricula() {
+		return matricula;
 	}
 
-	public IdeTrabSemVinculo setNisTrab(String nisTrab) {
-		this.nisTrab = nisTrab;
-		return this;
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	public Integer getCodCateg() {

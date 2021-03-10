@@ -9,21 +9,22 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.beneficiario.IdeBenef;
 import br.jus.tst.esocial.dominio.beneficio.demonstrativovalores.DmDev;
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
 
 public class BenPrRP extends DadosOcorrencia {
 
 	@Valid
-	private IdeEventoPagto ideEvento;
+	private IdeEventoFolha ideEvento;
 
 	private IdeBenef ideBenef;
 	
 	private List<DmDev> dmDev;
 
-	public IdeEventoPagto getIdeEvento() {
+	public IdeEventoFolha getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEventoPagto ideEvento) {
+	public void setIdeEvento(IdeEventoFolha ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 

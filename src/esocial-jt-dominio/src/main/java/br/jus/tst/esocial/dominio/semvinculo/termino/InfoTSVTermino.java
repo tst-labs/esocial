@@ -30,6 +30,8 @@ public class InfoTSVTermino {
 	private BigDecimal vrAlim;
 
 	private MudancaCPF mudancaCPF;
+	
+	private String nrProcTrab;
 
 	public Calendar getDtTerm() {
 		return dtTerm;
@@ -94,4 +96,13 @@ public class InfoTSVTermino {
 	public void setMudancaCPF(MudancaCPF mudancaCPF) {
 		this.mudancaCPF = mudancaCPF;
 	}
+
+	public String getNrProcTrab() {
+		return nrProcTrab;
+	}
+
+	public void setNrProcTrab(String nrProcTrab) {
+		this.nrProcTrab = nrProcTrab;
+	}
+	
 }

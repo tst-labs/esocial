@@ -1,36 +1,19 @@
 package br.jus.tst.esocial.dominio.beneficio.demonstrativovalores;
 
-import java.util.List;
-
 import javax.validation.constraints.Size;
 
-public class DmDev {
 
-	private Byte tpBenef;
-	
-	@Size(min=3, max=20)
-	private String nrBenefic;
+public class DmDev {
 	
 	@Size(min=1, max=30)
 	private String ideDmDev;
+	
+	@Size(min=3, max=20)
+	private String nrBeneficio;
 
-	private List<Item> itens;
-
-	public Byte getTpBenef() {
-		return tpBenef;
-	}
-
-	public void setTpBenef(Byte tpBenef) {
-		this.tpBenef = tpBenef;
-	}
-
-	public String getNrBenefic() {
-		return nrBenefic;
-	}
-
-	public void setNrBenefic(String nrBenefic) {
-		this.nrBenefic = nrBenefic;
-	}
+	private InfoPerApur infoPerApur;
+	
+	private InfoPerAnt infoPerAnt;
 
 	public String getIdeDmDev() {
 		return ideDmDev;
@@ -40,13 +23,27 @@ public class DmDev {
 		this.ideDmDev = ideDmDev;
 	}
 
-	public List<Item> getItens() {
-		return itens;
+	public String getNrBeneficio() {
+		return nrBeneficio;
 	}
 
-	public void setItens(List<Item> itens) {
-		this.itens = itens;
-	} 
+	public void setNrBeneficio(String nrBeneficio) {
+		this.nrBeneficio = nrBeneficio;
+	}
 
-	
+	public InfoPerApur getInfoPerApur() {
+		return infoPerApur;
+	}
+
+	public void setInfoPerApur(InfoPerApur infoPerApur) {
+		this.infoPerApur = infoPerApur;
+	}
+
+	public InfoPerAnt getInfoPerAnt() {
+		return infoPerAnt;
+	}
+
+	public void setInfoPerAnt(InfoPerAnt infoPerAnt) {
+		this.infoPerAnt = infoPerAnt;
+	}
 }

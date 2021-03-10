@@ -2,20 +2,21 @@ package br.jus.tst.esocial.dominio.vinculo;
 
 import java.util.Calendar;
 
-import javax.validation.constraints.NotNull;
-
 public class MudancaCPF {
 
-	@NotNull
+	private String novoCPF;
 	private String cpfAnt;
-
-	@NotNull
 	private String matricAnt;
-
-	@NotNull
 	private Calendar dtAltCPF;
-
 	private String observacao;
+
+	public String getNovoCPF() {
+		return novoCPF;
+	}
+
+	public void setNovoCPF(String novoCPF) {
+		this.novoCPF = novoCPF;
+	}
 
 	public String getCpfAnt() {
 		return cpfAnt;

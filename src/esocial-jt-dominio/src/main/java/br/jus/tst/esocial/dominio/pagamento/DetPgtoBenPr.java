@@ -5,8 +5,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class DetPgtoBenPr {
 	
@@ -19,8 +20,7 @@ public class DetPgtoBenPr {
 	private String ideDmDev;
 	
 	@NotNull
-	@Pattern(regexp="[N|S]")
-	private String indPgtoTt;
+	private SimNao indPgtoTt;
 
 	@NotNull
 	private BigDecimal vrLiq;
@@ -47,11 +47,11 @@ public class DetPgtoBenPr {
 		this.ideDmDev = ideDmDev;
 	}
 
-	public String getIndPgtoTt() {
+	public SimNao getIndPgtoTt() {
 		return indPgtoTt;
 	}
 
-	public void setIndPgtoTt(String indPgtoTt) {
+	public void setIndPgtoTt(SimNao indPgtoTt) {
 		this.indPgtoTt = indPgtoTt;
 	}
 

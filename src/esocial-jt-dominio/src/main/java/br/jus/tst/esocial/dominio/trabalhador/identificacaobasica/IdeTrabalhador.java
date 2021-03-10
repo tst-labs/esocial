@@ -2,9 +2,7 @@ package br.jus.tst.esocial.dominio.trabalhador.identificacaobasica;
 
 import java.util.List;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -15,13 +13,6 @@ public class IdeTrabalhador {
 	@NotNull
 	@CPF
 	private String cpfTrab;
-
-	@NotNull
-	@Size(min=11, max=11)
-	private String nisTrab;
-	
-	@Min(0)
-	private Byte qtdDepFP;
 
 	private InfoMV infoMV;
 	
@@ -37,22 +28,6 @@ public class IdeTrabalhador {
 
 	public void setCpfTrab(String cpfTrab) {
 		this.cpfTrab = cpfTrab;
-	}
-	
-    public String getNisTrab() {
-		return nisTrab;
-	}
-
-	public void setNisTrab(String nisTrab) {
-		this.nisTrab = nisTrab;
-	}
-
-	public Byte getQtdDepFP() {
-		return qtdDepFP;
-	}
-
-	public void setQtdDepFP(Byte qtdDepFP) {
-		this.qtdDepFP = qtdDepFP;
 	}
 
 	public InfoMV getInfoMV() {
