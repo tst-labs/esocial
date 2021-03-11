@@ -24,7 +24,6 @@ import br.jus.tst.esocial.ocorrencia.dados.TabelaEstabelecimento;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaProcesso;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaRubrica;
-import br.jus.tst.esocial.ocorrencia.dados.TotConting;
 
 public enum TipoOcorrencia {
 
@@ -46,7 +45,6 @@ public enum TipoOcorrencia {
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	BENEFICIO_RPPS(BenPrRP.class),
 	PAGAMENTOS(Pgtos.class),
-	SOLICITACAO_TOTAL_PAGAMENTO(TotConting.class),
 	REABERTURA_PERIODICOS(ReabreEvPer.class),
 	FECHAMENTO_PERIODICOS(FechaEvPer.class),
 	EXCLUSAO(Exclusao.class);

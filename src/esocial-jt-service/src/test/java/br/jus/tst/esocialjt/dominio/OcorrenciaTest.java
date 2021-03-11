@@ -34,7 +34,7 @@ public class OcorrenciaTest {
 	
 	@Test
 	public void deveCriarDadosOcorrenciaAoAtribuirJson() {
-		String txtDadosOcorrencia = "{\"tipo\":\".TabelaFuncao\",\"ideEmpregador\":{\"tpInsc\":null,\"nrInsc\":\"1\"},\"infoFuncao\":null}";
+		String txtDadosOcorrencia = "{\"tipo\":\".TabelaLotacao\",\"ideEmpregador\":{\"tpInsc\":null,\"nrInsc\":\"1\"},\"infoLotacao\":null}";
 		Ocorrencia ocorrencia = new Ocorrencia();
 		ocorrencia.setTxtDadosOcorrencia(txtDadosOcorrencia);
 		

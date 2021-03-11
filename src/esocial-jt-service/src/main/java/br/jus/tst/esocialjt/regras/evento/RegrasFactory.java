@@ -111,7 +111,6 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
 			regras.put(TipoEvento.S1207.getCodTipo(), regraBeneficioRPPS);
 			regras.put(TipoEvento.S1210.getCodTipo(), regraPgtos);
-			regras.put(TipoEvento.S1295.getCodTipo(), regraSolicitacaoTotalPagamento);
 			regras.put(TipoEvento.S1298.getCodTipo(), regraReaberturaPeriodicos);
 			regras.put(TipoEvento.S1299.getCodTipo(), regraFechamentoPeriodicos);
 			regras.put(TipoEvento.S3000.getCodTipo(), regraExclusao);

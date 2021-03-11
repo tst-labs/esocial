@@ -69,12 +69,6 @@ public class InfoCeletista {
 	public void setNrProcTrab(String nrProcTrab) {
 		this.nrProcTrab = nrProcTrab;
 	}
-	public FGTS getFgts() {
-		return fgts;
-	}
-	public void setFgts(FGTS fgts) {
-		this.fgts = fgts;
-	}
 	public byte getTpRegJor() {
 		return tpRegJor;
 	}

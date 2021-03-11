@@ -155,7 +155,7 @@ http://localhost:8080/esocial-jt-service/ocorrencias
 4. Após alguns segundos, verifique o log da aplicação se o evento foi processado pelo eSocial-Gov
 
 ```
-j.t.e.a.t.TarefaAtualizacaoProcessamento : Eventos processados: {PROCESSADO COM SUCESSO=1}
+j.t.e.a.t.TarefaAtualizacaoProcessamento : Eventos processados: {Aguardando cnpjEFR Receita Federal=1}
 ```
 
 5. Também é possível consultar o status fazendo uma requisição **GET** para o _endpoint_
@@ -550,61 +550,67 @@ Pacote de comunicação : 1.5
 
 | Evento | Nome Evento                         | Versão | Situação | Resultado do envio para a produção restrita |
 | ------ | ----------------------------------- | ------ | -------- | ------------------------------------------- |
-| S-1000 | Empregador/Contribuinte             | 2.5    | Feito    | Processado com sucesso                      |
-| S-1005 | Estabelecimentos                    | 2.5    | Feito    | Processado com sucesso                      |
-| S-1010 | Rubricas                            | 2.5    | Feito    | Processado com sucesso                      |
-| S-1020 | Lotações Tributárias                | 2.5    | Feito    | Processado com sucesso                      |
-| S-1030 | Cargos/Empregos Públicos            | 2.5    | Feito    | Processado com sucesso                      |
-| S-1035 | Carreiras Públicas                  | 2.5    | Feito    | Processado com sucesso                      |
-| S-1040 | Funções/Cargos em Comissão          | 2.5    | Feito    | Processado com sucesso                      |
-| S-1050 | Horários/Turnos de Trabalho         | 2.5    | Feito    | Processado com sucesso                      |
-| S-1060 | Ambientes de Trabalho               | 2.5    | Feito    | Processado com sucesso                      |
-| S-1070 | Processos Administrativos/Judiciais | 2.5    | Feito    | Processado com sucesso                      |
-| S-1080 | Operadores Portuários               | 2.5    | NA       | NA                                          |
+| S-1000 | Empregador/Contribuinte             | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1005 | Estabelecimentos                    | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1010 | Rubricas                            | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1020 | Lotações Tributárias                | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1030 | Cargos/Empregos Públicos            | NA     | Removido | Removido                                    |
+| S-1035 | Carreiras Públicas                  | NA     | Removido | Removido                                    |
+| S-1040 | Funções/Cargos em Comissão          | NA     | Removido | Removido                                    |
+| S-1050 | Horários/Turnos de Trabalho         | NA     | Removido | Removido                                    |
+| S-1060 | Ambientes de Trabalho               | NA     | Removido | Removido                                    |
+| S-1070 | Processos Administrativos/Judiciais | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1080 | Operadores Portuários               | NA     | NA       | NA                                          |
 
 #### Eventos periódicos
 
 | Evento | Nome Evento                                                                     | Versão | Situação | Resultado do envio para a produção restrita |
 | ------ | ------------------------------------------------------------------------------- | ------ | -------- | ------------------------------------------- |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | 2.5    | Feito    | Processado com sucesso                      |
-| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | 2.5    | Feito    | Evento não reconhecido pelo eSocial-GOV     |
-| S-1207 | Benefícios previdenciários - RPPS                                               | 2.5    | Feito    | Evento não reconhecido pelo eSocial-GOV     |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | 2.5    | Feito    | Processado com sucesso                      |
-| S-1250 | Aquisição de Produção Rural                                                     | 2.5    | NA       | NA                                          |
-| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | 2.5    | NA       | NA                                          |
-| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | 2.5    | NA       | NA                                          |
-| S-1280 | Informações Complementares aos Eventos Periódicos                               | 2.5    | NA       | NA                                          |
-| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | 2.5    | Feito    | Processado com sucesso                      |
-| S-1298 | Reabertura dos Eventos Periódicos                                               | 2.5    | Feito    | Processado com sucesso                      |
-| S-1299 | Fechamento dos Eventos Periódicos                                               | 2.5    | Feito    | Processado com sucesso                      |
-| S-1300 | Contribuição Sindical Patronal                                                  | 2.5    | NA       | NA                                          |
+| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1207 | Benefícios previdenciários - RPPS                                               | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1250 | Aquisição de Produção Rural                                                     | S-1.0  | NA       | NA                                          |
+| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | S-1.0  | NA       | NA                                          |
+| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | S-1.0  | NA       | NA                                          |
+| S-1280 | Informações Complementares aos Eventos Periódicos                               | S-1.0  | NA       | NA                                          |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | NA     | Removido | Aguardando cnpjEFR Receita Federal          |
+| S-1298 | Reabertura dos Eventos Periódicos                                               | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1299 | Fechamento dos Eventos Periódicos                                               | S-1.0  | Feito    | Aguardando cnpjEFR Receita Federal          |
+| S-1300 | Contribuição Sindical Patronal                                                  | NA     | NA       | NA                                          |
 
 #### Eventos não periódicos
 
 | Evento | Nome Evento                                                           | Versão | Situação     | Resultado do envio para a produção restrita |
 | ------ | --------------------------------------------------------------------- | ------ | ------------ | ------------------------------------------- |
-| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | 2.5    | NA           | NA                                          |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | 2.5    | Feito        | Processado com sucesso                      |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | 2.5    | Feito        | Processado com sucesso                      |
-| S-2206 | Alteração de Contrato de Trabalho                                     | 2.5    | Feito        | Processado com sucesso                      |
-| S-2210 | Comunicação de Acidente de Trabalho                                   | 2.5    | Impl. futura |                                             |
-| S-2220 | Monitoramento da Saúde do Trabalhador                                 | 2.5    | Impl. futura |                                             |
-| S-2230 | Afastamento Temporário                                                | 2.5    | Feito        | Processado com sucesso                      |
-| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | 2.5    | Impl. futura |                                             |
-| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | 2.5    | Impl. futura |                                             |
-| S-2250 | Aviso Prévio                                                          | 2.5    | NA           | NA                                          |
-| S-2260 | Convocação para Trabalho Intermitente                                 | 2.5    | NA           | NA                                          |
-| S-2298 | Reintegração                                                          | 2.5    | Feito        | Processado com sucesso                      |
-| S-2299 | Desligamento                                                          | 2.5    | Feito        | Processado com sucesso                      |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | 2.5    | Feito        | Processado com sucesso                      |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | 2.5    | Feito        | Processado com sucesso                      |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | 2.5    | Feito        | Processado com sucesso                      |
-| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | 2.5    | Feito        | Evento não reconhecido pelo eSocial-GOV     |
-| S-3000 | Exclusão de eventos                                                   | 2.5    | Feito        | Processado com sucesso                      |
-| S-5001 | Informações das contribuições sociais por trabalhador                 | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
-| S-5002 | Imposto de Renda Retido na Fonte                                      | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
-| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
-| S-5012 | Informações do IRRF consolidadas por contribuinte                     | 2.5    | Feito        | Evento totalizador gravado no formato XML   |
+| S-2190 | Admissão de Trabalhador - Registro Preliminar                         | S-1.0  | NA           | NA                                          |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2206 | Alteração de Contrato de Trabalho                                     | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2210 | Comunicação de Acidente de Trabalho                                   | S-1.0  | Impl. futura |                                             |
+| S-2220 | Monitoramento da Saúde do Trabalhador                                 | S-1.0  | Impl. futura |                                             |
+| S-2230 | Afastamento Temporário                                                | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2231 | Cessão/Exercício em Outro Órgão                                       | S-1.0  | Novo         |                                             |
+| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | S-1.0  | Impl. futura |                                             |
+| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | S-1.0  | Impl. futura |                                             |
+| S-2250 | Aviso Prévio                                                          | NA     | NA           | NA                                          |
+| S-2260 | Convocação para Trabalho Intermitente                                 | NA     | NA           | NA                                          |
+| S-2298 | Reintegração                                                          | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2299 | Desligamento                                                          | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                 | S-1.0  | Novo         |                                             |
+| S-2410 | Cadastro de Benefício – Entes Públicos – Início                       | S-1.0  | Novo         |                                             |
+| S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                    | S-1.0  | Novo         |                                             |
+| S-2418 | Reativação de Benefício – Entes Públicos                              | S-1.0  | Novo         |                                             |
+| S-2420 | Cadastro de Benefício – Entes Públicos – Término                      | S-1.0  | Novo         |                                             |
+| S-3000 | Exclusão de eventos                                                   | S-1.0  | Feito        | Aguardando cnpjEFR Receita Federal          |
+| S-5001 | Informações das contribuições sociais por trabalhador                 | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
+| S-5002 | Imposto de Renda Retido na Fonte                                      | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
+| S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
+| S-5012 | Informações do IRRF consolidadas por contribuinte                     | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
 
 ## Dúvidas e contato
 

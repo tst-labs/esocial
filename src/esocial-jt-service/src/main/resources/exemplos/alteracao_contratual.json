@@ -1,61 +1,56 @@
 {
-	"tipoOcorrencia": "ALTERACAO_CONTRATUAL",
-	"referencia": "12000",
-	"operacao": "NORMAL",
-	"dataOcorrencia": 1522181179561,
-	"dadosOcorrencia": {
-		"tipo": ".AltContratual",
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"ideVinculo": {
-			"cpfTrab": "77993893704",
-			"nisTrab": "90580722711",
-			"matricula": "12000"
-		},
-		"altContratual": {
-			"dtAlteracao": 1522181179561,
-			"dtEf": 1522181179561,
-			"dscAlt": "Alteração contratual de testes",
-			"vinculo": {
-				"tpRegPrev": 2
-			},
-			"infoRegimeTrab": {
-				"infoCeletista": null,
-				"infoEstatutario": {
-					"tpPlanRP": 1
-				}
-			},
-			"infoContrato": {
-				"codCargo": "010100",
-				"codFuncao": null,
-				"codCateg": 301,
-				"codCarreira": "1",
-				"dtIngrCarr": 535341600000,
-				"remuneracao": {
-					"vrSalFx": 12345.7,
-					"undSalFixo": 5,
-					"dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
-				},
-				"duracao": {
-					"tpContr": 1,
-					"dtTerm": null,
-					"objDet": null
-				},
-				"localTrabalho": {
-					"localTrabGeral": {
-						"tpInsc": 1,
-						"nrInsc": "00509968000148",
-						"descComp": "TRIBUNAL SUPERIOR DO TRABALHO"
-					},
-					"localTrabDom": null
-				},
-				"horContratual": null,
-				"filiacaoSindical": null,
-				"alvaraJudicial": null,
-				"observacoes": null
-			}
-		}
-	}
+  "tipoOcorrencia": "ALTERACAO_CONTRATUAL",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".AltContratual",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "altContratual": {
+      "dtAlteracao": 1522181179561,
+      "dtEf": 1522181179561,
+      "dscAlt": "Alteração contratual de testes",
+      "vinculo": {
+        "tpRegPrev": 2,
+        "infoRegimeTrab": {
+          "infoCeletista": null,
+          "infoEstatutario": {
+            "tpPlanRP": 1,
+            "indTetoRGPS": "N",
+            "indAbonoPerm": "N"
+          }
+        },
+        "infoContrato": {
+          "codCateg": 301,
+          "remuneracao": {
+            "vrSalFx": 12345.7,
+            "undSalFixo": 5,
+            "dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
+          },
+          "duracao": {
+            "tpContr": 1,
+            "dtTerm": null,
+            "objDet": null
+          },
+          "localTrabalho": {
+            "localTrabGeral": {
+              "tpInsc": 1,
+              "nrInsc": "00509968000148",
+              "descComp": "TRIBUNAL SUPERIOR DO TRABALHO"
+            }
+          },
+          "horContratual": null,
+          "alvaraJudicial": null,
+          "observacoes": null
+        }
+      }
+    }
+  }
 }
