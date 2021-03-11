@@ -155,7 +155,7 @@ http://localhost:8080/esocial-jt-service/ocorrencias
 4. Após alguns segundos, verifique o log da aplicação se o evento foi processado pelo eSocial-Gov
 
 ```
-j.t.e.a.t.TarefaAtualizacaoProcessamento : Eventos processados: {Aguardando cnpjEFR Receita Federal=1}
+j.t.e.a.t.TarefaAtualizacaoProcessamento : Eventos processados: {PROCESSADO COM SUCESSO=1}
 ```
 
 5. Também é possível consultar o status fazendo uma requisição **GET** para o _endpoint_
