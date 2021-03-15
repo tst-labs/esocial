@@ -1,25 +1,24 @@
 {
-	"tipoOcorrencia": "EXCLUSAO",
-	"referencia": null,
-	"operacao": null,
-	"dataOcorrencia": 1522181179561,
-	"dadosOcorrencia": {
-		"tipo": ".Exclusao",
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"infoExclusao": {
-			"tpEvento": "S-1200",
-			"nrRecEvt": ">>>>>  NUMERO DO RECIBO <<<<<",
-			"ideTrabalhador": {
-				"cpfTrab": "72568274077",
-				"nisTrab": "86958931256"
-			},
-			"ideFolhaPagto": {
-				"indApuracao": 1,
-				"perApur": "2018-07"
-			}
-		}	
-	}
+  "tipoOcorrencia": "EXCLUSAO",
+  "referencia": null,
+  "operacao": null,
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".Exclusao",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "infoExclusao": {
+      "tpEvento": "S-1200",
+      "nrRecEvt": "1.0.0000000000000000000",
+      "ideTrabalhador": {
+        "cpfTrab": "72568274077"
+      },
+      "ideFolhaPagto": {
+        "indApuracao": 1,
+        "perApur": "2018-07"
+      }
+    }
+  }
 }

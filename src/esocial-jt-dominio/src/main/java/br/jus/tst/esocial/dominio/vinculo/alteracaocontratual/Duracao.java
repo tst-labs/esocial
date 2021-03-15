@@ -2,12 +2,14 @@ package br.jus.tst.esocial.dominio.vinculo.alteracaocontratual;
 
 import java.util.Calendar;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class Duracao {
 	
 	private byte tpContr;
 	private Calendar dtTerm;
 	private String objDet;
-	private String clauAssec;
+	private SimNao clauAssec;
 
 	public byte getTpContr() {
 		return tpContr;
@@ -36,11 +38,11 @@ public class Duracao {
 		return this;
 	}
 
-	public String getClauAssec() {
+	public SimNao getClauAssec() {
 		return clauAssec;
 	}
 
-	public Duracao setClauAssec(String clauAssec) {
+	public Duracao setClauAssec(SimNao clauAssec) {
 		this.clauAssec = clauAssec;
 		return this;
 	}

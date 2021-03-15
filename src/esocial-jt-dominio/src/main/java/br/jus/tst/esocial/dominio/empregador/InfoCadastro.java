@@ -1,16 +1,14 @@
 package br.jus.tst.esocial.dominio.empregador;
 
-import java.util.List;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import br.jus.tst.esocial.dominio.empregador.orgaointernacional.InfoOrgInternacional;
-import br.jus.tst.esocial.dominio.empregador.orgaopublico.InfoOP;
 
 /**
  *
@@ -19,73 +17,32 @@ import br.jus.tst.esocial.dominio.empregador.orgaopublico.InfoOP;
 public class InfoCadastro {
 	
 	@NotNull
-	@Size(min=1, max=115)
-	private String nmRazao;
-	
-	@NotNull
 	@Size(min=2, max=2)
 	private String classTrib;
 	
-	@Size(min=4, max=4)
-	private String natJurid;
-	
 	private Byte indCoop;
-	
+
 	private Byte indConstr;
-	
+
 	@NotNull
 	private Byte indDesFolha;
 
 	private Byte indOpcCP;
+
+	private String indPorte;
 	
 	@NotNull
 	private Byte indOptRegEletron;
 	
-	private String indEntEd;
-	
-	@NotNull
-	private String indEtt;
-	
-	private String nrRegEtt;
+	@CNPJ
+    private String cnpjEFR;
 	
 	@Valid
 	private DadosIsencao dadosIsencao;
 	
-	@NotNull
-	@Valid
-	private Contato contato;
-	
-	@Valid
-	private InfoOP infoOP;
-	
 	@Valid
 	private InfoOrgInternacional infoOrgInternacional;
 	
-	@Valid
-	private List<SoftwareHouse> softwareHouse;
-	
-	@NotNull
-	@Valid
-	private InfoComplementares infoComplementares;
-
-	/**
-	 * @return the nmRazao
-	 */
-	public String getNmRazao() {
-		return nmRazao;
-	}
-
-	/**
-	 * Informar a razão social, no caso de pessoa jurídica ou órgão público.
-	 *
-	 * @param nmRazao
-	 *            the nmRazao to set
-	 */
-	public InfoCadastro setNmRazao(String razaoSocial) {
-		this.nmRazao = razaoSocial;
-		return this;
-	}
-
 	/**
 	 * @return the classTrib
 	 */
@@ -107,32 +64,6 @@ public class InfoCadastro {
 	 */
 	public InfoCadastro setClassTrib(String classificaoTributaria) {
 		this.classTrib = classificaoTributaria;
-		return this;
-	}
-
-	/**
-	 * @return the natJurid
-	 */
-	public String getNatJurid() {
-		return natJurid;
-	}
-
-	/**
-	 * <p>
-	 * Preencher com o código da Natureza Jurídica do Contribuinte, conforme
-	 * tabela 21
-	 * </p>
-	 * . Validação: O preenchimento do campo é obrigatório e exclusivo para
-	 * empregador PJ e administração pública. Neste caso, deve ser um código
-	 * existente na tabela 21 e compatível com a informação constante no CNPJ.
-	 * Se classificação tributária = [85], o número da natureza jurídica deve
-	 * iniciar por 1 (exemplo: 101- 5, 112-0, etc.).
-	 *
-	 * @param natJurid
-	 *            the natJurid to set
-	 */
-	public InfoCadastro setNatJurid(String naturezaJuridica) {
-		this.natJurid = naturezaJuridica;
 		return this;
 	}
 
@@ -235,82 +166,6 @@ public class InfoCadastro {
 		return this;
 	}
 
-
-	/**
-	 * Indicativo de entidade educativa sem fins lucrativos que tenha por
-	 * objetivo a assistência ao adolescente e à educação profissional (art.
-	 * 430, inciso II, CLT): N - Não é entidade educativa sem fins lucrativos; S
-	 * - É entidade educativa sem fins lucrativos. Validação: O preenchimento é
-	 * exclusivo e obrigatório para Pessoa Jurídica.
-	 *
-	 * @return the indEntEd
-	 */
-	public String getIndEntEd() {
-		return indEntEd;
-	}
-
-	/**
-	 * Indicativo de entidade educativa sem fins lucrativos que tenha por
-	 * objetivo a assistência ao adolescente e à educação profissional (art.
-	 * 430, inciso II, CLT): N - Não é entidade educativa sem fins lucrativos; S
-	 * - É entidade educativa sem fins lucrativos. Validação: O preenchimento é
-	 * exclusivo e obrigatório para Pessoa Jurídica. Valores Válidos: S,N.
-	 *
-	 * @param indEntEd
-	 *            the indEntEd to set
-	 */
-	public InfoCadastro setIndEntEd(String entidadeEducativa) {
-		this.indEntEd = entidadeEducativa;
-		return this;
-	}
-
-	/**
-	 * Indicativo de Empresa de Trabalho Temporário (Lei n° 6.019/1974), com
-	 * registro no Ministério do Trabalho: N - Não é Empresa de Trabalho
-	 * Temporário; S - Empresa de Trabalho Temporário. Valores Válidos: S,N.
-	 *
-	 * @return the indEtt
-	 */
-	public String getIndEtt() {
-		return indEtt;
-	}
-
-	/**
-	 * Indicativo de Empresa de Trabalho Temporário (Lei n° 6.019/1974), com
-	 * registro no Ministério do Trabalho: N - Não é Empresa de Trabalho
-	 * Temporário; S - Empresa de Trabalho Temporário. Valores Válidos: S,N.
-	 *
-	 * @param indEtt
-	 *            the indEtt to set
-	 */
-	public InfoCadastro setIndEtt(String empresaTrabalhoTemporario) {
-		this.indEtt = empresaTrabalhoTemporario;
-		return this;
-	}
-
-	/**
-	 * Número do registro da Empresa de Trabalho Temporário no Ministério do
-	 * Trabalho.
-	 *
-	 * @return the nrRegEtt
-	 */
-	public String getNrRegEtt() {
-		return nrRegEtt;
-	}
-
-	/**
-	 * Número do registro da Empresa de Trabalho Temporário no Ministério do
-	 * Trabalho. Validação: Preenchimento obrigatório se {indEtt} = [S]. Não
-	 * pode ser informado nos demais casos.
-	 *
-	 * @param nrRegEtt
-	 *            the nrRegEtt to set
-	 */
-	public InfoCadastro setNrRegEtt(String numeroRegistroEmpresaTrabalhoTemporario) {
-		this.nrRegEtt = numeroRegistroEmpresaTrabalhoTemporario;
-		return this;
-	}
-
 	/**
 	 * @return the dadosIsencao
 	 */
@@ -327,70 +182,6 @@ public class InfoCadastro {
 		return this;
 	}
 
-	/**
-	 * @return the contato
-	 */
-	public Contato getContato() {
-		return contato;
-	}
-
-	/**
-	 * @param contato
-	 *            the contato to set
-	 */
-	public InfoCadastro setContato(Contato contato) {
-		this.contato = contato;
-		return this;
-	}
-
-	/**
-	 * @return the infoOP
-	 */
-	public InfoOP getInfoOP() {
-		return infoOP;
-	}
-
-	/**
-	 * @param infoOP
-	 *            the infoOP to set
-	 */
-	public InfoCadastro setInfoOP(InfoOP informacaoOrgaoPublico) {
-		this.infoOP = informacaoOrgaoPublico;
-		return this;
-	}
-
-	/**
-	 * @return the softwareHouse
-	 */
-	public List<SoftwareHouse> getSoftwareHouse() {
-		return softwareHouse;
-	}
-
-	/**
-	 * @param softwareHouse
-	 *            the softwareHouse to set
-	 */
-	public InfoCadastro setSoftwareHouse(List<SoftwareHouse> softwareHouse) {
-		this.softwareHouse = softwareHouse;
-		return this;
-	}
-
-	/**
-	 * @return the infoComplementares
-	 */
-	public InfoComplementares getInfoComplementares() {
-		return infoComplementares;
-	}
-
-	/**
-	 * @param infoComplementares
-	 *            the infoComplementares to set
-	 */
-	public InfoCadastro setInfoComplementares(InfoComplementares informacaoComplementar) {
-		this.infoComplementares = informacaoComplementar;
-		return this;
-	}
-	
 	public InfoOrgInternacional getInfoOrgInternacional() {
 		return infoOrgInternacional;
 	}
@@ -400,6 +191,22 @@ public class InfoCadastro {
 		return this;
 	}
 	
+	public String getIndPorte() {
+		return indPorte;
+	}
+
+	public void setIndPorte(String indPorte) {
+		this.indPorte = indPorte;
+	}
+
+	public String getCnpjEFR() {
+		return cnpjEFR;
+	}
+
+	public void setCnpjEFR(String cnpjEFR) {
+		this.cnpjEFR = cnpjEFR;
+	}
+
 	public Byte getIndOpcCP() {
 		return this.indOpcCP;
 	}
@@ -412,21 +219,15 @@ public class InfoCadastro {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
-			.append(this.nmRazao)
 			.append(this.classTrib)
-			.append(this.natJurid)
 			.append(this.indCoop)
 			.append(this.indConstr)
 			.append(this.indDesFolha)
 			.append(this.indOptRegEletron)
-			.append(this.indEntEd)
-			.append(this.indEtt)
-			.append(this.nrRegEtt)
 			.append(this.dadosIsencao)
-			.append(this.contato)
-			.append(this.infoOP)
-			.append(this.softwareHouse)
-			.append(this.infoComplementares)
+			.append(this.indPorte)
+			.append(this.infoOrgInternacional)
+			.append(this.cnpjEFR)
 			.toHashCode();
 	}
 
@@ -448,17 +249,11 @@ public class InfoCadastro {
 				.append(this.indConstr, other.indConstr)
 				.append(this.indDesFolha, other.indDesFolha)
 				.append(this.indOptRegEletron, other.indOptRegEletron)
-				.append(this.nmRazao, other.nmRazao)
 				.append(this.classTrib, other.classTrib)
-				.append(this.natJurid, other.natJurid)
-				.append(this.indEntEd, other.indEntEd)
-				.append(this.indEtt, other.indEtt)
-				.append(this.nrRegEtt, other.nrRegEtt)
 				.append(this.dadosIsencao, other.dadosIsencao)
-				.append(this.contato, other.contato)
-				.append(this.infoOP, other.infoOP)
-				.append(this.softwareHouse, other.softwareHouse)
-				.append(this.infoComplementares, other.infoComplementares)
+				.append(this.indPorte, other.indPorte)
+				.append(this.infoOrgInternacional, other.infoOrgInternacional)
+				.append(this.cnpjEFR, other.cnpjEFR)
 				.isEquals();
 	}
 }

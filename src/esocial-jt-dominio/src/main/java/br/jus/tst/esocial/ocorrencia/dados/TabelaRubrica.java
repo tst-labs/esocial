@@ -58,8 +58,10 @@ public class TabelaRubrica extends DadosOcorrencia {
 			return false;
 		}
 		TabelaRubrica castOther = (TabelaRubrica) other;
-		return new EqualsBuilder().append(ideEmpregador, castOther.ideEmpregador)
-				.append(infoRubrica, castOther.infoRubrica).isEquals();
+		return new EqualsBuilder()
+				.append(ideEmpregador, castOther.ideEmpregador)
+				.append(infoRubrica, castOther.infoRubrica)
+				.isEquals();
 	}
 
 	@Override

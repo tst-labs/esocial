@@ -5,67 +5,58 @@ import java.util.Calendar;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.br.CNPJ;
-
 public class SucessaoVinc {
 
-	private byte tpInscAnt;
+	private byte tpInsc;
 
 	@NotNull
-	@CNPJ
-	private String cnpjEmpregAnt;
+	@Size(min=8, max=14)
+	private String nrInsc;
 	
 	@NotNull
-	@Size(min=1, max=30)
 	private String matricAnt;
 	
-	private Calendar dtAdm;
-	
-	@NotNull
 	private Calendar dtTransf;
+
+	private Calendar dtAdm;
+
+	private String cnpjOrgaoAnt;
+	
+	private Calendar dtExercicio;
 
 	@Size(min=3, max=255)
 	private String observacao;
 
-	public byte getTpInscAnt() {
-		return tpInscAnt;
-	}
-	
-	public SucessaoVinc setTpInscAnt(byte tpInscAnt) {
-		this.tpInscAnt = tpInscAnt;
-		return this;
+	public byte getTpInsc() {
+		return tpInsc;
 	}
 
-	public String getCnpjEmpregAnt() {
-		return cnpjEmpregAnt;
+	public void setTpInsc(byte tpInsc) {
+		this.tpInsc = tpInsc;
 	}
 
-	public void setCnpjEmpregAnt(String cnpjEmpregadorAnterior) {
-		this.cnpjEmpregAnt = cnpjEmpregadorAnterior;
+	public String getNrInsc() {
+		return nrInsc;
+	}
+
+	public void setNrInsc(String nrInsc) {
+		this.nrInsc = nrInsc;
 	}
 
 	public String getMatricAnt() {
 		return matricAnt;
 	}
 
-	public void setMatricAnt(String matriculaAnterior) {
-		this.matricAnt = matriculaAnterior;
-	}
-
-	public Calendar getDtAdm() {
-		return dtAdm;
-	}
-
-	public void setDtAdm(Calendar dtAdm) {
-		this.dtAdm = dtAdm;
+	public void setMatricAnt(String matricAnt) {
+		this.matricAnt = matricAnt;
 	}
 
 	public Calendar getDtTransf() {
 		return dtTransf;
 	}
 
-	public void setDtTransf(Calendar dataInicioVinculo) {
-		this.dtTransf = dataInicioVinculo;
+	public void setDtTransf(Calendar dtTransf) {
+		this.dtTransf = dtTransf;
 	}
 
 	public String getObservacao() {
@@ -76,4 +67,27 @@ public class SucessaoVinc {
 		this.observacao = observacao;
 	}
 
+	public Calendar getDtAdm() {
+		return dtAdm;
+	}
+
+	public void setDtAdm(Calendar dtAdm) {
+		this.dtAdm = dtAdm;
+	}
+
+	public String getCnpjOrgaoAnt() {
+		return cnpjOrgaoAnt;
+	}
+
+	public void setCnpjOrgaoAnt(String cnpjOrgaoAnt) {
+		this.cnpjOrgaoAnt = cnpjOrgaoAnt;
+	}
+
+	public Calendar getDtExercicio() {
+		return dtExercicio;
+	}
+
+	public void setDtExercicio(Calendar dtExercicio) {
+		this.dtExercicio = dtExercicio;
+	}
 }

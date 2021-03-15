@@ -4,6 +4,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.enums.UF;
+
 public class EnderecoBrasil {
 
 	@NotNull
@@ -32,7 +34,7 @@ public class EnderecoBrasil {
 	private Integer codMunic;
 
 	@NotNull
-	private String uf;
+	private UF uf;
 
 	public String getTpLograd() {
 		return tpLograd;
@@ -97,11 +99,11 @@ public class EnderecoBrasil {
 		return this;
 	}
 
-	public String getUf() {
+	public UF getUf() {
 		return uf;
 	}
 
-	public EnderecoBrasil setUf(String uf) {
+	public EnderecoBrasil setUf(UF uf) {
 		this.uf = uf;
 		return this;
 	}

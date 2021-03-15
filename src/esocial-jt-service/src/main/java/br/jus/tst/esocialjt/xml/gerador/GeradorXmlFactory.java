@@ -25,21 +25,6 @@ public class GeradorXmlFactory {
 	private GeradorXmlTabelaLotacao geradorXmlTabelaLotacao;
 
 	@Autowired
-	private GeradorXmlTabelaCargo geradorXmlTabelaCargo;
-
-	@Autowired
-	private GeradorXmlTabelaCarreira geradorXmlTabelaCarreira;
-
-	@Autowired
-	private GeradorXmlTabelaFuncao geradorXmlTabelaFuncao;
-	
-	@Autowired
-	private GeradorXmlTabelaHorario geradorXmlTabelaHorario;
-	
-	@Autowired
-	private GeradorXmlTabelaAmbiente geradorXmlTabelaAmbiente;
-
-	@Autowired
 	private GeradorXmlTabelaProcesso geradorXmlTabelaProcesso;
 
 	@Autowired
@@ -70,9 +55,6 @@ public class GeradorXmlFactory {
 	private GeradorXmlTSVTermino geradorXmlTSVTermino;
 
 	@Autowired
-	private GeradorXmlCadastroBeneficioRPPS geradorXmlCadastroBeneficioRPPS;
-	
-	@Autowired
 	private GeradorXmlRemuneracaoRGPS geradorXmlRemuneracaoRGPS;
 
 	@Autowired
@@ -84,9 +66,6 @@ public class GeradorXmlFactory {
 	@Autowired
 	private GeradorXmlPgtos geradorXmlPgtos;
 	
-	@Autowired
-	private GeradorXmlSolicitacaoTotalPagamento geradorXmlSolicitacaoTotalPagamento;
-
 	@Autowired
 	private GeradorXmlReaberturaPeriodicos geradorXmlReaberturaPeriodicos;
 	
@@ -113,11 +92,6 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S1005, geradorXmlTabelaEstabelecimento);
 			geradores.put(TipoEvento.S1010, geradorXmlTabelaRubrica);
 			geradores.put(TipoEvento.S1020, geradorXmlTabelaLotacao);
-			geradores.put(TipoEvento.S1030, geradorXmlTabelaCargo);
-			geradores.put(TipoEvento.S1035, geradorXmlTabelaCarreira);
-			geradores.put(TipoEvento.S1040, geradorXmlTabelaFuncao);
-			geradores.put(TipoEvento.S1050, geradorXmlTabelaHorario);
-			geradores.put(TipoEvento.S1060, geradorXmlTabelaAmbiente);
 			geradores.put(TipoEvento.S1070, geradorXmlTabelaProcesso);
 			geradores.put(TipoEvento.S2200, geradorXmlAdmissao);
 			geradores.put(TipoEvento.S2205, geradorXmlAltCadastral);
@@ -128,12 +102,10 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);
 			geradores.put(TipoEvento.S2306, geradorXmlTSVAltContr);
 			geradores.put(TipoEvento.S2399, geradorXmlTSVTermino);
-			geradores.put(TipoEvento.S2400, geradorXmlCadastroBeneficioRPPS);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
 			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
 			geradores.put(TipoEvento.S1207, geradorXmlBeneficioRPPS);
 			geradores.put(TipoEvento.S1210, geradorXmlPgtos);
-			geradores.put(TipoEvento.S1295, geradorXmlSolicitacaoTotalPagamento);
 			geradores.put(TipoEvento.S1298, geradorXmlReaberturaPeriodicos);
 			geradores.put(TipoEvento.S1299, geradorXmlFechamentoPeriodicos);
 			geradores.put(TipoEvento.S3000, geradorXmlExclusao);

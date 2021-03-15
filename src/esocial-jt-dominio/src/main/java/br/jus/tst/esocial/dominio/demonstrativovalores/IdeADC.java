@@ -8,14 +8,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+import br.jus.tst.esocial.dominio.enums.TpAcConv;
+
 public class IdeADC {
 
 	@NotNull
 	private Calendar dtAcConv;
 	
 	@NotNull
-	@Size(min=1, max=1)
-	private String tpAcConv;
+	private TpAcConv tpAcConv;
 	
 	@Pattern(regexp="[2]{1}\\d{3}-(1[0-2]|0[1-9])")
 	private String compAcConv;
@@ -27,8 +29,7 @@ public class IdeADC {
 	@Size(min=3, max=255)
 	private String dsc;
 	
-	@Pattern(regexp="[N|S]")
-	private String remunSuc;
+	private SimNao remunSuc;
 
 	private Calendar dtLei;
 	
@@ -47,11 +48,11 @@ public class IdeADC {
 		this.dtAcConv = dtAcConv;
 	}
 
-	public String getTpAcConv() {
+	public TpAcConv getTpAcConv() {
 		return tpAcConv;
 	}
 
-	public void setTpAcConv(String tpAcConv) {
+	public void setTpAcConv(TpAcConv tpAcConv) {
 		this.tpAcConv = tpAcConv;
 	}
 
@@ -79,11 +80,11 @@ public class IdeADC {
 		this.dsc = dsc;
 	}
 
-	public String getRemunSuc() {
+	public SimNao getRemunSuc() {
 		return remunSuc;
 	}
 
-	public void setRemunSuc(String remunSuc) {
+	public void setRemunSuc(SimNao remunSuc) {
 		this.remunSuc = remunSuc;
 	}
 

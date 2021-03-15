@@ -1,35 +1,33 @@
 {
-	"tipoOcorrencia": "TABELA_RUBRICA",
-	"referencia": "01",
-	"operacao": "INCLUSAO",
-	"dataOcorrencia": 1522181304444,
-	"dadosOcorrencia": {
-		"tipo": ".TabelaRubrica",
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"infoRubrica": {
-			"ideRubrica": {
-				"codRubr": "01",
-				"ideTabRubr": "01",
-				"iniValid": "2017-01",
-				"fimValid": null
-			},
-			"dadosRubrica": {
-				"dscRubr": "RUBRICA",
-				"natRubr": 1000,
-				"tpRubr": 1,
-				"codIncCP": "00",
-				"codIncIRRF": "01",
-				"codIncFGTS": "11",
-				"codIncSIND": "00",
-				"observacao": "Observação sobre a rubrica",
-				"ideProcessoCP": null,
-				"ideProcessoIRRF": null,
-				"ideProcessoFGTS": null,
-				"ideProcessoSIND": null
-			}
-		}
-	}
+  "tipoOcorrencia": "TABELA_RUBRICA",
+  "referencia": "01",
+  "operacao": "INCLUSAO",
+  "dataOcorrencia": 1522181304444,
+  "dadosOcorrencia": {
+    "tipo": ".TabelaRubrica",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "infoRubrica": {
+      "ideRubrica": {
+        "codRubr": "01",
+        "ideTabRubr": "01",
+        "iniValid": "2017-01",
+        "fimValid": null
+      },
+      "dadosRubrica": {
+        "dscRubr": "RUBRICA",
+        "natRubr": 1000,
+        "tpRubr": 1,
+        "codIncCP": "00",
+        "codIncIRRF": "1",
+        "codIncFGTS": "11",
+        "observacao": "Observação sobre a rubrica",
+        "ideProcessoCP": null,
+        "ideProcessoIRRF": null,
+        "ideProcessoFGTS": null
+      }
+    }
+  }
 }

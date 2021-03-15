@@ -17,9 +17,6 @@ public class IdeVinculo {
 	@CPF
     private String cpfTrab;
 
-	@Size(max = 11)
-    private String nisTrab;
-
 	@Size(min = 1, max = 30)
     private String matricula;
 	
@@ -31,14 +28,6 @@ public class IdeVinculo {
 
 	public void setCpfTrab(String cpfTrab) {
 		this.cpfTrab = cpfTrab;
-	}
-
-	public String getNisTrab() {
-		return nisTrab;
-	}
-
-	public void setNisTrab(String nisTrab) {
-		this.nisTrab = nisTrab;
 	}
 
 	public String getMatricula() {
@@ -65,7 +54,6 @@ public class IdeVinculo {
 		IdeVinculo castOther = (IdeVinculo) other;
 		return new EqualsBuilder()
 				.append(cpfTrab, castOther.cpfTrab)
-				.append(nisTrab, castOther.nisTrab)
 				.append(matricula, castOther.matricula)
 				.append(codCateg, castOther.codCateg)
 				.isEquals();
@@ -75,7 +63,6 @@ public class IdeVinculo {
 	public int hashCode() {
 		return new HashCodeBuilder()
 				.append(cpfTrab)
-				.append(nisTrab)
 				.append(matricula)
 				.append(codCateg)
 				.toHashCode();

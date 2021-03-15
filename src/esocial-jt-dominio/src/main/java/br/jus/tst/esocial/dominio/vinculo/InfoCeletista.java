@@ -20,6 +20,8 @@ public class InfoCeletista {
 	@NotNull
 	private byte indAdmissao;
 	
+	private String nrProcTrab;
+	
 	@NotNull
 	private byte tpRegJor;
 	
@@ -34,16 +36,12 @@ public class InfoCeletista {
 	@CNPJ
 	private String cnpjSindCategProf;
 	
-	@NotNull
 	@Valid
 	private FGTS fgts;
 	
 	@Valid
 	private TrabTemporario trabTemporario;
 
-	@Valid
-	private TrabTemp trabTemp;
-	
 	@Valid
 	private Aprend aprend;
 	
@@ -64,6 +62,12 @@ public class InfoCeletista {
 	}
 	public void setIndAdmissao(byte indAdmissao) {
 		this.indAdmissao = indAdmissao;
+	}
+	public String getNrProcTrab() {
+		return nrProcTrab;
+	}
+	public void setNrProcTrab(String nrProcTrab) {
+		this.nrProcTrab = nrProcTrab;
 	}
 	public byte getTpRegJor() {
 		return tpRegJor;
@@ -100,12 +104,6 @@ public class InfoCeletista {
 	}
 	public void setTrabTemporario(TrabTemporario trabalhoTemporario) {
 		this.trabTemporario = trabalhoTemporario;
-	}
-	public TrabTemp getTrabTemp() {
-		return trabTemp;
-	}
-	public void setTrabTemp(TrabTemp trabTemp) {
-		this.trabTemp = trabTemp;
 	}
 	public Aprend getAprend() {
 		return aprend;

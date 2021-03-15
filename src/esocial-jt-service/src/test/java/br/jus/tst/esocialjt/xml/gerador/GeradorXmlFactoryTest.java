@@ -36,14 +36,6 @@ public class GeradorXmlFactoryTest {
 	}
 	
 	@Test
-	public void deveRetornarGeradorXmlTabelaCargo() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(1030l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlTabelaCargo.class);
-	}
-	
-	@Test
 	public void deveRetornarGeradorXmlTabelaEstabelecimento() throws GeracaoXmlException {
 		Evento evento = new Evento();
 		evento.setTipoEvento(new TipoEvento(1005l));
@@ -65,22 +57,6 @@ public class GeradorXmlFactoryTest {
 		evento.setTipoEvento(new TipoEvento(1020l));
 		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
 		assertThat(gerador).isInstanceOf(GeradorXmlTabelaLotacao.class);
-	}
-	
-	@Test
-	public void deveRetornarGeradorXmlTabelaCarreira() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(1035l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlTabelaCarreira.class);
-	}
-	
-	@Test
-	public void deveRetornarGeradorXmlTabelaFuncao() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(1040l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlTabelaFuncao.class);
 	}
 	
 	@Test
@@ -132,14 +108,6 @@ public class GeradorXmlFactoryTest {
 	}
 	
 	@Test
-	public void deveRetornarGeradorXmlHorario() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(1050l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlTabelaHorario.class);
-	}
-	
-	@Test
 	public void deveRetornarGeradorXmlTSVInicio() throws GeracaoXmlException {
 		Evento evento = new Evento();
 		evento.setTipoEvento(new TipoEvento(2300l));
@@ -161,14 +129,6 @@ public class GeradorXmlFactoryTest {
 		evento.setTipoEvento(new TipoEvento(2399l));
 		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
 		assertThat(gerador).isInstanceOf(GeradorXmlTSVTermino.class);
-	}
-	
-	@Test
-	public void deveRetornarGeradorXmlCadastroBeneficioRPPS() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(2400l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlCadastroBeneficioRPPS.class);
 	}
 	
 	@Test
@@ -203,14 +163,6 @@ public class GeradorXmlFactoryTest {
 		assertThat(gerador).isInstanceOf(GeradorXmlPgtos.class);
 	}
 	
-	@Test
-	public void deveRetornarGeradorXmlTotConting() throws GeracaoXmlException {
-		Evento evento = new Evento();
-		evento.setTipoEvento(new TipoEvento(1295l));
-		GeradorXml gerador = geradorXmlFactory.getGerador(evento);
-		assertThat(gerador).isInstanceOf(GeradorXmlSolicitacaoTotalPagamento.class);
-	}
-
 	@Test
 	public void deveRetornarGeradorXmlReaberturaPeriodicos() throws GeracaoXmlException {
 		Evento evento = new Evento();

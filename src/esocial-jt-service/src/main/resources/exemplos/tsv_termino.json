@@ -1,21 +1,20 @@
 {
-	"tipoOcorrencia": "TSV_TERMINO",
-	"referencia": "77993893704",
-	"operacao": "NORMAL",
-	"dataOcorrencia": 1522181179561,
-	"dadosOcorrencia": {
-		"tipo": ".TSVTermino",
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"ideTrabSemVinculo": {
-			"cpfTrab": "77993893704",
-			"nisTrab": "90580722711",
-			"codCateg": 901
-		},
-        "infoTSVTermino": {			
-			"dtTerm": 1522181179561
-		}
-	}
+  "tipoOcorrencia": "TSV_TERMINO",
+  "referencia": "77993893704",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".TSVTermino",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideTrabSemVinculo": {
+      "cpfTrab": "77993893704",
+      "codCateg": 901
+    },
+    "infoTSVTermino": {
+      "dtTerm": 1522181179561
+    }
+  }
 }

@@ -1,52 +1,56 @@
 {
-	"tipoOcorrencia": "REMUNERACAO_RGPS",
-	"referencia": "12002",
-	"operacao": "NORMAL",
-	"dataOcorrencia": 1522181179561,
-	"dadosOcorrencia": {
-		"tipo": ".Remun",
-		"ideEvento":{
-			"indApuracao": 1,
-			"perApur": "2018-07"
-		},
-		"ideEmpregador": {
-			"tpInsc": 1,
-			"nrInsc": "00509968000148"
-		},
-		"ideTrabalhador": {
-			"cpfTrab": "72568274077",
-			"nisTrab": "86958931256",
-			"infoMV":{
-				"indMV": null,
-				"remunOutrEmpr": null 
-			},
-			"procJudTrab": null,
-			"infoInterm": {
-				"qtdDiasInterm": null
-			}
-		},		
-		"dmDev": [{
-			"ideDmDev": "123",
-			"codCateg": 301,
-			"infoPerApur": {
-				"ideEstabLot": [{
-					"tpInsc": 1,
-					"nrInsc": "00509968000148",
-					"codLotacao": "TST12345",
-					"remunPerApur": [{
-						"matricula": "12002",
-						"itensRemun": [{
-							"codRubr": "01",
-							"ideTabRubr": "01",
-							"vrRubr": 1234
-						}],
-						"infoAgNocivo": {
-							"grauExp": 1
-						} 
-					}]
-				}]
-			},
-			"infoPerAnt": null
-		}]
-	} 
+  "tipoOcorrencia": "REMUNERACAO_RGPS",
+  "referencia": "12002",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".Remun",
+    "ideEvento": {
+      "indApuracao": 1,
+      "perApur": "2018-07"
+    },
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideTrabalhador": {
+      "cpfTrab": "72568274077",
+      "infoMV": {
+        "indMV": null,
+        "remunOutrEmpr": null
+      },
+      "procJudTrab": null
+    },
+    "dmDev": [
+      {
+        "ideDmDev": "123",
+        "codCateg": 301,
+        "infoPerApur": {
+          "ideEstabLot": [
+            {
+              "tpInsc": 1,
+              "nrInsc": "00509968000148",
+              "codLotacao": "TST12345",
+              "remunPerApur": [
+                {
+                  "matricula": "12002",
+                  "itensRemun": [
+                    {
+                      "codRubr": "01",
+                      "ideTabRubr": "01",
+                      "vrRubr": 1234
+                    }
+                  ],
+                  "infoAgNocivo": {
+                    "grauExp": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "infoPerAnt": null
+      }
+    ]
+  }
 }

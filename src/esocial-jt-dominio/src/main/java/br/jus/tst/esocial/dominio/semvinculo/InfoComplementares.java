@@ -2,7 +2,6 @@ package br.jus.tst.esocial.dominio.semvinculo;
 
 import javax.validation.Valid;
 
-import br.jus.tst.esocial.dominio.vinculo.FGTS;
 import br.jus.tst.esocial.dominio.vinculo.Remuneracao;
 
 public class InfoComplementares {
@@ -24,6 +23,9 @@ public class InfoComplementares {
 	
 	@Valid
 	private InfoEstagiario infoEstagiario;
+	
+	@Valid
+	private InfoMandElet infoMandElet;
 
 	public CargoFuncao getCargoFuncao() {
 		return cargoFuncao;
@@ -43,11 +45,11 @@ public class InfoComplementares {
 		return this;
 	}
 
-	public FGTS getFgts() {
+	public FGTS getFGTS() {
 		return fgts;
 	}
 
-	public InfoComplementares setFgts(FGTS fgts) {
+	public InfoComplementares setFGTS(FGTS fgts) {
 		this.fgts = fgts;
 		return this;
 	}
@@ -77,6 +79,14 @@ public class InfoComplementares {
 	public InfoComplementares setInfoEstagiario(InfoEstagiario infoEstagiario) {
 		this.infoEstagiario = infoEstagiario;
 		return this;
+	}
+
+	public InfoMandElet getInfoMandElet() {
+		return infoMandElet;
+	}
+
+	public void setInfoMandElet(InfoMandElet infoMandElet) {
+		this.infoMandElet = infoMandElet;
 	}
 
 }

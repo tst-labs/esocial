@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabprocesso.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tabprocesso.ESocial.EvtTabProcesso;
-import br.jus.tst.esocial.esquemas.eventos.tabprocesso.TIdeCadastro;
+import br.jus.tst.esocial.esquemas.eventos.tabprocesso.TIdeEventoEvtTab;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaProcesso;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlTabelaProcesso extends GeradorXml {
 
 		EvtTabProcesso evtTabProcesso = converteTabProcesso(ocorrencia);
 		evtTabProcesso.setId(evento.getIdEvento());
-		evtTabProcesso.setIdeEvento(preencherConstantes(new TIdeCadastro()));
+		evtTabProcesso.setIdeEvento(preencherConstantes(new TIdeEventoEvtTab()));
 		eSocial.setEvtTabProcesso(evtTabProcesso);
 
 		return eSocial;

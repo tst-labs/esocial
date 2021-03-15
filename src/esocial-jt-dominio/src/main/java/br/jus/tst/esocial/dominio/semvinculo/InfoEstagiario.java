@@ -1,6 +1,5 @@
 package br.jus.tst.esocial.dominio.semvinculo;
 
-import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.validation.Valid;
@@ -24,8 +23,6 @@ public class InfoEstagiario {
 	
 	@Size(min=1, max=30)
 	private String nrApol;
-	
-	private BigDecimal vlrBolsa;
 	
 	@NotNull
 	private Calendar dtPrevTerm;
@@ -73,15 +70,6 @@ public class InfoEstagiario {
 
 	public InfoEstagiario setNrApol(String numeroApoliceSeguro) {
 		this.nrApol = numeroApoliceSeguro;
-		return this;
-	}
-
-	public BigDecimal getVlrBolsa() {
-		return vlrBolsa;
-	}
-
-	public InfoEstagiario setVlrBolsa(BigDecimal valorBolsa) {
-		this.vlrBolsa = valorBolsa;
 		return this;
 	}
 

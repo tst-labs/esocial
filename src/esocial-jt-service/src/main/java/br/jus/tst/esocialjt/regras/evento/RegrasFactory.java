@@ -27,21 +27,6 @@ public class RegrasFactory {
 	private RegraTabelaLotacao regraTabelaLotacao;
 
 	@Autowired
-	private RegraTabelaCargo regraTabelaCargo;
-
-	@Autowired
-	private RegraTabelaCarreira regraTabelaCarreira;
-
-	@Autowired
-	private RegraTabelaFuncao regraTabelaFuncao;
-
-	@Autowired
-	private RegraTabelaHorario regraTabelaHorario;
-
-	@Autowired
-	private RegraTabelaAmbiente regraTabelaAmbiente;
-
-	@Autowired
 	private RegraTabelaProcesso regraTabelaProcesso;
 
 	@Autowired
@@ -71,9 +56,6 @@ public class RegrasFactory {
 	@Autowired
 	private RegraTSVTermino regraTSVTermino;
 	
-	@Autowired
-	private RegraCadastroBeneficioRPPS regraCadastroBeneficioRPPS;
-
 	@Autowired
 	private RegraRemuneracaoRGPS regraRemuneracaoRGPS;
 	
@@ -115,11 +97,6 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S1005.getCodTipo(), regraTabelaEstabelecimento);
 			regras.put(TipoEvento.S1010.getCodTipo(), regraTabelaRubrica);
 			regras.put(TipoEvento.S1020.getCodTipo(), regraTabelaLotacao);
-			regras.put(TipoEvento.S1030.getCodTipo(), regraTabelaCargo);
-			regras.put(TipoEvento.S1035.getCodTipo(), regraTabelaCarreira);
-			regras.put(TipoEvento.S1040.getCodTipo(), regraTabelaFuncao);
-			regras.put(TipoEvento.S1050.getCodTipo(), regraTabelaHorario);
-			regras.put(TipoEvento.S1060.getCodTipo(), regraTabelaAmbiente);
 			regras.put(TipoEvento.S1070.getCodTipo(), regraTabelaProcesso);
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
@@ -130,12 +107,10 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
 			regras.put(TipoEvento.S2306.getCodTipo(), regraTSVAltContr);
 			regras.put(TipoEvento.S2399.getCodTipo(), regraTSVTermino);
-			regras.put(TipoEvento.S2400.getCodTipo(), regraCadastroBeneficioRPPS);
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
 			regras.put(TipoEvento.S1207.getCodTipo(), regraBeneficioRPPS);
 			regras.put(TipoEvento.S1210.getCodTipo(), regraPgtos);
-			regras.put(TipoEvento.S1295.getCodTipo(), regraSolicitacaoTotalPagamento);
 			regras.put(TipoEvento.S1298.getCodTipo(), regraReaberturaPeriodicos);
 			regras.put(TipoEvento.S1299.getCodTipo(), regraFechamentoPeriodicos);
 			regras.put(TipoEvento.S3000.getCodTipo(), regraExclusao);

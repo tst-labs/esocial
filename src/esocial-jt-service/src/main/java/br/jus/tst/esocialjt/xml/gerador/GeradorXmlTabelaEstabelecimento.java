@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.tabestab.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.tabestab.ESocial.EvtTabEstab;
-import br.jus.tst.esocial.esquemas.eventos.tabestab.TIdeCadastro;
+import br.jus.tst.esocial.esquemas.eventos.tabestab.TIdeEventoEvtTabInicial;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaEstabelecimento;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -23,7 +23,7 @@ public class GeradorXmlTabelaEstabelecimento extends GeradorXml {
 
         EvtTabEstab evtTabEstab = converterTabEstab(ocorrencia);
         evtTabEstab.setId(evento.getIdEvento());
-        evtTabEstab.setIdeEvento(preencherConstantes(new TIdeCadastro()));
+        evtTabEstab.setIdeEvento(preencherConstantes(new TIdeEventoEvtTabInicial()));
         eSocial.setEvtTabEstab(evtTabEstab);
 
         return eSocial;

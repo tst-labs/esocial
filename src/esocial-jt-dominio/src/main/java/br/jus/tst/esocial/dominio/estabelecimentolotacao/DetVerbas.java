@@ -17,11 +17,11 @@ public class DetVerbas {
 	private BigDecimal qtdRubr;
 	
 	private BigDecimal fatorRubr;
-
-	private BigDecimal vrUnit;
 	
 	@NotNull
 	private BigDecimal vrRubr;
+	
+	private Byte indApurIR;
 
 	public String getCodRubr() {
 		return codRubr;
@@ -55,20 +55,20 @@ public class DetVerbas {
 		this.fatorRubr = fatorRubr;
 	}
 
-	public BigDecimal getVrUnit() {
-		return vrUnit;
-	}
-
-	public void setVrUnit(BigDecimal vrUnit) {
-		this.vrUnit = vrUnit;
-	}
-
 	public BigDecimal getVrRubr() {
 		return vrRubr;
 	}
 
 	public void setVrRubr(BigDecimal vrRubr) {
 		this.vrRubr = vrRubr;
+	}
+
+	public Byte getIndApurIR() {
+		return indApurIR;
+	}
+
+	public void setIndApurIR(Byte indApurIR) {
+		this.indApurIR = indApurIR;
 	}
 	
 }

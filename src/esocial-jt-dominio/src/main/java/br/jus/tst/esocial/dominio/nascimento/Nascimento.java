@@ -5,16 +5,10 @@ import java.util.Calendar;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class Nascimento {
 	
 	@NotNull
 	private Calendar dtNascto;
-	
-	private Integer codMunic;
-	
-	private String uf;
 	
 	@NotNull
 	@Size(min=3, max=3)
@@ -22,12 +16,6 @@ public class Nascimento {
 	@NotNull
 	@Size(min=3, max=3)
 	private String paisNac;
-	
-	@Size(min=2, max=70)
-	private String nmMae;
-
-	@Size(min=2, max=70)
-	private String nmPai;
 
 	public Calendar getDtNascto() {
 		return dtNascto;
@@ -35,24 +23,6 @@ public class Nascimento {
 
 	public Nascimento setDtNascto(Calendar dtNascto) {
 		this.dtNascto = dtNascto;
-		return this;
-	}
-
-	public Integer getCodMunic() {
-		return codMunic;
-	}
-
-	public Nascimento setCodMunic(Integer codMunic) {
-		this.codMunic = codMunic;
-		return this;
-	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public Nascimento setUf(String uf) {
-		this.uf = uf;
 		return this;
 	}
 
@@ -65,24 +35,6 @@ public class Nascimento {
 		return this;
 	}
 
-	public String getNmMae() {
-		return nmMae;
-	}
-
-	public Nascimento setNmMae(String nmMae) {
-		this.nmMae = StringUtils.trim(nmMae);
-		return this;
-	}
-
-	public String getNmPai() {
-		return nmPai;
-	}
-
-	public Nascimento setNmPai(String nmPai) {
-		this.nmPai = StringUtils.trim(nmPai);
-		return this;
-	}
-
 	public String getPaisNac() {
 		return paisNac;
 	}
@@ -91,5 +43,4 @@ public class Nascimento {
 		this.paisNac = paisNac;
 		return this;
 	}
-
 }

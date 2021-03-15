@@ -6,7 +6,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import br.jus.tst.esocial.dominio.vinculo.Afastamento;
-import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 public class InfoTSVInicio {
 	
@@ -15,6 +14,10 @@ public class InfoTSVInicio {
 	
 	@NotNull
 	private Integer codCateg;
+	
+	private String matricula;
+	
+	private String nrProcTrab;
 
 	@NotNull
 	private Calendar dtInicio;
@@ -30,7 +33,8 @@ public class InfoTSVInicio {
 	@Valid
 	private Termino termino;
 
-	@Valid MudancaCPF mudancaCPF;
+	@Valid 
+	private MudancaCPF mudancaCPF;
 
 	public Integer getCodCateg() {
 		return codCateg;
@@ -99,4 +103,21 @@ public class InfoTSVInicio {
 	public void setMudancaCPF(MudancaCPF mudancaCPF) {
 		this.mudancaCPF = mudancaCPF;
 	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public String getNrProcTrab() {
+		return nrProcTrab;
+	}
+
+	public void setNrProcTrab(String nrProcTrab) {
+		this.nrProcTrab = nrProcTrab;
+	}
+	
 }

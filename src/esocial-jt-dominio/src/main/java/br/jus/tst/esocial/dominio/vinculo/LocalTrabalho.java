@@ -9,7 +9,7 @@ public class LocalTrabalho {
 	private LocalTrabGeral localTrabGeral;
 	
 	@Valid
-	private EnderecoBrasil localTrabDom;
+	private EnderecoBrasil localTempDom;
 
 	public LocalTrabGeral getLocalTrabGeral() {
 		return localTrabGeral;
@@ -20,13 +20,12 @@ public class LocalTrabalho {
 		return this;
 	}
 
-	public EnderecoBrasil getLocalTrabDom() {
-		return localTrabDom;
+	public EnderecoBrasil getLocalTempDom() {
+		return localTempDom;
 	}
 
-	public LocalTrabalho setLocalTrabDom(EnderecoBrasil localTrabalhoDomestico) {
-		this.localTrabDom = localTrabalhoDomestico;
-		return this;
+	public void setLocalTempDom(EnderecoBrasil localTempDom) {
+		this.localTempDom = localTempDom;
 	}
 
 }

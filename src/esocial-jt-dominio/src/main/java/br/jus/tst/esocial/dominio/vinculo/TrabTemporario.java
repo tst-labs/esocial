@@ -14,11 +14,9 @@ public class TrabTemporario {
 	@Size(min=3, max=999)
 	private String justContr;
 	
-	private byte tpInclContr;
-	
 	@NotNull
 	@Valid
-	private IdeTomadorServ ideTomadorServ;
+	private IdeEstabVinc ideEstabVinc;
 	
 	@Valid
 	private List<IdeTrabSubstituido> ideTrabSubstituido;
@@ -35,22 +33,16 @@ public class TrabTemporario {
 	public void setJustContr(String justificativa) {
 		this.justContr = justificativa;
 	}
-	public byte getTpInclContr() {
-		return tpInclContr;
-	}
-	public void setTpInclContr(byte tipoInclusaoContrato) {
-		this.tpInclContr = tipoInclusaoContrato;
-	}
-	public IdeTomadorServ getIdeTomadorServ() {
-		return ideTomadorServ;
-	}
-	public void setIdeTomadorServ(IdeTomadorServ tomadorServico) {
-		this.ideTomadorServ = tomadorServico;
-	}
 	public List<IdeTrabSubstituido> getIdeTrabSubstituido() {
 		return ideTrabSubstituido;
 	}
 	public void setIdeTrabSubstituido(List<IdeTrabSubstituido> trabalhadorSubstituido) {
 		this.ideTrabSubstituido = trabalhadorSubstituido;
+	}
+	public IdeEstabVinc getIdeEstabVinc() {
+		return ideEstabVinc;
+	}
+	public void setIdeEstabVinc(IdeEstabVinc ideEstabVinc) {
+		this.ideEstabVinc = ideEstabVinc;
 	}
 }

@@ -22,6 +22,8 @@ public class ItemRemuneracao {
 	private BigDecimal vrUnit;
 	
 	private BigDecimal vrRubr;
+	
+	private Byte indApurIR;
 
 	public String getCodRubr() {
 		return codRubr;
@@ -70,6 +72,12 @@ public class ItemRemuneracao {
 	public void setVrRubr(BigDecimal vrRubr) {
 		this.vrRubr = vrRubr;
 	}
-	
-	
+
+	public Byte getIndApurIR() {
+		return indApurIR;
+	}
+
+	public void setIndApurIR(Byte indApurIR) {
+		this.indApurIR = indApurIR;
+	}
 }

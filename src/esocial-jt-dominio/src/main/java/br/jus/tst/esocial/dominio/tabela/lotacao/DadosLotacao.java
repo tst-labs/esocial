@@ -24,6 +24,9 @@ public class DadosLotacao {
 	
 	@Valid
 	private InfoEmprParcial infoEmprParcial;
+	
+	@Valid
+	private DadosOpPort dadosOpPort;
 
 	public InfoEmprParcial getInfoEmprParcial() {
 		return infoEmprParcial;
@@ -126,4 +129,11 @@ public class DadosLotacao {
 		return this;
 	}
 
+	public DadosOpPort getDadosOpPort() {
+		return dadosOpPort;
+	}
+
+	public void setDadosOpPort(DadosOpPort dadosOpPort) {
+		this.dadosOpPort = dadosOpPort;
+	}
 }

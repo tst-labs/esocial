@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial.EvtExclusao;
-import br.jus.tst.esocial.esquemas.eventos.exclusao.ESocial.EvtExclusao.IdeEvento;
+import br.jus.tst.esocial.esquemas.eventos.exclusao.TIdeEventoExclusao;
 import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -22,7 +22,7 @@ public class GeradorXmlExclusao extends GeradorXml {
 		
 		EvtExclusao evtExclusao = ExclusaoMapper.INSTANCE.comoEvtExclusao((Exclusao) ocorrencia.getDadosOcorrencia());
 		evtExclusao.setId(evento.getIdEvento());
-		evtExclusao.setIdeEvento(preencherConstantes(new IdeEvento()));
+		evtExclusao.setIdeEvento(preencherConstantes(new TIdeEventoExclusao()));
 
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtExclusao(evtExclusao);

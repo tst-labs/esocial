@@ -2,19 +2,21 @@ package br.jus.tst.esocial.dominio.tabela.processo;
 
 import java.math.BigInteger;
 
+import br.jus.tst.esocial.dominio.enums.UF;
+
 public class DadosProcJud {
 	
-	private String ufVara;
+	private UF ufVara;
 	
 	private BigInteger codMunic;
 	
 	private BigInteger idVara;
 
-	public String getUfVara() {
+	public UF getUfVara() {
 		return ufVara;
 	}
 
-	public DadosProcJud setUfVara(String uf) {
+	public DadosProcJud setUfVara(UF uf) {
 		this.ufVara = uf;
 		return this;
 	}

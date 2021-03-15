@@ -3,6 +3,8 @@ package br.jus.tst.esocial.dominio.tabela.processo;
 import java.math.BigInteger;
 import java.util.Calendar;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class InfoSusp {
 
 	private BigInteger codSusp;
@@ -11,7 +13,7 @@ public class InfoSusp {
 
 	private Calendar dtDecisao;
 	
-	private String indDeposito;
+	private SimNao indDeposito;
 
 	public BigInteger getCodSusp() {
 		return codSusp;
@@ -40,11 +42,11 @@ public class InfoSusp {
 		return this;
 	}
 
-	public String getIndDeposito() {
+	public SimNao getIndDeposito() {
 		return indDeposito;
 	}
 
-	public InfoSusp setIndDeposito(String indicativoDepositoMontanteLegal) {
+	public InfoSusp setIndDeposito(SimNao indicativoDepositoMontanteLegal) {
 		this.indDeposito = indicativoDepositoMontanteLegal;
 		return this;
 	}

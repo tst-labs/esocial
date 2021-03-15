@@ -45,7 +45,7 @@ public final class LimpadorNulos {
 					Object propriedade = field.get(objeto);
 
 					Class<?> type = field.getType();
-					if (saoMesmoPacote(objeto, propriedade)) {
+					if (saoMesmoPacote(objeto, propriedade) && !objeto.getClass().isEnum()) {
 						propriedade = getObjetoLimpo(propriedade, type);
 						field.set(objeto, propriedade);
 					}
@@ -62,8 +62,6 @@ public final class LimpadorNulos {
 	private Predicate<? super Field> filtrarPropriedadesSinteticas() {
 		return field -> !field.isSynthetic();
 	}
-
-
 
 	private boolean saoMesmoPacote(Object objeto0, Object objeto1) {
 		return objeto1 != null && objeto0.getClass().getPackage().equals(objeto1.getClass().getPackage());

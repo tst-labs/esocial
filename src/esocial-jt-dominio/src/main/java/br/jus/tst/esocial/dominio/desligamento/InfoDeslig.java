@@ -9,6 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
 import br.jus.tst.esocial.dominio.termino.Quarentena;
 import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
@@ -20,10 +21,11 @@ public class InfoDeslig {
 	
 	@NotNull
 	private Calendar dtDeslig;
+
+	private Calendar dtAvPrv;
 	
 	@NotNull
-	@Pattern(regexp="[N|S]")
-	private String indPagtoAPI;
+	private SimNao indPagtoAPI;
 	
 	private Calendar dtProjFimAPI;
 	
@@ -33,15 +35,11 @@ public class InfoDeslig {
 	
     private BigDecimal vrAlim;
     
-    @Pattern(regexp="\\d{32}")
-    private String nrCertObito;
-    
     @Max(20)
     private String nrProcTrab;
     
-    private byte indCumprParc;
-    
-    private Byte qtdDiasInterm;
+    @Valid
+    private List<InfoInterm> infoInterm;
     
     @Valid
     private List<Observacoes> observacoes;
@@ -80,11 +78,19 @@ public class InfoDeslig {
 		this.dtDeslig = dtDeslig;
 	}
 
-	public String getIndPagtoAPI() {
+	public Calendar getDtAvPrv() {
+		return dtAvPrv;
+	}
+
+	public void setDtAvPrv(Calendar dtAvPrv) {
+		this.dtAvPrv = dtAvPrv;
+	}
+
+	public SimNao getIndPagtoAPI() {
 		return indPagtoAPI;
 	}
 
-	public void setIndPagtoAPI(String indPagtoAPI) {
+	public void setIndPagtoAPI(SimNao indPagtoAPI) {
 		this.indPagtoAPI = indPagtoAPI;
 	}
 
@@ -120,14 +126,6 @@ public class InfoDeslig {
 		this.vrAlim = vrAlim;
 	}
 
-	public String getNrCertObito() {
-		return nrCertObito;
-	}
-
-	public void setNrCertObito(String nrCertObito) {
-		this.nrCertObito = nrCertObito;
-	}
-
 	public String getNrProcTrab() {
 		return nrProcTrab;
 	}
@@ -136,20 +134,12 @@ public class InfoDeslig {
 		this.nrProcTrab = nrProcTrab;
 	}
 
-	public byte getIndCumprParc() {
-		return indCumprParc;
+	public List<InfoInterm> getInfoInterm() {
+		return infoInterm;
 	}
 
-	public void setIndCumprParc(byte indCumprParc) {
-		this.indCumprParc = indCumprParc;
-	}
-
-	public Byte getQtdDiasInterm() {
-		return qtdDiasInterm;
-	}
-
-	public void setQtdDiasInterm(Byte qtdDiasInterm) {
-		this.qtdDiasInterm = qtdDiasInterm;
+	public void setInfoInterm(List<InfoInterm> infoInterm) {
+		this.infoInterm = infoInterm;
 	}
 
 	public List<Observacoes> getObservacoes() {
@@ -176,6 +166,14 @@ public class InfoDeslig {
 		this.transfTit = transfTit;
 	}
 
+	public MudancaCPF getMudancaCPF() {
+		return mudancaCPF;
+	}
+
+	public void setMudancaCPF(MudancaCPF mudancaCPF) {
+		this.mudancaCPF = mudancaCPF;
+	}
+
 	public VerbasResc getVerbasResc() {
 		return verbasResc;
 	}
@@ -199,12 +197,5 @@ public class InfoDeslig {
 	public void setConsigFGTS(List<ConsigFGTS> consigFGTS) {
 		this.consigFGTS = consigFGTS;
 	}
-	
-	public MudancaCPF getMudancaCPF() {
-		return mudancaCPF;
-	}
 
-	public void setMudancaCPF(MudancaCPF mudancaCPF) {
-		this.mudancaCPF = mudancaCPF;
-	}
 }

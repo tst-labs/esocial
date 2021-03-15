@@ -1,12 +1,12 @@
 package br.jus.tst.esocial.dominio.afasttemp;
 
 import java.util.Calendar;
-import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class IniAfastamento {
 
@@ -17,8 +17,7 @@ public class IniAfastamento {
 	@Size(min=2, max=2)
 	private String codMotAfast;
 	
-	@Pattern(regexp="[N|S]")
-	private String infoMesmoMtv;
+	private SimNao infoMesmoMtv;
 	
 	private Byte tpAcidTransito;
 	
@@ -26,13 +25,16 @@ public class IniAfastamento {
 	private String observacao;
 	
 	@Valid
-	private List<InfoAtestado> infoAtestado;
+	private PerAquis perAquis;
 	
 	@Valid
 	private InfoCessao infoCessao;
 	
 	@Valid
 	private InfoMandSind infoMandSind;
+	
+	@Valid
+	private InfoMandElet infoMandElet;
 
 	public Calendar getDtIniAfast() {
 		return dtIniAfast;
@@ -50,11 +52,11 @@ public class IniAfastamento {
 		this.codMotAfast = codMotAfast;
 	}
 
-	public String getInfoMesmoMtv() {
+	public SimNao getInfoMesmoMtv() {
 		return infoMesmoMtv;
 	}
 
-	public void setInfoMesmoMtv(String infoMesmoMtv) {
+	public void setInfoMesmoMtv(SimNao infoMesmoMtv) {
 		this.infoMesmoMtv = infoMesmoMtv;
 	}
 
@@ -74,14 +76,6 @@ public class IniAfastamento {
 		this.observacao = observacao;
 	}
 
-	public List<InfoAtestado> getInfoAtestado() {
-		return infoAtestado;
-	}
-
-	public void setInfoAtestado(List<InfoAtestado> infoAtestado) {
-		this.infoAtestado = infoAtestado;
-	}
-
 	public InfoCessao getInfoCessao() {
 		return infoCessao;
 	}
@@ -97,5 +91,20 @@ public class IniAfastamento {
 	public void setInfoMandSind(InfoMandSind infoMandSind) {
 		this.infoMandSind = infoMandSind;
 	}
-	
+
+	public InfoMandElet getInfoMandElet() {
+		return infoMandElet;
+	}
+
+	public void setInfoMandElet(InfoMandElet infoMandElet) {
+		this.infoMandElet = infoMandElet;
+	}
+
+	public PerAquis getPerAquis() {
+		return perAquis;
+	}
+
+	public void setPerAquis(PerAquis perAquis) {
+		this.perAquis = perAquis;
+	}
 }

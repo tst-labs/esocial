@@ -2,91 +2,71 @@ package br.jus.tst.esocial.dominio.vinculo;
 
 import java.util.Calendar;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import br.jus.tst.esocial.dominio.enums.SimNao;
+
 public class InfoEstatutario {
-	@NotNull
-	private byte indProvim;
 	
 	@NotNull
 	private byte tpProv;
-	
-	@NotNull
-	private Calendar dtNomeacao;
-	
-	@NotNull
-	private Calendar dtPosse;
 	
 	@NotNull
 	private Calendar dtExercicio;
 	
 	private Byte tpPlanRP;
 	
-	@Valid
-	private InfoDecJud infoDecJud;
-
-	public byte getIndProvim() {
-		return indProvim;
-	}
-
-	public InfoEstatutario setIndProvim(byte indProvimento) {
-		this.indProvim = indProvimento;
-		return this;
-	}
+	private SimNao indTetoRGPS;
+	
+    private SimNao indAbonoPerm;
+    
+    private Calendar dtIniAbono;
 
 	public byte getTpProv() {
 		return tpProv;
 	}
 
-	public InfoEstatutario setTpProv(byte tipoProvimento) {
-		this.tpProv = tipoProvimento;
-		return this;
-	}
-
-	public Calendar getDtNomeacao() {
-		return dtNomeacao;
-	}
-
-	public InfoEstatutario setDtNomeacao(Calendar dataNomeacao) {
-		this.dtNomeacao = dataNomeacao;
-		return this;
-	}
-
-	public Calendar getDtPosse() {
-		return dtPosse;
-	}
-
-	public InfoEstatutario setDtPosse(Calendar dataPosse) {
-		this.dtPosse = dataPosse;
-		return this;
+	public void setTpProv(byte tpProv) {
+		this.tpProv = tpProv;
 	}
 
 	public Calendar getDtExercicio() {
 		return dtExercicio;
 	}
 
-	public InfoEstatutario setDtExercicio(Calendar dataExercicio) {
-		this.dtExercicio = dataExercicio;
-		return this;
+	public void setDtExercicio(Calendar dtExercicio) {
+		this.dtExercicio = dtExercicio;
 	}
 
 	public Byte getTpPlanRP() {
 		return tpPlanRP;
 	}
 
-	public InfoEstatutario setTpPlanRP(Byte tipoPlanoRP) {
-		this.tpPlanRP = tipoPlanoRP;
-		return this;
+	public void setTpPlanRP(Byte tpPlanRP) {
+		this.tpPlanRP = tpPlanRP;
 	}
 
-	public InfoDecJud getInfoDecJud() {
-		return infoDecJud;
+	public SimNao getIndTetoRGPS() {
+		return indTetoRGPS;
 	}
 
-	public InfoEstatutario setInfoDecJud(InfoDecJud decisaoJudicial) {
-		this.infoDecJud = decisaoJudicial;
-		return this;
+	public void setIndTetoRGPS(SimNao indTetoRGPS) {
+		this.indTetoRGPS = indTetoRGPS;
 	}
 
+	public SimNao getIndAbonoPerm() {
+		return indAbonoPerm;
+	}
+
+	public void setIndAbonoPerm(SimNao indAbonoPerm) {
+		this.indAbonoPerm = indAbonoPerm;
+	}
+
+	public Calendar getDtIniAbono() {
+		return dtIniAbono;
+	}
+
+	public void setDtIniAbono(Calendar dtIniAbono) {
+		this.dtIniAbono = dtIniAbono;
+	}
 }

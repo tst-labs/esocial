@@ -9,13 +9,14 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
 import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
 
 public class RmnRPPS extends DadosOcorrencia {
 
 	@Valid
 	@NotNull
-	private IdeEventoPagto ideEvento;
+	private IdeEventoFolha ideEvento;
 	
 	@Valid
 	@NotNull
@@ -24,11 +25,11 @@ public class RmnRPPS extends DadosOcorrencia {
 	@NotNull
 	private List<DmDev> dmDev;
 
-	public IdeEventoPagto getIdeEvento() {
+	public IdeEventoFolha getIdeEvento() {
 		return ideEvento;
 	}
 
-	public void setIdeEvento(IdeEventoPagto ideEvento) {
+	public void setIdeEvento(IdeEventoFolha ideEvento) {
 		this.ideEvento = ideEvento;
 	}
 
