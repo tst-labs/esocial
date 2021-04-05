@@ -13,7 +13,7 @@ public class ComunicacaoConfigTest {
 	public void deveConfigurarDadosProducaoRestrita() {
 		ComunicacaoConfig comunicacaoConfig = new ComunicacaoConfig();
 		comunicacaoConfig.ambiente = TipoAmbiente.PRODUCAO_RESTRITA;
-		comunicacaoConfig.certificado = new Certificado(null, null, null, null);
+		comunicacaoConfig.certificado = new Certificado(null, null, null, null, null);
 		
 		ComunicacaoServico servico = comunicacaoConfig.criarComunicacaoServico(null);
 
@@ -25,7 +25,7 @@ public class ComunicacaoConfigTest {
 	public void deveConfigurarDadosProducao() {
 		ComunicacaoConfig comunicacaoConfig = new ComunicacaoConfig();
 		comunicacaoConfig.ambiente = TipoAmbiente.PRODUCAO;
-		comunicacaoConfig.certificado = new Certificado(null, null, null, null);
+		comunicacaoConfig.certificado = new Certificado(null, null, null, null, null);
 		
 		ComunicacaoServico servico = comunicacaoConfig.criarComunicacaoServico(null);
 		

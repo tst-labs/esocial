@@ -10,6 +10,9 @@ public class CertificadoProducer {
 	@Value("${esocialjt.arquivoCertificado:''}")
 	private String arquivoCertificado;
 	
+	@Value("${esocialjt.tipoCertificado:'pkcs12'}")
+	private String tipoCertificado;
+	
 	@Value("${esocialjt.arquivoCacerts:''}")
 	private String arquivoCacerts;
 	
@@ -25,6 +28,7 @@ public class CertificadoProducer {
 		return new Certificado(arquivoCertificado, 
 				arquivoCacerts, 
 				senhaCertificado.toCharArray(),
-				senhaCacerts.toCharArray());
+				senhaCacerts.toCharArray(),
+				tipoCertificado);
 	}
 }
