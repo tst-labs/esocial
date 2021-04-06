@@ -26,6 +26,11 @@
       "description": "Tipo do certificado: pkcs12 ou jks"
     },
     {
+      "name": "esocialjt.aliasCertificado",
+      "type": "java.lang.String",
+      "description": "Alias do certificado. Se vazio, tentará usar o primeiro alias disponível no certificado."
+    },
+    {
       "name": "esocialjt.senhaCertificado",
       "type": "java.lang.String",
       "description": "Senha do certificado digital"

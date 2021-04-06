@@ -38,14 +38,19 @@ public class Certificado {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Certificado.class);
 
-	public Certificado(String pathArquivoCertificado, String pathArquivoCacerts, char[] senhaCertificado,
-			char[] senhaCacerts, String tipoCertificado) {
+	public Certificado(String pathArquivoCertificado, 
+			String pathArquivoCacerts, 
+			char[] senhaCertificado,
+			char[] senhaCacerts, 
+			String tipoCertificado,
+			String alias) {
 		super();
 		this.pathArquivoCertificado = pathArquivoCertificado;
 		this.pathArquivoCacerts = pathArquivoCacerts;
 		this.senhaCertificado = senhaCertificado;
 		this.senhaCacerts = senhaCacerts;
 		this.tipoCertificado = tipoCertificado;
+		this.alias = alias;
 	}
 
 	public KeyManager[] getKeyManagers() {
@@ -107,7 +112,7 @@ public class Certificado {
 	}
 
 	private String getAlias() {
-		if (alias == null) {
+		if (StringUtils.isBlank(alias)) {
 			try {
 				alias = getKeyStore().aliases().nextElement();
 			} catch (KeyStoreException e) {
