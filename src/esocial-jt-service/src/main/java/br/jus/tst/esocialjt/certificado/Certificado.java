@@ -25,6 +25,7 @@ public class Certificado {
 
 	private String pathArquivoCertificado;
 	private String pathArquivoCacerts;
+	private String tipoCertificado;
 	private char[] senhaCertificado;
 	private char[] senhaCacerts;
 
@@ -38,12 +39,13 @@ public class Certificado {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Certificado.class);
 
 	public Certificado(String pathArquivoCertificado, String pathArquivoCacerts, char[] senhaCertificado,
-			char[] senhaCacerts) {
+			char[] senhaCacerts, String tipoCertificado) {
 		super();
 		this.pathArquivoCertificado = pathArquivoCertificado;
 		this.pathArquivoCacerts = pathArquivoCacerts;
 		this.senhaCertificado = senhaCertificado;
 		this.senhaCacerts = senhaCacerts;
+		this.tipoCertificado = tipoCertificado;
 	}
 
 	public KeyManager[] getKeyManagers() {
@@ -123,7 +125,7 @@ public class Certificado {
 		if (keyStore == null) {
 			File fileCertificado = new File(getPathArquivoCertificado());
 			try (FileInputStream keyStoreStream = new FileInputStream(fileCertificado)) {
-				keyStore = KeyStore.getInstance("pkcs12");
+				keyStore = KeyStore.getInstance(tipoCertificado);
 				keyStore.load(keyStoreStream, getSenhaCertificado());
 			} catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
 				LOGGER.error(e.getMessage(), e);
