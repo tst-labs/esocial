@@ -1,6 +1,6 @@
 {
   "tipoOcorrencia": "TABELA_PROCESSO",
-  "referencia": "501991-2016",
+  "referencia": "00000007120215004000",
   "operacao": "INCLUSAO",
   "dataOcorrencia": 1522181304444,
   "dadosOcorrencia": {
@@ -11,8 +11,8 @@
     },
     "infoProcesso": {
       "ideProcesso": {
-        "tpProc": 1,
-        "nrProc": "1000000000000000",
+        "tpProc": 2,
+        "nrProc": "00000007120215004000",
         "iniValid": "2018-07",
         "fimValid": null
       },

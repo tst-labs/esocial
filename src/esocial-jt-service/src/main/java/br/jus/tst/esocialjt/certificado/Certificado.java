@@ -50,7 +50,7 @@ public class Certificado {
 		this.senhaCertificado = senhaCertificado;
 		this.senhaCacerts = senhaCacerts;
 		this.tipoCertificado = tipoCertificado;
-		this.alias = alias;
+		this.alias =StringUtils.trim(alias);
 	}
 
 	public KeyManager[] getKeyManagers() {
