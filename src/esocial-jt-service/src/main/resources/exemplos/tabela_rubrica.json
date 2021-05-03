@@ -21,12 +21,14 @@
         "natRubr": 1000,
         "tpRubr": 1,
         "codIncCP": "00",
-        "codIncIRRF": "1",
+        "codIncIRRF": "11",
         "codIncFGTS": "11",
         "observacao": "Observação sobre a rubrica",
         "ideProcessoCP": null,
         "ideProcessoIRRF": null,
-        "ideProcessoFGTS": null
+        "ideProcessoFGTS": null,
+        "tetoRemun": "S",
+        "codIncCPRP": "00"
       }
     }
   }

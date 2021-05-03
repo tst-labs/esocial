@@ -1,5 +1,7 @@
 package br.jus.tst.esocialjt.certificado;
 
+import static org.apache.commons.lang3.StringUtils.trim;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -45,12 +47,12 @@ public class Certificado {
 			String tipoCertificado,
 			String alias) {
 		super();
-		this.pathArquivoCertificado = pathArquivoCertificado;
-		this.pathArquivoCacerts = pathArquivoCacerts;
+		this.pathArquivoCertificado = trim(pathArquivoCertificado);
+		this.pathArquivoCacerts = trim(pathArquivoCacerts);
 		this.senhaCertificado = senhaCertificado;
 		this.senhaCacerts = senhaCacerts;
-		this.tipoCertificado = tipoCertificado;
-		this.alias = alias;
+		this.tipoCertificado = trim(tipoCertificado);
+		this.alias = trim(alias);
 	}
 
 	public KeyManager[] getKeyManagers() {
