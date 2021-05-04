@@ -11,7 +11,7 @@
     },
     "ideTrabSemVinculo": {
       "cpfTrab": "77993893704",
-      "codCateg": 901
+      "matricula": "1234567"
     },
     "infoTSVAlteracao": {
       "dtAlteracao": 1522181179561,
@@ -19,9 +19,9 @@
         "infoEstagiario": {
           "natEstagio": "N",
           "nivEstagio": 1,
-          "dtPrevTerm": 1537151759000,
+          "dtPrevTerm": 1609470000000,
           "instEnsino": {
-            "nmRazao": "Kaminoan Military Complex"
+            "cnpjInstEnsino": "00038174000143"
           }
         }
       }

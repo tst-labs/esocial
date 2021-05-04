@@ -54,14 +54,15 @@
     "infoTSVInicio": {
       "cadIni": "S",
       "codCateg": 901,
-      "dtInicio": 535341600000,
+      "dtInicio": 1483236000000,
+      "matricula": "1234567",
       "infoComplementares": {
         "infoEstagiario": {
           "natEstagio": "N",
           "nivEstagio": 1,
-          "dtPrevTerm": 1537151759000,
+          "dtPrevTerm": 1609470000000,
           "instEnsino": {
-            "nmRazao": "Kaminoan Military Complex"
+            "cnpjInstEnsino": "00038174000143"
           }
         }
       }

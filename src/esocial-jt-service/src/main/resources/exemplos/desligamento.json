@@ -15,9 +15,8 @@
     },
     "infoDeslig": {
       "mtvDeslig": "01",
-      "dtDeslig": 1505238066000,
-      "indPagtoAPI": "N",
-      "pensAlim": 0
+      "dtDeslig": 1609470000000,
+      "indPagtoAPI": "N"
     }
   }
 }
