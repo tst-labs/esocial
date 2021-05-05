@@ -29,7 +29,7 @@ public class InfoDeslig {
 	
 	private Calendar dtProjFimAPI;
 	
-	private byte pensAlim;
+	private Byte pensAlim;
 	
 	private BigDecimal percAliment;
 	
@@ -102,11 +102,11 @@ public class InfoDeslig {
 		this.dtProjFimAPI = dtProjFimAPI;
 	}
 
-	public byte getPensAlim() {
+	public Byte getPensAlim() {
 		return pensAlim;
 	}
 
-	public void setPensAlim(byte pensAlim) {
+	public void setPensAlim(Byte pensAlim) {
 		this.pensAlim = pensAlim;
 	}
 

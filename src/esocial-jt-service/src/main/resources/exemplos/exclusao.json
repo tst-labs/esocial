@@ -10,14 +10,10 @@
       "nrInsc": "00509968000148"
     },
     "infoExclusao": {
-      "tpEvento": "S-1200",
+      "tpEvento": "S-2200",
       "nrRecEvt": "1.0.0000000000000000000",
       "ideTrabalhador": {
-        "cpfTrab": "72568274077"
-      },
-      "ideFolhaPagto": {
-        "indApuracao": 1,
-        "perApur": "2018-07"
+        "cpfTrab": "77993893704"
       }
     }
   }

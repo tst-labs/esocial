@@ -29,16 +29,9 @@
         },
         "infoContrato": {
           "codCateg": 301,
-          "remuneracao": {
-            "vrSalFx": 12345.7,
-            "undSalFixo": 5,
-            "dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
-          },
-          "duracao": {
-            "tpContr": 1,
-            "dtTerm": null,
-            "objDet": null
-          },
+          "nmCargo": "GESTOR",
+          "cbocargo": 261205,
+          "acumCargo": "N",
           "localTrabalho": {
             "localTrabGeral": {
               "tpInsc": 1,

@@ -566,49 +566,49 @@ Pacote de comunicação : 1.5
 
 #### Eventos periódicos
 
-| Evento | Nome Evento                                                                     | Versão | Situação | Resultado do envio para a produção restrita |
-| ------ | ------------------------------------------------------------------------------- | ------ | -------- | ------------------------------------------- |
-| S-1200 | Remuneração de trabalhador vinculado ao Regime Geral de Previdência Social      | S-1.0  | Feito    | Aguardando validação                        |
-| S-1202 | Remuneração de servidor vinculado a Regime Próprio de Previdência Social – RPPS | S-1.0  | Feito    | Aguardando validação                        |
-| S-1207 | Benefícios previdenciários - RPPS                                               | S-1.0  | Feito    | Aguardando validação                        |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                                           | S-1.0  | Feito    | Aguardando validação                        |
-| S-1250 | Aquisição de Produção Rural                                                     | S-1.0  | NA       | NA                                          |
-| S-1260 | Comercialização da Produção Rural Pessoa Física                                 | S-1.0  | NA       | NA                                          |
-| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários                             | S-1.0  | NA       | NA                                          |
-| S-1280 | Informações Complementares aos Eventos Periódicos                               | S-1.0  | NA       | NA                                          |
-| S-1295 | Solicitação de Totalização para Pagamento em Contingência                       | NA     | Removido | Aguardando validação                        |
-| S-1298 | Reabertura dos Eventos Periódicos                                               | S-1.0  | Feito    | Aguardando validação                        |
-| S-1299 | Fechamento dos Eventos Periódicos                                               | S-1.0  | Feito    | Aguardando validação                        |
-| S-1300 | Contribuição Sindical Patronal                                                  | NA     | NA       | NA                                          |
+| Evento | Nome Evento                                               | Versão | Situação | Resultado do envio para a produção restrita |
+| ------ | --------------------------------------------------------- | ------ | -------- | ------------------------------------------- |
+| S-1200 | Remuneração de trabalhador vinculado ao RGPS              | S-1.0  | Feito    | Aguardando validação                        |
+| S-1202 | Remuneração de servidor vinculado a RPPS                  | S-1.0  | Feito    | Aguardando validação                        |
+| S-1207 | Benefícios previdenciários - RPPS                         | S-1.0  | Feito    | Aguardando validação                        |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                     | S-1.0  | Feito    | Aguardando validação                        |
+| S-1250 | Aquisição de Produção Rural                               | S-1.0  | NA       | NA                                          |
+| S-1260 | Comercialização da Produção Rural Pessoa Física           | S-1.0  | NA       | NA                                          |
+| S-1270 | Contratação de Trabalhadores Avulsos Não Portuários       | S-1.0  | NA       | NA                                          |
+| S-1280 | Informações Complementares aos Eventos Periódicos         | S-1.0  | NA       | NA                                          |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência | NA     | Removido | Aguardando validação                        |
+| S-1298 | Reabertura dos Eventos Periódicos                         | S-1.0  | Feito    | Aguardando validação                        |
+| S-1299 | Fechamento dos Eventos Periódicos                         | S-1.0  | Feito    | Aguardando validação                        |
+| S-1300 | Contribuição Sindical Patronal                            | NA     | NA       | NA                                          |
 
 #### Eventos não periódicos
 
 | Evento | Nome Evento                                                           | Versão | Situação     | Resultado do envio para a produção restrita |
 | ------ | --------------------------------------------------------------------- | ------ | ------------ | ------------------------------------------- |
 | S-2190 | Admissão de Trabalhador - Registro Preliminar                         | S-1.0  | NA           | NA                                          |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | S-1.0  | Feito        | Aguardando validação                        |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | S-1.0  | Feito        | Aguardando validação                        |
-| S-2206 | Alteração de Contrato de Trabalho                                     | S-1.0  | Feito        | Aguardando validação                        |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2206 | Alteração de Contrato de Trabalho                                     | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2210 | Comunicação de Acidente de Trabalho                                   | S-1.0  | Impl. futura |                                             |
 | S-2220 | Monitoramento da Saúde do Trabalhador                                 | S-1.0  | Impl. futura |                                             |
-| S-2230 | Afastamento Temporário                                                | S-1.0  | Feito        | Aguardando validação                        |
+| S-2230 | Afastamento Temporário                                                | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2231 | Cessão/Exercício em Outro Órgão                                       | S-1.0  | Novo         |                                             |
 | S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | S-1.0  | Impl. futura |                                             |
 | S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | S-1.0  | Impl. futura |                                             |
 | S-2250 | Aviso Prévio                                                          | NA     | NA           | NA                                          |
 | S-2260 | Convocação para Trabalho Intermitente                                 | NA     | NA           | NA                                          |
-| S-2298 | Reintegração                                                          | S-1.0  | Feito        | Aguardando validação                        |
-| S-2299 | Desligamento                                                          | S-1.0  | Feito        | Aguardando validação                        |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | S-1.0  | Feito        | Aguardando validação                        |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | S-1.0  | Feito        | Aguardando validação                        |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | S-1.0  | Feito        | Aguardando validação                        |
-| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | S-1.0  | Feito        | Aguardando validação                        |
+| S-2298 | Reintegração                                                          | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2299 | Desligamento                                                          | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início               | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
+| S-2400 | Cadastro de Benefícios Previdenciários - RPPS                         | S-1.0  | Feito        | NÃO ACEITO NA PRESENTE DATA                 |
 | S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                 | S-1.0  | Novo         |                                             |
 | S-2410 | Cadastro de Benefício – Entes Públicos – Início                       | S-1.0  | Novo         |                                             |
 | S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                    | S-1.0  | Novo         |                                             |
 | S-2418 | Reativação de Benefício – Entes Públicos                              | S-1.0  | Novo         |                                             |
 | S-2420 | Cadastro de Benefício – Entes Públicos – Término                      | S-1.0  | Novo         |                                             |
-| S-3000 | Exclusão de eventos                                                   | S-1.0  | Feito        | Aguardando validação                        |
+| S-3000 | Exclusão de eventos                                                   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-5001 | Informações das contribuições sociais por trabalhador                 | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
 | S-5002 | Imposto de Renda Retido na Fonte                                      | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
 | S-5011 | Informações das contribuições sociais consolidadas por contribuinte   | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |

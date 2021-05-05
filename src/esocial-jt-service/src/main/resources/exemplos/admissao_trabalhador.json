@@ -42,7 +42,6 @@
         "defMental": "N",
         "defIntelectual": "N",
         "reabReadap": "N",
-        "infoCota": "N",
         "observacao": null
       },
       "dependente": [
@@ -70,19 +69,15 @@
         "infoEstatutario": {
           "tpProv": 1,
           "dtExercicio": 535341600000,
-          "tpPlanRP": 1
+          "tpPlanRP": 1,
+          "indAbonoPerm": "N",
+          "indTetoRGPS": "N"
         }
       },
       "infoContrato": {
         "codCateg": 301,
-        "remuneracao": {
-          "vrSalFx": 12345.7,
-          "undSalFixo": 5,
-          "dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
-        },
-        "duracao": {
-          "tpContr": 1
-        },
+        "nmCargo": "GESTOR",
+        "cbocargo": 261205,
         "localTrabalho": {
           "localTrabGeral": {
             "tpInsc": 1,

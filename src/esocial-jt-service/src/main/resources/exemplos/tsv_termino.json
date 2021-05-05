@@ -11,10 +11,10 @@
     },
     "ideTrabSemVinculo": {
       "cpfTrab": "77993893704",
-      "codCateg": 901
+      "matricula": "1234567"
     },
     "infoTSVTermino": {
-      "dtTerm": 1522181179561
+      "dtTerm": 1609815600000
     }
   }
 }
