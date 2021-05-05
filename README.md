@@ -568,17 +568,17 @@ Pacote de comunicação : 1.5
 
 | Evento | Nome Evento                                               | Versão | Situação | Resultado do envio para a produção restrita |
 | ------ | --------------------------------------------------------- | ------ | -------- | ------------------------------------------- |
-| S-1200 | Remuneração de trabalhador vinculado ao RGPS              | S-1.0  | Feito    | Aguardando validação                        |
-| S-1202 | Remuneração de servidor vinculado a RPPS                  | S-1.0  | Feito    | Aguardando validação                        |
-| S-1207 | Benefícios previdenciários - RPPS                         | S-1.0  | Feito    | Aguardando validação                        |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                     | S-1.0  | Feito    | Aguardando validação                        |
+| S-1200 | Remuneração de trabalhador vinculado ao RGPS              | S-1.0  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-1202 | Remuneração de servidor vinculado a RPPS                  | S-1.0  | Feito    | NÃO ACEITO NA PRESENTE DATA                 |
+| S-1207 | Benefícios previdenciários - RPPS                         | S-1.0  | Feito    | NÃO ACEITO NA PRESENTE DATA                 |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                     | S-1.0  | Feito    | NÃO ACEITO NA PRESENTE DATA                 |
 | S-1250 | Aquisição de Produção Rural                               | S-1.0  | NA       | NA                                          |
 | S-1260 | Comercialização da Produção Rural Pessoa Física           | S-1.0  | NA       | NA                                          |
 | S-1270 | Contratação de Trabalhadores Avulsos Não Portuários       | S-1.0  | NA       | NA                                          |
 | S-1280 | Informações Complementares aos Eventos Periódicos         | S-1.0  | NA       | NA                                          |
-| S-1295 | Solicitação de Totalização para Pagamento em Contingência | NA     | Removido | Aguardando validação                        |
-| S-1298 | Reabertura dos Eventos Periódicos                         | S-1.0  | Feito    | Aguardando validação                        |
-| S-1299 | Fechamento dos Eventos Periódicos                         | S-1.0  | Feito    | Aguardando validação                        |
+| S-1295 | Solicitação de Totalização para Pagamento em Contingência | NA     | Removido | Removido                                    |
+| S-1298 | Reabertura dos Eventos Periódicos                         | S-1.0  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-1299 | Fechamento dos Eventos Periódicos                         | S-1.0  | Feito    | PROCESSADO COM SUCESSO                      |
 | S-1300 | Contribuição Sindical Patronal                            | NA     | NA       | NA                                          |
 
 #### Eventos não periódicos
