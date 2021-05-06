@@ -41,9 +41,7 @@
         "defAuditiva": "N",
         "defMental": "N",
         "defIntelectual": "N",
-        "reabReadap": "N",
-        "infoCota": "N",
-        "observacao": null
+        "reabReadap": "N"
       },
       "dependente": [],
       "contato": {
@@ -70,16 +68,8 @@
       },
       "infoContrato": {
         "codCateg": 301,
-        "remuneracao": {
-          "vrSalFx": 12345.7,
-          "undSalFixo": 5,
-          "dscSalVar": "Soma do vencimento com a GAJ (Gratificacao de Atividade Judiciaria)"
-        },
-        "duracao": {
-          "tpContr": 1,
-          "dtTerm": null,
-          "clauAssec": null
-        },
+        "nmCargo": "GESTOR",
+        "cbocargo": 261205,
         "localTrabalho": {
           "localTrabGeral": {
             "tpInsc": 1,
