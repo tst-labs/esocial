@@ -30,8 +30,12 @@ public class OnStartup {
 	@Value("${esocialjt.runStartup:true}")
 	private boolean runStartup;
 	
+	@Value("${esocialjt.ambiente}")
+	TipoAmbiente ambiente;
+	
 	@EventListener(ApplicationReadyEvent.class)
 	public void postConstruct() {
+		LOGGER.info("Ambiente: " + ambiente);
 		if(runStartup) {
 			configurarProxy();
 			testarConexaoEsocial();
