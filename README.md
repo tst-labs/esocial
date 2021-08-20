@@ -1,8 +1,6 @@
 # eSocial-JT
 
-[![Build Status](https://travis-ci.org/tst-labs/esocial.svg?branch=master)](https://travis-ci.org/tst-labs/esocial)
-
-![example workflow](https://github.com/tst-labs/esocial/actions/workflows/main.yml/badge.svg)
+![build workflow](https://github.com/tst-labs/esocial/actions/workflows/main.yml/badge.svg)
 
 **[PROJETO EM DESENVOLVIMENTO] Atenção!** API ainda em desenvolvimento e portanto instável.
 
