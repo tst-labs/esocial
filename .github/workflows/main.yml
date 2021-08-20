@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Pipeline eSocial-JT
 on: [push]
 jobs:
   Explore-GitHub-Actions:
