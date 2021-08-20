@@ -39,7 +39,7 @@ jobs:
         with:
           images: |
             tstlabs/esocial-jt-service
-            ghcr.io/${{ github.repository }}
+            ghcr.io/tst-labs/esocial-jt-service
 
       - name: Docker build and push
         uses: docker/build-push-action@v2
