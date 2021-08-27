@@ -1,6 +1,6 @@
 # eSocial-JT
 
-![build workflow](https://github.com/tst-labs/esocial/actions/workflows/main.yml/badge.svg)
+![build workflow](https://github.com/tst-labs/esocial/actions/workflows/build.yml/badge.svg)
 
 **[PROJETO EM DESENVOLVIMENTO] Atenção!** API ainda em desenvolvimento e portanto instável.
 
