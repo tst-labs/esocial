@@ -22,13 +22,7 @@
         "infoCaepf": null,
         "infoObra": null,
         "infoTrab": {
-          "regPt": 1,
-          "infoApr": {
-            "contApr": 0,
-            "nrProcJud": null,
-            "contEntEd": null,
-            "infoEntEduc": null
-          },
+          "infoApr": null,
           "infoPCD": null
         }
       }
