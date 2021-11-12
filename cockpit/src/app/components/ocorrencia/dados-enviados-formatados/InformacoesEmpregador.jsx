@@ -8,17 +8,13 @@ function InformacoesEmpregador({ dados }) {
     <Table celled textAlign="center">
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Razão Social</Table.HeaderCell>
-          <Table.HeaderCell>Contato</Table.HeaderCell>
+          <Table.HeaderCell>Nr Insc</Table.HeaderCell>
           <Table.HeaderCell>Validade</Table.HeaderCell>
         </Table.Row>
       </Table.Header>
       <Table.Body>
         <Table.Row>
-          <Table.Cell>{dados.infoEmpregador.infoCadastro.nmRazao}</Table.Cell>
-          <Table.Cell>
-            {dados.infoEmpregador.infoCadastro.contato.nmCtt}
-          </Table.Cell>
+          <Table.Cell>{dados.ideEmpregador.nrInsc}</Table.Cell>
           <Table.Cell>
             {dados.infoEmpregador.idePeriodo.iniValid} até{" "}
             {dados.infoEmpregador.idePeriodo.fimValid || "indefinidamente"}
@@ -30,7 +26,7 @@ function InformacoesEmpregador({ dados }) {
 }
 
 InformacoesEmpregador.propTypes = {
-  dados: object
+  dados: object,
 };
 
 export default InformacoesEmpregador;
