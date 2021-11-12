@@ -58,6 +58,7 @@
       - [Eventos não periódicos](#eventos-não-periódicos)
   - [Dúvidas e contato](#dúvidas-e-contato)
   - [Como contribuir](#como-contribuir)
+  - [Licença](#licença)
 
 ## Introdução
 
@@ -621,3 +622,7 @@ Em caso de dúvidas, crie uma [issue](https://github.com/tst-labs/esocial/issues
 ## Como contribuir
 
 Leia nosso [guia de contribuição em andamento](CONTRIBUTING.md).
+
+## Licença
+
+Verifique o arquivo [LICENSE.md](LICENSE.md).
