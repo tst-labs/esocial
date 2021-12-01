@@ -17,15 +17,17 @@ public class FechaEvPerMapperTest {
 		
 		Assertions
 			.assertThat(evtFechaEvPer.getIdeEvento())
-			.isEqualToIgnoringGivenFields(fechaEvPer.getIdeEvento(), "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("tpAmb", "procEmi", "verProc")
+			.isEqualTo(fechaEvPer.getIdeEvento());
 
 		 MapperAssertion
 			 .assertThat(evtFechaEvPer.getIdeEmpregador())
-			 .isEqualToComparingFieldByFieldRecursively(fechaEvPer.getIdeEmpregador());		 
+			 .usingRecursiveComparison().isEqualTo(fechaEvPer.getIdeEmpregador());		 
 
 		 MapperAssertion
 		 	.assertThat(evtFechaEvPer.getInfoFech())
-		 	.isEqualToComparingFieldByFieldRecursively(fechaEvPer.getInfoFech());
+		 	.usingRecursiveComparison().isEqualTo(fechaEvPer.getInfoFech());
 	}
 	
 }

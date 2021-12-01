@@ -17,19 +17,21 @@ public class RemunMapperTest {
 		
 		Assertions
 			.assertThat(evtRemun.getIdeEvento())
-			.isEqualToIgnoringGivenFields(remun.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc")
+			.isEqualTo(remun.getIdeEvento());
 
 		 MapperAssertion
 		 	.assertThat(evtRemun.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(remun.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(remun.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtRemun.getIdeTrabalhador())
-		 	.isEqualToComparingFieldByFieldRecursively(remun.getIdeTrabalhador());
+		 	.usingRecursiveComparison().isEqualTo(remun.getIdeTrabalhador());
 		
 		 MapperAssertion
 		 	.assertThat(evtRemun.getDmDev())
-		 	.isEqualToComparingFieldByFieldRecursively(remun.getDmDev());
+		 	.usingRecursiveComparison().isEqualTo(remun.getDmDev());
 	}
 	
 }

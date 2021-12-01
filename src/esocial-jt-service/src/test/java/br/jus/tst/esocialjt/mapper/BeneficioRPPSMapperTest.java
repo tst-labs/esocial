@@ -17,19 +17,21 @@ public class BeneficioRPPSMapperTest {
 		
 		Assertions
 			.assertThat(evtBenPrRP.getIdeEvento())
-			.isEqualToIgnoringGivenFields(cbenPrRP.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc")
+			.isEqualTo(cbenPrRP.getIdeEvento());
 
 		 MapperAssertion
 		 	.assertThat(evtBenPrRP.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(cbenPrRP.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(cbenPrRP.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtBenPrRP.getIdeBenef())
-		 	.isEqualToComparingFieldByFieldRecursively(cbenPrRP.getIdeBenef());
+		 	.usingRecursiveComparison().isEqualTo(cbenPrRP.getIdeBenef());
 		
 		 MapperAssertion
 		 	.assertThat(evtBenPrRP.getDmDev())
-		 	.isEqualToComparingFieldByFieldRecursively(cbenPrRP.getDmDev());
+		 	.usingRecursiveComparison().isEqualTo(cbenPrRP.getDmDev());
 	}
 	
 }

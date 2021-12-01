@@ -17,18 +17,20 @@ public class RmnRPPSMapperTest {
 		
 		Assertions
 			.assertThat(evtRmnRPPS.getIdeEvento())
-			.isEqualToIgnoringGivenFields(rmnRPPS.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc")
+			.isEqualTo(rmnRPPS.getIdeEvento());
 
 		 MapperAssertion
 		 	.assertThat(evtRmnRPPS.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(rmnRPPS.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(rmnRPPS.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtRmnRPPS.getIdeTrabalhador())
-		 	.isEqualToComparingFieldByFieldRecursively(rmnRPPS.getIdeTrabalhador());
+		 	.usingRecursiveComparison().isEqualTo(rmnRPPS.getIdeTrabalhador());
 		
 		 MapperAssertion
 		 	.assertThat(evtRmnRPPS.getDmDev())
-		 	.isEqualToComparingFieldByFieldRecursively(rmnRPPS.getDmDev());
+		 	.usingRecursiveComparison().isEqualTo(rmnRPPS.getDmDev());
 	}
 }

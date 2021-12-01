@@ -16,15 +16,15 @@ public class AdmissaoMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtAdmissao.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(admissao.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(admissao.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtAdmissao.getTrabalhador())
-			.isEqualToComparingFieldByFieldRecursively(admissao.getTrabalhador());
+			.usingRecursiveComparison().isEqualTo(admissao.getTrabalhador());
 		
 		MapperAssertion
 			.assertThat(evtAdmissao.getVinculo())
-			.isEqualToComparingFieldByFieldRecursively(admissao.getVinculo());
+			.usingRecursiveComparison().isEqualTo(admissao.getVinculo());
 	}
 	
 }

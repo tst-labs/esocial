@@ -69,9 +69,6 @@ public class RegrasFactory {
 	private RegraPgtos regraPgtos;
 
 	@Autowired
-	private RegraSolicitacaoTotalPagamento regraSolicitacaoTotalPagamento;
-
-	@Autowired
 	private RegraReaberturaPeriodicos regraReaberturaPeriodicos;
 
 	@Autowired

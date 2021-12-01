@@ -16,14 +16,14 @@ public class AltContratualMapperTest {
 
 		MapperAssertion
 		 	.assertThat(evtAltContratual.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(altContratual.getIdeEmpregador());
 		
 		MapperAssertion
 		 	.assertThat(evtAltContratual.getIdeVinculo())
-		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getIdeVinculo());
+		 	.usingRecursiveComparison().isEqualTo(altContratual.getIdeVinculo());
 		
 		MapperAssertion
 		 	.assertThat(evtAltContratual.getAltContratual())
-		 	.isEqualToComparingFieldByFieldRecursively(altContratual.getAltContratual());
+		 	.usingRecursiveComparison().isEqualTo(altContratual.getAltContratual());
 	}
 }

@@ -58,7 +58,7 @@ public class CodigoRespostaServicoTest {
 		codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
 
 		assertNotNull(codigoResposta);
-		assertThat(codigoResposta).extracting("codResposta").contains(201l);
+		assertThat(codigoResposta.getCodResposta()).isEqualTo(201l);
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class CodigoRespostaServicoTest {
 		codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
 
 		assertNotNull(codigoResposta);
-		assertThat(codigoResposta).extracting("codResposta").contains(601l);
+		assertThat(codigoResposta.getCodResposta()).isEqualTo(601l);
 	}
 
 	@Test

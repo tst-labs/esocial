@@ -18,11 +18,11 @@ public class EmpregadorMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getInfoEmpregador().getInclusao())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getInfoEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getInfoEmpregador());
 				
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getAlteracao()).isNull();
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getExclusao()).isNull();
@@ -36,11 +36,11 @@ public class EmpregadorMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getInfoEmpregador().getAlteracao())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getInfoEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getInfoEmpregador());
 		
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getInclusao()).isNull();
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getExclusao()).isNull();
@@ -54,11 +54,11 @@ public class EmpregadorMapperTest {
 
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtInfoEmpregador.getInfoEmpregador().getExclusao())
-			.isEqualToComparingFieldByFieldRecursively(informacoesEmpregador.getInfoEmpregador());
+			.usingRecursiveComparison().isEqualTo(informacoesEmpregador.getInfoEmpregador());
 				
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getInclusao()).isNull();
 		assertThat(evtInfoEmpregador.getInfoEmpregador().getAlteracao()).isNull();

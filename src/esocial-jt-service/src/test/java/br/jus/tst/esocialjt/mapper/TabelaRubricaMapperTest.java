@@ -23,11 +23,11 @@ public class TabelaRubricaMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getInfoRubrica().getInclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getInfoRubrica());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getInfoRubrica());
 				
 		assertThat(evtTabRubrica.getInfoRubrica().getAlteracao()).isNull();
 		assertThat(evtTabRubrica.getInfoRubrica().getExclusao()).isNull();
@@ -40,11 +40,11 @@ public class TabelaRubricaMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getInfoRubrica().getAlteracao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getInfoRubrica());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getInfoRubrica());
 				
 		assertThat(evtTabRubrica.getInfoRubrica().getInclusao()).isNull();
 		assertThat(evtTabRubrica.getInfoRubrica().getExclusao()).isNull();
@@ -58,11 +58,11 @@ public class TabelaRubricaMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabRubrica.getInfoRubrica().getExclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaRubrica.getInfoRubrica());
+			.usingRecursiveComparison().isEqualTo(tabelaRubrica.getInfoRubrica());
 				
 		assertThat(evtTabRubrica.getInfoRubrica().getInclusao()).isNull();
 		assertThat(evtTabRubrica.getInfoRubrica().getAlteracao()).isNull();

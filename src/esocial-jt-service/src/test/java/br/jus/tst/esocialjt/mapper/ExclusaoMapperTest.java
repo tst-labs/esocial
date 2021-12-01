@@ -16,11 +16,11 @@ public class ExclusaoMapperTest {
 
 		 MapperAssertion
 		 	.assertThat(evtExclusao.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(exclusao.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(exclusao.getIdeEmpregador());
 		
 		
 		 MapperAssertion
 		 	.assertThat(evtExclusao.getInfoExclusao())
-		 	.isEqualToComparingFieldByFieldRecursively(exclusao.getInfoExclusao());
+		 	.usingRecursiveComparison().isEqualTo(exclusao.getInfoExclusao());
 	}
 }

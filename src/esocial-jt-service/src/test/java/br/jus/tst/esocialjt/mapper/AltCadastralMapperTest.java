@@ -16,14 +16,14 @@ public class AltCadastralMapperTest {
 
 		MapperAssertion
 		 	.assertThat(evtAltCadastral.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(altCadastral.getIdeEmpregador());
 		
 		MapperAssertion
 		 	.assertThat(evtAltCadastral.getIdeTrabalhador())
-		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getIdeTrabalhador());
+		 	.usingRecursiveComparison().isEqualTo(altCadastral.getIdeTrabalhador());
 		
 		MapperAssertion
 		 	.assertThat(evtAltCadastral.getAlteracao())
-		 	.isEqualToComparingFieldByFieldRecursively(altCadastral.getAlteracao());
+		 	.usingRecursiveComparison().isEqualTo(altCadastral.getAlteracao());
 	}
 }

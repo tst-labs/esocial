@@ -16,15 +16,15 @@ public class TSVInicioMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTSVInicio.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tsvInicio.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tsvInicio.getIdeEmpregador());
 	
 		MapperAssertion
 			.assertThat(evtTSVInicio.getTrabalhador())
-			.isEqualToComparingFieldByFieldRecursively(tsvInicio.getTrabalhador());
+			.usingRecursiveComparison().isEqualTo(tsvInicio.getTrabalhador());
 
 		MapperAssertion
 			.assertThat(evtTSVInicio.getInfoTSVInicio())
-			.isEqualToComparingFieldByFieldRecursively(tsvInicio.getInfoTSVInicio());
+			.usingRecursiveComparison().isEqualTo(tsvInicio.getInfoTSVInicio());
 	}
 	
 }

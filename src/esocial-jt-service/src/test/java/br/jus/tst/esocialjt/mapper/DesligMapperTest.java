@@ -16,14 +16,14 @@ public class DesligMapperTest {
 
 		 MapperAssertion
 		 	.assertThat(evtDeslig.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(deslig.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(deslig.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtDeslig.getIdeVinculo())
-		 	.isEqualToComparingFieldByFieldRecursively(deslig.getIdeVinculo());
+		 	.usingRecursiveComparison().isEqualTo(deslig.getIdeVinculo());
 		
 		 MapperAssertion
 		 	.assertThat(evtDeslig.getInfoDeslig())
-		 	.isEqualToComparingFieldByFieldRecursively(deslig.getInfoDeslig());
+		 	.usingRecursiveComparison().isEqualTo(deslig.getInfoDeslig());
 	}
 }

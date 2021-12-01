@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "EST_EVENTO_TOTALIZADOR")
 @NamedQueries({ @NamedQuery(name = "EventoTotalizador.findAll", query = "SELECT e FROM EventoTotalizador e")

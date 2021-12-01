@@ -38,6 +38,7 @@ import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "EST_OCORRENCIA")
 @NamedQueries({ @NamedQuery(name = "Ocorrencia.findAll", query = "SELECT o FROM Ocorrencia o"),

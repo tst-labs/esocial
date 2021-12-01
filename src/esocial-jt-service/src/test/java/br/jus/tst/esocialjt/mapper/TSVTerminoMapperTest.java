@@ -16,14 +16,14 @@ public class TSVTerminoMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtTSVTermino.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tsvTermino.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tsvTermino.getIdeEmpregador());
 	
 		MapperAssertion
 			.assertThat(evtTSVTermino.getIdeTrabSemVinculo())
-			.isEqualToComparingFieldByFieldRecursively(tsvTermino.getIdeTrabSemVinculo());
+			.usingRecursiveComparison().isEqualTo(tsvTermino.getIdeTrabSemVinculo());
 
 		MapperAssertion
 			.assertThat(evtTSVTermino.getInfoTSVTermino())
-			.isEqualToComparingFieldByFieldRecursively(tsvTermino.getInfoTSVTermino());
+			.usingRecursiveComparison().isEqualTo(tsvTermino.getInfoTSVTermino());
 	}
 }
