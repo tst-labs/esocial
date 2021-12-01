@@ -18,11 +18,11 @@ public class TabelaLotacaoMapperTest {
 		
 		MapperAssertion
 			.assertThat(evtTabLotacao.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getIdeEmpregador());
 
 		MapperAssertion
 			.assertThat(evtTabLotacao.getInfoLotacao().getInclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getInfoLotacao());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getInfoLotacao());
 
 		assertThat(evtTabLotacao.getInfoLotacao().getAlteracao()).isNull();
 		assertThat(evtTabLotacao.getInfoLotacao().getExclusao()).isNull();
@@ -36,11 +36,11 @@ public class TabelaLotacaoMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTabLotacao.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getIdeEmpregador());
 	
 		MapperAssertion
 			.assertThat(evtTabLotacao.getInfoLotacao().getAlteracao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getInfoLotacao());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getInfoLotacao());
 		
 		assertThat(evtTabLotacao.getInfoLotacao().getInclusao()).isNull();
 		assertThat(evtTabLotacao.getInfoLotacao().getExclusao()).isNull();
@@ -54,11 +54,11 @@ public class TabelaLotacaoMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTabLotacao.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getIdeEmpregador());
 	
 		MapperAssertion
 			.assertThat(evtTabLotacao.getInfoLotacao().getExclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaLotacao.getInfoLotacao());
+			.usingRecursiveComparison().isEqualTo(tabelaLotacao.getInfoLotacao());
 
 		assertThat(evtTabLotacao.getInfoLotacao().getInclusao()).isNull();
 		assertThat(evtTabLotacao.getInfoLotacao().getAlteracao()).isNull();

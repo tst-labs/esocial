@@ -17,11 +17,13 @@ public class ReabreEvPerMapperTest {
 		
 		Assertions
 			.assertThat(evtReabreEvPer.getIdeEvento())
-			.isEqualToIgnoringGivenFields(reabreEvPer.getIdeEvento(), "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("tpAmb", "procEmi", "verProc")
+			.isEqualTo(reabreEvPer.getIdeEvento());
 
 		MapperAssertion
 			.assertThat(evtReabreEvPer.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(reabreEvPer.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(reabreEvPer.getIdeEmpregador());
 
 	}
 }

@@ -16,15 +16,15 @@ public class ReintegrMapperTest {
 
 		 MapperAssertion
 		 	.assertThat(evtReintegr.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(reintegr.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(reintegr.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtReintegr.getIdeVinculo())
-		 	.isEqualToComparingFieldByFieldRecursively(reintegr.getIdeVinculo());
+		 	.usingRecursiveComparison().isEqualTo(reintegr.getIdeVinculo());
 		
 		 MapperAssertion
 		 	.assertThat(evtReintegr.getInfoReintegr())
-		 	.isEqualToComparingFieldByFieldRecursively(reintegr.getInfoReintegr());
+		 	.usingRecursiveComparison().isEqualTo(reintegr.getInfoReintegr());
 	}
 	
 }

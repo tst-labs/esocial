@@ -17,15 +17,17 @@ public class PgtosMapperTest {
 		
 		Assertions
 			.assertThat(evtPgtos.getIdeEvento())
-			.isEqualToIgnoringGivenFields(pgtos.getIdeEvento(), "indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc");
+			.usingRecursiveComparison()
+			.ignoringFields("indRetif", "nrRecibo", "tpAmb", "procEmi", "verProc")
+			.isEqualTo(pgtos.getIdeEvento());
 
 		 MapperAssertion
 		 	.assertThat(evtPgtos.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(pgtos.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(pgtos.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtPgtos.getIdeBenef())
-		 	.isEqualToComparingFieldByFieldRecursively(pgtos.getIdeBenef());
+		 	.usingRecursiveComparison().isEqualTo(pgtos.getIdeBenef());
 		
 	}
 	

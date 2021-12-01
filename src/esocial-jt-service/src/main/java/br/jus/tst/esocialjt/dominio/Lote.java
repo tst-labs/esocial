@@ -30,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * The persistent class for the EST_LOTE database table.
  * 
  */
+@SuppressWarnings("deprecation")
 @Entity
 @Table(name = "EST_LOTE")
 @NamedQuery(name = "EstLote.findAll", query = "SELECT e FROM Lote e")

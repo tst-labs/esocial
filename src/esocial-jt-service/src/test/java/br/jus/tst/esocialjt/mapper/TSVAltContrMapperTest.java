@@ -16,15 +16,15 @@ public class TSVAltContrMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTSVAltContr.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tsvAltContr.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tsvAltContr.getIdeEmpregador());
 	
 		MapperAssertion
 			.assertThat(evtTSVAltContr.getIdeTrabSemVinculo())
-			.isEqualToComparingFieldByFieldRecursively(tsvAltContr.getIdeTrabSemVinculo());
+			.usingRecursiveComparison().isEqualTo(tsvAltContr.getIdeTrabSemVinculo());
 
 		MapperAssertion
 			.assertThat(evtTSVAltContr.getInfoTSVAlteracao())
-			.isEqualToComparingFieldByFieldRecursively(tsvAltContr.getInfoTSVAlteracao());
+			.usingRecursiveComparison().isEqualTo(tsvAltContr.getInfoTSVAlteracao());
 	}
 	
 }

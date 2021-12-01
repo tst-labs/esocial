@@ -21,11 +21,11 @@ public class TabelaEstabelecimentoMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTabEstab.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabEstab.getInfoEstab().getInclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getInfoEstab());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getInfoEstab());
 
 		assertThat(evtTabEstab.getInfoEstab().getAlteracao()).isNull();
 		assertThat(evtTabEstab.getInfoEstab().getExclusao()).isNull();
@@ -41,11 +41,11 @@ public class TabelaEstabelecimentoMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTabEstab.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabEstab.getInfoEstab().getAlteracao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getInfoEstab());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getInfoEstab());
 	
 		assertThat(evtTabEstab.getInfoEstab().getInclusao()).isNull();
 		assertThat(evtTabEstab.getInfoEstab().getExclusao()).isNull();
@@ -61,11 +61,11 @@ public class TabelaEstabelecimentoMapperTest {
 
 		MapperAssertion
 			.assertThat(evtTabEstab.getIdeEmpregador())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getIdeEmpregador());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getIdeEmpregador());
 		
 		MapperAssertion
 			.assertThat(evtTabEstab.getInfoEstab().getExclusao())
-			.isEqualToComparingFieldByFieldRecursively(tabelaEstabelecimento.getInfoEstab());
+			.usingRecursiveComparison().isEqualTo(tabelaEstabelecimento.getInfoEstab());
 		
 		assertThat(evtTabEstab.getInfoEstab().getInclusao()).isNull();
 		assertThat(evtTabEstab.getInfoEstab().getAlteracao()).isNull();

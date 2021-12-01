@@ -20,10 +20,10 @@ public class TabelaProcessoMapperTest {
 				.comoEvtTabProcessoInclusao(tabelaProcesso);
 
 		MapperAssertion.assertThat(evtTabProcesso.getIdeEmpregador())
-				.isEqualToComparingFieldByFieldRecursively(tabelaProcesso.getIdeEmpregador());
+				.usingRecursiveComparison().isEqualTo(tabelaProcesso.getIdeEmpregador());
 
 		MapperAssertion.assertThat(evtTabProcesso.getInfoProcesso().getInclusao())
-				.isEqualToComparingFieldByFieldRecursively(tabelaProcesso.getInfoProcesso());
+				.usingRecursiveComparison().isEqualTo(tabelaProcesso.getInfoProcesso());
 
 		assertThat(evtTabProcesso.getInfoProcesso().getAlteracao()).isNull();
 		assertThat(evtTabProcesso.getInfoProcesso().getExclusao()).isNull();
@@ -39,10 +39,10 @@ public class TabelaProcessoMapperTest {
 				.comoEvtTabProcessoAlteracao(tabelaProcesso);
 
 		MapperAssertion.assertThat(evtTabProcesso.getIdeEmpregador())
-				.isEqualToComparingFieldByFieldRecursively(evtTabProcesso.getIdeEmpregador());
+				.usingRecursiveComparison().isEqualTo(evtTabProcesso.getIdeEmpregador());
 
 		MapperAssertion.assertThat(evtTabProcesso.getInfoProcesso().getAlteracao())
-				.isEqualToComparingFieldByFieldRecursively(tabelaProcesso.getInfoProcesso());
+				.usingRecursiveComparison().isEqualTo(tabelaProcesso.getInfoProcesso());
 
 		assertThat(evtTabProcesso.getInfoProcesso().getInclusao()).isNull();
 		assertThat(evtTabProcesso.getInfoProcesso().getExclusao()).isNull();
@@ -58,10 +58,10 @@ public class TabelaProcessoMapperTest {
 				.comoEvtTabProcessoExclusao(tabelaProcesso);
 		
 		MapperAssertion.assertThat(evtTabProcesso.getIdeEmpregador())
-				.isEqualToComparingFieldByFieldRecursively(evtTabProcesso.getIdeEmpregador());
+				.usingRecursiveComparison().isEqualTo(evtTabProcesso.getIdeEmpregador());
 
 		MapperAssertion.assertThat(evtTabProcesso.getInfoProcesso().getExclusao())
-				.isEqualToComparingFieldByFieldRecursively(tabelaProcesso.getInfoProcesso());
+				.usingRecursiveComparison().isEqualTo(tabelaProcesso.getInfoProcesso());
 
 		assertThat(evtTabProcesso.getInfoProcesso().getInclusao()).isNull();
 		assertThat(evtTabProcesso.getInfoProcesso().getAlteracao()).isNull();

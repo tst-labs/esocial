@@ -16,14 +16,14 @@ public class AfastTempMapperTest {
 
 		 MapperAssertion
 		 	.assertThat(evtAfastTemp.getIdeEmpregador())
-		 	.isEqualToComparingFieldByFieldRecursively(afastTemp.getIdeEmpregador());
+		 	.usingRecursiveComparison().isEqualTo(afastTemp.getIdeEmpregador());
 		
 		 MapperAssertion
 		 	.assertThat(evtAfastTemp.getIdeVinculo())
-		 	.isEqualToComparingFieldByFieldRecursively(afastTemp.getIdeVinculo());
+		 	.usingRecursiveComparison().isEqualTo(afastTemp.getIdeVinculo());
 		
 		 MapperAssertion
 		 	.assertThat(evtAfastTemp.getInfoAfastamento())
-		 	.isEqualToComparingFieldByFieldRecursively(afastTemp.getInfoAfastamento());
+		 	.usingRecursiveComparison().isEqualTo(afastTemp.getInfoAfastamento());
 	}
 }

@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
+		<version>2.6.1</version>
 		<relativePath />
 	</parent>
 
@@ -22,7 +22,7 @@
 		<esocial-jt.dominio.version>0.0.1-SNAPSHOT</esocial-jt.dominio.version>
 		<esocial.esquemas.version>S-1.0.0.0-NT01</esocial.esquemas.version>
 		<esocial.comunicacao.version>1.5</esocial.comunicacao.version>
-		<org.mapstruct.version>1.2.0.Final</org.mapstruct.version>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -59,23 +59,22 @@
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct-jdk8</artifactId>
+			<artifactId>mapstruct</artifactId>
 			<version>${org.mapstruct.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
-			<version>2.7</version>
+			<version>2.11.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.santuario</groupId>
 			<artifactId>xmlsec</artifactId>
-			<version>2.1.7</version>
+			<version>2.3.0</version>
 		</dependency>
 		<dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
 		</dependency>
 
 		<!-- MODULES -->
@@ -116,11 +115,20 @@
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-support</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>		
 		<!-- DEV/TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.vintage</groupId>
+		    <artifactId>junit-vintage-engine</artifactId>
+		    <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -135,13 +143,13 @@
 		<dependency>
 			<groupId>com.github.tomakehurst</groupId>
 			<artifactId>wiremock-jre8</artifactId>
-			<version>2.21.0</version>
+			<version>2.31.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.github.database-rider</groupId>
 			<artifactId>rider-spring</artifactId>
-			<version>1.2.7</version>
+			<version>1.32.0</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
