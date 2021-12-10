@@ -29,6 +29,9 @@ public class GeradorXmlFactory {
 
 	@Autowired
 	private GeradorXmlAdmissao geradorXmlAdmissao;
+	
+	@Autowired
+	private GeradorXmlCessao geradorXmlCessao;
 
 	@Autowired
 	private GeradorXmlAltCadastral geradorXmlAltCadastral;
@@ -97,6 +100,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2205, geradorXmlAltCadastral);
 			geradores.put(TipoEvento.S2206, geradorXmlAltContratual);
 			geradores.put(TipoEvento.S2230, geradorXmlAfastTemp);
+			geradores.put(TipoEvento.S2231, geradorXmlCessao);
 			geradores.put(TipoEvento.S2298, geradorXmlReintegr);
 			geradores.put(TipoEvento.S2299, geradorXmlDeslig);
 			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);

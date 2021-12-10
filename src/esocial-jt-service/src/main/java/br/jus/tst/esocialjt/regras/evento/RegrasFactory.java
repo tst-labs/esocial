@@ -31,6 +31,9 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraAdmissao regraAdmissao;
+	
+	@Autowired
+	private RegraCessao regraCessao;
 
 	@Autowired
 	private RegraAltCadastral regraAltCadastral;
@@ -99,6 +102,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
+			regras.put(TipoEvento.S2231.getCodTipo(), regraCessao);
 			regras.put(TipoEvento.S2298.getCodTipo(), regraReintegracao);
 			regras.put(TipoEvento.S2299.getCodTipo(), regraDesligamento);
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);

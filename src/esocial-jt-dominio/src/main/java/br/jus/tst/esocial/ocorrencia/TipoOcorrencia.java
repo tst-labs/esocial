@@ -7,6 +7,7 @@ import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
+import br.jus.tst.esocial.ocorrencia.dados.Cessao;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
@@ -33,6 +34,7 @@ public enum TipoOcorrencia {
 	TABELA_LOTACAO(TabelaLotacao.class), 
 	TABELA_PROCESSO(TabelaProcesso.class), 
 	ADMISSAO_TRABALHADOR(Admissao.class),
+	CESSAO(Cessao.class),
 	ALTERACAO_CADASTRAL(AltCadastral.class),
 	ALTERACAO_CONTRATUAL(AltContratual.class),
 	AFASTAMENTO_TEMPORARIO(AfastTemp.class),
