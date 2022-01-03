@@ -18,17 +18,17 @@ import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeradorXmlCessaoTest {
+public class GeradorXmlCdBenefInTest {
 	
 	@Autowired
-	GeradorXmlCessao gerador;
+	GeradorXmlCdBenefIn gerador;
 
 	@Test
-	public void deveGerarXmlCessao() throws Exception {
+	public void deveGerarXmlCdBenefIn() throws Exception {
 		Evento evento = getEvento();
 		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtCessao");
+		assertThat(xml).contains("evtCdBenefIn");
 		assertThat(xml).contains("<indRetif>1</indRetif>");
 	}
 	
@@ -39,20 +39,20 @@ public class GeradorXmlCessaoTest {
 			.setOperacao(Operacao.RETIFICACAO)
 			.setRetificarRecibo("1.2.0000000000007498277");
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtCessao");
+		assertThat(xml).contains("evtCdBenefIn");
 		assertThat(xml).contains("<indRetif>2</indRetif>");
 	}
 	
 	private Evento getEvento() throws Exception {
 		ExemploOcorrenciaServico exemplo = new ExemploOcorrenciaServico();
-		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.CESSAO);
+		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.CADASTRO_BENEFICIARIO_INICIO);
 		Evento evento = new Evento();
 		evento.setOcorrencia(ocorrencia);
 		ocorrencia.setEvento(evento);
 		
 		evento.setId(1l);
 		evento.setIdEvento("ID1005099680001482017092708200100001");
-		evento.setTipoEvento(TipoEvento.CESSAO);
+		evento.setTipoEvento(TipoEvento.CADASTRO_BENEFICIARIO_INICIO);
 		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(2l));
 		
 		return evento;

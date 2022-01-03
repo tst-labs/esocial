@@ -78,6 +78,9 @@ public class GeradorXmlFactory {
 	@Autowired
 	private GeradorXmlExclusao geradorXmlExclusao;
 
+	@Autowired
+	private GeradorXmlCdBenefIn geradorXmlCdBenefIn;
+
 	private Map<TipoEvento, GeradorXml> geradores;
 
 	public GeradorXml getGerador(Evento evento) throws GeracaoXmlException {
@@ -106,6 +109,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);
 			geradores.put(TipoEvento.S2306, geradorXmlTSVAltContr);
 			geradores.put(TipoEvento.S2399, geradorXmlTSVTermino);
+			geradores.put(TipoEvento.S2400, geradorXmlCdBenefIn);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
 			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
 			geradores.put(TipoEvento.S1207, geradorXmlBeneficioRPPS);

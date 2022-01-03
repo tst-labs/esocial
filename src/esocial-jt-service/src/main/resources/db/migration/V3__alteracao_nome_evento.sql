@@ -1,0 +1,1 @@
+update EST_TIPO set DES_TIPO = 'Cadastro de Beneficiário - Entes Públicos - Início' where COD_TIPO = 2400;

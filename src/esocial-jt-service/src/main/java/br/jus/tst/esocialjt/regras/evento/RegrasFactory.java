@@ -80,6 +80,9 @@ public class RegrasFactory {
 	@Autowired
 	private RegraExclusao regraExclusao;
 
+	@Autowired
+	private RegraCdBenefIn regraCdBenefIn;
+
 	private Map<Long, Regra> regras;
 
 	public Regra getRegra(EventoDTO eventoDTO) {
@@ -108,6 +111,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
 			regras.put(TipoEvento.S2306.getCodTipo(), regraTSVAltContr);
 			regras.put(TipoEvento.S2399.getCodTipo(), regraTSVTermino);
+			regras.put(TipoEvento.S2400.getCodTipo(), regraCdBenefIn);
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
 			regras.put(TipoEvento.S1207.getCodTipo(), regraBeneficioRPPS);
