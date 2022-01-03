@@ -7,6 +7,7 @@ import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenefAlt;
 import br.jus.tst.esocial.ocorrencia.dados.CdBenefIn;
 import br.jus.tst.esocial.ocorrencia.dados.Cessao;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
@@ -44,7 +45,8 @@ public enum TipoOcorrencia {
 	TSV_INICIO(TSVInicio.class),
 	TSV_ALTERACAO_CONTRATUAL(TSVAltContr.class),
 	TSV_TERMINO(TSVTermino.class),
-	CADASTRO_BENEFICIARIO_INICIO(CdBenefIn.class),
+	CADASTRO_BENEFICIARIO_INI(CdBenefIn.class),
+	CADASTRO_BENEFICIARIO_ALT(CdBenefAlt.class),
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	BENEFICIO_RPPS(BenPrRP.class),

@@ -604,7 +604,7 @@ Pacote de comunicação : 1.5
 | S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término              | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2400 | Cadastro de Beneficiário - Entes Públicos - Início                    | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
-| S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                 | S-1.0  | Novo         |                                             |
+| S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                 | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2410 | Cadastro de Benefício – Entes Públicos – Início                       | S-1.0  | Novo         |                                             |
 | S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                    | S-1.0  | Novo         |                                             |
 | S-2418 | Reativação de Benefício – Entes Públicos                              | S-1.0  | Novo         |                                             |

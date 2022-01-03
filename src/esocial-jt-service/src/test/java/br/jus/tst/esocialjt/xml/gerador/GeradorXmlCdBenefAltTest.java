@@ -18,41 +18,41 @@ import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GeradorXmlCdBenefInTest {
+public class GeradorXmlCdBenefAltTest {
 	
 	@Autowired
-	GeradorXmlCdBenefIn gerador;
+	GeradorXmlCdBenefAlt gerador;
 
 	@Test
-	public void deveGerarXmlCdBenefIn() throws Exception {
+	public void deveGerarXmlCdBenefAlt() throws Exception {
 		Evento evento = getEvento();
 		evento.getOcorrencia().setOperacao(Operacao.NORMAL);
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtCdBenefIn");
+		assertThat(xml).contains("evtCdBenefAlt");
 		assertThat(xml).contains("<indRetif>1</indRetif>");
 	}
 	
 	@Test
-	public void deveGerarXmlCdBenefInRetificacao() throws Exception {
+	public void deveGerarXmlCdBenefAltRetificacao() throws Exception {
 		Evento evento = getEvento();
 		evento.getOcorrencia()
 			.setOperacao(Operacao.RETIFICACAO)
 			.setRetificarRecibo("1.2.0000000000007498277");
 		String xml = gerador.gerarXml(evento);
-		assertThat(xml).contains("evtCdBenefIn");
+		assertThat(xml).contains("evtCdBenefAlt");
 		assertThat(xml).contains("<indRetif>2</indRetif>");
 	}
 	
 	private Evento getEvento() throws Exception {
 		ExemploOcorrenciaServico exemplo = new ExemploOcorrenciaServico();
-		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.CADASTRO_BENEFICIARIO_INI);
+		Ocorrencia ocorrencia = exemplo.lerOcorrencia(TipoOcorrencia.CADASTRO_BENEFICIARIO_ALT);
 		Evento evento = new Evento();
 		evento.setOcorrencia(ocorrencia);
 		ocorrencia.setEvento(evento);
 		
 		evento.setId(1l);
 		evento.setIdEvento("ID1005099680001482017092708200100001");
-		evento.setTipoEvento(TipoEvento.CADASTRO_BENEFICIARIO_INI);
+		evento.setTipoEvento(TipoEvento.CADASTRO_BENEFICIARIO_ALT);
 		evento.getTipoEvento().setGrupoTipoEvento(new GrupoTipoEvento(2l));
 		
 		return evento;
