@@ -20,6 +20,7 @@ import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
 import br.jus.tst.esocial.ocorrencia.dados.ReabreEvPer;
+import br.jus.tst.esocial.ocorrencia.dados.ReativBen;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
@@ -53,6 +54,7 @@ public enum TipoOcorrencia {
 	CADASTRO_BENEFICIO_INI(CdBenIn.class),
 	CADASTRO_BENEFICIO_ALT(CdBenAlt.class),
 	CADASTRO_BENEFICIO_TERM(CdBenTerm.class),
+	REATIVACAO_BENEFICIO(ReativBen.class),
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	BENEFICIO_RPPS(BenPrRP.class),

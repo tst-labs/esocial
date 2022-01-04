@@ -94,6 +94,9 @@ public class RegrasFactory {
 	
 	@Autowired
 	private RegraCdBenTerm regraCdBenTerm;
+	
+	@Autowired
+	private RegraReativBen regraReativBen;
 
 	private Map<Long, Regra> regras;
 
@@ -127,6 +130,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2405.getCodTipo(), regraCdBenefAlt);
 			regras.put(TipoEvento.S2410.getCodTipo(), regraCdBenIn);
 			regras.put(TipoEvento.S2416.getCodTipo(), regraCdBenAlt);
+			regras.put(TipoEvento.S2418.getCodTipo(), regraReativBen);
 			regras.put(TipoEvento.S2420.getCodTipo(), regraCdBenTerm);
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);

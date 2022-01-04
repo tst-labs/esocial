@@ -1,0 +1,21 @@
+{
+  "tipoOcorrencia": "REATIVACAO_BENEFICIO",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".ReativBen",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideBeneficio": {
+      "cpfBenef": "77993893704",
+      "nrBeneficio": "12000"
+    },
+    "infoReativ": {
+      "dtEfetReativ": 1589565507000,
+      "dtEfeito": 1589565507000
+    }
+  }
+}

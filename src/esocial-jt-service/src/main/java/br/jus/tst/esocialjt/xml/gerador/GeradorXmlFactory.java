@@ -92,6 +92,9 @@ public class GeradorXmlFactory {
 	
 	@Autowired
 	private GeradorXmlCdBenTerm geradorXmlCdBenTerm;
+	
+	@Autowired
+	private GeradorXmlReativBen geradorXmlReativBen;
 
 	private Map<TipoEvento, GeradorXml> geradores;
 
@@ -125,6 +128,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2405, geradorXmlCdBenefAlt);
 			geradores.put(TipoEvento.S2410, geradorXmlCdBenIn);
 			geradores.put(TipoEvento.S2416, geradorXmlCdBenAlt);
+			geradores.put(TipoEvento.S2418, geradorXmlReativBen);
 			geradores.put(TipoEvento.S2420, geradorXmlCdBenTerm);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
 			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
