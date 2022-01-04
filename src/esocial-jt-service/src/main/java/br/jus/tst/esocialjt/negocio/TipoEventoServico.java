@@ -51,6 +51,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TSV_TERMINO, 2399);
 		map.put(TipoOcorrencia.CADASTRO_BENEFICIARIO_INI, 2400);
 		map.put(TipoOcorrencia.CADASTRO_BENEFICIARIO_ALT, 2405);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIO_INI, 2410);
 		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
 		map.put(TipoOcorrencia.REMUNERACAO_RPPS, 1202);
 		map.put(TipoOcorrencia.BENEFICIO_RPPS, 1207);
