@@ -1,0 +1,21 @@
+{
+  "tipoOcorrencia": "CADASTRO_BENEFICIO_TERM",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".CdBenTerm",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideBeneficio": {
+      "cpfBenef": "77993893704",
+      "nrBeneficio": "12000"
+    },
+    "infoBenTermino": {
+      "dtTermBeneficio": 1589464507000,
+      "mtvTermino": 11
+    }
+  }
+}

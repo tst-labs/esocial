@@ -6,17 +6,17 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import br.jus.tst.esocial.dominio.beneficio.IdeBeneficio;
-import br.jus.tst.esocial.dominio.beneficio.alteracao.InfoBenAlteracao;
+import br.jus.tst.esocial.dominio.beneficio.termino.InfoBenTermino;
 
-public class CdBenAlt extends DadosOcorrencia {
-	
+public class CdBenTerm extends DadosOcorrencia {
+
 	@Valid
 	@NotNull
 	private IdeBeneficio ideBeneficio;
-	
+
 	@Valid
 	@NotNull
-	private InfoBenAlteracao infoBenAlteracao;
+	private InfoBenTermino infoBenTermino;
 
 	public IdeBeneficio getIdeBeneficio() {
 		return ideBeneficio;
@@ -26,17 +26,17 @@ public class CdBenAlt extends DadosOcorrencia {
 		this.ideBeneficio = ideBeneficio;
 	}
 
-	public InfoBenAlteracao getInfoBenAlteracao() {
-		return infoBenAlteracao;
+	public InfoBenTermino getInfoBenTermino() {
+		return infoBenTermino;
 	}
 
-	public void setInfoBenAlteracao(InfoBenAlteracao infoBenAlteracao) {
-		this.infoBenAlteracao = infoBenAlteracao;
+	public void setInfoBenTermino(InfoBenTermino infoBenTermino) {
+		this.infoBenTermino = infoBenTermino;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ideBeneficio, infoBenAlteracao);
+		return Objects.hash(ideBeneficio, infoBenTermino);
 	}
 
 	@Override
@@ -47,8 +47,8 @@ public class CdBenAlt extends DadosOcorrencia {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CdBenAlt other = (CdBenAlt) obj;
-		return Objects.equals(ideBeneficio, other.ideBeneficio)
-				&& Objects.equals(infoBenAlteracao, other.infoBenAlteracao);
+		CdBenTerm other = (CdBenTerm) obj;
+		return Objects.equals(ideBeneficio, other.ideBeneficio) && Objects.equals(infoBenTermino, other.infoBenTermino);
 	}
+
 }

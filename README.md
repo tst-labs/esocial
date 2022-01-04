@@ -608,7 +608,7 @@ Pacote de comunicação : 1.5
 | S-2410 | Cadastro de Benefício – Entes Públicos – Início                       | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                    | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2418 | Reativação de Benefício – Entes Públicos                              | S-1.0  | Novo         |                                             |
-| S-2420 | Cadastro de Benefício – Entes Públicos – Término                      | S-1.0  | Novo         |                                             |
+| S-2420 | Cadastro de Benefício – Entes Públicos – Término                      | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-3000 | Exclusão de eventos                                                   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-5001 | Informações das contribuições sociais por trabalhador                 | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
 | S-5002 | Imposto de Renda Retido na Fonte                                      | S-1.0  | Feito        | Evento totalizador gravado no formato XML   |
