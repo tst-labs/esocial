@@ -6,8 +6,6 @@ import java.io.InputStream;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -16,6 +14,8 @@ import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 @Service
 public class ExemploOcorrenciaServico {
 	
+	private static final OcorrenciaDTODeserializer DESERIALIZER = new OcorrenciaDTODeserializer();
+
 	@Value("${esocialjt.cnpj-empregador:}")
 	String runStartup;
 	
@@ -30,7 +30,7 @@ public class ExemploOcorrenciaServico {
 			throw new EntidadeNaoExisteException(caminhoRecurso + " não encontrado");
 		}
 
-		return	new ObjectMapper().readValue(stream, OcorrenciaDTO.class);
+		return DESERIALIZER.converter(stream);
 	}
 	
 	public Ocorrencia lerOcorrencia(TipoOcorrencia tipo)  throws EntidadeNaoExisteException, IOException {

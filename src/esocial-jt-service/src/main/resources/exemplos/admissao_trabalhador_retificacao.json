@@ -5,7 +5,6 @@
   "dataOcorrencia": 1522181179561,
   "retificarRecibo": "1.2.0000000000234160664",
   "dadosOcorrencia": {
-    "tipo": ".Admissao",
     "ideEmpregador": {
       "tpInsc": 1,
       "nrInsc": "00509968000148"

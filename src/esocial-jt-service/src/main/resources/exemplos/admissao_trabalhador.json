@@ -4,7 +4,6 @@
   "operacao": "NORMAL",
   "dataOcorrencia": 1522181179561,
   "dadosOcorrencia": {
-    "tipo": ".Admissao",
     "ideEmpregador": {
       "tpInsc": 1,
       "nrInsc": "00509968000148"
