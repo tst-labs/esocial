@@ -1,0 +1,28 @@
+{
+  "tipoOcorrencia": "CADASTRO_BENEFICIO_INI",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".CdBenIn",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "beneficiario": {
+      "cpfBenef": "77993893704"
+    },
+    "infoBenInicio": {
+      "cadIni": "N",
+      "nrBeneficio": "12000",
+      "dtIniBeneficio": 1588364507000,
+      "indSitBenef": 1,
+      "dadosBeneficio": {
+        "tpBeneficio": "1009",
+        "tpPlanRP": 0,
+        "indDecJud": "N",
+        "dsc": "exemplo"
+      }
+    }
+  }
+}

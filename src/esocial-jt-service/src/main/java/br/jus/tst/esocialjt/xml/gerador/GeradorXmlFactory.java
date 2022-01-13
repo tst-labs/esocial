@@ -29,6 +29,9 @@ public class GeradorXmlFactory {
 
 	@Autowired
 	private GeradorXmlAdmissao geradorXmlAdmissao;
+	
+	@Autowired
+	private GeradorXmlCessao geradorXmlCessao;
 
 	@Autowired
 	private GeradorXmlAltCadastral geradorXmlAltCadastral;
@@ -75,6 +78,24 @@ public class GeradorXmlFactory {
 	@Autowired
 	private GeradorXmlExclusao geradorXmlExclusao;
 
+	@Autowired
+	private GeradorXmlCdBenefIn geradorXmlCdBenefIn;
+	
+	@Autowired
+	private GeradorXmlCdBenefAlt geradorXmlCdBenefAlt;
+	
+	@Autowired
+	private GeradorXmlCdBenIn geradorXmlCdBenIn;
+	
+	@Autowired
+	private GeradorXmlCdBenAlt geradorXmlCdBenAlt;
+	
+	@Autowired
+	private GeradorXmlCdBenTerm geradorXmlCdBenTerm;
+	
+	@Autowired
+	private GeradorXmlReativBen geradorXmlReativBen;
+
 	private Map<TipoEvento, GeradorXml> geradores;
 
 	public GeradorXml getGerador(Evento evento) throws GeracaoXmlException {
@@ -97,11 +118,18 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2205, geradorXmlAltCadastral);
 			geradores.put(TipoEvento.S2206, geradorXmlAltContratual);
 			geradores.put(TipoEvento.S2230, geradorXmlAfastTemp);
+			geradores.put(TipoEvento.S2231, geradorXmlCessao);
 			geradores.put(TipoEvento.S2298, geradorXmlReintegr);
 			geradores.put(TipoEvento.S2299, geradorXmlDeslig);
 			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);
 			geradores.put(TipoEvento.S2306, geradorXmlTSVAltContr);
 			geradores.put(TipoEvento.S2399, geradorXmlTSVTermino);
+			geradores.put(TipoEvento.S2400, geradorXmlCdBenefIn);
+			geradores.put(TipoEvento.S2405, geradorXmlCdBenefAlt);
+			geradores.put(TipoEvento.S2410, geradorXmlCdBenIn);
+			geradores.put(TipoEvento.S2416, geradorXmlCdBenAlt);
+			geradores.put(TipoEvento.S2418, geradorXmlReativBen);
+			geradores.put(TipoEvento.S2420, geradorXmlCdBenTerm);
 			geradores.put(TipoEvento.S1200, geradorXmlRemuneracaoRGPS);
 			geradores.put(TipoEvento.S1202, geradorXmlRemuneracaoRPPS);
 			geradores.put(TipoEvento.S1207, geradorXmlBeneficioRPPS);

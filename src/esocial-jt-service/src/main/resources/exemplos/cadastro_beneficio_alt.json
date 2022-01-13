@@ -1,0 +1,26 @@
+{
+  "tipoOcorrencia": "CADASTRO_BENEFICIO_ALT",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "tipo": ".CdBenAlt",
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideBeneficio": {
+      "cpfBenef": "77993893704",
+      "nrBeneficio": "12000"
+    },
+    "infoBenAlteracao": {
+      "dtAltBeneficio": 1589364507000,
+      "dadosBeneficio": {
+        "tpBeneficio": "1009",
+        "tpPlanRP": 0,
+        "indSuspensao": "N",
+        "dsc": "exemplo alterado"
+      }
+    }
+  }
+}

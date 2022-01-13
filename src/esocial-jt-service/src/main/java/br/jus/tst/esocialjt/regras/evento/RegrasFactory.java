@@ -31,6 +31,9 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraAdmissao regraAdmissao;
+	
+	@Autowired
+	private RegraCessao regraCessao;
 
 	@Autowired
 	private RegraAltCadastral regraAltCadastral;
@@ -77,6 +80,24 @@ public class RegrasFactory {
 	@Autowired
 	private RegraExclusao regraExclusao;
 
+	@Autowired
+	private RegraCdBenefIn regraCdBenefIn;
+	
+	@Autowired
+	private RegraCdBenefAlt regraCdBenefAlt;
+
+	@Autowired
+	private RegraCdBenIn regraCdBenIn;
+	
+	@Autowired
+	private RegraCdBenAlt regraCdBenAlt;
+	
+	@Autowired
+	private RegraCdBenTerm regraCdBenTerm;
+	
+	@Autowired
+	private RegraReativBen regraReativBen;
+
 	private Map<Long, Regra> regras;
 
 	public Regra getRegra(EventoDTO eventoDTO) {
@@ -99,11 +120,18 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
+			regras.put(TipoEvento.S2231.getCodTipo(), regraCessao);
 			regras.put(TipoEvento.S2298.getCodTipo(), regraReintegracao);
 			regras.put(TipoEvento.S2299.getCodTipo(), regraDesligamento);
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
 			regras.put(TipoEvento.S2306.getCodTipo(), regraTSVAltContr);
 			regras.put(TipoEvento.S2399.getCodTipo(), regraTSVTermino);
+			regras.put(TipoEvento.S2400.getCodTipo(), regraCdBenefIn);
+			regras.put(TipoEvento.S2405.getCodTipo(), regraCdBenefAlt);
+			regras.put(TipoEvento.S2410.getCodTipo(), regraCdBenIn);
+			regras.put(TipoEvento.S2416.getCodTipo(), regraCdBenAlt);
+			regras.put(TipoEvento.S2418.getCodTipo(), regraReativBen);
+			regras.put(TipoEvento.S2420.getCodTipo(), regraCdBenTerm);
 			regras.put(TipoEvento.S1200.getCodTipo(), regraRemuneracaoRGPS);
 			regras.put(TipoEvento.S1202.getCodTipo(), regraRemuneracaoRPPS);
 			regras.put(TipoEvento.S1207.getCodTipo(), regraBeneficioRPPS);

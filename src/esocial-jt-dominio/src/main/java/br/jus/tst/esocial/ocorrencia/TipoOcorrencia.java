@@ -7,6 +7,12 @@ import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
 import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
 import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
 import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenAlt;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenIn;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenTerm;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenefAlt;
+import br.jus.tst.esocial.ocorrencia.dados.CdBenefIn;
+import br.jus.tst.esocial.ocorrencia.dados.Cessao;
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.Deslig;
 import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
@@ -14,6 +20,7 @@ import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
 import br.jus.tst.esocial.ocorrencia.dados.ReabreEvPer;
+import br.jus.tst.esocial.ocorrencia.dados.ReativBen;
 import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
 import br.jus.tst.esocial.ocorrencia.dados.Remun;
 import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
@@ -33,6 +40,7 @@ public enum TipoOcorrencia {
 	TABELA_LOTACAO(TabelaLotacao.class), 
 	TABELA_PROCESSO(TabelaProcesso.class), 
 	ADMISSAO_TRABALHADOR(Admissao.class),
+	CESSAO(Cessao.class),
 	ALTERACAO_CADASTRAL(AltCadastral.class),
 	ALTERACAO_CONTRATUAL(AltContratual.class),
 	AFASTAMENTO_TEMPORARIO(AfastTemp.class),
@@ -41,6 +49,12 @@ public enum TipoOcorrencia {
 	TSV_INICIO(TSVInicio.class),
 	TSV_ALTERACAO_CONTRATUAL(TSVAltContr.class),
 	TSV_TERMINO(TSVTermino.class),
+	CADASTRO_BENEFICIARIO_INI(CdBenefIn.class),
+	CADASTRO_BENEFICIARIO_ALT(CdBenefAlt.class),
+	CADASTRO_BENEFICIO_INI(CdBenIn.class),
+	CADASTRO_BENEFICIO_ALT(CdBenAlt.class),
+	CADASTRO_BENEFICIO_TERM(CdBenTerm.class),
+	REATIVACAO_BENEFICIO(ReativBen.class),
 	REMUNERACAO_RGPS(Remun.class),
 	REMUNERACAO_RPPS(RmnRPPS.class),
 	BENEFICIO_RPPS(BenPrRP.class),

@@ -40,6 +40,7 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TABELA_LOTACAO, 1020);
 		map.put(TipoOcorrencia.TABELA_PROCESSO, 1070);
 		map.put(TipoOcorrencia.ADMISSAO_TRABALHADOR, 2200);
+		map.put(TipoOcorrencia.CESSAO, 2231);
 		map.put(TipoOcorrencia.ALTERACAO_CADASTRAL, 2205);
 		map.put(TipoOcorrencia.ALTERACAO_CONTRATUAL, 2206);
 		map.put(TipoOcorrencia.AFASTAMENTO_TEMPORARIO, 2230);
@@ -48,6 +49,12 @@ public class TipoEventoServico {
 		map.put(TipoOcorrencia.TSV_INICIO, 2300);
 		map.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, 2306);
 		map.put(TipoOcorrencia.TSV_TERMINO, 2399);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIARIO_INI, 2400);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIARIO_ALT, 2405);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIO_INI, 2410);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIO_ALT, 2416);
+		map.put(TipoOcorrencia.REATIVACAO_BENEFICIO, 2418);
+		map.put(TipoOcorrencia.CADASTRO_BENEFICIO_TERM, 2420);
 		map.put(TipoOcorrencia.REMUNERACAO_RGPS, 1200);
 		map.put(TipoOcorrencia.REMUNERACAO_RPPS, 1202);
 		map.put(TipoOcorrencia.BENEFICIO_RPPS, 1207);
