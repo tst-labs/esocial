@@ -4,7 +4,6 @@
   "operacao": null,
   "dataOcorrencia": 1522181179561,
   "dadosOcorrencia": {
-    "tipo": ".Exclusao",
     "ideEmpregador": {
       "tpInsc": 1,
       "nrInsc": "00509968000148"
