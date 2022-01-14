@@ -8,13 +8,17 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0"
+    "react-scripts": "4.0.3"
   },
   "scripts": {
+    "prestart": "node app-info-gen.js && node app-env-gen.js",
+    "prebuild": "node app-info-gen.js && node app-env-gen.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint \"./src/**/*.js\" \"./src/**/*.jsx\"",
+    "lint:fix": "eslint --fix \"./src/**/*.js\" \"./src/**/*.jsx\""
   },
   "eslintConfig": {
     "extends": [
@@ -33,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^11.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }
