@@ -11,6 +11,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import App from "./app/App";
 import { LoadingProvider } from "./components/loading/LoadingProvider";
 import CustomQueryClientProvider from "./CustomQueryClientProvider";
+import { NOME_APP } from "./shared/env";
 import theme from "./shared/theme";
 
 ReactDOM.render(
@@ -31,3 +32,5 @@ ReactDOM.render(
   </StyledEngineProvider>,
   document.getElementById("root")
 );
+
+document.title = NOME_APP;
