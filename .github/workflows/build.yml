@@ -31,17 +31,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: yarn install
-        uses: borales/actions-yarn@v2.3.0
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          cmd: install
+          node-version: "16.x"
 
-      - name: yarn test
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: test
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-      - name: yarn build
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+      - name: Test
+        run: yarn test --frozen-lockfile
