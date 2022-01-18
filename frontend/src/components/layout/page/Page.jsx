@@ -13,7 +13,7 @@ const Root = styled("div")({
 
 const Main = styled("main")(({ theme }) => ({
   flexGrow: 1,
-  padding: theme.spacing(0, 2, 12, 2)
+  padding: habilitaCabecalho ? theme.spacing(0, 2, 12, 2) : 0
 }));
 
 function Page({ children, maxWidth = "md" }) {
@@ -22,7 +22,9 @@ function Page({ children, maxWidth = "md" }) {
       {habilitaCabecalho && <Header />}
       <Main>
         {habilitaCabecalho && <Toolbar />}
-        <Container maxWidth={maxWidth}>{children}</Container>
+        <Container maxWidth={maxWidth} disableGutters={!habilitaCabecalho}>
+          {children}
+        </Container>
       </Main>
     </Root>
   );
