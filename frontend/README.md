@@ -42,13 +42,13 @@ yarn lint:fix
 
 ## Variáveis de ambiente
 
-As variáveis de ambiente da aplicação estão descritas no arquivo [env.js](src/shared/env.js). Os valores default são sobrescritos pelo container (ver [.env.example]).
+As variáveis de ambiente da aplicação estão descritas no arquivo [env.js](src/shared/env.js). Os valores default são sobrescritos pelo container (ver [.env.example](.env.example)).
 
 ### Sobrescrevendo variáveis de ambiente em desenvolvimento
 
 Crie um arquivo de propriedades na pasta do projeto com seguinte nome: `.env`
 
-Sobreescreva as variáveis de ambiente que desejar com o prefixo `FRONTEND_ENV_`. Pode-se usar o arquivo [.env.example] como ponto de partida:
+Sobreescreva as variáveis de ambiente que desejar com o prefixo `FRONTEND_ENV_`. Pode-se usar o arquivo [.env.example](.env.example) como ponto de partida:
 
 ```
 FRONTEND_ENV_PRIMARY_COLOR=#0067A0
