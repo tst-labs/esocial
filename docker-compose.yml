@@ -9,8 +9,6 @@ services:
       - app
     networks:
       - esocial-net
-    environment:
-      - spring.datasource.url=jdbc:postgresql://esocial-db/postgres
 
   app:
     image: tstlabs/esocial-jt-service:latest
