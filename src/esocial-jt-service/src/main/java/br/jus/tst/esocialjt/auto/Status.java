@@ -1,8 +1,14 @@
 package br.jus.tst.esocialjt.auto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(name = "StatusAutomacao")
 public class Status {
+	@Schema(description = "Nome do executor do processamento automático")
 	private String descricao;
+	@Schema(description = "Indica se a execução está habilitada.")
 	private boolean habilitado;
+	@Schema(description = "Período em milisegundos entre cada ciclo de execução")
 	private Long periodoMilis;
 
 	public Status() {
