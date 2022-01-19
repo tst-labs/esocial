@@ -141,6 +141,12 @@ http://localhost:8080/esocial-jt-service/actuator/health
 http://localhost:8080/esocial-jt-service/actuator/esocialhealth
 ```
 
+4. Acesse a interface gráfica para verificar o status do serviço pela url
+
+```
+http://localhost
+```
+
 ### Testando o primeiro envio
 
 1. Crie uma cópia do arquivo [./src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json](./src/esocial-jt-service/src/main/resources/exemplos/informacoes_empregador.json)
@@ -163,6 +169,12 @@ j.t.e.a.t.TarefaAtualizacaoProcessamento : Eventos processados: {PROCESSADO COM 
 
 ```
 http://localhost:8080/esocial-jt-service/ocorrencias
+```
+
+6. Acesse a interface gráfica para verificar resultado do processamento
+
+```
+http://localhost
 ```
 
 ### Próximos passos
