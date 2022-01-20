@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.jus.tst.esocialjt.TipoAmbiente;
+import br.jus.tst.esocialjt.dominio.Evento;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 @RestController
 @RequestMapping("/producao-restrita")
@@ -23,8 +26,12 @@ public class ProducaoRestritaResource {
 	@Autowired
 	private ProducaoRestritaServico producaoRestritaServico;
 
+	@Operation(summary = "Envia um comando para limpar a base de produção restrita no eSocial-Gov e reinicia a base de dados local.")
 	@PostMapping(path="/acoes/limpar", produces = "application/json;charset=UTF-8")
-	public Object limparProducaoRestrita(@RequestParam(name = "cnpj", required = false) String cnpj) {
+	public Evento limparProducaoRestrita(
+			@RequestParam(name = "cnpj", required = false) 
+			@Parameter(description = "Se nulo, usa o CNPJ do empregador." )
+			String cnpj) {
 		if (StringUtils.isBlank(cnpj)) {
 			cnpj = cnpjEmpregador;
 		}
