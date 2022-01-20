@@ -39,13 +39,6 @@
     - [2. Instalação do <strong>esocial-jt-service</strong> sem certificado e usar serviços de outra instância do <strong>esocial-jt-service</strong> que possui um certificado](#2-instalação-do-esocial-jt-service-sem-certificado-e-usar-serviços-de-outra-instância-do-esocial-jt-service-que-possui-um-certificado)
     - [3. Instalação do <strong>esocial-jt-service</strong> sem certificado e usar serviços de outra aplicação que forneça api REST para assinatura e envio de lotes](#3-instalação-do-esocial-jt-service-sem-certificado-e-usar-serviços-de-outra-aplicação-que-forneça-api-rest-para-assinatura-e-envio-de-lotes)
   - [API Rest](#api-rest)
-    - [Ocorrências](#ocorrências)
-    - [Eventos](#eventos)
-    - [Lote](#lote)
-    - [XML](#xml)
-    - [Produção restrita](#produção-restrita)
-    - [Automação](#automação)
-    - [Status](#status)
   - [Sobre o projeto](#sobre-o-projeto)
     - [Escopo](#escopo)
       - [O que esse software <strong>faz</strong>?](#o-que-esse-software-faz)
@@ -461,58 +454,7 @@ esocialjt.urlServicoAssinatura=http://10.0.0.100:8080/assinar/
 
 ## API Rest
 
-### Ocorrências
-
-Relacionado ao recebimento ou consulta de **ocorrências**
-
-- [Receber ocorrência](./docs/api/ocorrencias/post.md): `POST` `/esocial-jt-service/ocorrencias`
-- [Consultar todas ocorrências](./docs/api/ocorrencias/get.md): `GET` `/esocial-jt-service/ocorrencias`
-- [Consultar ocorrência por ID](./docs/api/ocorrencias/id-get.md): `GET` `/esocial-jt-service/ocorrencias/{id}`
-- [Consultar dados básicos das ocorrências](./docs/api/ocorrencias/dados-basicos-get.md): `GET` `/esocial-jt-service/ocorrencias/dados-basicos`
-- [Consultar exemplos de JSON de ocorrências](./docs/api/ocorrencias/exemplos-get.md): `GET` `/esocial-jt-service/ocorrencias/exemplos`
-- [Consultar exemplo de JSON de um tipo](./docs/api/ocorrencias/exemplos-tipo-get.md): `GET` `/esocial-jt-service/ocorrencias/exemplos/{tipo}`
-
-### Eventos
-
-Serve para forçar um reenvio de um **evento** para o eSocial-Gov
-
-- [Enviar evento](./docs/api/eventos/acoes-enviar-post.md): `POST` `/esocial-jt-service/eventos/acoes/enviar`
-
-### Lote
-
-Controle manual da consulta do processamento no eSocial-Gov. Não precisa ser executado se a atualização automática está ativada.
-
-- [Consulta protocolo](./docs/api/lote/consulta-protocolo-get.md): `GET` `/esocial-jt-service/lote/consulta/{protocolo}`
-- [Atualiza todos lotes pendentes](./docs/api/lote/acoes-atualizar-processamento-post.md): `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento`
-- [Atualiza lote por protcolo](./docs/api/lote/acoes-atualizar-processamento-protocolo-post.md): `POST` `/esocial-jt-service/lote/acoes/atualizar-processamento/{protocolo}`
-- [Enviar lote para o eSocial-Gov](./docs/api/lote/acoes-enviar-lote-post.md): `POST` `/esocial-jt-service/lote/acoes/enviar/`
-
-### XML
-
-Disponibiliza o serviço de assinatura de xml para uso por outra aplicação.
-
-- [Assinar xml](./docs/api/xml/acoes-assinar-post.md): `POST` `/esocial-jt-service/xml/acoes/assinar/`
-
-### Produção restrita
-
-Comandos exclusivos para o ambiente de produção restrita
-
-- [Limpar produção restrita](./docs/api/producao-restrita/acoes-limpar-post.md): `POST` `/esocial-jt-service/producao-restrita/acoes/limpar`
-
-### Automação
-
-Controla, em tempo de execução, se a aplicação deve ou não executar tarefas automaticamente (envio para o eSocial-Gov, consulta do processamento, etc) . Também pode ser configurado no arquivo `application.properties`.
-
-- [Consultar status](./docs/api/automacao/get.md): `GET` `/esocial-jt-service/automacao`
-- [Configurar automação](./docs/api/automacao/post.md): `POST` `/esocial-jt-service/automacao`
-
-### Status
-
-Verifica o status da aplicação
-
-- [Status da aplicação](./docs/api/actuator/health-get.md): `GET` `/esocial-jt-service/actuator/health`
-- [Informações sobre a aplicação](./docs/api/actuator/info-get.md): `GET` `/esocial-jt-service/actuator/info`
-- [Status da comunicação com eSocial-Gov](./docs/api/actuator/esocialhealth-get.md): `GET` `/esocial-jt-service/actuator/esocialhealth`
+Um modelo da API Rest completa do projeto pode ser encontrada <a href="https://tst-labs.github.io/esocial/open-api/">neste link</a>. Além disso, esse mesmo modelo pode ser executado em localhost com o projeto no ar, por meio do endereço `http://localhost:8080/esocial-jt-service/swagger-ui.html`
 
 ## Sobre o projeto
 
