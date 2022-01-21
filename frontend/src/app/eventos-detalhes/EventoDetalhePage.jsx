@@ -8,23 +8,25 @@ import Page from "../../components/layout/page/Page";
 import PageHeader from "../../components/page-header/PageHeader";
 import Voltar from "../../components/voltar/Voltar";
 import { getDataGeracao, getTitulo } from "../../shared/ocorrenciaUtil";
-import ErrosProcessamento from "./ErrosProcessamento";
+import { useNumericQueryParam } from "../../shared/useQueryParam";
+import ErrosProcessamento from "../../components/ocorrencia/ErrosProcessamento";
 
 function EventoDetalhePage() {
   const { id } = useParams();
+  const page = useNumericQueryParam("page");
 
   const { data: ocorrencia = {}, isLoading } = useDetalheOcorrencia(id);
   return (
     <Page>
       <DataPanel loading={isLoading}>
         <PageHeader
-          primary={getTitulo(ocorrencia.evento)}
-          secondary={getDataGeracao(ocorrencia.dataOcorrencia)}
+          primary={getTitulo(ocorrencia)}
+          secondary={getDataGeracao(ocorrencia.dataRecebimento)}
           commands={[
             <LabelEstado
               estado={ocorrencia.evento && ocorrencia.evento.estado}
             />,
-            <Voltar />
+            <Voltar page={page} />
           ]}
         />
         <Grid container spacing={2}>
