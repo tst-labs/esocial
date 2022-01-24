@@ -7,10 +7,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,6 +59,21 @@ public class OcorrenciaServicoTest{
 	public void deveRecuperarTodasOcorrencias(){
 		List<Ocorrencia> ocorrencias = servico.recuperaTodos();
 		assertThat(ocorrencias).isNotEmpty();
+	}
+	
+	@Test
+	@DataSet(value = {"ocorrencia.yml"}, executeScriptsBefore = "cleanup.sql" ) 
+	public void deveRecuperarOcorrenciasPaginadoMaisRecentePrimeiro(){
+		int page = 0;
+		int size = 2;
+		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size);
+		
+		SoftAssertions soft = new SoftAssertions();
+		soft.assertThat(ocorrenciasPage.getSize()).isEqualTo(2);
+		soft.assertThat(ocorrenciasPage.getTotalElements()).isEqualTo(4);
+		soft.assertThat(ocorrenciasPage.getTotalPages()).isEqualTo(2);
+		soft.assertThat(ocorrenciasPage.get().findFirst().get().getId()).isEqualTo(4);
+		soft.assertAll();
 	}
 	
 	@Test

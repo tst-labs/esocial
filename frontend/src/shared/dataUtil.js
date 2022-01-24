@@ -20,18 +20,43 @@ export function normalizarData(date) {
 }
 
 export function formataData(data) {
-  if (!data) {
-    return "";
+  const novaData = new Date(data);
+
+  let value = novaData.toLocaleDateString("pt-BR");
+
+  return value;
+}
+
+export function formataDataLegal(data) {
+  const novaData = new Date(data);
+
+  if (isToday(novaData)) {
+    return novaData.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
   }
 
-  let novaData = data;
-
-  if (Array.isArray(data)) {
-    novaData = new Date(data);
+  let formato;
+  if (isThisYear(novaData)) {
+    formato = { day: "numeric", month: "short" };
   }
 
-  novaData = toStringDate(novaData);
-  return novaData.split("-").reverse().join("/");
+  return novaData.toLocaleDateString("pt-BR", formato);
+}
+
+function isToday(someDate) {
+  const today = new Date();
+  return (
+    someDate.getDate() === today.getDate() &&
+    someDate.getMonth() === today.getMonth() &&
+    someDate.getFullYear() === today.getFullYear()
+  );
+}
+
+function isThisYear(someDate) {
+  const today = new Date();
+  return someDate.getFullYear() === today.getFullYear();
 }
 
 export function formataDataLong(data) {

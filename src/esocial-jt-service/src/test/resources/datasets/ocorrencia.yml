@@ -12,7 +12,7 @@ EST_OCORRENCIA:
     TXT_REFERENCIA: "2" 
     TXT_OPERACAO: "INCLUSAO" 
     DTA_OCORRENCIA: "2017-01-01 09:25:57"
-    DTA_RECEBIMENTO: "2017-01-01 09:25:57" 
+    DTA_RECEBIMENTO: "2017-01-01 09:25:56" 
     TXT_DADOS_OCORRENCIA: "{\"tipo\":\".TabelaLotacao\",\"ideEmpregador\":{\"tpInsc\":1,\"nrInsc\":\"00509968000148\"},\"infoLotacao\":{\"ideLotacao\":{\"codLotacao\":\"TST12345\",\"iniValid\":\"2017-01\",\"fimValid\":null},\"dadosLotacao\":{\"tpLotacao\":\"01\",\"tpInsc\":null,\"nrInsc\":null,\"fpasLotacao\":{\"fpas\":\"582\",\"codTercsSusp\":null,\"codTercs\":\"0000\",\"infoProcJudTerceiros\":null},\"infoEmprParcial\":{\"tpInscContrat\":0,\"nrInscContrat\":null,\"tpInscProp\":null,\"nrInscProp\":null}}}}" 
 
   - COD_OCORRENCIA: "3" 
@@ -28,5 +28,5 @@ EST_OCORRENCIA:
     TXT_REFERENCIA: "2" 
     TXT_OPERACAO: "INCLUSAO" 
     DTA_OCORRENCIA: "2017-01-01 09:25:57"
-    DTA_RECEBIMENTO: "2017-01-01 09:25:57" 
+    DTA_RECEBIMENTO: "2017-01-01 09:25:58" 
     TXT_DADOS_OCORRENCIA: "{\"tipo\":\".TabelaLotacao\",\"ideEmpregador\":{\"tpInsc\":1,\"nrInsc\":\"00509968000148\"},\"infoLotacao\":{\"ideLotacao\":{\"codLotacao\":\"TST12345\",\"iniValid\":\"2017-01\",\"fimValid\":null},\"dadosLotacao\":{\"tpLotacao\":\"01\",\"tpInsc\":null,\"nrInsc\":null,\"fpasLotacao\":{\"fpas\":\"582\",\"codTercsSusp\":null,\"codTercs\":\"0000\",\"infoProcJudTerceiros\":null},\"infoEmprParcial\":{\"tpInscContrat\":0,\"nrInscContrat\":null,\"tpInscProp\":null,\"nrInscProp\":null}}}}" 

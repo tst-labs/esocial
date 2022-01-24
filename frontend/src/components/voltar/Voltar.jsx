@@ -1,14 +1,14 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function Voltar() {
+function Voltar({ page }) {
   return (
     <Button
       variant="outlined"
       size="small"
       color="primary"
       component={Link}
-      to="/"
+      to={`/?page=${page}`}
     >
       Voltar
     </Button>

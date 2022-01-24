@@ -41,7 +41,7 @@ import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 @SuppressWarnings("deprecation")
 @Entity
 @Table(name = "EST_OCORRENCIA")
-@NamedQueries({ @NamedQuery(name = "Ocorrencia.findAll", query = "SELECT o FROM Ocorrencia o"),
+@NamedQueries({ 
 		@NamedQuery(name = "Ocorrencia.ocorrenciasSemEvento", query = "SELECT o FROM Ocorrencia o where o.id NOT IN (SELECT e.ocorrencia.id FROM Evento e)"),
 		@NamedQuery(name = "Ocorrencia.findNecessaryDataOnly", 
 		query = "SELECT new br.jus.tst.esocialjt.ocorrencia.OcorrenciaDadosBasicosDTO(o.id, o.tipoOcorrencia, o.dataOcorrencia, estadoEvento, ocorrenciaTipoEvento)  "

@@ -9,11 +9,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
@@ -43,6 +45,14 @@ public class OcorrenciaResource {
 	@GetMapping("/dados-basicos")
 	public List<OcorrenciaDadosBasicosDTO> listarDadosBasicos() {
 		return ocorrenciaServico.recuperaDadosBasicos();
+	}
+	
+	@Operation(summary = "Consulta, com paginação, todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
+	@GetMapping("/paginado")
+	public Page<Ocorrencia> listarPaginado(
+			@RequestParam(defaultValue = "0") int page,
+			@RequestParam(defaultValue = "20") int size) {
+		return ocorrenciaServico.recuperaPaginado(page, size);
 	}
 
 	@Operation(summary ="Consulta uma ocorrência especificada pelo id.")

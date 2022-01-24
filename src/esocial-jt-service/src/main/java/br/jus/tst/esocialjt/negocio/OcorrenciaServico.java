@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +20,7 @@ import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaDadosBasicosDTO;
+import br.jus.tst.esocialjt.repository.OcorrenciaRepository;
 
 @Service
 public class OcorrenciaServico {
@@ -29,16 +33,23 @@ public class OcorrenciaServico {
 
 	@Autowired
 	private EntityManager em;
+	
+	@Autowired
+	OcorrenciaRepository repository;
 
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
-		em.persist(ocorrencia);
-		return ocorrencia;
+		return repository.save(ocorrencia);
 	}
 
 	public List<Ocorrencia> recuperaTodos() {
-		TypedQuery<Ocorrencia> query = em.createNamedQuery("Ocorrencia.findAll", Ocorrencia.class);
-		return query.getResultList();
+		return repository.findAll();
+	}
+	
+	public Page<Ocorrencia> recuperaPaginado(int page, int size) {
+		Sort ordenamento = Sort.by("dataRecebimento").descending();
+		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
+		return repository.findAll(pageRequest);
 	}
 
 	public List<OcorrenciaDadosBasicosDTO> recuperaDadosBasicos() {
@@ -48,11 +59,9 @@ public class OcorrenciaServico {
 	}
 
 	public Ocorrencia recuperaPorId(long id) throws EntidadeNaoExisteException {
-		Ocorrencia ocorrencia = em.find(Ocorrencia.class, id);
-		if (ocorrencia == null) {
-			throw new EntidadeNaoExisteException("Não foi possível encontrar ocorrência com id=" + id);
-		}
-		return ocorrencia;
+		return repository
+				.findById(id)
+				.orElseThrow(()->new EntidadeNaoExisteException("Não foi possível encontrar ocorrência com id=" + id));
 	}
 
 	public List<Ocorrencia> recuperaOcorrenciasSemEventos() {
@@ -61,7 +70,7 @@ public class OcorrenciaServico {
 
 	@Transactional
 	public Ocorrencia atualizar(Ocorrencia ocorrencia) {
-		return em.merge(ocorrencia);
+		return repository.save(ocorrencia);
 	}
 
 	public Ocorrencia gerarEvento(Ocorrencia ocorrencia) {

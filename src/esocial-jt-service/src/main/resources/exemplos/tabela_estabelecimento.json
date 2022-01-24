@@ -17,7 +17,9 @@
       },
       "dadosEstab": {
         "cnaePrep": 8411600,
-        "aliqGilrat": null,
+        "aliqGilrat": {
+          "fap": 0.5
+        },
         "infoCaepf": null,
         "infoObra": null,
         "infoTrab": {

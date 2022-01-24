@@ -1,6 +1,5 @@
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { red } from "@mui/material/colors";
-import PageHeader from "../../components/page-header/PageHeader";
 
 function ErrosProcessamento({ ocorrencia }) {
   if (
@@ -27,13 +26,10 @@ function ErrosProcessamento({ ocorrencia }) {
   ultimoEnvio.errosProcessamento.sort((a, b) => b.id - a.id);
 
   return (
-    <Box
-      component={Paper}
-      padding={2}
-      paddingTop={0}
-      sx={{ backgroundColor: red[50] }}
-    >
-      <PageHeader primary={"Erros de envio"} />
+    <Box component={Paper} padding={2} sx={{ backgroundColor: red[50] }}>
+      <Typography variant="h6" sx={{ fontSize: "1rem" }} gutterBottom>
+        Erros
+      </Typography>
       <Grid container spacing={2}>
         {ultimoEnvio.errosProcessamento.map((erro) => (
           <Grid item key={erro.id}>
