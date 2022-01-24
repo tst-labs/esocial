@@ -2,8 +2,11 @@ package br.jus.tst.esocial.ocorrencia;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OcorrenciaDTO {
 
 	private TipoOcorrencia tipoOcorrencia;
