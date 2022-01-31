@@ -231,6 +231,9 @@ export function getResumo(ocorrencia) {
   return resumo;
 }
 
+const Element = styled("span")(() => ({
+  whiteSpace: "nowrap"
+}));
 const Key = styled("span")(() => ({
   fontWeight: "500"
 }));
@@ -242,10 +245,10 @@ const Value = styled("span")(() => ({
 
 function D({ k, v }) {
   return (
-    <>
+    <Element>
       <Key>{k}:</Key>
       <Value>{v || ""}</Value>
-    </>
+    </Element>
   );
 }
 
