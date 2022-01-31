@@ -33,22 +33,23 @@ function PainelOcorrencias({ ocorrencias, page }) {
           <ListItemIcon>
             <IconEstado estado={ocorrencia.evento?.estado} />
           </ListItemIcon>
-          <Grid container justifyContent="space-between">
+          <Grid container justifyContent="space-between" wrap="nowrap">
             <Grid item>
               <ListItemText
                 primary={getTitulo(ocorrencia)}
                 secondary={getResumo(ocorrencia)}
                 primaryTypographyProps={{ sx: { fontWeight: "500" } }}
               />
+              <ErrosResumo ocorrencia={ocorrencia} />
             </Grid>
             <Grid item>
               <Tooltip title={getDataGeracao(ocorrencia.dataRecebimento)}>
                 <ListItemText
                   secondary={formataDataLegal(ocorrencia.dataRecebimento)}
+                  sx={{ whiteSpace: "nowrap" }}
                 />
               </Tooltip>
             </Grid>
-            <ErrosResumo ocorrencia={ocorrencia} />
           </Grid>
         </ListItem>
       ))}
