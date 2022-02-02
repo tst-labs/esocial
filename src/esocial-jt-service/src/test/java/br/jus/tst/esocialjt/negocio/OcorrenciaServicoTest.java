@@ -139,59 +139,6 @@ public class OcorrenciaServicoTest{
 		assertThat(ocorrenciaComEvento.getEvento()).isNotNull();
 	}
 	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void naoDeveMudarSeOperacaoExclusao() throws Exception{
-		Ocorrencia ocorrencia = em.find(Ocorrencia.class, 1l);
-		ocorrencia.setOperacao(Operacao.EXCLUSAO);
-		
-		servico.atualizarOperacaoTabela(ocorrencia);
-		
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.EXCLUSAO);
-	}
-	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void naoDeveMudarSeOperacaoNaoDeTabela() throws Exception{
-		Ocorrencia ocorrencia = em.find(Ocorrencia.class, 3l);
-
-		ocorrencia.setOperacao(Operacao.EXCLUSAO);
-		servico.atualizarOperacaoTabela(ocorrencia);
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.EXCLUSAO);
-		
-		ocorrencia.setOperacao(Operacao.ALTERACAO);
-		servico.atualizarOperacaoTabela(ocorrencia);
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.ALTERACAO);
-
-		ocorrencia.setOperacao(Operacao.INCLUSAO);
-		servico.atualizarOperacaoTabela(ocorrencia);
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.INCLUSAO);
-	}
-	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void deveSerAlteracaoSeExisteOutroIgual() throws Exception{
-		Ocorrencia ocorrencia = em.find(Ocorrencia.class, 2l);
-
-		ocorrencia.setOperacao(Operacao.INCLUSAO);
-		servico.atualizarOperacaoTabela(ocorrencia);
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.ALTERACAO);
-		
-	}
-	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void deveSerInclusaoSeNaoExisteOutroIgual() throws Exception{
-		Ocorrencia ocorrencia = em.find(Ocorrencia.class, 2l);
-		TabelaLotacao dados =  (TabelaLotacao) ocorrencia.getDadosOcorrencia();
-		dados.getInfoLotacao().getIdeLotacao().setIniValid("2039-12");
-		
-		ocorrencia.setOperacao(Operacao.ALTERACAO);
-		servico.atualizarOperacaoTabela(ocorrencia);
-		assertThat(ocorrencia.getOperacao()).isEqualTo(Operacao.INCLUSAO);
-		
-	}
-	
 	private Ocorrencia getOcorrencia() {
 		Ocorrencia ocorrencia = new Ocorrencia();
 		ocorrencia.setTipoOcorrencia(TipoOcorrencia.TABELA_LOTACAO).setReferencia("10000").setOperacao(Operacao.INCLUSAO)

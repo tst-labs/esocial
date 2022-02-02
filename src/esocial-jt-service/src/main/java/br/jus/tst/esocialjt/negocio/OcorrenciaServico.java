@@ -12,10 +12,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
-import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
@@ -80,40 +78,9 @@ public class OcorrenciaServico {
 		if (!deveAguardarGeracaoEvento(tipoEvento, referencia)) {
 			Evento evento = eventoServico.gerarEvento(ocorrencia, tipoEvento);
 			ocorrencia.setEvento(evento);
-			atualizarOperacaoTabela(ocorrencia);
 		}
 
 		return atualizar(ocorrencia);
-	}
-
-	public Ocorrencia atualizarOperacaoTabela(Ocorrencia ocorrencia) {
-		TipoEvento tipoEvento = ocorrencia.getEvento().getTipoEvento();
-		GrupoTipoEvento grupoTipoEvento = tipoEvento.getGrupoTipoEvento();
-		Operacao operacao = ocorrencia.getOperacao();
-		if (GrupoTipoEvento.TABELA.equals(grupoTipoEvento) && !Operacao.EXCLUSAO.equals(operacao)) {
-			List<Evento> eventosAnteriores = eventoServico.criarConsulta()
-					.comReferencias(ocorrencia.getReferencia())
-					.dosTipos(tipoEvento)
-					.nosEstados(Estado.PROCESSADO_COM_SUCESSO)
-					.buscar();
-
-			boolean existeAnteriorIgual = eventosAnteriores
-					.stream()
-					.anyMatch(evtAnterior -> evtAnterior
-							.getOcorrencia()
-							.getDadosOcorrencia()
-							.equals(ocorrencia.getDadosOcorrencia()));
-
-			Operacao novaOperacao = Operacao.INCLUSAO;
-
-			if (existeAnteriorIgual) {
-				novaOperacao = Operacao.ALTERACAO;
-			}
-
-			ocorrencia.setOperacao(novaOperacao);
-		}
-
-		return ocorrencia;
 	}
 
 	public boolean deveAguardarGeracaoEvento(TipoEvento tipoEvento, String referencia) {
