@@ -34,11 +34,28 @@ public class OcorrenciaDTODeserializer extends JsonDeserializer<OcorrenciaDTO> {
 	}
 
 	public OcorrenciaDTO converter(JsonNode node) throws JsonProcessingException, IllegalArgumentException {
-		String tipoOcorrenciaTxt = node.get("tipoOcorrencia").asText();
+		JsonNode tipoOcorrenciaNode = node.get("tipoOcorrencia");
+		
+		if(tipoOcorrenciaNode == null) {
+			throw new IllegalArgumentException("O campo \"tipoOcorrencia\" é obrigatório.");
+		}
+		
+		String tipoOcorrenciaTxt = tipoOcorrenciaNode.asText();
 		TipoOcorrencia tipoOcorrencia = TipoOcorrencia.valueOf(tipoOcorrenciaTxt);
 		ObjectNode dadosOcorrencia = (ObjectNode) node.get("dadosOcorrencia");
+		
+		if(dadosOcorrencia == null) {
+			throw new IllegalArgumentException("O campo \"dadosOcorrencia\" é obrigatório.");
+		}
+		
 		dadosOcorrencia.put("tipo", tipoOcorrencia.getEstruturaDadosOcorrencia().getName());
 		
 		return mapper.treeToValue(node, OcorrenciaDTO.class);
 	}
+	
+	public OcorrenciaDTO converter(String content) throws IllegalArgumentException, IOException {
+		JsonNode node = mapper.readTree(content);
+		return converter(node);
+	}
+
 }
