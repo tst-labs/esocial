@@ -1,8 +1,10 @@
 import { Icon, IconButton, Tooltip, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
+import { useSetParam } from "../../shared/useQueryParam";
 
 function Paginacao({ pagina, page }) {
+  const setParam = useSetParam();
   return (
     pagina.totalElements > 0 && (
       <Box>
@@ -13,7 +15,7 @@ function Paginacao({ pagina, page }) {
           <IconButton
             size="small"
             component={Link}
-            to={`/`}
+            to={`/?${setParam("page", 0).toString()}`}
             disabled={pagina.first}
           >
             <Icon>keyboard_double_arrow_left</Icon>
@@ -23,7 +25,7 @@ function Paginacao({ pagina, page }) {
           <IconButton
             size="small"
             component={Link}
-            to={`/?page=${page - 1}`}
+            to={`/?${setParam("page", page - 1).toString()}`}
             disabled={pagina.first}
           >
             <Icon>chevron_left</Icon>
@@ -33,7 +35,7 @@ function Paginacao({ pagina, page }) {
           <IconButton
             size="small"
             component={Link}
-            to={`/?page=${page + 1}`}
+            to={`/?${setParam("page", page + 1).toString()}`}
             disabled={pagina.last}
           >
             <Icon>chevron_right</Icon>
@@ -43,7 +45,7 @@ function Paginacao({ pagina, page }) {
           <IconButton
             size="small"
             component={Link}
-            to={`/?page=${pagina.totalPages - 1}`}
+            to={`/?${setParam("page", pagina.totalPages - 1).toString()}`}
             disabled={pagina.last}
           >
             <Icon>keyboard_double_arrow_right</Icon>

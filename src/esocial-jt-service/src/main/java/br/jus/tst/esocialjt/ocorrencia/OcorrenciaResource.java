@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.negocio.OcorrenciaServico;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -34,6 +33,9 @@ public class OcorrenciaResource {
 	
 	@Autowired
 	private ExemploOcorrenciaServico exemploServico;
+	
+	@Autowired
+	OcorrenciaRepository repository;
 
 	@Operation(summary ="Consulta todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
 	@GetMapping
@@ -49,10 +51,15 @@ public class OcorrenciaResource {
 	
 	@Operation(summary = "Consulta, com paginação, todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
 	@GetMapping("/paginado")
-	public Page<Ocorrencia> listarPaginado(
+	public OcorrenciaPage listarPaginado(
 			@RequestParam(defaultValue = "0") int page,
-			@RequestParam(defaultValue = "20") int size) {
-		return ocorrenciaServico.recuperaPaginado(page, size);
+			@RequestParam(defaultValue = "20") int size,
+			@RequestParam(required = false, defaultValue = "") List<Long> estados) {
+		List<Estado> estadosObj = estados
+									.stream()
+									.map(id -> new Estado(id))
+									.collect(Collectors.toList());
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj);
 	}
 
 	@Operation(summary ="Consulta uma ocorrência especificada pelo id.")
@@ -87,5 +94,10 @@ public class OcorrenciaResource {
 	public OcorrenciaDTO getExemplosPorTipo(@PathVariable("tipo") TipoOcorrencia tipo) 
 			throws EntidadeNaoExisteException, IOException {
 		return exemploServico.lerOcorrenciaDTO(tipo);
+	}
+
+	@GetMapping("/agrupado")
+	public List<ContagemEstado> agrupado() {
+		return repository.contarTotalPorEstado();
 	}
 }

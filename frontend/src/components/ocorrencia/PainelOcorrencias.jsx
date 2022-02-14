@@ -14,10 +14,12 @@ import {
   getResumo,
   getTitulo
 } from "../../shared/ocorrenciaUtil";
+import { useQuery } from "../../shared/useQueryParam";
 import IconEstado from "../estado/IconEstado";
 import ErrosResumo from "./ErrosResumo";
 
-function PainelOcorrencias({ ocorrencias, page }) {
+function PainelOcorrencias({ ocorrencias }) {
+  const query = useQuery();
   if (!ocorrencias) return null;
 
   return (
@@ -28,7 +30,7 @@ function PainelOcorrencias({ ocorrencias, page }) {
           sx={{ borderBottom: "1px rgb(224, 224, 224) solid" }}
           button
           component={Link}
-          to={`/eventos/${ocorrencia.id}${page ? `?page=${page}` : ""}`}
+          to={`/eventos/${ocorrencia.id}?${query.toString()}`}
         >
           <ListItemIcon>
             <IconEstado estado={ocorrencia.evento?.estado} />

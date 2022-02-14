@@ -5,15 +5,13 @@ import DataPanel from "../../components/data/DataPanel";
 import LabelEstado from "../../components/estado/LabelEstado";
 import JsonPanel from "../../components/json-panel/JsonPanel";
 import Page from "../../components/layout/page/Page";
+import ErrosProcessamento from "../../components/ocorrencia/ErrosProcessamento";
 import PageHeader from "../../components/page-header/PageHeader";
 import Voltar from "../../components/voltar/Voltar";
 import { getDataGeracao, getTitulo } from "../../shared/ocorrenciaUtil";
-import { useNumericQueryParam } from "../../shared/useQueryParam";
-import ErrosProcessamento from "../../components/ocorrencia/ErrosProcessamento";
 
 function EventoDetalhePage() {
   const { id } = useParams();
-  const page = useNumericQueryParam("page");
 
   const { data: ocorrencia = {}, isLoading } = useDetalheOcorrencia(id);
   return (
@@ -26,7 +24,7 @@ function EventoDetalhePage() {
             <LabelEstado
               estado={ocorrencia.evento && ocorrencia.evento.estado}
             />,
-            <Voltar page={page} />
+            <Voltar />
           ]}
         />
         <Grid container spacing={2}>

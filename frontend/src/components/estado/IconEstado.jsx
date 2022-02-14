@@ -7,7 +7,7 @@ import {
   ERRO
 } from "../../shared/estados";
 
-function IconEstado({ estado }) {
+function IconEstado({ estado, semCor }) {
   if (!estado) {
     estado = { id: EM_FILA, descricao: "EM FILA" };
   }
@@ -21,8 +21,8 @@ function IconEstado({ estado }) {
       icon = "pending";
       break;
     case PROCESSAMENTO:
-      color = "warning";
       icon = "cached";
+      color = "warning";
       break;
     case PROCESSADO_COM_SUCESSO:
       color = "success";
@@ -38,9 +38,18 @@ function IconEstado({ estado }) {
       icon = "queue";
   }
 
+  if (semCor) {
+    color = undefined;
+  }
+
   return (
     <Tooltip title={estado.descricao}>
-      <IconButton size="small" sx={{ padding: 0, marginRight: 1 }}>
+      <IconButton
+        size="small"
+        sx={{ padding: 0, marginRight: 1 }}
+        component="span"
+        disableRipple
+      >
         <Icon color={color}>{icon}</Icon>
       </IconButton>
     </Tooltip>
