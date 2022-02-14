@@ -1,14 +1,16 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useQuery } from "../../shared/useQueryParam";
 
-function Voltar({ page }) {
+function Voltar() {
+  const query = useQuery();
   return (
     <Button
       variant="outlined"
       size="small"
       color="primary"
       component={Link}
-      to={`/?page=${page}`}
+      to={`/?${query.toString()}`}
     >
       Voltar
     </Button>

@@ -1,7 +1,8 @@
-package br.jus.tst.esocialjt.negocio;
+package br.jus.tst.esocialjt.ocorrencia;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -27,8 +28,6 @@ import br.jus.tst.esocial.ocorrencia.Operacao;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.dominio.TipoEvento;
-import br.jus.tst.esocialjt.ocorrencia.OcorrenciaDadosBasicosDTO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -66,7 +65,7 @@ public class OcorrenciaServicoTest{
 	public void deveRecuperarOcorrenciasPaginadoMaisRecentePrimeiro(){
 		int page = 0;
 		int size = 2;
-		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size);
+		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size, Collections.emptyList()).pagina;
 		
 		SoftAssertions soft = new SoftAssertions();
 		soft.assertThat(ocorrenciasPage.getSize()).isEqualTo(2);
@@ -98,35 +97,6 @@ public class OcorrenciaServicoTest{
 	public void deveRecuperarPorId() throws Exception{
 		Ocorrencia ocorrencia = servico.recuperaPorId(1l);
 		assertThat(ocorrencia.getId()).isGreaterThan(0);
-	}
-
-	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void deveAguardarSeExisteEventoEmFila() throws Exception{
-		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S1000, "1");
-		assertThat(deveAguardar).isTrue();
-	}
-
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void naoDeveAguardarSeExisteEventoComReferenciaDiferenteEmFila() throws Exception{
-		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S1000, "2");
-		assertThat(deveAguardar).isFalse();
-	}
-	
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void naoDeveAguardarSeExisteEventoComTipoDiferenteEmFila() throws Exception{
-		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S2200, "1");
-		assertThat(deveAguardar).isFalse();
-	}
-
-	@Test
-	@DataSet(value = {"ocorrencia.yml", "evento.yml"}, executeScriptsBefore = "cleanup.sql") 
-	public void deveAguardarSeExisteEventoEmProcessamento() throws Exception{
-		boolean deveAguardar =  servico.deveAguardarGeracaoEvento(TipoEvento.S1020, "2");
-		assertThat(deveAguardar).isTrue();
 	}
 	
 	@Test

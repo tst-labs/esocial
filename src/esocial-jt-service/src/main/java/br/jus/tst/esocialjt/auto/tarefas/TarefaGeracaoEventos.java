@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.negocio.OcorrenciaServico;
+import br.jus.tst.esocialjt.ocorrencia.OcorrenciaServico;
 
 @Service
 public class TarefaGeracaoEventos implements Tarefa{

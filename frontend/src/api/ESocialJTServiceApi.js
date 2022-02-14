@@ -13,13 +13,12 @@ export function useOcorrencias() {
   });
 }
 
-export function useOcorrenciasPaginado(page = 0) {
+export function useOcorrenciasPaginado(page = 0, estados = []) {
   return useQuery(
-    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}`,
+    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}`,
     queryFetcher,
     {
       refetchInterval: REFRESH_INTERVAL,
-      initialData: {},
       keepPreviousData: true
     }
   );

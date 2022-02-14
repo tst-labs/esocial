@@ -1,4 +1,4 @@
-package br.jus.tst.esocialjt.negocio;
+package br.jus.tst.esocialjt.ocorrencia;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
+import br.jus.tst.esocialjt.negocio.EventoServico;
+import br.jus.tst.esocialjt.negocio.TipoEventoServico;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
-import br.jus.tst.esocialjt.ocorrencia.OcorrenciaDadosBasicosDTO;
-import br.jus.tst.esocialjt.repository.OcorrenciaRepository;
 
 @Service
 public class OcorrenciaServico {
@@ -34,20 +34,31 @@ public class OcorrenciaServico {
 	
 	@Autowired
 	OcorrenciaRepository repository;
+	
+	@Autowired
+	OcorrenciaSpecs specs;
 
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
-		return repository.save(ocorrencia);
+		return gerarEvento(ocorrencia);
 	}
 
 	public List<Ocorrencia> recuperaTodos() {
 		return repository.findAll();
 	}
 	
-	public Page<Ocorrencia> recuperaPaginado(int page, int size) {
+	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
-		return repository.findAll(pageRequest);
+		
+		Page<Ocorrencia> pagina = repository.findAll(specs.nosEstados(estados), pageRequest);
+		List<ContagemEstado> contagemEstado = repository.contarTotalPorEstado();
+		
+		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
+		ocorrenciaPage.pagina = pagina;
+		ocorrenciaPage.contagemEstado = contagemEstado;
+		
+		return ocorrenciaPage;
 	}
 
 	public List<OcorrenciaDadosBasicosDTO> recuperaDadosBasicos() {
@@ -72,21 +83,10 @@ public class OcorrenciaServico {
 	}
 
 	public Ocorrencia gerarEvento(Ocorrencia ocorrencia) {
-		String referencia = ocorrencia.getReferencia();
 		TipoEvento tipoEvento = tipoEventoServico.obterTipoEventoEsocial(ocorrencia.getTipoOcorrencia());
-
-		if (!deveAguardarGeracaoEvento(tipoEvento, referencia)) {
-			Evento evento = eventoServico.gerarEvento(ocorrencia, tipoEvento);
-			ocorrencia.setEvento(evento);
-		}
-
+		Evento evento = eventoServico.gerarEvento(ocorrencia, tipoEvento);
+		ocorrencia.setEvento(evento);
 		return atualizar(ocorrencia);
 	}
 
-	public boolean deveAguardarGeracaoEvento(TipoEvento tipoEvento, String referencia) {
-		return eventoServico.criarConsulta()
-				.dosTipos(tipoEvento)
-				.nosEstados(Estado.EM_FILA, Estado.PROCESSAMENTO)
-				.comReferencias(referencia).existe();
-	}
 }

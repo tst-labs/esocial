@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.negocio.OcorrenciaServico;
 
 @Component
 public class OcorrenciaSub {

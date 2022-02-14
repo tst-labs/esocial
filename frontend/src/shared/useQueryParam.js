@@ -17,3 +17,23 @@ export function useNumericQueryParam(param, defaultValue = 0) {
   const value = query.get(param);
   return value == null || isNaN(value) ? defaultValue : parseInt(value);
 }
+
+export function useListQueryParam(param, defaultValue = []) {
+  const query = useQuery();
+  const value = query.get(param);
+  return value == null
+    ? defaultValue
+    : value
+        .split(",")
+        .map((v) => parseInt(v))
+        .filter((v) => !isNaN(v));
+}
+
+export function useSetParam() {
+  const query = useQuery();
+  function setParam(param, value) {
+    query.set(param, value);
+    return query;
+  }
+  return setParam;
+}
