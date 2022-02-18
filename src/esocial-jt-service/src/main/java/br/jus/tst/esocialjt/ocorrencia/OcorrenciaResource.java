@@ -34,9 +34,6 @@ public class OcorrenciaResource {
 	@Autowired
 	private ExemploOcorrenciaServico exemploServico;
 	
-	@Autowired
-	OcorrenciaRepository repository;
-
 	@Operation(summary ="Consulta todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
 	@GetMapping
 	public List<Ocorrencia> listarTodos() {
@@ -54,12 +51,13 @@ public class OcorrenciaResource {
 	public OcorrenciaPage listarPaginado(
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "20") int size,
-			@RequestParam(required = false, defaultValue = "") List<Long> estados) {
+			@RequestParam(required = false, defaultValue = "") List<Long> estados,
+			@RequestParam(required = false, defaultValue = "") String expressao) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(id -> new Estado(id))
 									.collect(Collectors.toList());
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao);
 	}
 
 	@Operation(summary ="Consulta uma ocorrência especificada pelo id.")
@@ -96,8 +94,4 @@ public class OcorrenciaResource {
 		return exemploServico.lerOcorrenciaDTO(tipo);
 	}
 
-	@GetMapping("/agrupado")
-	public List<ContagemEstado> agrupado() {
-		return repository.contarTotalPorEstado();
-	}
 }

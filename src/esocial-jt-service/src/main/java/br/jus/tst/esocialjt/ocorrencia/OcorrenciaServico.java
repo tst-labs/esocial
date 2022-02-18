@@ -1,6 +1,8 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -47,16 +49,25 @@ public class OcorrenciaServico {
 		return repository.findAll();
 	}
 	
-	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados) {
+	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
-		Page<Ocorrencia> pagina = repository.findAll(specs.nosEstados(estados), pageRequest);
-		List<ContagemEstado> contagemEstado = repository.contarTotalPorEstado();
+		Page<Ocorrencia> pagina = repository.findAll(
+					specs.nosEstados(estados)
+					.and(specs.comExpressao(expressao)), 
+					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
 		ocorrenciaPage.pagina = pagina;
-		ocorrenciaPage.contagemEstado = contagemEstado;
+		ocorrenciaPage.contagemEstado = Estado.listaEstados
+											.stream()
+											.map(e -> {
+												long count = repository.count(
+														specs.nosEstados(Arrays.asList(e))
+														.and(specs.comExpressao(expressao)));
+												return new ContagemEstado(e.getId(), count);
+											}).collect(Collectors.toList());
 		
 		return ocorrenciaPage;
 	}

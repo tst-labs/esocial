@@ -1,6 +1,8 @@
 package br.jus.tst.esocialjt.dominio;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -23,6 +25,7 @@ public class Estado implements Serializable {
 	public static final Estado PROCESSADO_COM_SUCESSO = new Estado(3l, "PROCESSADO COM SUCESSO");
 	public static final Estado PROCESSADO_COM_ERRO = new Estado(4l, "PROCESSADO COM ERRO");
 	public static final Estado ERRO = new Estado(5l, "ERRO");
+	public static final List<Estado> listaEstados = Arrays.asList(EM_FILA, PROCESSAMENTO, PROCESSADO_COM_SUCESSO, PROCESSADO_COM_ERRO, ERRO);
 
 	@Id
 	@Basic(optional = false)
