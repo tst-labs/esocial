@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { CircularProgress, Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useOcorrenciasPaginado } from "../../api/ESocialJTServiceApi";
 import DataPanel from "../../components/data/DataPanel";
@@ -10,13 +10,16 @@ import { ERRO, PROCESSADO_COM_ERRO } from "../../shared/estados";
 import {
   useListQueryParam,
   useNumericQueryParam,
+  useQueryParam,
   useSetParam
 } from "../../shared/useQueryParam";
+import Busca from "./Busca";
 import Paginacao from "./Paginacao";
 
 function EventosPage() {
   const page = useNumericQueryParam("page");
   const estados = useListQueryParam("estados");
+  const expressao = useQueryParam("expressao") || "";
   const navigate = useNavigate();
   const setParam = useSetParam();
 
@@ -25,10 +28,11 @@ function EventosPage() {
     estadosAjustado.push(PROCESSADO_COM_ERRO);
   }
 
-  const { data: ocorrenciaPage = {}, isLoading } = useOcorrenciasPaginado(
-    page,
-    estadosAjustado
-  );
+  const {
+    data: ocorrenciaPage = {},
+    isLoading,
+    isFetched
+  } = useOcorrenciasPaginado(page, estadosAjustado, expressao);
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;
 
@@ -41,14 +45,16 @@ function EventosPage() {
       <PageHeader
         primary="Eventos"
         secondary="Nesta página é possível visualizar informações de todos eventos enviados para o eSocial"
+        commands={[!isFetched ? <CircularProgress size={20} /> : undefined]}
       />
+      <Busca />
       <FiltroEstados contagemEstado={contagemEstado} />
 
       <DataPanel
         loading={isLoading}
         isEmpty={pagina.empty}
         emptyMessage={
-          estados.length
+          estados.length || expressao
             ? "Nenhum evento com os filtros selecionados"
             : "Nenhum evento enviado para o eSocial"
         }
@@ -56,7 +62,7 @@ function EventosPage() {
       >
         <Grid container justifyContent="space-between">
           <Grid item></Grid>
-          <Paginacao pagina={pagina} page={page} />
+          <Paginacao pagina={pagina} page={page} expressao={expressao} />
         </Grid>
 
         <PainelOcorrencias ocorrencias={ocorrencias} />

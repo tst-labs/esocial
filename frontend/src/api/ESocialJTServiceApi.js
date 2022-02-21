@@ -13,9 +13,9 @@ export function useOcorrencias() {
   });
 }
 
-export function useOcorrenciasPaginado(page = 0, estados = []) {
+export function useOcorrenciasPaginado(page = 0, estados = [], expressao = "") {
   return useQuery(
-    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}`,
+    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}`,
     queryFetcher,
     {
       refetchInterval: REFRESH_INTERVAL,

@@ -3,11 +3,21 @@ import { Box } from "@mui/system";
 import { Link } from "react-router-dom";
 import { useSetParam } from "../../shared/useQueryParam";
 
-function Paginacao({ pagina, page }) {
+function Paginacao({ pagina, page, expressao }) {
   const setParam = useSetParam();
   return (
     pagina.totalElements > 0 && (
       <Box>
+        {expressao && (
+          <Typography
+            variant="body2"
+            component="span"
+            sx={{ fontStyle: "italic" }}
+            marginRight={2}
+          >
+            {`Pesquisa: "${expressao}"`}{" "}
+          </Typography>
+        )}
         <Typography variant="body2" component="span">
           {`${inicial(pagina)}-${final(pagina)} de ${pagina.totalElements}`}{" "}
         </Typography>

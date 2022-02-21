@@ -17,7 +17,6 @@ function FiltroEstados({ contagemEstado }) {
   const navigate = useNavigate();
 
   const handleEstados = (event, novosEstados) => {
-    console.log("navegou");
     navigate(`/?${setParam("estados", novosEstados.join(","))}`);
   };
 
