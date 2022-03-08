@@ -21,6 +21,7 @@ import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
+import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -52,12 +53,25 @@ public class OcorrenciaResource {
 			@RequestParam(defaultValue = "0") int page,
 			@RequestParam(defaultValue = "20") int size,
 			@RequestParam(required = false, defaultValue = "") List<Long> estados,
-			@RequestParam(required = false, defaultValue = "") String expressao) {
+			@RequestParam(required = false, defaultValue = "") String expressao,
+			@RequestParam(required = false, defaultValue = "") List<Long> tipos) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(id -> new Estado(id))
 									.collect(Collectors.toList());
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao);
+		
+		List<TipoEvento> tiposObj = tipos
+									.stream()
+									.map(id -> new TipoEvento(id))
+									.collect(Collectors.toList());
+		
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj);
+	}
+	
+	@Operation(summary = "Consulta os tipos já enviados para o esocial.")
+	@GetMapping("/tipos")
+	public List<Long> listarTiposExistentes() {
+		return ocorrenciaServico.buscarTiposEnviados();
 	}
 
 	@Operation(summary ="Consulta uma ocorrência especificada pelo id.")
