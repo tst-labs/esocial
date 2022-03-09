@@ -49,13 +49,14 @@ public class OcorrenciaServico {
 		return repository.findAll();
 	}
 	
-	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao) {
+	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
 		Page<Ocorrencia> pagina = repository.findAll(
 					specs.nosEstados(estados)
-					.and(specs.comExpressao(expressao)), 
+					.and(specs.comExpressao(expressao))
+					.and(specs.dosTipos(tipos)), 
 					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
@@ -65,11 +66,16 @@ public class OcorrenciaServico {
 											.map(e -> {
 												long count = repository.count(
 														specs.nosEstados(Arrays.asList(e))
-														.and(specs.comExpressao(expressao)));
+														.and(specs.comExpressao(expressao))
+														.and(specs.dosTipos(tipos)));
 												return new ContagemEstado(e.getId(), count);
 											}).collect(Collectors.toList());
 		
 		return ocorrenciaPage;
+	}
+	
+	public List<Long> buscarTiposEnviados(){
+		return repository.buscarTiposEnviados();
 	}
 
 	public List<OcorrenciaDadosBasicosDTO> recuperaDadosBasicos() {

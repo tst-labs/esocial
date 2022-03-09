@@ -13,9 +13,14 @@ export function useOcorrencias() {
   });
 }
 
-export function useOcorrenciasPaginado(page = 0, estados = [], expressao = "") {
+export function useOcorrenciasPaginado(
+  page = 0,
+  estados = [],
+  expressao = "",
+  tipo = ""
+) {
   return useQuery(
-    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}`,
+    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}`,
     queryFetcher,
     {
       refetchInterval: REFRESH_INTERVAL,
@@ -28,6 +33,10 @@ export function useDetalheOcorrencia(id) {
   return useQuery(`/ocorrencias/${id}`, queryFetcher, {
     refetchInterval: REFRESH_INTERVAL
   });
+}
+
+export function useTiposEnviados() {
+  return useQuery(`/ocorrencias/tipos`, queryFetcher);
 }
 
 export function useLimparProducaoRestrita() {

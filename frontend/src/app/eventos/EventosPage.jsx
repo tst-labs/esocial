@@ -20,8 +20,11 @@ function EventosPage() {
   const page = useNumericQueryParam("page");
   const estados = useListQueryParam("estados");
   const expressao = useQueryParam("expressao") || "";
+  const tipo = useListQueryParam("tipo");
   const navigate = useNavigate();
   const setParam = useSetParam();
+
+  const filtrado = estados.length || tipo || expressao;
 
   const estadosAjustado = [...estados];
   if (estados.includes(ERRO)) {
@@ -32,7 +35,7 @@ function EventosPage() {
     data: ocorrenciaPage = {},
     isLoading,
     isFetched
-  } = useOcorrenciasPaginado(page, estadosAjustado, expressao);
+  } = useOcorrenciasPaginado(page, estadosAjustado, expressao, tipo);
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;
 
@@ -54,7 +57,7 @@ function EventosPage() {
         loading={isLoading}
         isEmpty={pagina.empty}
         emptyMessage={
-          estados.length || expressao
+          filtrado
             ? "Nenhum evento com os filtros selecionados"
             : "Nenhum evento enviado para o eSocial"
         }

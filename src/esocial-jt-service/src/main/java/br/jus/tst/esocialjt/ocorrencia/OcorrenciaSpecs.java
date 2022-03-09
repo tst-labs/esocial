@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
+import br.jus.tst.esocialjt.dominio.TipoEvento;
 
 @Component
 public class OcorrenciaSpecs {
@@ -20,5 +21,9 @@ public class OcorrenciaSpecs {
 	
 	public Specification<Ocorrencia> comExpressao(String expressao) {
 		return (root, query, cb) -> StringUtils.isBlank(expressao) ? cb.and() : cb.like(cb.lower(root.get("txtDadosOcorrencia")), "%"+expressao.toLowerCase()+"%");
+	}
+	
+	public Specification<Ocorrencia> dosTipos(List<TipoEvento> tipos) {
+		return (root, query, cb) -> isEmpty(tipos) ? cb.and() : root.get("evento").get("tipoEvento").in(tipos);
 	}
 }
