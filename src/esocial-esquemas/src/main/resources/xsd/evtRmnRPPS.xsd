@@ -38,7 +38,7 @@
                             <xs:element name="ideTrabalhador">
                                 <xs:annotation>
                                     <xs:documentation>Identificação do trabalhador.</xs:documentation>
-                                    <xs:documentation>CHAVE_GRUPO: {cpfTrab}</xs:documentation>
+                                    <xs:documentation>CHAVE_GRUPO: {cpfTrab*}</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>

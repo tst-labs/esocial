@@ -8,7 +8,7 @@ public class InfoBenTermino {
 	@NotNull
 	private Calendar dtTermBeneficio;
 	@NotNull
-	private byte mtvTermino;
+	private String mtvTermino;
 
 	public Calendar getDtTermBeneficio() {
 		return dtTermBeneficio;
@@ -18,11 +18,11 @@ public class InfoBenTermino {
 		this.dtTermBeneficio = dtTermBeneficio;
 	}
 
-	public byte getMtvTermino() {
+	public String getMtvTermino() {
 		return mtvTermino;
 	}
 
-	public void setMtvTermino(byte mtvTermino) {
+	public void setMtvTermino(String mtvTermino) {
 		this.mtvTermino = mtvTermino;
 	}
 }

@@ -21,7 +21,7 @@
                                 <xs:annotation>
                                     <xs:documentation>Identificação do trabalhador</xs:documentation>
                                     <xs:documentation>DESCRICAO_COMPLETA:Grupo que apresenta a identificação básica do trabalhador ao qual se refere o evento de retorno.</xs:documentation>
-                                    <xs:documentation>CHAVE_GRUPO: {cpfTrab}</xs:documentation>
+                                    <xs:documentation>CHAVE_GRUPO: {cpfTrab*}</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
@@ -43,6 +43,18 @@
                                                 <xs:documentation>Se informada, deve corresponder ao dia 7 (sete) do mês subsequente ao indicado em {perApur}(5003_ideEvento_perApur), se esse dia for útil. Caso não seja, deve corresponder ao dia útil imediatamente anterior.</xs:documentation>
                                                 <xs:documentation>Considera-se como dia não útil o sábado, o domingo e todo aquele constante do Calendário Nacional de feriados bancários divulgados pelo Banco Central do Brasil.</xs:documentation>
                                             </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="classTrib" minOccurs="0">
+                                            <xs:simpleType>
+                                                <xs:annotation>
+                                                    <xs:documentation>Preencher com o código correspondente à classificação tributária do contribuinte, conforme Tabela 08.</xs:documentation>
+                                                    <xs:documentation>Evento de origem: S-1000.</xs:documentation>
+                                                    <xs:documentation>Validação: Retornar somente se for igual a [04, 22].</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:pattern value="\d{2}" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
                                         </xs:element>
                                         <xs:element name="ideEstab" maxOccurs="unbounded">
                                             <xs:annotation>

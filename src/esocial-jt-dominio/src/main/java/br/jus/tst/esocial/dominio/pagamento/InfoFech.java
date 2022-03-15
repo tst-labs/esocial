@@ -19,6 +19,8 @@ public class InfoFech {
 	private SimNao evtInfoComplPer;
 	
 	private String indExcApur1250;
+	
+	private String transDCTFWeb;
 
 	public SimNao getEvtRemun() {
 		return evtRemun;
@@ -58,6 +60,14 @@ public class InfoFech {
 
 	public void setIndExcApur1250(String indExcApur1250) {
 		this.indExcApur1250 = indExcApur1250;
+	}
+
+	public String getTransDCTFWeb() {
+		return transDCTFWeb;
+	}
+
+	public void setTransDCTFWeb(String transDCTFWeb) {
+		this.transDCTFWeb = transDCTFWeb;
 	}
 
 }
