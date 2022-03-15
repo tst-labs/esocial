@@ -29,7 +29,7 @@
                             <xs:element name="beneficiario">
                                 <xs:annotation>
                                     <xs:documentation>Informações do beneficiário.</xs:documentation>
-                                    <xs:documentation>CHAVE_GRUPO: {cpfBenef}</xs:documentation>
+                                    <xs:documentation>CHAVE_GRUPO: {cpfBenef*}</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
@@ -61,7 +61,7 @@
                             <xs:element name="infoBenInicio">
                                 <xs:annotation>
                                     <xs:documentation>Informações do benefício - Início.</xs:documentation>
-                                    <xs:documentation>CHAVE_GRUPO: {nrBeneficio}</xs:documentation>
+                                    <xs:documentation>CHAVE_GRUPO: {nrBeneficio*}</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
@@ -157,7 +157,7 @@
                                                                             <xs:element name="cpfInst" type="TS_cpf">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Preencher com o CPF do instituidor da pensão por morte.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser um CPF válido.</xs:documentation>
+                                                                                    <xs:documentation>Validação: Deve ser um CPF válido e diferente do CPF do beneficiário.</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
                                                                             <xs:element name="dtInst" type="xs:date">
@@ -254,7 +254,7 @@
                                                                 <xs:documentation>Motivo da cessação do benefício.</xs:documentation>
                                                                 <xs:documentation>Validação: Deve ser um código válido e existente na Tabela 26, com exceção dos códigos [09, 10].</xs:documentation>
                                                             </xs:annotation>
-                                                            <xs:restriction base="xs:byte">
+                                                            <xs:restriction base="xs:string">
                                                                 <xs:pattern value="\d{2}" />
                                                             </xs:restriction>
                                                         </xs:simpleType>

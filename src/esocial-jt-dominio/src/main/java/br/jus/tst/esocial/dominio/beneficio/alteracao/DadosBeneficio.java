@@ -1,6 +1,5 @@
 package br.jus.tst.esocial.dominio.beneficio.alteracao;
 
-import java.math.BigInteger;
 import java.util.Objects;
 
 import javax.validation.Valid;
@@ -10,7 +9,7 @@ import br.jus.tst.esocial.dominio.enums.SimNao;
 
 public class DadosBeneficio {
 	@NotNull
-	private BigInteger tpBeneficio;
+	private String tpBeneficio;
 
 	@NotNull
 	private byte tpPlanRP;
@@ -25,11 +24,11 @@ public class DadosBeneficio {
 	@Valid
 	private Suspensao suspensao;
 	
-	public BigInteger getTpBeneficio() {
+	public String getTpBeneficio() {
 		return tpBeneficio;
 	}
 
-	public void setTpBeneficio(BigInteger tpBeneficio) {
+	public void setTpBeneficio(String tpBeneficio) {
 		this.tpBeneficio = tpBeneficio;
 	}
 

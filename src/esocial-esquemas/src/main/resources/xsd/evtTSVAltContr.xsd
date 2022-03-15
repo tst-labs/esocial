@@ -30,7 +30,7 @@
                             <xs:element name="infoTSVAlteracao">
                                 <xs:annotation>
                                     <xs:documentation>TSVE - Alteração Contratual.</xs:documentation>
-                                    <xs:documentation>CHAVE_GRUPO: {dtAlteracao}</xs:documentation>
+                                    <xs:documentation>CHAVE_GRUPO: {dtAlteracao*}</xs:documentation>
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
