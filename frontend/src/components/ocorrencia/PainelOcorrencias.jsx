@@ -4,33 +4,44 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Paper,
-  Tooltip
+  Paper
 } from "@mui/material";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { formataDataLegal } from "../../shared/dataUtil";
-import {
-  getDataGeracao,
-  getResumo,
-  getTitulo
-} from "../../shared/ocorrenciaUtil";
+import { getResumo, getTitulo } from "../../shared/ocorrenciaUtil";
 import { useQuery } from "../../shared/useQueryParam";
+import ArquivarButton from "../arquivar/ArquivarButton";
 import IconEstado from "../estado/IconEstado";
 import ErrosResumo from "./ErrosResumo";
 
 function PainelOcorrencias({ ocorrencias }) {
+  const [hoverId, setHoverId] = useState();
   const query = useQuery();
+
   if (!ocorrencias) return null;
 
   return (
     <List component={Paper} sx={{ padding: 0 }}>
       {ocorrencias.map((ocorrencia) => (
         <ListItem
+          onMouseLeave={() => setHoverId(null)}
+          onMouseOver={() => setHoverId(ocorrencia.id)}
           key={ocorrencia.id}
           sx={{ borderBottom: "1px rgb(224, 224, 224) solid" }}
           button
           component={Link}
           to={`/eventos/${ocorrencia.id}?${query.toString()}`}
+          secondaryAction={
+            hoverId === ocorrencia.id || ocorrencia.arquivado ? (
+              <ArquivarButton ocorrencia={ocorrencia} />
+            ) : (
+              <ListItemText
+                secondary={formataDataLegal(ocorrencia.dataRecebimento)}
+                sx={{ whiteSpace: "nowrap" }}
+              />
+            )
+          }
         >
           <ListItemIcon>
             <IconEstado estado={ocorrencia.evento?.estado} />
@@ -43,14 +54,6 @@ function PainelOcorrencias({ ocorrencias }) {
                 primaryTypographyProps={{ sx: { fontWeight: "500" } }}
               />
               <ErrosResumo ocorrencia={ocorrencia} />
-            </Grid>
-            <Grid item>
-              <Tooltip title={getDataGeracao(ocorrencia.dataRecebimento)}>
-                <ListItemText
-                  secondary={formataDataLegal(ocorrencia.dataRecebimento)}
-                  sx={{ whiteSpace: "nowrap" }}
-                />
-              </Tooltip>
             </Grid>
           </Grid>
         </ListItem>

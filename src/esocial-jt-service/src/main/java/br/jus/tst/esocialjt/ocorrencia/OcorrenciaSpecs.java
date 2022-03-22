@@ -26,4 +26,8 @@ public class OcorrenciaSpecs {
 	public Specification<Ocorrencia> dosTipos(List<TipoEvento> tipos) {
 		return (root, query, cb) -> isEmpty(tipos) ? cb.and() : root.get("evento").get("tipoEvento").in(tipos);
 	}
+	
+	public Specification<Ocorrencia> incluirArquivados(boolean incluir) {
+		return (root, query, cb) -> incluir ? cb.and() : root.get("arquivado").isNull();
+	}
 }

@@ -62,7 +62,7 @@ export default function useFeedback() {
   function showSuccess(message, options = {}) {
     enqueueSnackbar(message, {
       ...options,
-      preventDuplicate: true,
+      preventDuplicate: false,
       anchorOrigin,
       content: (key) => content(key, message, "success")
     });

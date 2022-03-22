@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useDetalheOcorrencia } from "../../api/ESocialJTServiceApi";
+import ArquivarButton from "../../components/arquivar/ArquivarButton";
 import DataPanel from "../../components/data/DataPanel";
 import LabelEstado from "../../components/estado/LabelEstado";
 import JsonPanel from "../../components/json-panel/JsonPanel";
@@ -18,9 +19,16 @@ function EventoDetalhePage() {
     <Page>
       <DataPanel loading={isLoading}>
         <PageHeader
+          sx={{
+            position: "sticky",
+            top: 30,
+            backgroundColor: (theme) => theme.palette.background.default,
+            zIndex: (theme) => theme.zIndex.drawer
+          }}
           primary={getTitulo(ocorrencia)}
           secondary={getDataGeracao(ocorrencia.dataRecebimento)}
           commands={[
+            <ArquivarButton ocorrencia={ocorrencia} />,
             <LabelEstado
               estado={ocorrencia.evento && ocorrencia.evento.estado}
             />,

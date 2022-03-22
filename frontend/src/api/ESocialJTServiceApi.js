@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "react-query";
+import useFeedback from "../components/feedback/useFeedback";
 import { ESOCIAL_JT_SERVICE_URL } from "../shared/env";
 import createApi, { createQueryFetcher } from "./api";
 
@@ -17,16 +18,14 @@ export function useOcorrenciasPaginado(
   page = 0,
   estados = [],
   expressao = "",
-  tipo = ""
+  tipo = "",
+  incluirArquivados = false
 ) {
-  return useQuery(
-    `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}`,
-    queryFetcher,
-    {
-      refetchInterval: REFRESH_INTERVAL,
-      keepPreviousData: true
-    }
-  );
+  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}`;
+  return useQuery(query, queryFetcher, {
+    refetchInterval: REFRESH_INTERVAL,
+    keepPreviousData: true
+  });
 }
 
 export function useDetalheOcorrencia(id) {
@@ -56,4 +55,26 @@ export function useESocialJTStatus() {
 
 export function useESocialGovStatus() {
   return useQuery(`/actuator/esocialhealth`, queryFetcher);
+}
+
+export function useArquivar() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation((id) => api.post(`/ocorrencias/${id}/acoes/arquivar`), {
+    onSuccess: () =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showSuccess(`Evento arquivado`))
+  });
+}
+
+export function useDesarquivar() {
+  const queryClient = useQueryClient();
+  const { showInfo } = useFeedback();
+  return useMutation((id) => api.post(`/ocorrencias/${id}/acoes/desarquivar`), {
+    onSuccess: () =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showInfo(`Evento desarquivado`))
+  });
 }
