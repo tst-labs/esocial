@@ -19,12 +19,6 @@ function EventoDetalhePage() {
     <Page>
       <DataPanel loading={isLoading}>
         <PageHeader
-          sx={{
-            position: "sticky",
-            top: 30,
-            backgroundColor: (theme) => theme.palette.background.default,
-            zIndex: (theme) => theme.zIndex.drawer
-          }}
           primary={getTitulo(ocorrencia)}
           secondary={getDataGeracao(ocorrencia.dataRecebimento)}
           commands={[
