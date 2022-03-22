@@ -54,7 +54,8 @@ public class OcorrenciaResource {
 			@RequestParam(defaultValue = "20") int size,
 			@RequestParam(required = false, defaultValue = "") List<Long> estados,
 			@RequestParam(required = false, defaultValue = "") String expressao,
-			@RequestParam(required = false, defaultValue = "") List<Long> tipos) {
+			@RequestParam(required = false, defaultValue = "") List<Long> tipos,
+			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(id -> new Estado(id))
@@ -65,7 +66,7 @@ public class OcorrenciaResource {
 									.map(id -> new TipoEvento(id))
 									.collect(Collectors.toList());
 		
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados);
 	}
 	
 	@Operation(summary = "Consulta os tipos já enviados para o esocial.")
@@ -106,6 +107,18 @@ public class OcorrenciaResource {
 	public OcorrenciaDTO getExemplosPorTipo(@PathVariable("tipo") TipoOcorrencia tipo) 
 			throws EntidadeNaoExisteException, IOException {
 		return exemploServico.lerOcorrenciaDTO(tipo);
+	}
+	
+	@Operation(summary ="Arquivar uma ocorrência especificada pelo id.")
+	@PostMapping("/{id}/acoes/arquivar")
+	public int arquivarOcorrenciaPorId(@PathVariable("id") long id) {
+		return ocorrenciaServico.arquivar(id);
+	}
+	
+	@Operation(summary ="Desarquivar uma ocorrência especificada pelo id.")
+	@PostMapping("/{id}/acoes/desarquivar")
+	public int desarquivarOcorrenciaPorId(@PathVariable("id") long id) {
+		return ocorrenciaServico.desarquivar(id);
 	}
 
 }

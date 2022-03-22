@@ -96,6 +96,9 @@ public class Ocorrencia implements Serializable {
 	@OneToOne(mappedBy = "ocorrencia", cascade = { CascadeType.ALL,
 			CascadeType.REMOVE }, orphanRemoval = true, fetch = FetchType.LAZY, optional = true)
 	private Evento evento;
+	
+	@Column(name = "IND_ARQUIVADO")
+	private String arquivado;
 
 	public Long getId() {
 		return id;
@@ -193,6 +196,14 @@ public class Ocorrencia implements Serializable {
 
 	protected String getTxtDadosOcorrencia() {
 		return txtDadosOcorrencia;
+	}
+
+	public String getArquivado() {
+		return arquivado;
+	}
+
+	public void setArquivado(String arquivado) {
+		this.arquivado = arquivado;
 	}
 
 	protected Ocorrencia setTxtDadosOcorrencia(String txtDadosOcorrencia) {

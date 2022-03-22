@@ -1,4 +1,7 @@
 import {
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
   Grid,
   Icon,
   IconButton,
@@ -15,8 +18,11 @@ import { useQueryParam, useSetParam } from "../../shared/useQueryParam";
 function Busca() {
   const expressaoIni = useQueryParam("expressao") || "";
   const tipoIni = useQueryParam("tipo") || "";
+  const incluirArquivadosIni = useQueryParam("incluirArquivados") === "true";
   const [expressao, setExpressao] = useState(expressaoIni);
   const [tipo, setTipo] = useState(tipoIni);
+  const [incluirArquivados, setIncluirArquivados] =
+    useState(incluirArquivadosIni);
   const setParam = useSetParam();
   const navigate = useNavigate();
 
@@ -35,10 +41,16 @@ function Busca() {
   // eslint-disable-next-line
   useEffect(() => navigate(`/?${setParam("tipo", tipo)}`), [tipo]);
 
+  useEffect(
+    () => navigate(`/?${setParam("incluirArquivados", incluirArquivados)}`),
+    // eslint-disable-next-line
+    [incluirArquivados]
+  );
+
   return (
     <Box marginBottom={2}>
       <Grid container spacing={2}>
-        <Grid item xs={10}>
+        <Grid item xs={7}>
           <form onSubmit={handleSubmit}>
             <TextField
               value={expressao}
@@ -82,6 +94,19 @@ function Busca() {
               <MenuItem key={option} value={option}>{`S${option}`}</MenuItem>
             ))}
           </TextField>
+        </Grid>
+        <Grid item xs={3}>
+          <FormGroup sx={{ color: "rgba(0, 0, 0, 0.6)" }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={incluirArquivados}
+                  onChange={(e) => setIncluirArquivados(e.target.checked)}
+                />
+              }
+              label="Incluir arquivados"
+            />
+          </FormGroup>
         </Grid>
       </Grid>
     </Box>

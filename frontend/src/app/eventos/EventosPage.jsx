@@ -21,11 +21,11 @@ function EventosPage() {
   const estados = useListQueryParam("estados");
   const expressao = useQueryParam("expressao") || "";
   const tipo = useListQueryParam("tipo");
+  const incluirArquivados = useQueryParam("incluirArquivados") || false;
   const navigate = useNavigate();
   const setParam = useSetParam();
 
-  const filtrado = estados.length || tipo || expressao;
-
+  const filtrado = estados?.length || tipo?.length || expressao;
   const estadosAjustado = [...estados];
   if (estados.includes(ERRO)) {
     estadosAjustado.push(PROCESSADO_COM_ERRO);
@@ -35,7 +35,13 @@ function EventosPage() {
     data: ocorrenciaPage = {},
     isLoading,
     isFetched
-  } = useOcorrenciasPaginado(page, estadosAjustado, expressao, tipo);
+  } = useOcorrenciasPaginado(
+    page,
+    estadosAjustado,
+    expressao,
+    tipo,
+    incluirArquivados
+  );
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;
 

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import LoadingSkeleton from "../loading/LoadingSkeleton";
 
-function PageHeader({ primary, secondary, commands, loading }) {
+function PageHeader({ primary, secondary, commands, loading, sx }) {
   return (
-    <Grid container justifyContent="space-between" alignItems="center">
+    <Grid sx={sx} container justifyContent="space-between" alignItems="center">
       <Grid item xs>
         <Grid sx={{ paddingY: 2 }} container>
           <Grid container alignItems="center" spacing={2} wrap="nowrap">

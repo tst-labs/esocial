@@ -49,14 +49,16 @@ public class OcorrenciaServico {
 		return repository.findAll();
 	}
 	
-	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos) {
+	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos,
+			boolean incluirArquivados) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
 		Page<Ocorrencia> pagina = repository.findAll(
 					specs.nosEstados(estados)
 					.and(specs.comExpressao(expressao))
-					.and(specs.dosTipos(tipos)), 
+					.and(specs.dosTipos(tipos))
+					.and(specs.incluirArquivados(incluirArquivados)), 
 					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
@@ -67,7 +69,8 @@ public class OcorrenciaServico {
 												long count = repository.count(
 														specs.nosEstados(Arrays.asList(e))
 														.and(specs.comExpressao(expressao))
-														.and(specs.dosTipos(tipos)));
+														.and(specs.dosTipos(tipos))
+														.and(specs.incluirArquivados(incluirArquivados)));
 												return new ContagemEstado(e.getId(), count);
 											}).collect(Collectors.toList());
 		
@@ -104,6 +107,16 @@ public class OcorrenciaServico {
 		Evento evento = eventoServico.gerarEvento(ocorrencia, tipoEvento);
 		ocorrencia.setEvento(evento);
 		return atualizar(ocorrencia);
+	}
+	
+	@Transactional
+	public int arquivar(long id) {
+		return repository.arquivar(id);
+	}
+	
+	@Transactional
+	public int desarquivar(long id) {
+		return repository.desarquivar(id);
 	}
 
 }
