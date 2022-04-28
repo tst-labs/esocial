@@ -216,6 +216,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *                                                 &lt;element name="indRemunCargo" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_indRemunCargo" minOccurs="0"/>
  *                                                 &lt;element name="tpRegTrab" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegTrab"/>
  *                                                 &lt;element name="tpRegPrev" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegPrev"/>
+ *                                                 &lt;element name="categOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codCateg"/>
+ *                                                 &lt;element name="cnpjOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_cnpj"/>
+ *                                                 &lt;element name="matricOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codigo_esocial"/>
+ *                                                 &lt;element name="dtExercOrig" type="{http://www.w3.org/2001/XMLSchema}date"/>
  *                                               &lt;/sequence>
  *                                             &lt;/restriction>
  *                                           &lt;/complexContent>
@@ -533,6 +537,10 @@ public class ESocial {
      *                                       &lt;element name="indRemunCargo" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_indRemunCargo" minOccurs="0"/>
      *                                       &lt;element name="tpRegTrab" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegTrab"/>
      *                                       &lt;element name="tpRegPrev" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegPrev"/>
+     *                                       &lt;element name="categOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codCateg"/>
+     *                                       &lt;element name="cnpjOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_cnpj"/>
+     *                                       &lt;element name="matricOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codigo_esocial"/>
+     *                                       &lt;element name="dtExercOrig" type="{http://www.w3.org/2001/XMLSchema}date"/>
      *                                     &lt;/sequence>
      *                                   &lt;/restriction>
      *                                 &lt;/complexContent>
@@ -839,6 +847,10 @@ public class ESocial {
          *                             &lt;element name="indRemunCargo" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_indRemunCargo" minOccurs="0"/>
          *                             &lt;element name="tpRegTrab" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegTrab"/>
          *                             &lt;element name="tpRegPrev" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegPrev"/>
+         *                             &lt;element name="categOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codCateg"/>
+         *                             &lt;element name="cnpjOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_cnpj"/>
+         *                             &lt;element name="matricOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codigo_esocial"/>
+         *                             &lt;element name="dtExercOrig" type="{http://www.w3.org/2001/XMLSchema}date"/>
          *                           &lt;/sequence>
          *                         &lt;/restriction>
          *                       &lt;/complexContent>
@@ -1333,6 +1345,10 @@ public class ESocial {
              *                   &lt;element name="indRemunCargo" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_indRemunCargo" minOccurs="0"/>
              *                   &lt;element name="tpRegTrab" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegTrab"/>
              *                   &lt;element name="tpRegPrev" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegPrev"/>
+             *                   &lt;element name="categOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codCateg"/>
+             *                   &lt;element name="cnpjOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_cnpj"/>
+             *                   &lt;element name="matricOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codigo_esocial"/>
+             *                   &lt;element name="dtExercOrig" type="{http://www.w3.org/2001/XMLSchema}date"/>
              *                 &lt;/sequence>
              *               &lt;/restriction>
              *             &lt;/complexContent>
@@ -1953,6 +1969,10 @@ public class ESocial {
                  *         &lt;element name="indRemunCargo" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_indRemunCargo" minOccurs="0"/>
                  *         &lt;element name="tpRegTrab" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegTrab"/>
                  *         &lt;element name="tpRegPrev" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_tpRegPrev"/>
+                 *         &lt;element name="categOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codCateg"/>
+                 *         &lt;element name="cnpjOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_cnpj"/>
+                 *         &lt;element name="matricOrig" type="{http://www.esocial.gov.br/schema/evt/evtTSVInicio/v_S_01_00_00}TS_codigo_esocial"/>
+                 *         &lt;element name="dtExercOrig" type="{http://www.w3.org/2001/XMLSchema}date"/>
                  *       &lt;/sequence>
                  *     &lt;/restriction>
                  *   &lt;/complexContent>
@@ -1965,14 +1985,22 @@ public class ESocial {
                 @XmlType(name = "", propOrder = {
                     "indRemunCargo",
                     "tpRegTrab",
-                    "tpRegPrev"
+                    "tpRegPrev",
+                    "categOrig",
+                    "cnpjOrig",
+                    "matricOrig",
+                    "dtExercOrig"
                 })
                 public static class InfoMandElet {
-
                     @XmlSchemaType(name = "string")
                     protected TSSimNao indRemunCargo;
                     protected byte tpRegTrab;
                     protected byte tpRegPrev;
+                    protected BigInteger categOrig;
+                    protected String cnpjOrig;
+                    protected String matricOrig;
+                    @XmlSchemaType(name = "date")
+                    protected XMLGregorianCalendar dtExercOrig;
 
                     /**
                      * Gets the value of the indRemunCargo property.
@@ -2030,6 +2058,96 @@ public class ESocial {
                         this.tpRegPrev = value;
                     }
 
+                    /**
+                     * Gets the value of the categOrig property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link BigInteger }
+                     */
+                    public BigInteger getCategOrig() {
+                        return categOrig;
+                    }
+
+                    /**
+                     * Sets the value of the categOrig property.
+                     * 
+                     */
+                    public void setCategOrig(BigInteger value) {
+                        this.categOrig = value;
+                    }
+
+                    /**
+                     * Gets the value of the cnpjOrig property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getCnpjOrig() {
+                        return cnpjOrig;
+                    }
+
+                    /**
+                     * Sets the value of the cnpjOrig property.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setCnpjOrig(String value) {
+                        this.cnpjOrig = value;
+                    }
+
+                    /**
+                     * Gets the value of the matricOrig property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getMatricOrig() {
+                        return matricOrig;
+                    }
+
+                    /**
+                     * Sets the value of the matricOrig property.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setMatricOrig(String value) {
+                        this.matricOrig = value;
+                    }
+
+                    /**
+                     * Gets the value of the dtExercOrig property.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link XMLGregorianCalendar }
+                     *     
+                     */
+                    public XMLGregorianCalendar getDtExercOrig() {
+                        return dtExercOrig;
+                    }
+
+                    /**
+                     * Sets the value of the dtExercOrig property.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link XMLGregorianCalendar }
+                     *     
+                     */
+                    public void setDtExercOrig(XMLGregorianCalendar value) {
+                        this.dtExercOrig = value;
+                    }
                 }
 
 
