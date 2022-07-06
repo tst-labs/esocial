@@ -28,6 +28,8 @@ public class DadosEstab {
 
 	@Valid
 	private InfoTrab infoTrab;
+	
+	private String cnpjResp;
 
 	public InfoTrab getInfoTrab() {
 		return infoTrab;
@@ -105,6 +107,14 @@ public class DadosEstab {
 	public DadosEstab setCnaePrep(BigInteger cnaePrep) {
 		this.cnaePrep = cnaePrep;
 		return this;
+	}
+
+	public String getCnpjResp() {
+		return cnpjResp;
+	}
+
+	public void setCnpjResp(String cnpjResp) {
+		this.cnpjResp = cnpjResp;
 	}
 
 }

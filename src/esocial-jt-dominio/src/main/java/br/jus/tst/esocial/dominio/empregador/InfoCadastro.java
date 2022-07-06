@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.dominio.empregador;
 
+import java.util.Calendar;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -42,6 +44,8 @@ public class InfoCadastro {
 	
 	@Valid
 	private InfoOrgInternacional infoOrgInternacional;
+	
+	private Calendar dtTrans11096;
 	
 	/**
 	 * @return the classTrib
@@ -214,6 +218,14 @@ public class InfoCadastro {
 	public InfoCadastro setIndOpcCP(Byte indOpcCP) {
 		this.indOpcCP = indOpcCP;
 		return this;
+	}
+	
+	public Calendar getDtTrans11096() {
+		return dtTrans11096;
+	}
+
+	public void setDtTrans11096(Calendar dtTrans11096) {
+		this.dtTrans11096 = dtTrans11096;
 	}
 
 	@Override
