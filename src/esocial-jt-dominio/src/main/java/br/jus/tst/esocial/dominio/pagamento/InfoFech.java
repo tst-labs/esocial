@@ -21,6 +21,8 @@ public class InfoFech {
 	private String indExcApur1250;
 	
 	private String transDCTFWeb;
+	
+	private String naoValid;
 
 	public SimNao getEvtRemun() {
 		return evtRemun;
@@ -70,4 +72,11 @@ public class InfoFech {
 		this.transDCTFWeb = transDCTFWeb;
 	}
 
+	public String getNaoValid() {
+		return naoValid;
+	}
+
+	public void setNaoValid(String naoValid) {
+		this.naoValid = naoValid;
+	}
 }

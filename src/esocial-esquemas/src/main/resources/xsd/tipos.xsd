@@ -790,7 +790,8 @@
             <xs:element name="natEstagio">
                 <xs:simpleType>
                     <xs:annotation>
-                        <xs:documentation>Natureza do estágio.</xs:documentation>
+                        <xs:documentation>Natureza do estágio ou da prestação de serviço civil voluntário.</xs:documentation>
+                        <xs:documentation>Validação: Se o código de categoria for igual a [906], deve ser preenchido com [N].</xs:documentation>
                     </xs:annotation>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="O">
@@ -806,10 +807,11 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name="nivEstagio">
+            <xs:element name="nivEstagio" minOccurs="0" >
                 <xs:simpleType>
                     <xs:annotation>
-                        <xs:documentation>Informar o nível do estágio.</xs:documentation>
+                        <xs:documentation>Informar o nível do estágio ou da prestação de serviço civil voluntário.</xs:documentation>
+                        <xs:documentation>Validação: Preenchimento obrigatório se o código de categoria for igual a [901]. Se o código de categoria for igual a [906], não pode ser informado [9].</xs:documentation>
                     </xs:annotation>
                     <xs:restriction base="xs:byte">
                         <xs:enumeration value="1">
@@ -847,7 +849,7 @@
             </xs:element>
             <xs:element name="areaAtuacao" minOccurs="0" type="TS_texto_100">
                 <xs:annotation>
-                    <xs:documentation>Área de atuação do estagiário.</xs:documentation>
+                    <xs:documentation>Área de atuação do estagiário ou, no caso de prestação de serviço civil voluntário, jornada semanal do desempenho de atividades em formato decimal.</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="nrApol" minOccurs="0" type="TS_codigo_esocial">
@@ -857,19 +859,19 @@
             </xs:element>
             <xs:element name="dtPrevTerm" type="xs:date">
                 <xs:annotation>
-                    <xs:documentation>Data prevista para o término do estágio.</xs:documentation>
-                    <xs:documentation>Validação: Deve ser uma data posterior à data de início do estágio.</xs:documentation>
+                    <xs:documentation>Data prevista para o término do estágio ou da prestação de serviço civil voluntário.</xs:documentation>
+                    <xs:documentation>Validação: Deve ser uma data posterior à data de início do estágio ou da prestação de serviço civil voluntário.</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="instEnsino">
                 <xs:annotation>
-                    <xs:documentation>Instituição de ensino.</xs:documentation>
+                    <xs:documentation>Instituição de ensino ou entidade de formação/qualificação.</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="cnpjInstEnsino" minOccurs="0" type="TS_cnpj">
                             <xs:annotation>
-                                <xs:documentation>Preencher com o CNPJ da instituição de ensino. Deve ser preenchido apenas se a instituição de ensino for brasileira.</xs:documentation>
+                                <xs:documentation>Preencher com o CNPJ da instituição de ensino, no caso de estágio, ou da entidade de formação/qualificação, no caso de prestação de serviço civil voluntário. Deve ser preenchido apenas se a instituição/entidade for brasileira.</xs:documentation>
                                 <xs:documentation>Validação: Se informado, deve ser um CNPJ válido, com 14 (catorze) algarismos.</xs:documentation>
                             </xs:annotation>
                         </xs:element>
@@ -922,7 +924,7 @@
             <xs:element name="ageIntegracao" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Agente de integração.</xs:documentation>
-                    <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                    <xs:documentation>CONDICAO_GRUPO: OC (se o código de categoria for igual a [901]); N (nos demais casos)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
@@ -938,7 +940,7 @@
             <xs:element name="supervisorEstagio" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>Supervisor do estágio.</xs:documentation>
-                    <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                    <xs:documentation>CONDICAO_GRUPO: OC (se o código de categoria for igual a [901]); N (nos demais casos)</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
