@@ -10,18 +10,20 @@ import br.jus.tst.esocialjt.util.Sequencial;
 
 @Component
 public class GeradorId {
-	
+
 	@Autowired
 	private Sequencial sequencial;
-        
-        public String gerarId(String cnpj) {
+
+	public String gerarId(String cnpj) {
 		LocalDateTime date = LocalDateTime.now();
 		String seq = String.format("%05d", sequencial.proximo());
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
-                
-                //caso seja o CNPJ base acrescenta zeros para completar o tamanho
-                if (cnpj.length() == 8) cnpj = cnpj + "000000";
-        
+
+		// caso seja o CNPJ base acrescenta zeros para completar o tamanho
+		if (cnpj.length() == 8) {
+			cnpj = cnpj + "000000";
+		}
+
 		return "ID1" + cnpj + date.format(formatter).replace("+", "") + seq;
 	}
 
