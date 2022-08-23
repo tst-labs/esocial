@@ -1,9 +1,11 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-
 import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
 import br.jus.tst.esocial.dominio.pagamento.IdeBenef;
+
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class Pgtos extends DadosOcorrencia {
 
@@ -39,6 +41,24 @@ public class Pgtos extends DadosOcorrencia {
 	public int hashCode() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return null;
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional
+				.ofNullable(ideBenef)
+				.map(IdeBenef::getCpfBenef)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 
 }

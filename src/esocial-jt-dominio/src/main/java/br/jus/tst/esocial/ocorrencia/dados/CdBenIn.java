@@ -1,12 +1,13 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import java.util.Objects;
+import br.jus.tst.esocial.dominio.beneficio.inicio.Beneficiario;
+import br.jus.tst.esocial.dominio.beneficio.inicio.InfoBenInicio;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-
-import br.jus.tst.esocial.dominio.beneficio.inicio.Beneficiario;
-import br.jus.tst.esocial.dominio.beneficio.inicio.InfoBenInicio;
+import java.util.Calendar;
+import java.util.Objects;
+import java.util.Optional;
 
 public class CdBenIn extends DadosOcorrencia {
 	
@@ -49,5 +50,26 @@ public class CdBenIn extends DadosOcorrencia {
 			return false;
 		CdBenIn other = (CdBenIn) obj;
 		return Objects.equals(beneficiario, other.beneficiario) && Objects.equals(infoBenInicio, other.infoBenInicio);
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(infoBenInicio)
+				.map(InfoBenInicio::getDtIniBeneficio)
+				.orElse(null);
+	}
+	
+	
+	@Override
+	public String getCpf() {
+		return Optional
+				.ofNullable(beneficiario)
+				.map(Beneficiario::getCpfBenef)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 }

@@ -1,13 +1,15 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolhaSemRetificacao;
+import br.jus.tst.esocial.dominio.pagamento.InfoFech;
+import br.jus.tst.esocial.util.DataUtil;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolhaSemRetificacao;
-import br.jus.tst.esocial.dominio.pagamento.InfoFech;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class FechaEvPer extends DadosOcorrencia {
 
@@ -53,5 +55,24 @@ public class FechaEvPer extends DadosOcorrencia {
 				.append(infoFech)
 				.append(ideEmpregador)
 				.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolhaSemRetificacao::getPerApur)
+				.map(DataUtil::parseToCalendar)
+				.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return null;
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 }

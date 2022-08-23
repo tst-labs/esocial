@@ -1,19 +1,5 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -21,6 +7,21 @@ import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.EventoServico;
 import br.jus.tst.esocialjt.negocio.TipoEventoServico;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OcorrenciaServico {
@@ -42,6 +43,11 @@ public class OcorrenciaServico {
 
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
+		ocorrencia.setDataRecebimento(
+				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
+		ocorrencia.setCpf(ocorrencia.getDadosOcorrencia().getCpf());
+		ocorrencia.setMatricula(ocorrencia.getDadosOcorrencia().getMatricula());
+		
 		return gerarEvento(ocorrencia);
 	}
 
@@ -50,7 +56,7 @@ public class OcorrenciaServico {
 	}
 	
 	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos,
-			boolean incluirArquivados) {
+			boolean incluirArquivados, String cpf) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
@@ -58,7 +64,8 @@ public class OcorrenciaServico {
 					specs.nosEstados(estados)
 					.and(specs.comExpressao(expressao))
 					.and(specs.dosTipos(tipos))
-					.and(specs.incluirArquivados(incluirArquivados)), 
+					.and(specs.incluirArquivados(incluirArquivados)
+					.and(specs.comCPF(cpf))),
 					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
@@ -67,10 +74,11 @@ public class OcorrenciaServico {
 											.stream()
 											.map(e -> {
 												long count = repository.count(
-														specs.nosEstados(Arrays.asList(e))
+														specs.nosEstados(Collections.singletonList(e))
 														.and(specs.comExpressao(expressao))
 														.and(specs.dosTipos(tipos))
-														.and(specs.incluirArquivados(incluirArquivados)));
+														.and(specs.incluirArquivados(incluirArquivados))
+														.and(specs.comCPF(cpf)));
 												return new ContagemEstado(e.getId(), count);
 											}).collect(Collectors.toList());
 		

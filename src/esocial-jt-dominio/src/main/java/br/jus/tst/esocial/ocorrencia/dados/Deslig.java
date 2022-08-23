@@ -1,13 +1,14 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.desligamento.InfoDeslig;
+import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.desligamento.InfoDeslig;
-import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class Deslig extends DadosOcorrencia {
 	
@@ -53,6 +54,28 @@ public class Deslig extends DadosOcorrencia {
 					.append(ideEmpregador)
 					.append(ideVinculo)
 					.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional
+				.ofNullable(infoDeslig)
+				.map(InfoDeslig::getDtDeslig)
+				.orElse(null);
+	}
+	
+	@Override
+	public String getCpf() {
+		return Optional.ofNullable(ideVinculo)
+				.map(IdeVinculo::getCpfTrab)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return Optional.ofNullable(ideVinculo)
+				.map(IdeVinculo::getMatricula)
+				.orElse(null);
 	}
 
 }

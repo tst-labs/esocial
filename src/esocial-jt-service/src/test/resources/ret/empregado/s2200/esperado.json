@@ -1,0 +1,99 @@
+{
+  "dadosCadastrais": {
+    "cpfTrab": "77993893704",
+    "nmTrab": "LEIA ORGANA SOLO",
+    "sexo": "F",
+    "racaCor": 6,
+    "estCiv": 2,
+    "grauInstr": "10",
+    "nmSoc": null,
+    "nascimento": {
+      "dtNascto": 453524400000,
+      "paisNascto": "105",
+      "paisNac": "105"
+    },
+    "endereco": {
+      "brasil": {
+        "tpLograd": "IND",
+        "dscLograd": "SAFS QUADRA 0 LOTE 0",
+        "nrLograd": "1",
+        "complemento": "LOTE 0",
+        "bairro": "ZONA CÍVICO-ADMINISTRATIVA",
+        "cep": "70070943",
+        "codMunic": 5300108,
+        "uf": "DF"
+      },
+      "exterior": null
+    },
+    "infoDeficiencia": {
+      "defFisica": "N",
+      "defVisual": "N",
+      "defAuditiva": "N",
+      "defMental": "N",
+      "defIntelectual": "N",
+      "reabReadap": "N",
+      "observacao": null
+    },
+    "dependente": [
+      {
+        "tpDep": "03",
+        "nmDep": "BEN SOLO",
+        "dtNascto": 656391600000,
+        "cpfDep": "99645142393",
+        "depIRRF": "N",
+        "depSF": "N",
+        "incTrab": "N"
+      }
+    ],
+    "contato": {
+      "fonePrinc": "6130430001",
+      "emailPrinc": "leiaorgana@email.com"
+    }
+  },
+  "dadosContratuais": {
+    "matricula": "12000",
+    "tpRegTrab": 2,
+    "tpRegPrev": 2,
+    "infoRegimeTrab": {
+      "infoEstatutario": {
+        "tpProv": 1,
+        "dtExercicio": 535341600000,
+        "tpPlanRP": 1,
+        "indAbonoPerm": "N",
+        "indTetoRGPS": "N"
+      }
+    },
+    "infoContrato": {
+      "codCateg": 301,
+      "nmCargo": "GESTOR",
+      "cbocargo": 261205,
+      "localTrabalho": {
+        "localTrabGeral": {
+          "tpInsc": 1,
+          "nrInsc": "00509968000148",
+          "descComp": "TRIBUNAL SUPERIOR DO TRABALHO"
+        }
+      }
+    }
+  },
+  "dadosDesligamento": {
+    "infoDeslig": {
+      "dtDeslig": 1661192284000
+    }
+  },
+  "dadosAfastamentos": [
+    {
+      "iniAfastamento": {
+        "dtIniAfast": 1661192284000,
+        "codMotAfast": "01"
+      }
+    }
+  ],
+  "dadosCessoes": [
+    {
+      "iniCessao": {
+        "dtIniCessao": 1661192284000
+      }
+    }
+  ]
+}

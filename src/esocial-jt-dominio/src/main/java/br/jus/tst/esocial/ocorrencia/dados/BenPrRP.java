@@ -1,15 +1,16 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import br.jus.tst.esocial.dominio.beneficiario.IdeBenef;
 import br.jus.tst.esocial.dominio.beneficio.demonstrativovalores.DmDev;
 import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
+import br.jus.tst.esocial.util.DataUtil;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
 
 public class BenPrRP extends DadosOcorrencia {
 
@@ -58,6 +59,28 @@ public class BenPrRP extends DadosOcorrencia {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(ideEvento).append(ideEmpregador).append(ideBenef).append(dmDev).toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.map(DataUtil::parseToCalendar)
+				.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional
+				.ofNullable(ideBenef)
+				.map(IdeBenef::getCpfBenef)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 
 }

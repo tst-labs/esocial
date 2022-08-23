@@ -1,11 +1,14 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-
+import br.jus.tst.esocial.dominio.empregador.InfoEmpregador;
+import br.jus.tst.esocial.dominio.periodo.IdePeriodo;
+import br.jus.tst.esocial.util.DataUtil;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.empregador.InfoEmpregador;
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class InformacoesEmpregador extends DadosOcorrencia {
 
@@ -46,6 +49,25 @@ public class InformacoesEmpregador extends DadosOcorrencia {
 				.append(ideEmpregador)
 				.append(infoEmpregador)
 				.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(infoEmpregador)
+					.map(InfoEmpregador::getIdePeriodo)
+					.map(IdePeriodo::getIniValid)
+					.map(DataUtil::parseToCalendar)
+					.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return null;
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 
 }

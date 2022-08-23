@@ -1,16 +1,17 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import java.util.List;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-
 import br.jus.tst.esocial.dominio.demonstrativovalores.DmDev;
 import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
 import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
+import br.jus.tst.esocial.util.DataUtil;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
 
 public class RmnRPPS extends DadosOcorrencia {
 
@@ -73,5 +74,25 @@ public class RmnRPPS extends DadosOcorrencia {
 				.append(ideTrabalhador)
 				.append(dmDev)
 				.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.map(DataUtil::parseToCalendar)
+				.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional.ofNullable(ideTrabalhador)
+					.map(IdeTrabalhador::getCpfTrab)
+					.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 }

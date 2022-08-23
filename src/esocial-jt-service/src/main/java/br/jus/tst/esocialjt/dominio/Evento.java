@@ -1,31 +1,16 @@
 package br.jus.tst.esocialjt.dominio;
 
-import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
+import br.jus.tst.esocialjt.util.OcorrenciaJsonSerializer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import br.jus.tst.esocialjt.util.OcorrenciaJsonSerializer;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "EST_EVENTO")
@@ -46,6 +31,7 @@ public class Evento implements Serializable {
 	@OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	@JoinColumn(name = "COD_OCORRENCIA")
 	@JsonSerialize(using = OcorrenciaJsonSerializer.class)
+	@JsonBackReference
 	private Ocorrencia ocorrencia;
 
 	@JoinColumn(name = "COD_ESTADO", referencedColumnName = "COD_ESTADO")

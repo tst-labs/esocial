@@ -1,0 +1,73 @@
+{
+  "tipoOcorrencia": "ALTERACAO_CADASTRAL",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideTrabalhador": {
+      "cpfTrab": "77993893704"
+    },
+    "alteracao": {
+      "dtAlteracao": 1522181179561,
+      "dadosTrabalhador": {
+        "nmTrab": "LEIA ORGANA SOLO MOD",
+        "sexo": "M",
+        "racaCor": 1,
+        "estCiv": 1,
+        "grauInstr": "11",
+        "nmSoc": "PRINCESA LEIA",
+        "paisNac": "106",
+        "endereco": {
+          "brasil": {
+            "tpLograd": "IND",
+            "dscLograd": "SAFS QUADRA 0 LOTE 0 MOD",
+            "nrLograd": "1",
+            "complemento": "LOTE 0",
+            "bairro": "ZONA CÍVICO-ADMINISTRATIVA MOD",
+            "cep": "70070943",
+            "codMunic": 5300108,
+            "uf": "DF"
+          },
+          "exterior": null
+        },
+        "infoDeficiencia": {
+          "defFisica": "S",
+          "defVisual": "S",
+          "defAuditiva": "S",
+          "defMental": "S",
+          "defIntelectual": "S",
+          "reabReadap": "S",
+          "observacao": "OBS"
+        },
+        "dependente": [
+          {
+            "tpDep": "03",
+            "nmDep": "BEN SOLO",
+            "dtNascto": 656391600000,
+            "cpfDep": "99645142393",
+            "depIRRF": "N",
+            "depSF": "N",
+            "incTrab": "N"
+          },
+          {
+            "tpDep": "03",
+            "nmDep": "BENICIO SOLO",
+            "dtNascto": 656391600000,
+            "cpfDep": "99645142393",
+            "depIRRF": "S",
+            "depSF": "S",
+            "incTrab": "S"
+          }
+        ],
+        "contato": {
+          "fonePrinc": "6130430003",
+          "emailPrinc": "leiaorgana3@email.com"
+        }
+      }
+    }
+  }
+}

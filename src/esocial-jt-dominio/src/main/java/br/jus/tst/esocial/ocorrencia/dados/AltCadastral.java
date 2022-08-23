@@ -1,13 +1,14 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.Alteracao;
+import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.IdeTrabalhador;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.Alteracao;
-import br.jus.tst.esocial.dominio.trabalhador.alteracaocadastral.IdeTrabalhador;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class AltCadastral extends DadosOcorrencia {
 	
@@ -55,5 +56,25 @@ public class AltCadastral extends DadosOcorrencia {
 					.append(ideEmpregador)
 					.append(ideTrabalhador)
 					.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(alteracao)
+				.map(Alteracao::getDtAlteracao)
+				.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional
+					.ofNullable(ideTrabalhador)
+					.map(IdeTrabalhador::getCpfTrab)
+					.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
 	}
 }

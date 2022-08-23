@@ -1,19 +1,12 @@
 package br.jus.tst.esocialjt.dominio;
 
-import java.io.Serializable;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "EST_TIPO")
@@ -82,6 +75,12 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento FECHAMENTO_PERIODICOS = S1299;
 
 	public static final TipoEvento EXCLUSAO = S3000;
+
+	public static final TipoEvento[] naoPeriodicos = {
+			S2200, S2205, S2206, S2230, S2231, S2298, S2299,
+			S2300, S2306, S2399,
+			S2400, S2405, S2410, S2416, S2418, S2420
+	};
 
 	@Id
 	@Basic(optional = false)
