@@ -1,5 +1,9 @@
 package br.jus.tst.esocialjt;
 
+import br.jus.tst.esocialjt.auto.TimerEnvio;
+import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
+import br.jus.tst.esocialjt.infraestrutura.ProxyParams;
+import br.jus.tst.esocialjt.upgrade.UpgradeServico;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,10 +12,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.springframework.ws.client.WebServiceIOException;
-
-import br.jus.tst.esocialjt.auto.TimerEnvio;
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.infraestrutura.ProxyParams;
 
 @Component
 public class OnStartup {
@@ -32,12 +32,16 @@ public class OnStartup {
 	
 	@Value("${esocialjt.ambiente}")
 	TipoAmbiente ambiente;
+
+	@Autowired
+	private UpgradeServico upgradeServico;
 	
 	@EventListener(ApplicationReadyEvent.class)
 	public void postConstruct() {
 		LOGGER.info("Ambiente: " + ambiente);
 		if(runStartup) {
 			configurarProxy();
+			realizarUpgrades();
 			testarConexaoEsocial();
 			iniciarTimer();
 		}
@@ -69,5 +73,11 @@ public class OnStartup {
 		} catch (WebServiceIOException e) {
 			LOGGER.error(e.getMessage()+". Is proxyServer configured?", e);
 		}
+	}
+
+	private void realizarUpgrades() {
+		LOGGER.info("Verificando upgrades...");
+		upgradeServico.realizarUpgrades();
+		LOGGER.info("Todos upgrades finalizados");
 	}
 }

@@ -1,11 +1,13 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-
+import br.jus.tst.esocial.dominio.exclusao.InfoExclusao;
+import br.jus.tst.esocial.dominio.trabalhador.identificacaobasica.IdeTrabalhador;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.exclusao.InfoExclusao;
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class Exclusao extends DadosOcorrencia {
 
@@ -40,5 +42,23 @@ public class Exclusao extends DadosOcorrencia {
 					.toHashCode();
 	}
 
+	@Override
+	public Calendar getDataEvento() {
+		// TODO Analisar o caso de evento de exclusao
+		return null;
+	}
+	
+	@Override
+	public String getCpf() {
+		return Optional.ofNullable(infoExclusao)
+				.map(InfoExclusao::getIdeTrabalhador)
+				.map(IdeTrabalhador::getCpfTrab)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return null;
+	}
 
 }

@@ -1,13 +1,15 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
+import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
+import br.jus.tst.esocial.dominio.tabela.lotacao.DadosLotacao;
+import br.jus.tst.esocial.dominio.tabela.lotacao.IdeLotacao;
+import br.jus.tst.esocial.dominio.tabela.lotacao.InfoLotacao;
+import br.jus.tst.esocial.ocorrencia.Operacao;
+import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
+import br.jus.tst.esocialjt.dominio.Ocorrencia;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.spring.api.DBRider;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,17 +19,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.database.rider.core.api.dataset.DataSet;
-import com.github.database.rider.spring.api.DBRider;
+import javax.persistence.EntityManager;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
-import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
-import br.jus.tst.esocial.dominio.tabela.lotacao.DadosLotacao;
-import br.jus.tst.esocial.dominio.tabela.lotacao.IdeLotacao;
-import br.jus.tst.esocial.dominio.tabela.lotacao.InfoLotacao;
-import br.jus.tst.esocial.ocorrencia.Operacao;
-import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
-import br.jus.tst.esocialjt.dominio.Ocorrencia;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -65,7 +62,7 @@ public class OcorrenciaServicoTest{
 	public void deveRecuperarOcorrenciasPaginadoMaisRecentePrimeiro(){
 		int page = 0;
 		int size = 2;
-		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size, Collections.emptyList(), "", Collections.emptyList(), false).pagina;
+		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size, Collections.emptyList(), "", Collections.emptyList(), false, "").pagina;
 		
 		SoftAssertions soft = new SoftAssertions();
 		soft.assertThat(ocorrenciasPage.getSize()).isEqualTo(2);

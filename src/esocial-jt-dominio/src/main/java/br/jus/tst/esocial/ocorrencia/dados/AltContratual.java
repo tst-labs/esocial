@@ -1,12 +1,13 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.vinculo.alteracaocontratual.IdeVinculo;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class AltContratual extends DadosOcorrencia {
 
@@ -52,5 +53,26 @@ public class AltContratual extends DadosOcorrencia {
 					.append(ideEmpregador)
 					.append(ideVinculo)
 					.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(altContratual)
+					.map(a -> a.getDtAlteracao())
+					.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional.ofNullable(ideVinculo)
+				.map(IdeVinculo::getCpfTrab)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return Optional.ofNullable(ideVinculo)
+				.map(IdeVinculo::getMatricula)
+				.orElse(null);
 	}
 }

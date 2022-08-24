@@ -1,0 +1,21 @@
+{
+  "tipoOcorrencia": "DESLIGAMENTO",
+  "referencia": "1",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "infoDeslig": {
+      "mtvDeslig": "01",
+      "dtDeslig": 1609470000000,
+      "indPagtoAPI": "N"
+    }
+  }
+}

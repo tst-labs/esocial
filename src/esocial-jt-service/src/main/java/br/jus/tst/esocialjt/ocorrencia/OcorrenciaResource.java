@@ -1,22 +1,5 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocialjt.dominio.Estado;
@@ -24,6 +7,13 @@ import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/ocorrencias")
@@ -55,18 +45,19 @@ public class OcorrenciaResource {
 			@RequestParam(required = false, defaultValue = "") List<Long> estados,
 			@RequestParam(required = false, defaultValue = "") String expressao,
 			@RequestParam(required = false, defaultValue = "") List<Long> tipos,
-			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados) {
+			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados,
+			@RequestParam(required = false, defaultValue = "") String cpf) {
 		List<Estado> estadosObj = estados
 									.stream()
-									.map(id -> new Estado(id))
+									.map(Estado::new)
 									.collect(Collectors.toList());
 		
 		List<TipoEvento> tiposObj = tipos
 									.stream()
-									.map(id -> new TipoEvento(id))
+									.map(TipoEvento::new)
 									.collect(Collectors.toList());
 		
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf);
 	}
 	
 	@Operation(summary = "Consulta os tipos já enviados para o esocial.")
@@ -85,11 +76,7 @@ public class OcorrenciaResource {
 			+ "ao formato respectivo àquele tipo.")
 	@PostMapping(consumes = "application/json", produces = "application/json;charset=UTF-8")
 	public Ocorrencia receber(@RequestBody OcorrenciaDTO ocorrenciaDTO) {
-
 		Ocorrencia ocorrencia = OcorrenciaMapper.INSTANCE.comoOcorrencia(ocorrenciaDTO);
-		ocorrencia.setDataRecebimento(
-				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
-
 		Ocorrencia ocorrenciaSalva = ocorrenciaServico.salvar(ocorrencia);
 		return ocorrenciaSalva;
 	}

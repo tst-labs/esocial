@@ -1,12 +1,13 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-
+import br.jus.tst.esocial.dominio.semvinculo.InfoTSVInicio;
+import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
 import org.apache.commons.lang3.NotImplementedException;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.semvinculo.InfoTSVInicio;
-import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class TSVInicio extends DadosOcorrencia {
 	
@@ -42,5 +43,26 @@ public class TSVInicio extends DadosOcorrencia {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(ideEmpregador).append(trabalhador).append(infoTSVInicio).toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		return Optional.ofNullable(infoTSVInicio)
+					.map(InfoTSVInicio::getDtInicio)
+					.orElse(null);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional.ofNullable(trabalhador)
+					.map(Trabalhador::getCpfTrab)
+					.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return Optional.ofNullable(infoTSVInicio)
+				.map(InfoTSVInicio::getMatricula)
+				.orElse(null);
 	}
 }

@@ -1,12 +1,15 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-
+import br.jus.tst.esocial.dominio.afasttemp.FimAfastamento;
+import br.jus.tst.esocial.dominio.afasttemp.IdeVinculo;
+import br.jus.tst.esocial.dominio.afasttemp.InfoAfastamento;
+import br.jus.tst.esocial.dominio.afasttemp.IniAfastamento;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.afasttemp.IdeVinculo;
-import br.jus.tst.esocial.dominio.afasttemp.InfoAfastamento;
+import javax.validation.Valid;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class AfastTemp extends DadosOcorrencia {
 	
@@ -50,6 +53,39 @@ public class AfastTemp extends DadosOcorrencia {
 				.append(ideEmpregador)
 				.append(ideVinculo)
 				.toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		Calendar dtIniAfast = Optional
+			.ofNullable(infoAfastamento)
+			.map(InfoAfastamento::getIniAfastamento)
+			.map(IniAfastamento::getDtIniAfast)
+			.orElse(null);
+
+		Calendar dtFimAfast = Optional
+				.ofNullable(infoAfastamento)
+				.map(InfoAfastamento::getFimAfastamento)
+				.map(FimAfastamento::getDtTermAfast)
+				.orElse(null);
+		
+		return Optional.ofNullable(dtIniAfast).orElse(dtFimAfast);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional
+				.ofNullable(ideVinculo)
+				.map(IdeVinculo::getCpfTrab)
+				.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return Optional
+				.ofNullable(ideVinculo)
+				.map(IdeVinculo::getMatricula)
+				.orElse(null);
 	}
 
 }

@@ -1,0 +1,84 @@
+{
+  "tipoOcorrencia": "ALTERACAO_CONTRATUAL",
+  "referencia": "12000",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "altContratual": {
+      "dtAlteracao": 1522181179561,
+      "dtEf": 1522181179561,
+      "dscAlt": "Alteração contratual de testes",
+      "vinculo": {
+        "tpRegPrev": 1,
+        "infoRegimeTrab": {
+          "infoCeletista": {
+            "tpRegJor": 2,
+            "natAtividade": 2,
+            "dtBase": 2,
+            "cnpjSindCategProf": "99999999",
+            "trabTemporario": {
+              "justProrr": "JUST 2"
+            },
+            "aprend": {
+              "tpInsc": 2,
+              "nrInsc": "777777"
+            }
+          },
+          "infoEstatutario": null
+        },
+        "infoContrato": {
+          "codCateg": 302,
+          "nmCargo": "GESTOR MOD",
+          "cbocargo": 261206,
+          "nmFuncao": "Funcao 2",
+          "acumCargo": "S",
+          "remuneracao": {
+            "vrSalFx": 1500,
+            "undSalFixo": 2,
+            "dscSalVar": "DSC 2"
+          },
+          "duracao": {
+            "tpContr": 2,
+            "dtTerm": 535341700000,
+            "objDet": "OBJ 2"
+          },
+          "localTrabalho": {
+            "localTrabGeral": {
+              "tpInsc": 2,
+              "nrInsc": "00509968000141",
+              "descComp": "TRIBUNAL SUPERIOR DO TRABALHO MOD"
+            }
+          },
+          "horContratual": {
+            "qtdHrsSem": 44,
+            "tpJornada": 3,
+            "tmpParc": 1,
+            "horNoturno": "S",
+            "dscJorn": "JORNADA 2"
+          },
+          "alvaraJudicial": {
+            "nrProcJud": "654321"
+          },
+          "observacoes": [
+            {
+              "observacao": "OBS 2"
+            }
+          ],
+          "treiCap": [
+            {
+              "codTreiCap": 2
+            }
+          ]
+        }
+      }
+    }
+  }
+}

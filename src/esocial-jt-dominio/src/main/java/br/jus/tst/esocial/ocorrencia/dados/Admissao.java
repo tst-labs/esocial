@@ -1,13 +1,17 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
+import br.jus.tst.esocial.dominio.vinculo.InfoCeletista;
+import br.jus.tst.esocial.dominio.vinculo.InfoEstatutario;
+import br.jus.tst.esocial.dominio.vinculo.InfoRegimeTrab;
+import br.jus.tst.esocial.dominio.vinculo.Vinculo;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import br.jus.tst.esocial.dominio.trabalhador.Trabalhador;
-import br.jus.tst.esocial.dominio.vinculo.Vinculo;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
+import java.util.Optional;
 
 public class Admissao extends DadosOcorrencia {
 	
@@ -50,5 +54,40 @@ public class Admissao extends DadosOcorrencia {
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder().append(ideEmpregador).append(vinculo).toHashCode();
+	}
+
+	@Override
+	public Calendar getDataEvento() {
+		Calendar dtExercicio = Optional
+			.ofNullable(vinculo)
+			.map(Vinculo::getInfoRegimeTrab)
+			.map(InfoRegimeTrab::getInfoEstatutario)
+			.map(InfoEstatutario::getDtExercicio)
+			.orElse(null);
+		
+		Calendar getDtAdm = Optional
+			.ofNullable(vinculo)
+			.map(Vinculo::getInfoRegimeTrab)
+			.map(InfoRegimeTrab::getInfoCeletista)
+			.map(InfoCeletista::getDtAdm)
+			.orElse(null);
+		
+		return Optional.ofNullable(dtExercicio).orElse(getDtAdm);
+	}
+
+	@Override
+	public String getCpf() {
+		return Optional
+					.ofNullable(trabalhador)
+					.map(Trabalhador::getCpfTrab)
+					.orElse(null);
+	}
+
+	@Override
+	public String getMatricula() {
+		return Optional
+				.ofNullable(vinculo)
+				.map(Vinculo::getMatricula)
+				.orElse(null);
 	}
 }

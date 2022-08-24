@@ -1,16 +1,15 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
-import static org.springframework.util.CollectionUtils.isEmpty;
-
-import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Component;
-
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.springframework.util.CollectionUtils.isEmpty;
 
 @Component
 public class OcorrenciaSpecs {
@@ -20,7 +19,7 @@ public class OcorrenciaSpecs {
 	}
 	
 	public Specification<Ocorrencia> comExpressao(String expressao) {
-		return (root, query, cb) -> StringUtils.isBlank(expressao) ? cb.and() : cb.like(cb.lower(root.get("txtDadosOcorrencia")), "%"+expressao.toLowerCase()+"%");
+		return (root, query, cb) -> isBlank(expressao) ? cb.and() : cb.like(cb.lower(root.get("txtDadosOcorrencia")), "%"+expressao.toLowerCase()+"%");
 	}
 	
 	public Specification<Ocorrencia> dosTipos(List<TipoEvento> tipos) {
@@ -29,5 +28,9 @@ public class OcorrenciaSpecs {
 	
 	public Specification<Ocorrencia> incluirArquivados(boolean incluir) {
 		return (root, query, cb) -> incluir ? cb.and() : root.get("arquivado").isNull();
+	}
+
+	public Specification<Ocorrencia> comCPF(String cpf) {
+		return (root, query, cb) -> isBlank(cpf) ? cb.and() : cb.equal(root.get("cpf"), cpf.trim());
 	}
 }

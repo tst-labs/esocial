@@ -1,42 +1,20 @@
 package br.jus.tst.esocialjt.dominio;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Date;
-
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-
+import br.jus.tst.esocial.ocorrencia.Operacao;
+import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.annotations.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import br.jus.tst.esocial.ocorrencia.Operacao;
-import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
+import javax.persistence.*;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Date;
 
 @SuppressWarnings("deprecation")
 @Entity
@@ -99,6 +77,12 @@ public class Ocorrencia implements Serializable {
 	
 	@Column(name = "IND_ARQUIVADO")
 	private String arquivado;
+	
+	@Column(name = "TXT_CPF")
+	private String cpf;
+	
+	@Column(name = "TXT_MATRICULA")
+	private String matricula;
 
 	public Long getId() {
 		return id;
@@ -204,6 +188,22 @@ public class Ocorrencia implements Serializable {
 
 	public void setArquivado(String arquivado) {
 		this.arquivado = arquivado;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
 	}
 
 	protected Ocorrencia setTxtDadosOcorrencia(String txtDadosOcorrencia) {
