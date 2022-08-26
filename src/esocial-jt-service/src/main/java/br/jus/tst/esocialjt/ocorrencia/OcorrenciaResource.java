@@ -9,7 +9,10 @@ import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.supercsv.io.CsvBeanWriter;
+import org.supercsv.prefs.CsvPreference;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -21,22 +24,40 @@ public class OcorrenciaResource {
 
 	@Autowired
 	private OcorrenciaServico ocorrenciaServico;
-	
+
 	@Autowired
 	private ExemploOcorrenciaServico exemploServico;
-	
+
 	@Operation(summary ="Consulta todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
 	@GetMapping
+	@Deprecated
 	public List<Ocorrencia> listarTodos() {
 		return ocorrenciaServico.recuperaTodos();
 	}
 
 	@Operation(summary ="Consulta todas as ocorrências já recebidas pelo sistema, exibindo informações simplificadas. Esta consulta tende a ser mais rápida que a consulta de dados completos.")
 	@GetMapping("/dados-basicos")
+	@Deprecated
 	public List<OcorrenciaDadosBasicosDTO> listarDadosBasicos() {
 		return ocorrenciaServico.recuperaDadosBasicos();
 	}
-	
+
+	@GetMapping(value="/sumario/{tipo}", produces = "text/csv")
+	@Operation(summary = "Retorna um resumo de todos eventos enviados para um tipo em csv. Pode ser muito lento para um grande volume de dados.")
+	public void getSumario(HttpServletResponse response, @PathVariable("tipo") long tipo) throws IOException{
+		response.setContentType("text/csv");
+
+		String[] params = {"id", "cpf", "matricula", "referencia", "tipo", "estado", "dataOcorrencia"};
+		List<OcorrenciaSumario> sumario = ocorrenciaServico.getSumario(new TipoEvento(tipo));
+
+		CsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+		csvWriter.writeHeader(params);
+		for (OcorrenciaSumario s : sumario) {
+			csvWriter.write(s, params);
+		}
+ 		csvWriter.close();
+	}
+
 	@Operation(summary = "Consulta, com paginação, todas as ocorrências já recebidas pelo sistema, exibindo informações completas.")
 	@GetMapping("/paginado")
 	public OcorrenciaPage listarPaginado(
@@ -77,8 +98,7 @@ public class OcorrenciaResource {
 	@PostMapping(consumes = "application/json", produces = "application/json;charset=UTF-8")
 	public Ocorrencia receber(@RequestBody OcorrenciaDTO ocorrenciaDTO) {
 		Ocorrencia ocorrencia = OcorrenciaMapper.INSTANCE.comoOcorrencia(ocorrenciaDTO);
-		Ocorrencia ocorrenciaSalva = ocorrenciaServico.salvar(ocorrencia);
-		return ocorrenciaSalva;
+		return ocorrenciaServico.salvar(ocorrencia);
 	}
 	
 	@Operation(summary ="Lista URLs com exemplos disponíveis para como uma ocorrência deve ser enviada para o /esocial-jt-service/ocorrencias.")
