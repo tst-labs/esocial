@@ -2,6 +2,8 @@ package br.jus.tst.esocialjt.ocorrencia;
 
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
@@ -38,4 +40,6 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long>, J
             "FROM Ocorrencia o " +
             "WHERE o.evento.tipoEvento = ?1")
     List<OcorrenciaSumario> getSumario(TipoEvento tipoEvento);
+
+    Page<Ocorrencia> findByCpfIsNull(Pageable pageable);
 }
