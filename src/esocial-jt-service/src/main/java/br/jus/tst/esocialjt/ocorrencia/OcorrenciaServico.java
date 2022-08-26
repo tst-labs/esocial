@@ -127,4 +127,8 @@ public class OcorrenciaServico {
 		return repository.desarquivar(id);
 	}
 
+
+	public List<OcorrenciaSumario> getSumario(TipoEvento tipoEvento){
+		return repository.getSumario(tipoEvento);
+	}
 }
