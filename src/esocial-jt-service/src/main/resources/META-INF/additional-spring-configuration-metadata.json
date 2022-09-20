@@ -79,6 +79,11 @@
       "name": "esocialjt.urlServicoAssinatura",
       "type": "java.lang.String",
       "description": "URL de servico de assinatura quando for usar um servico remoto"
+    },
+    {
+      "name": "esocialjt.regra-empregador-cadastrado.habilitado",
+      "type": "java.lang.Boolean",
+      "description": "Habilita regra que verifica se há um evento S-1000 antes de enviar qualquer outro evento"
     }
   ]
 }
