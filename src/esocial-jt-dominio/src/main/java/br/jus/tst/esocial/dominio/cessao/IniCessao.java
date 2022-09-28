@@ -1,15 +1,12 @@
 package br.jus.tst.esocial.dominio.cessao;
 
-import java.util.Calendar;
-
-import javax.validation.constraints.NotNull;
-
+import br.jus.tst.esocial.dominio.enums.SimNao;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.br.CNPJ;
 
-import br.jus.tst.esocial.dominio.enums.SimNao;
-import br.jus.tst.esocial.ocorrencia.dados.Admissao;
+import javax.validation.constraints.NotNull;
+import java.util.Calendar;
 
 public class IniCessao {
 
@@ -49,7 +46,7 @@ public class IniCessao {
 	
 	@Override
 	public boolean equals(final Object other) {
-		if (!(other instanceof Admissao)) {
+		if (!(other instanceof IniCessao)) {
 			return false;
 		}
 		IniCessao castOther = (IniCessao) other;
