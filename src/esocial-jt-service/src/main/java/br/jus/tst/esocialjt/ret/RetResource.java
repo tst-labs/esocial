@@ -1,5 +1,7 @@
 package br.jus.tst.esocialjt.ret;
 
+import br.jus.tst.esocialjt.ret.beneficiario.BeneficiarioServico;
+import br.jus.tst.esocialjt.ret.beneficiario.RetBeneficiario;
 import br.jus.tst.esocialjt.ret.empregado.EmpregadoServico;
 import br.jus.tst.esocialjt.ret.empregado.RetEmpregado;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,9 +17,18 @@ public class RetResource {
     @Autowired
     EmpregadoServico empregadoServico;
 
+    @Autowired
+    private BeneficiarioServico beneficiarioServico;
+
     @GetMapping("ret/empregado/{cpf}")
     @Operation(summary = "Obtém os dados enviados para um empregado a partir do seu CPF. Pode corresponder a vários vínculos")
-    public List<RetEmpregado> obterRetEmpregado(@PathVariable String cpf){
+    public List<RetEmpregado> obterRetEmpregado(@PathVariable String cpf) {
         return empregadoServico.obterRetEmpregado(cpf);
+    }
+
+    @GetMapping("ret/beneficiario/{cpf}")
+    @Operation(summary = "Obtém os dados enviados para um beneficiário a partir do seu CPF. Pode corresponder a vários vínculos")
+    public List<RetBeneficiario> obterRetBeneficiario(@PathVariable String cpf) {
+        return beneficiarioServico.obterRetBeneficiario(cpf);
     }
 }
