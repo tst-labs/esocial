@@ -1,15 +1,14 @@
 package br.jus.tst.esocialjt.regras.evento;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.evento.EventoDTO;
 import br.jus.tst.esocialjt.negocio.exception.RegraException;
 import br.jus.tst.esocialjt.regras.Regra;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class RegrasFactory {
@@ -88,15 +87,18 @@ public class RegrasFactory {
 
 	@Autowired
 	private RegraCdBenIn regraCdBenIn;
-	
+
 	@Autowired
 	private RegraCdBenAlt regraCdBenAlt;
-	
+
 	@Autowired
 	private RegraCdBenTerm regraCdBenTerm;
-	
+
 	@Autowired
 	private RegraReativBen regraReativBen;
+
+	@Autowired
+	private RegraExpRisco regraExpRisco;
 
 	private Map<Long, Regra> regras;
 
@@ -121,6 +123,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
 			regras.put(TipoEvento.S2231.getCodTipo(), regraCessao);
+			regras.put(TipoEvento.S2240.getCodTipo(), regraExpRisco);
 			regras.put(TipoEvento.S2298.getCodTipo(), regraReintegracao);
 			regras.put(TipoEvento.S2299.getCodTipo(), regraDesligamento);
 			regras.put(TipoEvento.S2300.getCodTipo(), regraTSVInicio);
