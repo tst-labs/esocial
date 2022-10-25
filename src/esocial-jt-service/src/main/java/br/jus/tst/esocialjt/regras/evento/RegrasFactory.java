@@ -100,6 +100,9 @@ public class RegrasFactory {
 	@Autowired
 	private RegraExpRisco regraExpRisco;
 
+	@Autowired
+	private RegraCAT regraCAT;
+
 	private Map<Long, Regra> regras;
 
 	public Regra getRegra(EventoDTO eventoDTO) {
@@ -121,6 +124,7 @@ public class RegrasFactory {
 			regras.put(TipoEvento.S2200.getCodTipo(), regraAdmissao);
 			regras.put(TipoEvento.S2205.getCodTipo(), regraAltCadastral);
 			regras.put(TipoEvento.S2206.getCodTipo(), regraAltContratual);
+			regras.put(TipoEvento.S2210.getCodTipo(), regraCAT);
 			regras.put(TipoEvento.S2230.getCodTipo(), regraAfastTemp);
 			regras.put(TipoEvento.S2231.getCodTipo(), regraCessao);
 			regras.put(TipoEvento.S2240.getCodTipo(), regraExpRisco);

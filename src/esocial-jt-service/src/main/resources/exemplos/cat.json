@@ -1,0 +1,57 @@
+{
+  "tipoOcorrencia": "CAT",
+  "referencia": "1",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "cat": {
+      "dtAcid": "2022-10-25",
+      "tpAcid": 1,
+      "hrAcid": "1030",
+      "hrsTrabAntesAcid": "0100",
+      "tpCat": 1,
+      "indCatObito": "N",
+      "indComunPolicia": "N",
+      "codSitGeradora": 200004600,
+      "iniciatCAT": 1,
+      "houveAfast": "S",
+      "ultDiaTrab": "2022-10-25",
+      "localAcidente": {
+        "tpLocal": 4,
+        "dscLograd": "Logradouro",
+        "nrLograd": "S/N","codMunic": 5300108,
+        "uf": "DF"
+      },
+      "parteAtingida": {
+        "codParteAting": 757010600,
+        "lateralidade": 1
+      },
+      "agenteCausador": {
+        "codAgntCausador": 303010760
+      },
+      "atestado": {
+        "dtAtendimento": "2022-10-25",
+        "hrAtendimento": "1230",
+        "indInternacao": "S",
+        "durTrat": 180,
+        "indAfast": "S",
+        "dscLesao": 702010000,
+        "codCID": "S72",
+        "emitente": {
+          "nmEmit": "Joaozinho de Coribe",
+          "ideOC": 1,
+          "nrOC": "454545",
+          "ufOC": "DF"
+        }
+      }
+    }
+  }
+}

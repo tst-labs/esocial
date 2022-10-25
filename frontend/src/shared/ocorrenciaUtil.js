@@ -11,6 +11,7 @@ import {
   CADASTRO_BENEFICIO_ALT,
   CADASTRO_BENEFICIO_INI,
   CADASTRO_BENEFICIO_TERM,
+  CAT,
   CESSAO,
   DESLIGAMENTO,
   EXCLUSAO,
@@ -119,6 +120,7 @@ export function getResumo(ocorrencia) {
     case DESLIGAMENTO:
     case REINTEGRACAO:
     case EXP_RISCO:
+    case CAT:
       resumo = (
         <>
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />

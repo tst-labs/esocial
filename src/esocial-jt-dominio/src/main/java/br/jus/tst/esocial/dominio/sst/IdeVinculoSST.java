@@ -1,4 +1,4 @@
-package br.jus.tst.esocial.dominio.exprisco;
+package br.jus.tst.esocial.dominio.sst;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
