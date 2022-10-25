@@ -24,6 +24,7 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S2206 = new TipoEvento(2206l);
 	public static final TipoEvento S2230 = new TipoEvento(2230l);
 	public static final TipoEvento S2231 = new TipoEvento(2231l);
+	public static final TipoEvento S2240 = new TipoEvento(2240l);
 	public static final TipoEvento S2298 = new TipoEvento(2298l);
 	public static final TipoEvento S2299 = new TipoEvento(2299l);
 	public static final TipoEvento S2300 = new TipoEvento(2300l);
@@ -44,18 +45,20 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S1298 = new TipoEvento(1298l);	
 	public static final TipoEvento S1299 = new TipoEvento(1299l);	
 
-	public static final TipoEvento S3000 = new TipoEvento(3000l);	
-	
+	public static final TipoEvento S3000 = new TipoEvento(3000l);
+
 	public static final TipoEvento INFORMACOES_EMPREGADOR = S1000;
-	public static final TipoEvento TABELA_ESTABELECIMENTO = S1005; 
-	public static final TipoEvento TABELA_RUBRICA = S1010; 
-	public static final TipoEvento TABELA_LOTACAO = S1020; 
-	public static final TipoEvento TABELA_PROCESSO = S1070;  
-	public static final TipoEvento ADMISSAO_TRABALHADOR = S2200;  
-	public static final TipoEvento ALTERACAO_CADASTRAL = S2205;  
+	public static final TipoEvento TABELA_ESTABELECIMENTO = S1005;
+	public static final TipoEvento TABELA_RUBRICA = S1010;
+	public static final TipoEvento TABELA_LOTACAO = S1020;
+	public static final TipoEvento TABELA_PROCESSO = S1070;
+	public static final TipoEvento ADMISSAO_TRABALHADOR = S2200;
+	public static final TipoEvento ALTERACAO_CADASTRAL = S2205;
 	public static final TipoEvento ALTERACAO_CONTRATUAL = S2206;
 	public static final TipoEvento AFASTAMENTO_TEMPORARIO = S2230;
 	public static final TipoEvento CESSAO = S2231;
+
+	public static final TipoEvento EXP_RISCO = S2240;
 	public static final TipoEvento REINTEGRACAO = S2298;
 	public static final TipoEvento DESLIGAMENTO = S2299;
 	public static final TipoEvento TSV_INICIO = S2300;

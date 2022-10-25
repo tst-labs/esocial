@@ -1,25 +1,15 @@
 package br.jus.tst.esocialjt.regras.evento;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import br.jus.tst.esocialjt.dominio.TipoEvento;
+import br.jus.tst.esocialjt.evento.EventoDTO;
+import br.jus.tst.esocialjt.regras.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import br.jus.tst.esocialjt.dominio.TipoEvento;
-import br.jus.tst.esocialjt.evento.EventoDTO;
-import br.jus.tst.esocialjt.regras.Regra;
-import br.jus.tst.esocialjt.regras.RegraEmpregadorCadastrado;
-import br.jus.tst.esocialjt.regras.RegraEventosTabela;
-import br.jus.tst.esocialjt.regras.RegraNaoHaEventoNaoPeriodicoEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaEventoTabelaEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaFechamentoFolhaEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaIngressoTrabEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaPagamentoEmFila;
-import br.jus.tst.esocialjt.regras.RegraNaoHaRemuneracaoEmFila;
-import br.jus.tst.esocialjt.regras.RegraVazia;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -105,7 +95,7 @@ public class RegrasFactoryTest{
 				RegraNaoHaIngressoTrabEmFila.class
 		);
 	}
-	
+
 	@Test
 	public void deveProverRegraAfastTemp() {
 		Regra regra = getRegra(TipoEvento.S2230);
@@ -114,9 +104,30 @@ public class RegrasFactoryTest{
 				RegraEmpregadorCadastrado.class,
 				RegraNaoHaEventoTabelaEmFila.class,
 				RegraNaoHaIngressoTrabEmFila.class
-				);
+		);
 	}
-	
+
+	@Test
+	public void deveProverRegraCessao() {
+		Regra regra = getRegra(TipoEvento.S2231);
+		assertThat(regra).isInstanceOf(RegraCessao.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class
+		);
+	}
+
+	@Test
+	public void deveProverRegraExpRisco() {
+		Regra regra = getRegra(TipoEvento.S2240);
+		assertThat(regra).isInstanceOf(RegraExpRisco.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
+		);
+	}
+
 	@Test
 	public void deveProverRegraReintegracao() {
 		Regra regra = getRegra(TipoEvento.S2298);
@@ -125,7 +136,7 @@ public class RegrasFactoryTest{
 				RegraEmpregadorCadastrado.class,
 				RegraNaoHaEventoTabelaEmFila.class,
 				RegraNaoHaIngressoTrabEmFila.class
-				);
+		);
 	}
 	
 	@Test

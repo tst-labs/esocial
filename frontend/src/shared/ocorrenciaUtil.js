@@ -14,6 +14,7 @@ import {
   CESSAO,
   DESLIGAMENTO,
   EXCLUSAO,
+  EXP_RISCO,
   FECHAMENTO_PERIODICOS,
   INFORMACOES_EMPREGADOR,
   PAGAMENTOS,
@@ -117,6 +118,7 @@ export function getResumo(ocorrencia) {
     case AFASTAMENTO_TEMPORARIO:
     case DESLIGAMENTO:
     case REINTEGRACAO:
+    case EXP_RISCO:
       resumo = (
         <>
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />

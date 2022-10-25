@@ -1,14 +1,13 @@
 package br.jus.tst.esocialjt.xml.gerador;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class GeradorXmlFactory {
@@ -86,15 +85,18 @@ public class GeradorXmlFactory {
 	
 	@Autowired
 	private GeradorXmlCdBenIn geradorXmlCdBenIn;
-	
+
 	@Autowired
 	private GeradorXmlCdBenAlt geradorXmlCdBenAlt;
-	
+
 	@Autowired
 	private GeradorXmlCdBenTerm geradorXmlCdBenTerm;
-	
+
 	@Autowired
 	private GeradorXmlReativBen geradorXmlReativBen;
+
+	@Autowired
+	private GeradorXmlExpRisco geradorXmlExpRisco;
 
 	private Map<TipoEvento, GeradorXml> geradores;
 
@@ -119,6 +121,7 @@ public class GeradorXmlFactory {
 			geradores.put(TipoEvento.S2206, geradorXmlAltContratual);
 			geradores.put(TipoEvento.S2230, geradorXmlAfastTemp);
 			geradores.put(TipoEvento.S2231, geradorXmlCessao);
+			geradores.put(TipoEvento.S2240, geradorXmlExpRisco);
 			geradores.put(TipoEvento.S2298, geradorXmlReintegr);
 			geradores.put(TipoEvento.S2299, geradorXmlDeslig);
 			geradores.put(TipoEvento.S2300, geradorXmlTSVInicio);
