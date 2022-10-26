@@ -24,7 +24,7 @@ public class TrabalhadorSemVinculoServico {
     @Autowired
     OcorrenciaSpecs specs;
 
-    private Map<TipoOcorrencia, ProcessadorTrabalhadorSemVicnulo> processadores;
+    private Map<TipoOcorrencia, ProcessadorTrabalhadorSemVinculo> processadores;
 
     public List<RetTrabalhadorSemVinculo> obterRetTrabalhadorSemVinculo(String cpf) {
         ArrayList<RetTrabalhadorSemVinculo> listaRetRetTrabalhadorSemVinculo = new ArrayList<>();
@@ -71,7 +71,7 @@ public class TrabalhadorSemVinculoServico {
                 .collect(Collectors.toList());
     }
 
-    private ProcessadorTrabalhadorSemVicnulo getProcessadorTrabalhadorSemVinculo(TipoOcorrencia tipo) {
+    private ProcessadorTrabalhadorSemVinculo getProcessadorTrabalhadorSemVinculo(TipoOcorrencia tipo) {
         if (processadores == null) {
             processadores = new HashMap<>();
             processadores.put(TipoOcorrencia.TSV_INICIO, new Processador2300());

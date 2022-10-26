@@ -4,6 +4,6 @@ import br.jus.tst.esocialjt.dominio.Ocorrencia;
 
 import java.util.ArrayList;
 
-public interface ProcessadorTrabalhadorSemVicnulo {
+public interface ProcessadorTrabalhadorSemVinculo {
 	void processaRegistro(ArrayList<RetTrabalhadorSemVinculo> listaRetTrabalhadorSemVinculo, Ocorrencia ocorrencia);
 }

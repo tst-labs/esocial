@@ -12,8 +12,6 @@ public class TrabalhadorSemVinculo {
     public DadosCadastrais dadosCadastrais;
     public DadosContratuais dadosContratuais;
     public Termino termino;
-    public List<InfoAfastamento> dadosAfastamentos;
-    public List<InfoComplementares> dadosInformacoesComplementares;
     
     public DadosCadastrais getDadosCadastrais() {
         return dadosCadastrais;
@@ -38,23 +36,6 @@ public class TrabalhadorSemVinculo {
     public void setDadosContratuais(DadosContratuais dadosContratuais) {
         this.dadosContratuais = dadosContratuais;
     }
-
-    public List<InfoAfastamento> getDadosAfastamentos() {
-        return dadosAfastamentos;
-    }
-
-    public void setDadosAfastamentos(List<InfoAfastamento> dadosAfastamentos) {
-        this.dadosAfastamentos = dadosAfastamentos;
-    }
-
-    public void setDadosInformacoesComplementares(List<InfoComplementares> dadosInformacoesComplementares) {
-        this.dadosInformacoesComplementares = dadosInformacoesComplementares;
-    }
-    
-    public List<InfoComplementares> getDadosInformacoesComplementares() {
-        return dadosInformacoesComplementares;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -67,8 +48,6 @@ public class TrabalhadorSemVinculo {
         return new EqualsBuilder()
                 .append(dadosCadastrais, trabalhadorSemVinculo.dadosCadastrais)
                 .append(dadosCadastrais, trabalhadorSemVinculo.dadosContratuais)
-                .append(dadosAfastamentos, trabalhadorSemVinculo.dadosAfastamentos)
-                .append(dadosInformacoesComplementares, trabalhadorSemVinculo.dadosInformacoesComplementares)                
                 .isEquals();
     }
 
@@ -77,8 +56,6 @@ public class TrabalhadorSemVinculo {
         return new HashCodeBuilder(17, 37)
                 .append(dadosCadastrais)
                 .append(dadosContratuais)
-                .append(dadosAfastamentos)
-                .append(dadosInformacoesComplementares)
                 .toHashCode();
     }
 }
