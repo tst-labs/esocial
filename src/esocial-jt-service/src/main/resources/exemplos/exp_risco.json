@@ -1,0 +1,44 @@
+{
+  "tipoOcorrencia": "EXP_RISCO",
+  "referencia": "1",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "infoExpRisco": {
+      "dtIniCondicao": 1666649202000,
+      "infoAmb": [
+        {
+          "localAmb": 1,
+          "dscSetor": "descricao do setor",
+          "tpInsc": 1,
+          "nrInsc": "00509968000148"
+        }
+
+      ],
+      "infoAtiv": {
+        "dscAtivDes": "descricao da atividade"
+      },
+      "agNoc": [
+        {
+          "codAgNoc": "09.01.001"
+        }
+      ],
+      "respReg": [
+        {
+          "cpfResp": "77993893704"
+        }
+      ],
+      "obs": {
+        "obsCompl": "obs complemento"
+      }
+    }
+  }
+}
