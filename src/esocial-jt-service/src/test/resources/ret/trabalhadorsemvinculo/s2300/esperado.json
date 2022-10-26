@@ -1,99 +1,73 @@
 {
   "dadosCadastrais": {
-    "cpfTrab": "77993893704",
-    "nmTrab": "LEIA ORGANA SOLO",
-    "sexo": "F",
-    "racaCor": 6,
-    "estCiv": 2,
-    "grauInstr": "10",
+    "cpfTrab": "00100200345",
+    "nmTrab": "ABRAVANEL",
+    "sexo": "M",
+    "racaCor": 1,
+    "estCiv": 1,
+    "grauInstr": "09",
     "nmSoc": null,
     "nascimento": {
-      "dtNascto": 453524400000,
+      "dtNascto": "1975-07-02T03:00:00.000+00:00", 
       "paisNascto": "105",
       "paisNac": "105"
     },
-    "endereco": {
-      "brasil": {
-        "tpLograd": "IND",
-        "dscLograd": "SAFS QUADRA 0 LOTE 0",
-        "nrLograd": "1",
-        "complemento": "LOTE 0",
-        "bairro": "ZONA CÍVICO-ADMINISTRATIVA",
-        "cep": "70070943",
-        "codMunic": 5300108,
-        "uf": "DF"
-      },
-      "exterior": null
+ "endereco": {
+                "brasil": {
+                    "tpLograd": null,
+                    "dscLograd": "AVENIDA 2",
+                    "nrLograd": "1",
+                    "complemento": "CASA 6",
+                    "bairro": "LUZ",
+                    "cep": "70070943",
+                    "codMunic": 4304606,
+                    "uf": "AC"
+                },
+                "exterior": null
     },
-    "infoDeficiencia": {
-      "defFisica": "N",
-      "defVisual": "N",
-      "defAuditiva": "N",
-      "defMental": "N",
-      "defIntelectual": "N",
-      "reabReadap": "N",
-      "observacao": null
-    },
-    "dependente": [
-      {
-        "tpDep": "03",
-        "nmDep": "BEN SOLO",
-        "dtNascto": 656391600000,
-        "cpfDep": "99645142393",
-        "depIRRF": "N",
-        "depSF": "N",
-        "incTrab": "N"
-      }
-    ],
-    "contato": {
-      "fonePrinc": "6130430001",
-      "emailPrinc": "leiaorgana@email.com"
-    }
-  },
+     "dependente": [{
+                "tpDep": "01",
+                "nmDep": "ALMIR SATER",
+                "dtNascto": 453524400000,
+                "cpfDep": "00000000191",
+                "depIRRF": "S",
+                "depSF": "N",
+                "incTrab": "N"
+            },
+            {
+                "tpDep": "09",
+                "nmDep": "CORA CORALINA",
+                "dtNascto": 453524400000,
+                "cpfDep": "00000000192",
+                "depIRRF": "N",
+                "depSF": "N",
+                "incTrab": "N"
+            }]
+        },
   "dadosContratuais": {
-    "matricula": "12000",
-    "tpRegTrab": 2,
-    "tpRegPrev": 2,
-    "infoRegimeTrab": {
-      "infoEstatutario": {
-        "tpProv": 1,
-        "dtExercicio": 535341600000,
-        "tpPlanRP": 1,
-        "indAbonoPerm": "N",
-        "indTetoRGPS": "N"
-      }
-    },
-    "infoContrato": {
-      "codCateg": 301,
-      "nmCargo": "GESTOR",
-      "cbocargo": 261205,
-      "localTrabalho": {
-        "localTrabGeral": {
-          "tpInsc": 1,
-          "nrInsc": "00509968000148",
-          "descComp": "TRIBUNAL SUPERIOR DO TRABALHO"
-        }
-      }
-    }
-  },
-  "dadosDesligamento": {
-    "infoDeslig": {
-      "dtDeslig": 1661192284000
-    }
-  },
-  "dadosAfastamentos": [
-    {
-      "iniAfastamento": {
-        "dtIniAfast": 1661192284000,
-        "codMotAfast": "01"
-      }
-    }
-  ],
-  "dadosCessoes": [
-    {
-      "iniCessao": {
-        "dtIniCessao": 1661192284000
-      }
-    }
-  ]
+    "codCateg": 410,
+            "matricula": "C000001-01012007",
+            "nrProcTrab": null,
+            "natAtividade": 1,
+            "infoComplementares": {
+                "cargoFuncao": {
+                    "nmCargo": "SERVIDOR DE OUTRO ORGAO",
+                    "nmFuncao": null,
+                    "cbocargo": "111345",
+                    "cbofuncao": null
+                }, 
+                "remuneracao": null, 
+                "fgts": null,
+                "infoDirigenteSindical": null,
+                "infoTrabCedido": {
+                    "categOrig": 301, 
+                    "cnpjCednt": "1234567", 
+                    "matricCed": "123456", 
+                    "dtAdmCed": "2007-09-05T03:00:00.000+00:00", 
+                    "tpRegTrab": 2, 
+                    "tpRegPrev": 2
+                }
+            },
+            "afastamento": null
+}
 }
