@@ -2,6 +2,7 @@ package br.jus.tst.esocialjt.util;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
 import br.jus.tst.esocial.ret.empregado.Empregado;
+import br.jus.tst.esocial.ret.tsv.TrabalhadorSemVinculo;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaDTODeserializer;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaMapper;
@@ -40,4 +41,15 @@ public class OcorrenciaUtil {
 			throw new RuntimeException(e);
 		}
 	}
+        
+	public static TrabalhadorSemVinculo lerTrabalhadorSemVinculo(String arquivo) {
+		try {
+			InputStream trabalhadorSemVinculoStr = Resource.asStream(arquivo);
+			return mapper.readValue(trabalhadorSemVinculoStr, TrabalhadorSemVinculo.class);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}        
+        
 }
