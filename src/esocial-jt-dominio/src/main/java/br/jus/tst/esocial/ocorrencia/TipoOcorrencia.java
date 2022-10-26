@@ -1,36 +1,8 @@
 package br.jus.tst.esocial.ocorrencia;
 
-import java.util.Arrays;
+import br.jus.tst.esocial.ocorrencia.dados.*;
 
-import br.jus.tst.esocial.ocorrencia.dados.Admissao;
-import br.jus.tst.esocial.ocorrencia.dados.AfastTemp;
-import br.jus.tst.esocial.ocorrencia.dados.AltCadastral;
-import br.jus.tst.esocial.ocorrencia.dados.AltContratual;
-import br.jus.tst.esocial.ocorrencia.dados.BenPrRP;
-import br.jus.tst.esocial.ocorrencia.dados.CdBenAlt;
-import br.jus.tst.esocial.ocorrencia.dados.CdBenIn;
-import br.jus.tst.esocial.ocorrencia.dados.CdBenTerm;
-import br.jus.tst.esocial.ocorrencia.dados.CdBenefAlt;
-import br.jus.tst.esocial.ocorrencia.dados.CdBenefIn;
-import br.jus.tst.esocial.ocorrencia.dados.Cessao;
-import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.Deslig;
-import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
-import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
-import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
-import br.jus.tst.esocial.ocorrencia.dados.Pgtos;
-import br.jus.tst.esocial.ocorrencia.dados.ReabreEvPer;
-import br.jus.tst.esocial.ocorrencia.dados.ReativBen;
-import br.jus.tst.esocial.ocorrencia.dados.Reintegr;
-import br.jus.tst.esocial.ocorrencia.dados.Remun;
-import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
-import br.jus.tst.esocial.ocorrencia.dados.TSVAltContr;
-import br.jus.tst.esocial.ocorrencia.dados.TSVInicio;
-import br.jus.tst.esocial.ocorrencia.dados.TSVTermino;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaEstabelecimento;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaLotacao;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaProcesso;
-import br.jus.tst.esocial.ocorrencia.dados.TabelaRubrica;
+import java.util.Arrays;
 
 public enum TipoOcorrencia {
 
@@ -61,7 +33,9 @@ public enum TipoOcorrencia {
 	PAGAMENTOS(Pgtos.class),
 	REABERTURA_PERIODICOS(ReabreEvPer.class),
 	FECHAMENTO_PERIODICOS(FechaEvPer.class),
-	EXCLUSAO(Exclusao.class);
+	EXCLUSAO(Exclusao.class),
+	EXP_RISCO(ExpRisco.class),
+	CAT(br.jus.tst.esocial.ocorrencia.dados.CAT.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 
@@ -70,7 +44,7 @@ public enum TipoOcorrencia {
 	}
 
 	public static TipoOcorrencia getTipoOcorrencia(String tipo) {
-		return Arrays.asList(TipoOcorrencia.values()).stream()
+		return Arrays.stream(TipoOcorrencia.values())
 				.filter(tipoOcorrencia -> tipoOcorrencia.toString().equalsIgnoreCase(tipo))
 				.findFirst()
 				.orElse(null);
