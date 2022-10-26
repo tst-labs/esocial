@@ -25,7 +25,6 @@ public class Processador2300Test {
         processador.processaRegistro(listaRetTrabalhadorSemVinculo, ocorrencia);
 
         assertThat(listaRetTrabalhadorSemVinculo).hasSize(1);
-
         assertThat(listaRetTrabalhadorSemVinculo.get(0).trabalhadorSemVinculo).usingRecursiveComparison().isEqualTo(esperado);
         assertThat(listaRetTrabalhadorSemVinculo.get(0).ocorrencias).contains(ocorrencia);
     }
