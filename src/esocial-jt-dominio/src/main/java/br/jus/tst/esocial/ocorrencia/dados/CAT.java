@@ -1,16 +1,15 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
-import br.jus.tst.esocial.dominio.exprisco.InfoExpRisco;
+import br.jus.tst.esocial.dominio.cat.Cat;
 import br.jus.tst.esocial.dominio.sst.IdeVinculoSST;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Optional;
 
-public class ExpRisco extends DadosOcorrencia {
+public class CAT extends DadosOcorrencia{
+
 
     @Valid
     @NotNull
@@ -18,7 +17,7 @@ public class ExpRisco extends DadosOcorrencia {
 
     @Valid
     @NotNull
-    public InfoExpRisco infoExpRisco;
+    public Cat cat;
 
     public IdeVinculoSST getIdeVinculo() {
         return ideVinculo;
@@ -28,20 +27,17 @@ public class ExpRisco extends DadosOcorrencia {
         this.ideVinculo = ideVinculo;
     }
 
-    public InfoExpRisco getInfoExpRisco() {
-        return infoExpRisco;
+    public Cat getCat() {
+        return cat;
     }
 
-    public void setInfoExpRisco(InfoExpRisco infoExpRisco) {
-        this.infoExpRisco = infoExpRisco;
+    public void setCat(Cat cat) {
+        this.cat = cat;
     }
 
     @Override
     public Calendar getDataEvento() {
-        return Optional
-                .ofNullable(infoExpRisco)
-                .map(InfoExpRisco::getDtIniCondicao)
-                .orElse(null);
+        return null;
     }
 
     @Override
@@ -59,18 +55,12 @@ public class ExpRisco extends DadosOcorrencia {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ExpRisco expRisco = (ExpRisco) o;
-
-        return new EqualsBuilder().append(ideVinculo, expRisco.ideVinculo).append(infoExpRisco, expRisco.infoExpRisco).isEquals();
+    public boolean equals(Object obj) {
+        return false;
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(ideVinculo).append(infoExpRisco).toHashCode();
+        return 0;
     }
 }

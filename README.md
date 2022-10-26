@@ -544,12 +544,12 @@ Pacote de comunicação : 1.5
 | S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2205 | Alteração de Dados Cadastrais do Trabalhador                          | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2206 | Alteração de Contrato de Trabalho                                     | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
-| S-2210 | Comunicação de Acidente de Trabalho                                   | S-1.0  | Impl. futura |                                             |
+| S-2210 | Comunicação de Acidente de Trabalho                                   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2220 | Monitoramento da Saúde do Trabalhador                                 | S-1.0  | Impl. futura |                                             |
 | S-2230 | Afastamento Temporário                                                | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2231 | Cessão/Exercício em Outro Órgão                                       | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
 | S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                   | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |
-| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | S-1.0  | Impl. futura |                                             |
+| S-2241 | Insalubridade, Periculosidade e Aposentadoria Especial                | S-1.0  | Removido     |                                             |
 | S-2250 | Aviso Prévio                                                          | NA     | NA           | NA                                          |
 | S-2260 | Convocação para Trabalho Intermitente                                 | NA     | NA           | NA                                          |
 | S-2298 | Reintegração                                                          | S-1.0  | Feito        | PROCESSADO COM SUCESSO                      |

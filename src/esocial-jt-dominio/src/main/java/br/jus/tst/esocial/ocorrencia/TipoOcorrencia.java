@@ -34,7 +34,8 @@ public enum TipoOcorrencia {
 	REABERTURA_PERIODICOS(ReabreEvPer.class),
 	FECHAMENTO_PERIODICOS(FechaEvPer.class),
 	EXCLUSAO(Exclusao.class),
-	EXP_RISCO(ExpRisco.class);
+	EXP_RISCO(ExpRisco.class),
+	CAT(br.jus.tst.esocial.ocorrencia.dados.CAT.class);
 
 	private final Class<? extends DadosOcorrencia> estruturaDadosOcorrencia;
 
