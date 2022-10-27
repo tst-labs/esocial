@@ -1,0 +1,34 @@
+{
+  "tipoOcorrencia": "MONIT",
+  "referencia": "1",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideVinculo": {
+      "cpfTrab": "77993893704",
+      "matricula": "12000"
+    },
+    "exMedOcup": {
+      "tpExameOcup":0,
+      "aso": {
+        "dtAso": "2022-10-27",
+        "resAso": 1,
+        "exame": [
+          {
+            "dtExm": "2022-10-27",
+            "procRealizado": 1432
+          }
+        ],
+        "medico": {
+          "nmMed": "DOUTOR CAPIVARA",
+          "nrCRM": "454545",
+          "ufCRM": "DF"
+        }
+      }
+    }
+  }
+}
