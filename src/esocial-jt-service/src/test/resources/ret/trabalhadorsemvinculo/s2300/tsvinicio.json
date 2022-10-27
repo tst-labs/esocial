@@ -1,0 +1,84 @@
+{
+    "tipoOcorrencia": "TSV_INICIO",
+    "referencia": "13000",
+    "operacao": "NORMAL",
+    "dataOcorrencia": 1522181179561,
+    "dadosOcorrencia": {
+        "ideEmpregador": {
+            "tpInsc": 1,
+            "nrInsc": "00509968000148"
+        },
+        "trabalhador": {
+            "cpfTrab": "00100200345",
+            "nmTrab": "ABRAVANEL",
+            "sexo": "M", 
+            "racaCor": 1, 
+            "estCiv": 1, 
+            "grauInstr": "09", 
+            "nmSoc": null, 
+            "nascimento": {
+                "dtNascto": "1975-07-02T03:00:00.000+00:00", 
+                "paisNascto": "105", 
+                "paisNac": "105"
+            }, 
+            "endereco": {
+                "brasil": {
+                    "tpLograd": null,
+                    "dscLograd": "AVENIDA 2",
+                    "nrLograd": "1",
+                    "complemento": "CASA 6",
+                    "bairro": "LUZ",
+                    "cep": "70070943",
+                    "codMunic": 4304606,
+                    "uf": "AC"
+                },
+                "exterior": null
+            },
+           "dependente": [{
+                "tpDep": "01",
+                "nmDep": "ALMIR SATER",
+                "dtNascto": 453524400000,
+                "cpfDep": "00000000191",
+                "depIRRF": "S",
+                "depSF": "N",
+                "incTrab": "N"
+            },
+            {
+                "tpDep": "09",
+                "nmDep": "CORA CORALINA",
+                "dtNascto": 453524400000,
+                "cpfDep": "00000000192",
+                "depIRRF": "N",
+                "depSF": "N",
+                "incTrab": "N"
+            }]
+        }, 
+        "infoTSVInicio": {
+            "cadIni": "N",
+            "codCateg": 410,
+            "matricula": "C000001-01012007",
+            "nrProcTrab": null,
+            "natAtividade": 1,
+            "infoComplementares": {
+                "cargoFuncao": {
+                    "nmCargo": "SERVIDOR DE OUTRO ORGAO",
+                    "nmFuncao": null,
+                    "cbocargo": "111345",
+                    "cbofuncao": null
+                }, 
+                "remuneracao": null, 
+                "fgts": null,
+                "infoDirigenteSindical": null,
+                "infoTrabCedido": {
+                    "categOrig": 301, 
+                    "cnpjCednt": "1234567", 
+                    "matricCed": "123456", 
+                    "dtAdmCed": "2007-09-05T03:00:00.000+00:00", 
+                    "tpRegTrab": 2, 
+                    "tpRegPrev": 2
+                }
+            },
+            "afastamento": null
+        }      
+    }
+}
