@@ -1,0 +1,35 @@
+{
+  "dadosCadastrais": {
+    "cpfBenef": "77993893704",
+    "nmBenefic": "LEIA ORGANA SOLO",
+    "dtNascto": 453524400000,
+    "dtInicio": 1588364507000,
+    "sexo": "F",
+    "racaCor": 6,
+    "estCiv": 2,
+    "incFisMen": "N",
+    "endereco": {
+      "brasil": {
+        "tpLograd": "IND",
+        "dscLograd": "SAFS QUADRA 0 LOTE 0",
+        "nrLograd": "1",
+        "complemento": "LOTE 0",
+        "bairro": "ZONA CÍVICO-ADMINISTRATIVA",
+        "cep": "70070943",
+        "codMunic": 5300108,
+        "uf": "DF"
+      },
+      "exterior": null
+    },
+    "dependente": [
+      {
+        "tpDep": "03",
+        "nmDep": "BEN SOLO",
+        "dtNascto": 656391600000,
+        "cpfDep": "99645142393",
+        "depIRRF": "N",
+        "incFisMen": "N"
+      }
+    ]
+  }
+}
