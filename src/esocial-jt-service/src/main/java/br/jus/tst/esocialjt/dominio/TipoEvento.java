@@ -23,6 +23,7 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento S2205 = new TipoEvento(2205l);
 	public static final TipoEvento S2206 = new TipoEvento(2206l);
 	public static final TipoEvento S2210 = new TipoEvento(2210l);
+	public static final TipoEvento S2220 = new TipoEvento(2220l);
 	public static final TipoEvento S2230 = new TipoEvento(2230l);
 	public static final TipoEvento S2231 = new TipoEvento(2231l);
 	public static final TipoEvento S2240 = new TipoEvento(2240l);
@@ -57,9 +58,9 @@ public class TipoEvento implements Serializable {
 	public static final TipoEvento ALTERACAO_CADASTRAL = S2205;
 	public static final TipoEvento ALTERACAO_CONTRATUAL = S2206;
 	public static final TipoEvento CAT = S2210;
+	public static final TipoEvento MONIT = S2220;
 	public static final TipoEvento AFASTAMENTO_TEMPORARIO = S2230;
 	public static final TipoEvento CESSAO = S2231;
-
 	public static final TipoEvento EXP_RISCO = S2240;
 	public static final TipoEvento REINTEGRACAO = S2298;
 	public static final TipoEvento DESLIGAMENTO = S2299;
