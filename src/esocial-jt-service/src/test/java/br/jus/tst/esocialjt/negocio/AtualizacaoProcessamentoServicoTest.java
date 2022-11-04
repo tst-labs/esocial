@@ -1,9 +1,14 @@
 package br.jus.tst.esocialjt.negocio;
 
-import java.util.Arrays;
-
-import javax.persistence.EntityManager;
-
+import br.jus.tst.esocialjt.RetornoProcessamentoBuilder;
+import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoErroProcessamento;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
+import br.jus.tst.esocialjt.dominio.Estado;
+import br.jus.tst.esocialjt.dominio.Lote;
+import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.spring.api.DBRider;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,16 +20,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.database.rider.core.api.dataset.DataSet;
-import com.github.database.rider.spring.api.DBRider;
-
-import br.jus.tst.esocialjt.RetornoProcessamentoBuilder;
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoErroProcessamento;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
-import br.jus.tst.esocialjt.dominio.Estado;
-import br.jus.tst.esocialjt.dominio.Lote;
-import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import javax.persistence.EntityManager;
+import java.util.Arrays;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -114,6 +111,23 @@ public class AtualizacaoProcessamentoServicoTest {
 		SoftAssertions soft = new SoftAssertions();
 
 		soft.assertThat(lote.getEstado().getDescricao()).isEqualTo(Estado.PROCESSAMENTO.getDescricao());
+
+		soft.assertAll();
+	}
+
+	@Test
+	@Transactional
+	@DataSet(value = {"ocorrencia.yml", "lote.yml", "evento.yml", "envio-evento.yml"}, executeScriptsBefore = "cleanup.sql")
+	public void deveAbortarLoteEForcarErro() throws ComunicacaoEsocialGovException {
+		atualizacaoProcessamentoServico.abortarTodosEmProcessamento();
+		Lote lote = em.find(Lote.class, 1l);
+
+		SoftAssertions soft = new SoftAssertions();
+		soft.assertThat(lote.getEstado().getDescricao()).isEqualTo(Estado.ERRO.getDescricao());
+		lote.getEnviosEvento().forEach(envioEvento -> {
+			soft.assertThat(envioEvento.getEvento().getEstado().getDescricao()).isEqualTo(Estado.ERRO.getDescricao());
+			soft.assertThat(envioEvento.getErroInterno()).isNotEmpty();
+		});
 
 		soft.assertAll();
 	}

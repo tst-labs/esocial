@@ -1,22 +1,16 @@
 package br.jus.tst.esocialjt.lote;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoServico;
 import br.jus.tst.esocialjt.dominio.Lote;
 import br.jus.tst.esocialjt.negocio.AtualizacaoProcessamentoServico;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/lote")
@@ -56,5 +50,12 @@ public class LoteResource {
 	public List<Lote> atualizarProcessamentoEvento(@PathVariable("protocolo") String protocolo)
 			throws ComunicacaoEsocialGovException {
 		return atualizacaoProcessamentoServico.atualizarProcessamentoLote(protocolo);
+	}
+
+	@Operation(summary = "Marca todos os lotes e eventos em processamento como erro. ATENÇÃO: pode causar inconsistência entre o estado desta aplicação com o que está na base do eSocial-Gov.")
+	@PostMapping("/acoes/abortar-processamento")
+	public List<Lote> abortarProcessamentoTodosEmProcessamento()
+			throws ComunicacaoEsocialGovException {
+		return atualizacaoProcessamentoServico.abortarTodosEmProcessamento();
 	}
 }
