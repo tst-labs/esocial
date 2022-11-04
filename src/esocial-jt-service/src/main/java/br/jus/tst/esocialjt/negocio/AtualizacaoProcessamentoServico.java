@@ -1,26 +1,17 @@
 package br.jus.tst.esocialjt.negocio;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
+import br.jus.tst.esocialjt.comunicacaogov.*;
+import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoEvento;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoEventoTotalizador;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoLote;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
-import br.jus.tst.esocialjt.dominio.CodigoResposta;
-import br.jus.tst.esocialjt.dominio.EnvioEvento;
-import br.jus.tst.esocialjt.dominio.ErroProcessamento;
-import br.jus.tst.esocialjt.dominio.Estado;
-import br.jus.tst.esocialjt.dominio.EventoTotalizador;
-import br.jus.tst.esocialjt.dominio.Lote;
-import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class AtualizacaoProcessamentoServico {
@@ -35,26 +26,41 @@ public class AtualizacaoProcessamentoServico {
 
 	@Autowired
 	private CodigoRespostaServico codigoRespostaServico;
-	
+
 	@Autowired
 	private ErroProcessamentoServico erroProcessamentoServico;
-	
+
 	@Autowired
 	private ComunicacaoEsocialGov comunicacaoEsocialGov;
-	
+
 	@Autowired
 	private EventoTotalizadorServico eventoTotalizadorServico;
-	
-	public List<Lote> atualizarTodosEmProcessamento(){
+
+	public List<Lote> atualizarTodosEmProcessamento() {
 		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
 		return atualizarProcessamentoLote(lotes);
 	}
-	
-	public List<Lote> atualizarProcessamentoLote(String... protocolo){
+
+	public List<Lote> atualizarProcessamentoLote(String... protocolo) {
 		List<Lote> lotes = loteServico.criarConsulta().comProtocolos(protocolo).buscar();
 		return atualizarProcessamentoLote(lotes);
 	}
-	
+
+	@Transactional
+	public List<Lote> abortarTodosEmProcessamento() {
+		List<Lote> lotesAtualizados = new ArrayList<>();
+		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
+		lotes.forEach(lote -> {
+			lote.getEnviosEvento().forEach(envio -> {
+				envio.getEvento().setEstado(Estado.ERRO);
+				envio.setErroInterno("Ocorreu um erro ao obter resposta do evento. Verifique resultado do envio no eSocial-Gov.");
+			});
+			lote.setEstado(Estado.ERRO);
+			lotesAtualizados.add(loteServico.atualiza(lote));
+		});
+		return lotesAtualizados;
+	}
+
 	public List<Lote> atualizarProcessamentoLote(List<Lote> lotes) {
 		List<Lote> lotesAtualizados = new ArrayList<>();
 
@@ -64,8 +70,7 @@ public class AtualizacaoProcessamentoServico {
 				RetornoLote retornoLote = retornoProcessamento.getRetornoLote();
 				preencherDadosProcessamentoLote(lote, retornoLote);
 				preencherProcessamentoEnviosEvento(lote.getEnviosEvento(), retornoProcessamento);
-				
-				
+
 				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio.getEvento()));
 				estadoServico.atualizarEstado(lote);
 				
