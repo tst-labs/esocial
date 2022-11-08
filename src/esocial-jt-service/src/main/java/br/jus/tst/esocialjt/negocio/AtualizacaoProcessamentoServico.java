@@ -51,11 +51,8 @@ public class AtualizacaoProcessamentoServico {
 		List<Lote> lotesAtualizados = new ArrayList<>();
 		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
 		lotes.forEach(lote -> {
-			lote.getEnviosEvento().forEach(envio -> {
-				envio.getEvento().setEstado(Estado.ERRO);
-				envio.setErroInterno("Ocorreu um erro ao obter resposta do evento. Verifique resultado do envio no eSocial-Gov.");
-			});
 			lote.setEstado(Estado.ERRO);
+			lote.setErroInterno("Processamento abortado.");
 			lotesAtualizados.add(loteServico.atualiza(lote));
 		});
 		return lotesAtualizados;
@@ -73,23 +70,23 @@ public class AtualizacaoProcessamentoServico {
 
 				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio.getEvento()));
 				estadoServico.atualizarEstado(lote);
-				
+				Estado loteEstado = lote.getEstado();
+				erroProcessamentoServico.preencheErrosDiversosLote(lote, retornoLote, loteEstado);
+
 				lotesAtualizados.add(loteServico.atualiza(lote));
-				
 				salvaEventosTotalizadores(retornoLote);
-				
 			} catch (ComunicacaoEsocialGovException e) {
 				LOGGER.error(e.getMessage());
 				LOGGER.debug(e.getMessage(), e);
 			}
 		});
-		
+
 		return lotesAtualizados;
 	}
 
 	public void salvaEventosTotalizadores(RetornoLote retornoLote) {
 		List<RetornoEventoTotalizador> listaRetornoEventoTotalizador = retornoLote.getRetornoEventoTotalizador();
-		
+
 		if (!listaRetornoEventoTotalizador.isEmpty()) {
 			for (RetornoEventoTotalizador eventoTot : listaRetornoEventoTotalizador) {
 				EventoTotalizador eventoTotalizador = new EventoTotalizador();

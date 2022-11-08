@@ -124,11 +124,6 @@ public class AtualizacaoProcessamentoServicoTest {
 
 		SoftAssertions soft = new SoftAssertions();
 		soft.assertThat(lote.getEstado().getDescricao()).isEqualTo(Estado.ERRO.getDescricao());
-		lote.getEnviosEvento().forEach(envioEvento -> {
-			soft.assertThat(envioEvento.getEvento().getEstado().getDescricao()).isEqualTo(Estado.ERRO.getDescricao());
-			soft.assertThat(envioEvento.getErroInterno()).isNotEmpty();
-		});
-
 		soft.assertAll();
 	}
 
