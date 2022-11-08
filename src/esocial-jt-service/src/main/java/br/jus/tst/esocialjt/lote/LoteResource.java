@@ -51,11 +51,4 @@ public class LoteResource {
 			throws ComunicacaoEsocialGovException {
 		return atualizacaoProcessamentoServico.atualizarProcessamentoLote(protocolo);
 	}
-
-	@Operation(summary = "Marca todos os lotes e eventos em processamento como erro. ATENÇÃO: pode causar inconsistência entre o estado desta aplicação com o que está na base do eSocial-Gov.")
-	@PostMapping("/acoes/abortar-processamento")
-	public List<Lote> abortarProcessamentoTodosEmProcessamento()
-			throws ComunicacaoEsocialGovException {
-		return atualizacaoProcessamentoServico.abortarTodosEmProcessamento();
-	}
 }

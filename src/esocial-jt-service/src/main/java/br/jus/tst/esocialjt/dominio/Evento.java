@@ -47,6 +47,7 @@ public class Evento implements Serializable {
 	private TipoEvento tipoEvento;
 	
 	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OrderBy("id asc")
 	private Set<EnvioEvento> enviosEvento = new LinkedHashSet<>();
 	
 	@Size(max = 40)
