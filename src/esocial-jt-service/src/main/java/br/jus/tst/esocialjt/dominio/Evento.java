@@ -114,6 +114,7 @@ public class Evento implements Serializable {
 
 	public void adicionarEnvioEvento(EnvioEvento envioEvento) {
 		this.enviosEvento.add(envioEvento);
+		envioEvento.setEvento(this);
 	}
 
 	public String getNrRecibo() {

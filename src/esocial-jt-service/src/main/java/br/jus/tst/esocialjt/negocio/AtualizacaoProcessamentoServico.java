@@ -65,13 +65,12 @@ public class AtualizacaoProcessamentoServico {
 			try {
 				RetornoProcessamento retornoProcessamento = comunicacaoEsocialGov.consultarLoteEventos(lote.getProtocolo());
 				RetornoLote retornoLote = retornoProcessamento.getRetornoLote();
-				preencherDadosProcessamentoLote(lote, retornoLote);
-				preencherProcessamentoEnviosEvento(lote.getEnviosEvento(), retornoProcessamento);
 
-				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio.getEvento()));
+				preencherDadosProcessamentoLote(lote, retornoLote);
 				estadoServico.atualizarEstado(lote);
-				Estado loteEstado = lote.getEstado();
-				erroProcessamentoServico.preencheErrosDiversosLote(lote, retornoLote, loteEstado);
+
+				preencherProcessamentoEnviosEvento(lote, retornoProcessamento);
+				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio));
 
 				lotesAtualizados.add(loteServico.atualiza(lote));
 				salvaEventosTotalizadores(retornoLote);
@@ -100,42 +99,54 @@ public class AtualizacaoProcessamentoServico {
 			}
 		}
 	}
-	
-	public void preencherProcessamentoEnviosEvento(List<EnvioEvento> enviosEvento, RetornoProcessamento retornoProcessamento) {
+
+	public void preencherProcessamentoEnviosEvento(Lote lote, RetornoProcessamento retornoProcessamento) {
+		List<EnvioEvento> enviosEvento = lote.getEnviosEvento();
 		List<RetornoEvento> listaRetornoEvento = retornoProcessamento.getRetornoLote().getRetornoEvento();
-		
+
 		if (!listaRetornoEvento.isEmpty()) {
 			enviosEvento.forEach(envioEvento -> {
 				RetornoEvento retornoEvento = listaRetornoEvento.stream()
-					.filter(re -> re.getIdEvento().equals(envioEvento.getEvento().getIdEvento()))
-					.findFirst()
-					.get();
-				
+						.filter(re -> re.getIdEvento().equals(envioEvento.getEvento().getIdEvento()))
+						.findFirst()
+						.get();
+
 				envioEvento.getEvento().setNrRecibo(retornoEvento.getNrRecibo());
-				
-				long codigoRespostaProcessamento = retornoEvento.getCodigoRespostaProcessamento();
-				CodigoResposta codigoResposta = new CodigoResposta(CodigoResposta.RESPOSTA_GOV_EVENTO, codigoRespostaProcessamento,
-						retornoEvento.getDescricaoRespostaProcessamento());
+
+				CodigoResposta codigoResposta = new CodigoResposta(
+						CodigoResposta.RESPOSTA_GOV_EVENTO,
+						retornoEvento.getCodigoRespostaProcessamento(),
+						retornoEvento.getDescricaoRespostaProcessamento()
+				);
+
 				codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
-				
 				envioEvento.setCodRespostaProcessamento(codigoResposta);
-				Set<ErroProcessamento> errosProcessamento = erroProcessamentoServico
-						.retornaErroProcessamento(retornoEvento.getRetornoErrosProcessamento(), envioEvento);
+
+				Set<ErroProcessamento> errosProcessamento = erroProcessamentoServico.retornaErroProcessamento(
+						retornoEvento.getRetornoErrosProcessamento(),
+						envioEvento
+				);
+
 				envioEvento.setErrosProcessamento(errosProcessamento);
 			});
 		}
-				
+
+		if (lote.getEstado().getId() == Estado.PROCESSADO_COM_ERRO.getId()) {
+			String desResposta = lote.getCodigoResposta().getDesResposta();
+			enviosEvento.forEach(envioEvento -> envioEvento.setErroInterno(desResposta));
+		}
+
 	}
-	
+
 	public Lote preencherDadosProcessamentoLote(Lote lote, RetornoLote retornoLote) {
-		long codigoRespostaProcessamento = retornoLote.getCodigoRespostaProcessamento();
 		CodigoResposta codigoResposta = new CodigoResposta(
-				CodigoResposta.RESPOSTA_GOV_LOTE, 
-				codigoRespostaProcessamento,
-				retornoLote.getDescricaoRespostaProcessamento());
+				CodigoResposta.RESPOSTA_GOV_LOTE,
+				retornoLote.getCodigoRespostaProcessamento(),
+				retornoLote.getDescricaoRespostaProcessamento()
+		);
 		codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
 		lote.setResposta(codigoResposta);
-		
+
 		return lote;
 	}
 
