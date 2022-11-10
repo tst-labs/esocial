@@ -25,9 +25,6 @@ public class EventoServico {
 	@Autowired
 	private GeradorId geradorId;
 	
-	@Autowired
-	private EstadoServico estadoServico;
-
 	public Evento gerarEvento(Ocorrencia ocorrencia, TipoEvento tipoEvento) {
 
 		Evento evento = new Evento();
@@ -35,8 +32,8 @@ public class EventoServico {
 		evento.setOcorrencia(ocorrencia);
 		String cnpj = ocorrencia.getDadosOcorrencia().getIdeEmpregador().getNrInsc();
 		evento.setIdEvento(geradorId.gerarId(cnpj));
-		estadoServico.atualizarEstado(evento);
-		
+		evento.setEstado(Estado.EM_FILA);
+
 		return evento;
 	}
 

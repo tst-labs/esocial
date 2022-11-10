@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { red } from "@mui/material/colors";
+import { red, amber } from "@mui/material/colors";
 
 function ErrosResumo({ ocorrencia }) {
   if (
@@ -24,27 +24,59 @@ function ErrosResumo({ ocorrencia }) {
   }
 
   ultimoEnvio.errosProcessamento.sort((a, b) => b.id - a.id);
+
+  const erros = ultimoEnvio.errosProcessamento.filter(
+    (err) => err.tipoErroProcessamento?.id !== 2
+  );
+  const advertencias = ultimoEnvio.errosProcessamento.filter(
+    (err) => err.tipoErroProcessamento?.id === 2
+  );
+
   let erro;
-  if (ultimoEnvio.errosProcessamento.length > 0) {
-    erro = ultimoEnvio.errosProcessamento[0];
+  if (erros.length > 0) {
+    erro = erros[0];
   } else {
     erro = ultimoEnvio.erroInterno;
   }
 
+  let advertencia;
+  if (advertencias.length > 0) {
+    advertencia = advertencias[0];
+  }
+
   return (
-    <Box padding={1} sx={{ backgroundColor: red[50] }}>
-      <Typography variant="body2">
-        <span style={{ fontWeight: "500" }}>Erro:</span>{" "}
-        {erro.descricao || erro}
-        {ultimoEnvio.errosProcessamento.length > 1 && (
-          <span style={{ fontWeight: "500", whiteSpace: "pre" }}>{` [e mais ${
-            ultimoEnvio.errosProcessamento.length - 1
-          } erro${
-            ultimoEnvio.errosProcessamento.length > 2 ? "s" : ""
-          }]`}</span>
-        )}
-      </Typography>
-    </Box>
+    <>
+      {erro && (
+        <Box padding={1} sx={{ backgroundColor: red[50] }}>
+          <Typography variant="body2">
+            <span style={{ fontWeight: "500" }}>Erro:</span>{" "}
+            {erro.descricao || erro}
+            {erros.length > 1 && (
+              <span
+                style={{ fontWeight: "500", whiteSpace: "pre" }}
+              >{` [e mais ${erros.length - 1} erro${
+                erros.length > 2 ? "s" : ""
+              }]`}</span>
+            )}
+          </Typography>
+        </Box>
+      )}
+      {advertencia && (
+        <Box padding={1} sx={{ backgroundColor: amber[200] }}>
+          <Typography variant="body2">
+            <span style={{ fontWeight: "500" }}>Advertência:</span>{" "}
+            {advertencia.descricao}
+            {advertencias.length > 1 && (
+              <span
+                style={{ fontWeight: "500", whiteSpace: "pre" }}
+              >{` [e mais ${advertencias.length - 1} advertências${
+                advertencias.length > 2 ? "s" : ""
+              }]`}</span>
+            )}
+          </Typography>
+        </Box>
+      )}
+    </>
   );
 }
 

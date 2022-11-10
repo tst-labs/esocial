@@ -6,11 +6,6 @@
       "description": "Define para qual ambiente do eSocial os eventos serão enviados. Valores: PRODUCAO, PRODUCAO_RESTRITA"
     },
     {
-      "name": "esocialjt.erros-recuperaveis",
-      "type": "java.lang.List<Long>",
-      "description": "Lista com códigos de erros que indicam um reenvio do evento ao eSocial em momento posterior"
-    },
-    {
       "name": "esocialjt.limite-eventos-lote",
       "type": "java.lang.Long",
       "description": "Quantidade máxima de eventos em um lote"

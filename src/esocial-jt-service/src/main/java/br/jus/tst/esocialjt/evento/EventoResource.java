@@ -58,22 +58,22 @@ public class EventoResource {
         return enviosEventos.stream().map(EnvioEvento::getEvento).collect(Collectors.toList());
     }
 
-    @Operation(summary = "Forçar manualmente estado para os eventos para o eSocial-Gov. ATENÇÃO: esta ação pode gerar inconsistências em relação ao eSocial-Gov, pois o estado aqui pode nãos ser o mesmo estado lá.")
+    @Operation(summary = "Forçar manualmente estado de um evento. ATENÇÃO: esta ação pode gerar inconsistências em relação ao eSocial-Gov, pois o estado aqui pode nãos ser o mesmo estado lá.")
     @PostMapping(path = "/acoes/forcar-estado", produces = "application/json;charset=UTF-8")
     public List<Evento> forcarEstadosEventos(
-            @Parameter(description = "Id do evento (não confundir com a id da ocorrência)", example = "1")
+            @Parameter(description = "Id do evento (não confundir com a id da ocorrência)")
             @RequestParam(value = "id", required = false, defaultValue = "")
             List<Long> id,
 
-            @Parameter(description = "Tipo do evento. [1000, 1005, 1010, 1020, 1030, 1035, 1040, 1050, 1060, 1070, 2200, etc]", example = "1000")
+            @Parameter(description = "Tipo do evento. [1000, 1005, 1010, 1020, 1030, 1035, 1040, 1050, 1060, 1070, 2200, etc]")
             @RequestParam(value = "tipo", required = false, defaultValue = "")
             List<Long> tipo,
 
-            @Parameter(description = "Estado atual do evento. [1 (EM_FILA), 2 (PROCESSAMENTO), 3 (PROCESSADO_COM_SUCESSO), 4 (PROCESSADO_COM_ERRO), 5 (ERRO)]", example = "1")
+            @Parameter(description = "Estado atual do evento. [1 (EM_FILA), 2 (PROCESSAMENTO), 3 (PROCESSADO_COM_SUCESSO), 4 (PROCESSADO_COM_ERRO), 5 (ERRO)]")
             @RequestParam(value = "estado", required = true, defaultValue = "")
             List<Long> estado,
 
-            @Parameter(description = "Grupo do evento. Valores possíveis [1 (TABELA), 2 (NAO_PERIODICO), 3 (PERIODICO)]", example = "1")
+            @Parameter(description = "Grupo do evento. Valores possíveis [1 (TABELA), 2 (NAO_PERIODICO), 3 (PERIODICO)]")
             @RequestParam(value = "grupo", required = false, defaultValue = "")
             List<Long> grupo,
 

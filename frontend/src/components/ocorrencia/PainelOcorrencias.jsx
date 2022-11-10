@@ -28,7 +28,12 @@ function PainelOcorrencias({ ocorrencias }) {
           onMouseLeave={() => setHoverId(null)}
           onMouseOver={() => setHoverId(ocorrencia.id)}
           key={ocorrencia.id}
-          sx={{ borderBottom: "1px rgb(224, 224, 224) solid" }}
+          sx={(theme) => ({
+            borderBottom: "1px rgb(224, 224, 224) solid",
+            ".MuiListItemSecondaryAction-root ": {
+              top: theme.spacing(3)
+            }
+          })}
           button
           component={Link}
           to={`/eventos/${ocorrencia.id}?${query.toString()}`}
