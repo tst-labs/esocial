@@ -28,3 +28,4 @@ export const FECHAMENTO_PERIODICOS = "FECHAMENTO_PERIODICOS";
 export const EXCLUSAO = "EXCLUSAO";
 export const EXP_RISCO = "EXP_RISCO";
 export const CAT = "CAT";
+export const MONIT = "MONIT";

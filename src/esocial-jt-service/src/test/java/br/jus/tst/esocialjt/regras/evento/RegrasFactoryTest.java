@@ -108,6 +108,17 @@ public class RegrasFactoryTest{
 	}
 
 	@Test
+	public void deveProverRegraMonit() {
+		Regra regra = getRegra(TipoEvento.S2220);
+		assertThat(regra).isInstanceOf(RegraMonit.class);
+		assertThat(regra.regras()).extracting("class").containsOnly(
+				RegraEmpregadorCadastrado.class,
+				RegraNaoHaEventoTabelaEmFila.class,
+				RegraNaoHaIngressoTrabEmFila.class
+		);
+	}
+
+	@Test
 	public void deveProverRegraAfastTemp() {
 		Regra regra = getRegra(TipoEvento.S2230);
 		assertThat(regra).isInstanceOf(RegraAfastTemp.class);

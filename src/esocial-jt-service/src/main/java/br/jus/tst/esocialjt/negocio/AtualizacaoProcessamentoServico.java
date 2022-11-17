@@ -1,26 +1,17 @@
 package br.jus.tst.esocialjt.negocio;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
+import br.jus.tst.esocialjt.comunicacaogov.*;
+import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoEvento;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoEventoTotalizador;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoLote;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
-import br.jus.tst.esocialjt.dominio.CodigoResposta;
-import br.jus.tst.esocialjt.dominio.EnvioEvento;
-import br.jus.tst.esocialjt.dominio.ErroProcessamento;
-import br.jus.tst.esocialjt.dominio.Estado;
-import br.jus.tst.esocialjt.dominio.EventoTotalizador;
-import br.jus.tst.esocialjt.dominio.Lote;
-import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class AtualizacaoProcessamentoServico {
@@ -35,26 +26,38 @@ public class AtualizacaoProcessamentoServico {
 
 	@Autowired
 	private CodigoRespostaServico codigoRespostaServico;
-	
+
 	@Autowired
 	private ErroProcessamentoServico erroProcessamentoServico;
-	
+
 	@Autowired
 	private ComunicacaoEsocialGov comunicacaoEsocialGov;
-	
+
 	@Autowired
 	private EventoTotalizadorServico eventoTotalizadorServico;
-	
-	public List<Lote> atualizarTodosEmProcessamento(){
+
+	public List<Lote> atualizarTodosEmProcessamento() {
 		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
 		return atualizarProcessamentoLote(lotes);
 	}
-	
-	public List<Lote> atualizarProcessamentoLote(String... protocolo){
+
+	public List<Lote> atualizarProcessamentoLote(String... protocolo) {
 		List<Lote> lotes = loteServico.criarConsulta().comProtocolos(protocolo).buscar();
 		return atualizarProcessamentoLote(lotes);
 	}
-	
+
+	@Transactional
+	public List<Lote> abortarTodosEmProcessamento() {
+		List<Lote> lotesAtualizados = new ArrayList<>();
+		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
+		lotes.forEach(lote -> {
+			lote.setEstado(Estado.ERRO);
+			lote.setErroInterno("Processamento abortado.");
+			lotesAtualizados.add(loteServico.atualiza(lote));
+		});
+		return lotesAtualizados;
+	}
+
 	public List<Lote> atualizarProcessamentoLote(List<Lote> lotes) {
 		List<Lote> lotesAtualizados = new ArrayList<>();
 
@@ -62,29 +65,27 @@ public class AtualizacaoProcessamentoServico {
 			try {
 				RetornoProcessamento retornoProcessamento = comunicacaoEsocialGov.consultarLoteEventos(lote.getProtocolo());
 				RetornoLote retornoLote = retornoProcessamento.getRetornoLote();
+
 				preencherDadosProcessamentoLote(lote, retornoLote);
-				preencherProcessamentoEnviosEvento(lote.getEnviosEvento(), retornoProcessamento);
-				
-				
-				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio.getEvento()));
 				estadoServico.atualizarEstado(lote);
-				
+
+				preencherProcessamentoEnviosEvento(lote, retornoProcessamento);
+				lote.getEnviosEvento().forEach(envio -> estadoServico.atualizarEstado(envio));
+
 				lotesAtualizados.add(loteServico.atualiza(lote));
-				
 				salvaEventosTotalizadores(retornoLote);
-				
 			} catch (ComunicacaoEsocialGovException e) {
 				LOGGER.error(e.getMessage());
 				LOGGER.debug(e.getMessage(), e);
 			}
 		});
-		
+
 		return lotesAtualizados;
 	}
 
 	public void salvaEventosTotalizadores(RetornoLote retornoLote) {
 		List<RetornoEventoTotalizador> listaRetornoEventoTotalizador = retornoLote.getRetornoEventoTotalizador();
-		
+
 		if (!listaRetornoEventoTotalizador.isEmpty()) {
 			for (RetornoEventoTotalizador eventoTot : listaRetornoEventoTotalizador) {
 				EventoTotalizador eventoTotalizador = new EventoTotalizador();
@@ -98,42 +99,54 @@ public class AtualizacaoProcessamentoServico {
 			}
 		}
 	}
-	
-	public void preencherProcessamentoEnviosEvento(List<EnvioEvento> enviosEvento, RetornoProcessamento retornoProcessamento) {
+
+	public void preencherProcessamentoEnviosEvento(Lote lote, RetornoProcessamento retornoProcessamento) {
+		List<EnvioEvento> enviosEvento = lote.getEnviosEvento();
 		List<RetornoEvento> listaRetornoEvento = retornoProcessamento.getRetornoLote().getRetornoEvento();
-		
+
 		if (!listaRetornoEvento.isEmpty()) {
 			enviosEvento.forEach(envioEvento -> {
 				RetornoEvento retornoEvento = listaRetornoEvento.stream()
-					.filter(re -> re.getIdEvento().equals(envioEvento.getEvento().getIdEvento()))
-					.findFirst()
-					.get();
-				
+						.filter(re -> re.getIdEvento().equals(envioEvento.getEvento().getIdEvento()))
+						.findFirst()
+						.get();
+
 				envioEvento.getEvento().setNrRecibo(retornoEvento.getNrRecibo());
-				
-				long codigoRespostaProcessamento = retornoEvento.getCodigoRespostaProcessamento();
-				CodigoResposta codigoResposta = new CodigoResposta(CodigoResposta.RESPOSTA_GOV_EVENTO, codigoRespostaProcessamento,
-						retornoEvento.getDescricaoRespostaProcessamento());
+
+				CodigoResposta codigoResposta = new CodigoResposta(
+						CodigoResposta.RESPOSTA_GOV_EVENTO,
+						retornoEvento.getCodigoRespostaProcessamento(),
+						retornoEvento.getDescricaoRespostaProcessamento()
+				);
+
 				codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
-				
 				envioEvento.setCodRespostaProcessamento(codigoResposta);
-				Set<ErroProcessamento> errosProcessamento = erroProcessamentoServico
-						.retornaErroProcessamento(retornoEvento.getRetornoErrosProcessamento(), envioEvento);
+
+				Set<ErroProcessamento> errosProcessamento = erroProcessamentoServico.retornaErroProcessamento(
+						retornoEvento.getRetornoErrosProcessamento(),
+						envioEvento
+				);
+
 				envioEvento.setErrosProcessamento(errosProcessamento);
 			});
 		}
-				
+
+		if (lote.getEstado().getId() == Estado.PROCESSADO_COM_ERRO.getId()) {
+			String desResposta = lote.getCodigoResposta().getDesResposta();
+			enviosEvento.forEach(envioEvento -> envioEvento.setErroInterno(desResposta));
+		}
+
 	}
-	
+
 	public Lote preencherDadosProcessamentoLote(Lote lote, RetornoLote retornoLote) {
-		long codigoRespostaProcessamento = retornoLote.getCodigoRespostaProcessamento();
 		CodigoResposta codigoResposta = new CodigoResposta(
-				CodigoResposta.RESPOSTA_GOV_LOTE, 
-				codigoRespostaProcessamento,
-				retornoLote.getDescricaoRespostaProcessamento());
+				CodigoResposta.RESPOSTA_GOV_LOTE,
+				retornoLote.getCodigoRespostaProcessamento(),
+				retornoLote.getDescricaoRespostaProcessamento()
+		);
 		codigoResposta = codigoRespostaServico.obterCodigoResposta(codigoResposta);
 		lote.setResposta(codigoResposta);
-		
+
 		return lote;
 	}
 

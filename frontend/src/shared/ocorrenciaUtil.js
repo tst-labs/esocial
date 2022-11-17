@@ -18,6 +18,7 @@ import {
   EXP_RISCO,
   FECHAMENTO_PERIODICOS,
   INFORMACOES_EMPREGADOR,
+  MONIT,
   PAGAMENTOS,
   REABERTURA_PERIODICOS,
   REATIVACAO_BENEFICIO,
@@ -121,6 +122,7 @@ export function getResumo(ocorrencia) {
     case REINTEGRACAO:
     case EXP_RISCO:
     case CAT:
+    case MONIT:
       resumo = (
         <>
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />

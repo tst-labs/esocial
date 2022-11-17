@@ -1,34 +1,31 @@
 package br.jus.tst.esocialjt.negocio;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
+import br.jus.tst.esocial.dominio.empregador.InfoEmpregador;
+import br.jus.tst.esocial.ocorrencia.Operacao;
+import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
+import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.evento.EventoDTO;
+import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.spring.api.DBRider;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import com.github.database.rider.core.api.dataset.DataSet;
-import com.github.database.rider.spring.api.DBRider;
-
-import br.jus.tst.esocial.dominio.empregador.IdeEmpregador;
-import br.jus.tst.esocial.dominio.empregador.InfoEmpregador;
-import br.jus.tst.esocial.ocorrencia.Operacao;
-import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
-import br.jus.tst.esocialjt.dominio.Estado;
-import br.jus.tst.esocialjt.dominio.Evento;
-import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
-import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.dominio.TipoEvento;
-import br.jus.tst.esocialjt.evento.EventoDTO;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -189,12 +186,27 @@ public class EventoServicoTest {
 		InformacoesEmpregador informacoesEmpregador = new InformacoesEmpregador();
 		informacoesEmpregador.setIdeEmpregador(new IdeEmpregador());
 		informacoesEmpregador.getIdeEmpregador().setNrInsc("00509968000148");
-		
+
 		InfoEmpregador infoEmpregador = new InfoEmpregador();
-		
+
 		informacoesEmpregador.setInfoEmpregador(infoEmpregador);
 
 		return informacoesEmpregador;
+	}
+
+	@Test
+	@Transactional
+	@DataSet(value = {"ocorrencia.yml", "lote.yml", "evento.yml", "envio-evento.yml"}, executeScriptsBefore = "cleanup.sql")
+	public void deveAbortarLoteEForcarErro() throws ComunicacaoEsocialGovException {
+		List<Evento> eventos = eventoServico.abortarTodosEmProcessamento();
+
+		SoftAssertions soft = new SoftAssertions();
+		soft.assertThat(eventos.size()).isEqualTo(1);
+		eventos.forEach(evento -> {
+			soft.assertThat(evento.getEstado().getDescricao()).isEqualTo(Estado.ERRO.getDescricao());
+		});
+
+		soft.assertAll();
 	}
 
 }

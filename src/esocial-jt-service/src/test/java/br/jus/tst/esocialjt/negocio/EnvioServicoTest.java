@@ -1,16 +1,13 @@
 package br.jus.tst.esocialjt.negocio;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
-
+import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
+import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoEnvio;
+import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
+import com.github.database.rider.core.api.dataset.DataSet;
+import com.github.database.rider.spring.api.DBRider;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,21 +18,15 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.database.rider.core.api.dataset.DataSet;
-import com.github.database.rider.spring.api.DBRider;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
-import br.jus.tst.esocialjt.comunicacaogov.RetornoEnvio;
-import br.jus.tst.esocialjt.dominio.EnvioEvento;
-import br.jus.tst.esocialjt.dominio.Estado;
-import br.jus.tst.esocialjt.dominio.Evento;
-import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
-import br.jus.tst.esocialjt.dominio.Lote;
-import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.dominio.TipoEvento;
-import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
-import br.jus.tst.esocialjt.ocorrencia.ExemploOcorrenciaServico;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -65,8 +56,8 @@ public class EnvioServicoTest {
 		Mockito.when(comunicacaoEsocialGov.enviarLoteEventos(Mockito.anyString())).thenReturn(getRetorno());
 
 		Evento evento = getEvento();
-		
-		EnvioEvento envio = envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
+
+		EnvioEvento envio = envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
 		Lote lote = envio.getLote();
 		
 		SoftAssertions soft = new SoftAssertions();
@@ -89,24 +80,24 @@ public class EnvioServicoTest {
 	@Test
 	@DataSet(executeScriptsBefore = "cleanup.sql")
 	public void deveEnviarDuasVezes() throws ComunicacaoEsocialGovException {
-		
+
 		Mockito.when(comunicacaoEsocialGov.enviarLoteEventos(Mockito.anyString())).thenReturn(getRetorno());
 
 		Evento evento = getEvento();
 		em.persist(evento);
-		
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		
+
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+
 		Set<EnvioEvento> enviosEventoDoEvento = em.createQuery("Select e From Evento e", Evento.class)
 				.getSingleResult()
 				.getEnviosEvento();
-		
+
 		List<Long> idsEventos = enviosEventoDoEvento
 				.stream()
 				.map(EnvioEvento::getId)
 				.collect(Collectors.toList());
-		
+
 		Long[] idsEnvioEvento = em.createQuery("Select e From EnvioEvento e", EnvioEvento.class)
 				.getResultList()
 				.stream()
@@ -119,19 +110,19 @@ public class EnvioServicoTest {
 	@Test
 	@DataSet(executeScriptsBefore = "cleanup.sql")
 	public void deveSalvarUmEventoDoisEnviosDoisLotes() throws ComunicacaoEsocialGovException {
-		
+
 		Mockito.when(comunicacaoEsocialGov.enviarLoteEventos(Mockito.anyString())).thenReturn(getRetorno());
 
 		Evento evento = getEvento();
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		
-		Long qtdEvento = em.createQuery("SELECT COUNT(e) FROM Evento e", Long.class).getSingleResult(); 
-		Long qtdLote = em.createQuery("SELECT COUNT(e) FROM Lote e", Long.class).getSingleResult(); 
-		Long qtdEnvioEvento = em.createQuery("SELECT COUNT(e) FROM EnvioEvento e", Long.class).getSingleResult(); 
-		
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+
+		Long qtdEvento = em.createQuery("SELECT COUNT(e) FROM Evento e", Long.class).getSingleResult();
+		Long qtdLote = em.createQuery("SELECT COUNT(e) FROM Lote e", Long.class).getSingleResult();
+		Long qtdEnvioEvento = em.createQuery("SELECT COUNT(e) FROM EnvioEvento e", Long.class).getSingleResult();
+
 		SoftAssertions soft = new SoftAssertions();
-		
+
 		soft.assertThat(qtdEvento).as("Eventos salvos").isEqualTo(1);
 		soft.assertThat(qtdLote).as("Lotes salvos").isEqualTo(2);
 		soft.assertThat(qtdEnvioEvento).as("EnviosEventos salvos").isEqualTo(2);
@@ -142,20 +133,20 @@ public class EnvioServicoTest {
 	@Test
 	@DataSet(executeScriptsBefore = "cleanup.sql")
 	public void deveSalvarUmEventoGerenciadoDoisEnviosDoisLotes() throws ComunicacaoEsocialGovException {
-		
+
 		Mockito.when(comunicacaoEsocialGov.enviarLoteEventos(Mockito.anyString())).thenReturn(getRetorno());
 
 		Evento evento = getEvento();
 		evento = em.merge(evento);
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
-		
-		Long qtdEvento = em.createQuery("SELECT COUNT(e) FROM Evento e", Long.class).getSingleResult(); 
-		Long qtdLote = em.createQuery("SELECT COUNT(e) FROM Lote e", Long.class).getSingleResult(); 
-		Long qtdEnvioEvento = em.createQuery("SELECT COUNT(e) FROM EnvioEvento e", Long.class).getSingleResult(); 
-		
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+		envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
+
+		Long qtdEvento = em.createQuery("SELECT COUNT(e) FROM Evento e", Long.class).getSingleResult();
+		Long qtdLote = em.createQuery("SELECT COUNT(e) FROM Lote e", Long.class).getSingleResult();
+		Long qtdEnvioEvento = em.createQuery("SELECT COUNT(e) FROM EnvioEvento e", Long.class).getSingleResult();
+
 		SoftAssertions soft = new SoftAssertions();
-		
+
 		soft.assertThat(qtdEvento).as("Eventos salvos").isEqualTo(1);
 		soft.assertThat(qtdLote).as("Lotes salvos").isEqualTo(2);
 		soft.assertThat(qtdEnvioEvento).as("EnviosEventos salvos").isEqualTo(2);
@@ -240,37 +231,37 @@ public class EnvioServicoTest {
 	public void deveMudarEstadoParaErroSeEventoNaoPuderSerGerado() {
 		Evento evento = getEvento();
 		evento.getOcorrencia().getDadosOcorrencia().getIdeEmpregador().setNrInsc("INVALIDO");
-		EnvioEvento resultado = envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
+		EnvioEvento resultado = envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
 		assertThat(resultado.getEvento().getEstado().getId()).isEqualTo(Estado.ERRO.getId());
 	}
 	
 	@Test
 	@DataSet(executeScriptsBefore = "cleanup.sql")
 	public void deveTratarErroComunicacaoEsocialGov() throws ComunicacaoEsocialGovException {
-		
+
 		String mensagem = "Erro de comunicacao";
-		
+
 		Mockito.when(comunicacaoEsocialGov.enviarLoteEventos(Mockito.anyString())).thenThrow(new ComunicacaoEsocialGovException(mensagem));
 
 		Evento evento = getEvento();
-		
-		EnvioEvento envio = envioServico.enviarEventosParaESocialGov(Arrays.asList(evento)).get(0);
+
+		EnvioEvento envio = envioServico.enviarEventosParaESocialGov(Collections.singletonList(evento)).get(0);
 		Lote lote = envio.getLote();
-		
+
 		SoftAssertions soft = new SoftAssertions();
-		
-		soft.assertThat(envio.getDtaGeracaoEvento()).isNotNull();
-		soft.assertThat(envio.getVersao()).isNotEmpty();
-		soft.assertThat(envio.getEvento().getIdEvento()).isEqualTo(evento.getIdEvento());
-		soft.assertThat(envio.getEvento().getEstado().getId()).isEqualTo(Estado.EM_FILA.getId());
-		
-		soft.assertThat(lote.getDtaEnvio()).isNull();
-		soft.assertThat(lote.getProtocolo()).isNull();
-		soft.assertThat(lote.getRetorno()).isNull();
-		soft.assertThat(lote.getResposta()).isNull();
-		soft.assertThat(lote.getEstado().getId()).isEqualTo(Estado.ERRO.getId());
+
+		soft.assertThat(envio.getDtaGeracaoEvento()).as("evento.dtaGeracaoEvento").isNotNull();
+		soft.assertThat(envio.getVersao()).as("evento.versao").isNotEmpty();
+		soft.assertThat(envio.getEvento().getIdEvento()).as("evento.idEvento").isEqualTo(evento.getIdEvento());
+		soft.assertThat(envio.getEvento().getEstado().getId()).as("evento.estado").isEqualTo(Estado.EM_FILA.getId());
+
+		soft.assertThat(lote.getDtaEnvio()).as("lote.dtaEnvio").isNull();
+		soft.assertThat(lote.getProtocolo()).as("lote.protocolo").isNull();
+		soft.assertThat(lote.getRetorno()).as("lote.retorno").isNull();
+		soft.assertThat(lote.getResposta()).as("lote.resposta").isNull();
+		soft.assertThat(lote.getEstado().getId()).as("lote.estado").isEqualTo(Estado.ERRO.getId());
 		soft.assertThat(lote.getErroInterno()).contains(mensagem);
-		
+
 		soft.assertAll();
 	}
 

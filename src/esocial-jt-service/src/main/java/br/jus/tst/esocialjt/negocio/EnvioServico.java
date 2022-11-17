@@ -1,20 +1,5 @@
 package br.jus.tst.esocialjt.negocio;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.persistence.EntityManager;
-
-import org.apache.commons.lang3.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
 import br.jus.tst.esocialjt.comunicacaogov.RetornoEnvio;
 import br.jus.tst.esocialjt.dominio.CodigoResposta;
@@ -26,13 +11,27 @@ import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
 import br.jus.tst.esocialjt.xml.GeradorLote;
 import br.jus.tst.esocialjt.xml.gerador.GeradorXml;
 import br.jus.tst.esocialjt.xml.gerador.GeradorXmlFactory;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.EntityManager;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
 public class EnvioServico {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EnvioServico.class);
-	
+	public static final int NUMERO_MAXIMO_ENVIOS = 5;
+
 	@Autowired
 	private GeradorXmlFactory geradorXmlFactory;
 
@@ -60,10 +59,10 @@ public class EnvioServico {
 		List<EnvioEvento> enviosEventosValidos = getEventosValidos(enviosEvento);
 		List<Lote> listaLotes = loteServico.gerarLotes(enviosEventosValidos);
 		enviarLotes(listaLotes);
-		
-		eventos.forEach(evento -> estadoServico.atualizarEstado(evento));
+
 		listaLotes.forEach(lote -> estadoServico.atualizarEstado(lote));
-		
+		enviosEvento.forEach(evento -> estadoServico.atualizarEstado(evento));
+
 		return atualizar(enviosEvento);
 	}
 	
@@ -94,7 +93,8 @@ public class EnvioServico {
 	
 	private List<EnvioEvento> getEventosValidos(List<EnvioEvento> enviosEvento) {
 		return enviosEvento.stream()
-			.filter(ee -> StringUtils.isNotEmpty(ee.getXmlEvento()))
+				.filter(ee -> StringUtils.isNotEmpty(ee.getXmlEvento()))
+				.filter(ee -> StringUtils.isEmpty(ee.getErroInterno()))
 			.collect(Collectors.toList());
 	}
 	
@@ -102,12 +102,15 @@ public class EnvioServico {
 		Date agora = new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
 		return eventos.stream()
 		 	.map(evento -> {
-		 		EnvioEvento envioEvento = new EnvioEvento();
-		 		envioEvento.setEvento(evento);
-		 		envioEvento.setDtaGeracaoEvento(agora);	 		
-		 		evento.adicionarEnvioEvento(envioEvento);		 		
-		 		return envioEvento;
-		 	})
+				EnvioEvento envioEvento = new EnvioEvento();
+				envioEvento.setEvento(evento);
+				envioEvento.setDtaGeracaoEvento(agora);
+				evento.adicionarEnvioEvento(envioEvento);
+				if (evento.getEnviosEvento().size() > NUMERO_MAXIMO_ENVIOS) {
+					envioEvento.setErroInterno(String.format("Número máximo de tentativas de envio (%d) excedido", NUMERO_MAXIMO_ENVIOS));
+				}
+				return envioEvento;
+			})
 		 	.collect(Collectors.toList());
 	}
 

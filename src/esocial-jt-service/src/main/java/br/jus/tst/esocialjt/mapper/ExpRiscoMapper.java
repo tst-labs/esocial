@@ -1,7 +1,7 @@
 package br.jus.tst.esocialjt.mapper;
 
-import br.jus.tst.esocial.esquemas.eventos.afasttemp.ObjectFactory;
 import br.jus.tst.esocial.esquemas.eventos.exprisco.ESocial;
+import br.jus.tst.esocial.esquemas.eventos.exprisco.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.ExpRisco;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 import org.mapstruct.AfterMapping;

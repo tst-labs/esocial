@@ -1,8 +1,8 @@
 package br.jus.tst.esocialjt.mapper;
 
-import br.jus.tst.esocial.esquemas.eventos.cat.ESocial;
-import br.jus.tst.esocial.esquemas.eventos.cat.ObjectFactory;
-import br.jus.tst.esocial.ocorrencia.dados.CAT;
+import br.jus.tst.esocial.esquemas.eventos.monit.ESocial;
+import br.jus.tst.esocial.esquemas.eventos.monit.ObjectFactory;
+import br.jus.tst.esocial.ocorrencia.dados.Monit;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -11,18 +11,17 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.factory.Mappers;
 
 @Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class })
-public abstract class CatMapper {
+public abstract class MonitMapper {
 
-	public static final CatMapper INSTANCE = Mappers.getMapper(CatMapper.class);
+	public static final MonitMapper INSTANCE = Mappers.getMapper(MonitMapper.class);
 
 	@Mapping(target = "id", ignore = true)
 	@Mapping(target = "ideEvento", ignore = true)
-	public abstract ESocial.EvtCAT comoEvtCAT(CAT cat);
+	public abstract ESocial.EvtMonit comoEvtMonit(Monit monit);
 
 	@AfterMapping
-	protected void limparNulos(@MappingTarget ESocial.EvtCAT evtCAT) {
+	protected void limparNulos(@MappingTarget ESocial.EvtMonit evtMonit) {
 		LimpadorNulos limpadorNulos = new LimpadorNulos();
-		limpadorNulos.executarLimpeza(evtCAT);
+		limpadorNulos.executarLimpeza(evtMonit);
 	}
-
 }
