@@ -24,7 +24,10 @@ public class EventoServico {
 
 	@Autowired
 	private GeradorId geradorId;
-	
+
+	@Autowired
+	PublicacaoServico publicacaoServico;
+
 	public Evento gerarEvento(Ocorrencia ocorrencia, TipoEvento tipoEvento) {
 
 		Evento evento = new Evento();
@@ -45,7 +48,9 @@ public class EventoServico {
 
 	@Transactional
 	public Evento atualiza(Evento evento) {
-		return em.merge(evento);
+		Evento eventoSalvo = em.merge(evento);
+		publicacaoServico.publicarAlteracaoEstado(evento);
+		return eventoSalvo;
 	}
 
 	@Transactional

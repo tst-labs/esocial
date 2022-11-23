@@ -43,16 +43,19 @@ public class EnvioServico {
 
 	@Autowired
 	private LoteServico loteServico;
-	
+
 	@Autowired
 	private EntityManager em;
-	
+
 	@Autowired
 	private EstadoServico estadoServico;
-	
+
 	@Autowired
 	private CodigoRespostaServico codigoRespostaServico;
-	
+
+	@Autowired
+	private PublicacaoServico publicacaoServico;
+
 	public List<EnvioEvento> enviarEventosParaESocialGov(List<Evento> eventos) {
 		List<EnvioEvento> enviosEvento = gerarEnviosEvento(eventos);
 		enviosEvento = gerarXmls(enviosEvento);
@@ -82,7 +85,9 @@ public class EnvioServico {
 	}
 	
 	public EnvioEvento atualizar(EnvioEvento envioEvento) {
-		return em.merge(envioEvento);
+		EnvioEvento envioSalvo = em.merge(envioEvento);
+		publicacaoServico.publicarAlteracaoEstado(envioEvento);
+		return envioSalvo;
 	}
 
 	public List<EnvioEvento> atualizar(List<EnvioEvento> enviosEvento) {
