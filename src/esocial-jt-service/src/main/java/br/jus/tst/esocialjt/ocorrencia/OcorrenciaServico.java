@@ -5,6 +5,7 @@ import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.EventoServico;
+import br.jus.tst.esocialjt.negocio.PublicacaoServico;
 import br.jus.tst.esocialjt.negocio.TipoEventoServico;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +35,15 @@ public class OcorrenciaServico {
 
 	@Autowired
 	private EntityManager em;
-	
+
 	@Autowired
 	OcorrenciaRepository repository;
-	
+
 	@Autowired
 	OcorrenciaSpecs specs;
+
+	@Autowired
+	PublicacaoServico publicacaoServico;
 
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
@@ -47,7 +51,7 @@ public class OcorrenciaServico {
 				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 		ocorrencia.setCpf(ocorrencia.getDadosOcorrencia().getCpf());
 		ocorrencia.setMatricula(ocorrencia.getDadosOcorrencia().getMatricula());
-		
+
 		return gerarEvento(ocorrencia);
 	}
 
@@ -107,7 +111,9 @@ public class OcorrenciaServico {
 
 	@Transactional
 	public Ocorrencia atualizar(Ocorrencia ocorrencia) {
-		return repository.save(ocorrencia);
+		Ocorrencia ocorrenciaSalva = repository.save(ocorrencia);
+		publicacaoServico.publicarAlteracaoEstado(ocorrencia);
+		return ocorrenciaSalva;
 	}
 
 	public Ocorrencia gerarEvento(Ocorrencia ocorrencia) {

@@ -2,6 +2,8 @@ package br.jus.tst.esocialjt.dominio;
 
 import br.jus.tst.esocialjt.util.OcorrenciaJsonSerializer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -10,14 +12,15 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "EST_EVENTO")
-@NamedQueries({ @NamedQuery(name = "Evento.findAll", query = "SELECT e FROM Evento e"),
+@NamedQueries({@NamedQuery(name = "Evento.findAll", query = "SELECT e FROM Evento e"),
 		@NamedQuery(name = "Evento.recuperarEventoPorIdEvento", query = "SELECT e FROM Evento e WHERE e.idEvento =:idEvento"),
 })
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Evento implements Serializable {
 
 	private static final long serialVersionUID = -3712811249360102207L;
@@ -49,14 +52,18 @@ public class Evento implements Serializable {
 	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@OrderBy("id asc")
 	private Set<EnvioEvento> enviosEvento = new LinkedHashSet<>();
-	
+
 	@Size(max = 40)
 	@Column(name = "TXT_NR_RECIBO")
 	private String nrRecibo;
-	
+
 	@JsonInclude(Include.NON_EMPTY)
 	@OneToMany(mappedBy = "evento", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<EventoTotalizador> eventoTotalizador = new LinkedHashSet<>();
+
+	@JsonIgnore
+	@Transient
+	private boolean estadoAlterado;
 
 	public Long getId() {
 		return id;
@@ -81,6 +88,7 @@ public class Evento implements Serializable {
 	}
 
 	public Evento setEstado(Estado estado) {
+		estadoAlterado = !Objects.equals(this.estado, estado);
 		this.estado = estado;
 		return this;
 	}
@@ -131,5 +139,13 @@ public class Evento implements Serializable {
 
 	public void setEventoTotalizador(Set<EventoTotalizador> eventoTotalizador) {
 		this.eventoTotalizador = eventoTotalizador;
+	}
+
+	public boolean isEstadoAlterado() {
+		return estadoAlterado;
+	}
+
+	public void setEstadoAlterado(boolean estadoAlterado) {
+		this.estadoAlterado = estadoAlterado;
 	}
 }

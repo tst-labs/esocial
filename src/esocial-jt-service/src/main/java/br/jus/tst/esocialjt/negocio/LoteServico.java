@@ -1,17 +1,15 @@
 package br.jus.tst.esocialjt.negocio;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
+import br.jus.tst.esocialjt.dominio.EnvioEvento;
+import br.jus.tst.esocialjt.dominio.Lote;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.jus.tst.esocialjt.dominio.EnvioEvento;
-import br.jus.tst.esocialjt.dominio.Lote;
+import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -26,9 +24,13 @@ public class LoteServico {
 	@Value("${esocialjt.limite-eventos-por-lote: 50}")
 	private Long LIMITE_EVENTOS_LOTE;
 
-	
+	@Autowired
+	PublicacaoServico publicacaoServico;
+
 	public Lote atualiza(Lote lote) {
-		return em.merge(lote);
+		Lote loteSalvo = em.merge(lote);
+		publicacaoServico.publicarAlteracaoEstado(lote);
+		return loteSalvo;
 	}
 
 	public void atualiza(List<Lote> lotes) {

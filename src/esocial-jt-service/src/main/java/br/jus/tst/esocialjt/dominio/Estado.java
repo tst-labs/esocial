@@ -1,16 +1,10 @@
 package br.jus.tst.esocialjt.dominio;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
 @Table(name = "EST_ESTADO")
@@ -61,5 +55,18 @@ public class Estado implements Serializable {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Estado estado = (Estado) o;
+		return Objects.equals(id, estado.id) && Objects.equals(descricao, estado.descricao);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, descricao);
 	}
 }
