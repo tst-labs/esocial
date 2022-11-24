@@ -1,6 +1,7 @@
 package br.jus.tst.esocialjt.util;
 
 import br.jus.tst.esocial.ocorrencia.OcorrenciaDTO;
+import br.jus.tst.esocial.ret.beneficiario.Beneficiario;
 import br.jus.tst.esocial.ret.empregado.Empregado;
 import br.jus.tst.esocial.ret.tsv.TrabalhadorSemVinculo;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class OcorrenciaUtil {
-	
+
 	static OcorrenciaDTODeserializer deserializer = new OcorrenciaDTODeserializer();
 	
 	static ObjectMapper mapper = new ObjectMapper();
@@ -51,5 +52,15 @@ public class OcorrenciaUtil {
 			throw new RuntimeException(e);
 		}
 	}        
-        
+	
+    public static Beneficiario lerBeneficiario(String arquivo) {
+        try {
+            InputStream str = Resource.asStream(arquivo);
+            return mapper.readValue(str, Beneficiario.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
 }
