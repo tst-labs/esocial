@@ -38,4 +38,5 @@ services:
 
 networks:
   esocial-net:
+    name: esocial-net
     driver: bridge
