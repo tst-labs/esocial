@@ -1,12 +1,13 @@
 package br.jus.tst.esocial.dominio.demonstrativovalores;
 
-import java.math.BigInteger;
-import java.util.List;
+import br.jus.tst.esocial.dominio.estabelecimentolotacao.IdeEstabLot;
+import br.jus.tst.esocial.dominio.rra.IndRRA;
+import br.jus.tst.esocial.dominio.rra.InfoRRA;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-
-import br.jus.tst.esocial.dominio.estabelecimentolotacao.IdeEstabLot;
+import java.math.BigInteger;
+import java.util.List;
 
 public class DmDev {
 	
@@ -17,27 +18,31 @@ public class DmDev {
 	private List<IdeEstabLot> ideEstabLot;
 
 	private BigInteger codCateg;
-	
-	@Valid
-	private InfoPerApur infoPerApur;
-		
-	@Valid
-	private InfoPerAnt infoPerAnt;
 
-	private InfoComplCont infoComplCont;
-	
-	@Valid
-	private List<InfoTrabInterm> infoTrabInterm;
-	
-	public String getIdeDmDev() {
-		return ideDmDev;
-	}
+    @Valid
+    private InfoPerApur infoPerApur;
 
-	public void setIdeDmDev(String ideDmDev) {
-		this.ideDmDev = ideDmDev;
-	}
+    @Valid
+    private InfoPerAnt infoPerAnt;
 
-	public List<IdeEstabLot> getIdeEstabLot() {
+    private InfoComplCont infoComplCont;
+
+    @Valid
+    private List<InfoTrabInterm> infoTrabInterm;
+
+    private IndRRA indRRA;
+
+    private InfoRRA infoRRA;
+
+    public String getIdeDmDev() {
+        return ideDmDev;
+    }
+
+    public void setIdeDmDev(String ideDmDev) {
+        this.ideDmDev = ideDmDev;
+    }
+
+    public List<IdeEstabLot> getIdeEstabLot() {
 		return ideEstabLot;
 	}
 
@@ -74,15 +79,30 @@ public class DmDev {
 	}
 
 	public void setCodCateg(BigInteger codCateg) {
-		this.codCateg = codCateg;
-	}
+        this.codCateg = codCateg;
+    }
 
-	public InfoComplCont getInfoComplCont() {
-		return infoComplCont;
-	}
+    public InfoComplCont getInfoComplCont() {
+        return infoComplCont;
+    }
 
-	public void setInfoComplCont(InfoComplCont infoComplCont) {
-		this.infoComplCont = infoComplCont;
-	}
-	
+    public void setInfoComplCont(InfoComplCont infoComplCont) {
+        this.infoComplCont = infoComplCont;
+    }
+
+    public IndRRA getIndRRA() {
+        return indRRA;
+    }
+
+    public void setIndRRA(IndRRA indRRA) {
+        this.indRRA = indRRA;
+    }
+
+    public InfoRRA getInfoRRA() {
+        return infoRRA;
+    }
+
+    public void setInfoRRA(InfoRRA infoRRA) {
+        this.infoRRA = infoRRA;
+    }
 }

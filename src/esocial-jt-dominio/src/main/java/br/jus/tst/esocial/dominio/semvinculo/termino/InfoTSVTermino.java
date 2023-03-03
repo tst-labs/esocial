@@ -1,13 +1,12 @@
 package br.jus.tst.esocial.dominio.semvinculo.termino;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
+import br.jus.tst.esocial.dominio.termino.Quarentena;
+import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-
-import br.jus.tst.esocial.dominio.termino.Quarentena;
-import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
+import java.math.BigDecimal;
+import java.util.Calendar;
 
 public class InfoTSVTermino {
 	
@@ -19,9 +18,10 @@ public class InfoTSVTermino {
 	@Valid
 	private VerbasResc verbasResc;
 
-	@Valid
+	@Deprecated
 	private Quarentena quarentena;
 
+	private RemunAposTerm remunAposTerm;
 	private Byte pensAlim;
 	
 	@NotNull
@@ -104,5 +104,12 @@ public class InfoTSVTermino {
 	public void setNrProcTrab(String nrProcTrab) {
 		this.nrProcTrab = nrProcTrab;
 	}
-	
+
+	public RemunAposTerm getRemunAposTerm() {
+		return remunAposTerm;
+	}
+
+	public void setRemunAposTerm(RemunAposTerm remunAposTerm) {
+		this.remunAposTerm = remunAposTerm;
+	}
 }

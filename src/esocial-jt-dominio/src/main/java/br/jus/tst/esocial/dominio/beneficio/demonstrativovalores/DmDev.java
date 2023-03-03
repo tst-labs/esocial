@@ -1,19 +1,26 @@
 package br.jus.tst.esocial.dominio.beneficio.demonstrativovalores;
 
+import br.jus.tst.esocial.dominio.rra.IndRRA;
+import br.jus.tst.esocial.dominio.rra.InfoRRA;
+
 import javax.validation.constraints.Size;
 
 
 public class DmDev {
-	
-	@Size(min=1, max=30)
+
+	@Size(min = 1, max = 30)
 	private String ideDmDev;
-	
-	@Size(min=3, max=20)
+
+	@Size(min = 3, max = 20)
 	private String nrBeneficio;
 
 	private InfoPerApur infoPerApur;
-	
+
 	private InfoPerAnt infoPerAnt;
+
+	private IndRRA indRRA;
+
+	private InfoRRA infoRRA;
 
 	public String getIdeDmDev() {
 		return ideDmDev;
@@ -45,5 +52,21 @@ public class DmDev {
 
 	public void setInfoPerAnt(InfoPerAnt infoPerAnt) {
 		this.infoPerAnt = infoPerAnt;
+	}
+
+	public IndRRA getIndRRA() {
+		return indRRA;
+	}
+
+	public void setIndRRA(IndRRA indRRA) {
+		this.indRRA = indRRA;
+	}
+
+	public InfoRRA getInfoRRA() {
+		return infoRRA;
+	}
+
+	public void setInfoRRA(InfoRRA infoRRA) {
+		this.infoRRA = infoRRA;
 	}
 }

@@ -12,14 +12,11 @@
       "ideEstab": {
         "tpInsc": 1,
         "nrInsc": "00509968000148",
-        "iniValid": "2017-01",
+        "iniValid": "2018-01",
         "fimValid": null
       },
       "dadosEstab": {
         "cnaePrep": 8411600,
-        "aliqGilrat": {
-          "fap": 0.5
-        },
         "infoCaepf": null,
         "infoObra": null,
         "infoTrab": {

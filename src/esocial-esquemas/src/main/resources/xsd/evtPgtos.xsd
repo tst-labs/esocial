@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtPgtos/v_S_01_00_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtPgtos/v_S_01_00_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtPgtos/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtPgtos/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -116,6 +116,152 @@
                                                             <xs:documentation>Valor líquido recebido pelo trabalhador, composto pelos vencimentos e descontos, inclusive os descontos de IRRF e de pensão alimentícia (se houver).</xs:documentation>
                                                             <xs:documentation>Validação: Não pode ser um valor negativo.</xs:documentation>
                                                         </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="paisResidExt" minOccurs="0" type="TS_pais">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Informar o código do país de residência para fins fiscais, quando no exterior, conforme Tabela 06.</xs:documentation>
+                                                            <xs:documentation>Somente informar este campo caso o país de residência para fins fiscais seja diferente de Brasil. Se não informado, implica que o país de residência fiscal é Brasil.</xs:documentation>
+                                                            <xs:documentation>Validação: O campo apenas pode ser preenchido se {perApur}(1210_ideEvento_perApur) >= [2023-03]. Se informado, deve ser um código válido e existente na Tabela 06, exceto [105].</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="infoPgtoExt" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Informações complementares relativas a pagamentos a residente fiscal no exterior.</xs:documentation>
+                                                            <xs:documentation>CONDICAO_GRUPO: O (se {paisResidExt}(../paisResidExt) for informado); N (nos demais casos)</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="indNIF">
+                                                                    <xs:simpleType>
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>Indicativo do Número de Identificação Fiscal (NIF).</xs:documentation>
+                                                                        </xs:annotation>
+                                                                        <xs:restriction base="xs:byte">
+                                                                            <xs:enumeration value="1">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Beneficiário com NIF</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
+                                                                            <xs:enumeration value="2">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Beneficiário dispensado do NIF</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
+                                                                            <xs:enumeration value="3">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>País não exige NIF</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="nifBenef" minOccurs="0" type="TS_codigo_esocial">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Número de Identificação Fiscal (NIF).</xs:documentation>
+                                                                        <xs:documentation>Validação: Preenchimento obrigatório se {indNIF}(./indNIF) = [1].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="frmTribut">
+                                                                    <xs:simpleType>
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>Forma de tributação, conforme opções disponíveis na Tabela 30.</xs:documentation>
+                                                                            <xs:documentation>Validação: Deve ser um código válido e existente na Tabela 30.</xs:documentation>
+                                                                        </xs:annotation>
+                                                                        <xs:restriction base="xs:string">
+                                                                            <xs:pattern value="\d{2}" />
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="endExt" minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Endereço do beneficiário residente ou domiciliado no exterior.</xs:documentation>
+                                                                        <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                                                                        <xs:documentation>REGRA:REGRA_ENDERECO_EXTERIOR</xs:documentation>
+                                                                    </xs:annotation>
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="endDscLograd" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Descrição do logradouro.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:minLength value="1" />
+                                                                                        <xs:maxLength value="80" />
+                                                                                        <xs:pattern value="[^\s]{1}[\S\s]*" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                            <xs:element name="endNrLograd" minOccurs="0" type="TS_nrLograd">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Número do logradouro.</xs:documentation>
+                                                                                    <xs:documentation>Validação: Devem ser utilizados apenas caracteres alfanuméricos com, pelo menos, um caractere numérico.</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="endComplem" minOccurs="0" type="TS_complemento" />
+                                                                            <xs:element name="endBairro" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Nome do bairro/distrito.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:minLength value="1" />
+                                                                                        <xs:maxLength value="60" />
+                                                                                        <xs:pattern value=".*[^\s].*" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                            <xs:element name="endCidade" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Nome da cidade.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:minLength value="1" />
+                                                                                        <xs:maxLength value="40" />
+                                                                                        <xs:pattern value=".*[^\s].*" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                            <xs:element name="endEstado" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Nome da província/estado.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:minLength value="1" />
+                                                                                        <xs:maxLength value="40" />
+                                                                                        <xs:pattern value=".*[^\s].*" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                            <xs:element name="endCodPostal" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Código de Endereçamento Postal.</xs:documentation>
+                                                                                        <xs:documentation>Validação: Devem ser informados apenas caracteres numéricos.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:pattern value="\d{1,12}" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                            <xs:element name="telef" minOccurs="0">
+                                                                                <xs:simpleType>
+                                                                                    <xs:annotation>
+                                                                                        <xs:documentation>Número do telefone.</xs:documentation>
+                                                                                        <xs:documentation>Validação: Devem ser informados apenas caracteres numéricos.</xs:documentation>
+                                                                                    </xs:annotation>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:pattern value="\d{8,15}" />
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
                                                     </xs:element>
                                                 </xs:sequence>
                                             </xs:complexType>

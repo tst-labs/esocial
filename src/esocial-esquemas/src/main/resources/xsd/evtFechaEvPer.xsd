@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtFechaEvPer/v_S_01_00_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtFechaEvPer/v_S_01_00_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtFechaEvPer/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtFechaEvPer/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -33,6 +33,12 @@
                                             <xs:annotation>
                                                 <xs:documentation>Possui informações relativas a remuneração de trabalhadores ou provento/pensão de beneficiários no período de apuração?</xs:documentation>
                                                 <xs:documentation>Validação: Se for igual a [S], deve existir evento de remuneração (S-1200, S-1202, S-1207, S-2299 ou S-2399) para o período de apuração, considerando o campo {indGuia}(1299_ideEvento_indGuia). Caso contrário, não deve existir evento de remuneração.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="evtPgtos" type="TS_sim_nao">
+                                            <xs:annotation>
+                                                <xs:documentation>Possui informações de pagamento de rendimentos do trabalho no período de apuração?</xs:documentation>
+                                                <xs:documentation>Validação: Se for igual a [S], deve existir o evento S-1210 para o período de apuração, considerando o campo {indGuia}(1299_ideEvento_indGuia). Caso contrário, não deve existir o evento.</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="evtComProd" type="TS_sim_nao">

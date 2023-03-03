@@ -1,76 +1,77 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
 public class EndExt {
 
-	@NotNull
-	@Size(min = 1, max = 80)
-	private String dscLograd;
+	public String endDscLograd;
+	public String endNrLograd;
+	public String endComplem;
+	public String endBairro;
+	public String endCidade;
+	public String endEstado;
+	public String endCodPostal;
+	public String telef;
 
-	@NotNull
-	@Size(min = 1, max = 10)
-	private String nrLograd;
-
-	@Size(max = 30)
-	private String complem;
-
-	@Size(min = 1, max = 60)
-	private String bairro;
-
-	@NotNull
-	@Size(max = 50)
-	private String nmCid;
-
-	@Size(min = 4, max = 12)
-	private String codPostal;
-
-	public String getDscLograd() {
-		return dscLograd;
+	public String getEndDscLograd() {
+		return endDscLograd;
 	}
 
-	public void setDscLograd(String descricaoLogradouro) {
-		this.dscLograd = descricaoLogradouro;
+	public void setEndDscLograd(String endDscLograd) {
+		this.endDscLograd = endDscLograd;
 	}
 
-	public String getNrLograd() {
-		return nrLograd;
+	public String getEndNrLograd() {
+		return endNrLograd;
 	}
 
-	public void setNrLograd(String numeroLogradouro) {
-		this.nrLograd = numeroLogradouro;
+	public void setEndNrLograd(String endNrLograd) {
+		this.endNrLograd = endNrLograd;
 	}
 
-	public String getComplem() {
-		return complem;
+	public String getEndComplem() {
+		return endComplem;
 	}
 
-	public void setComplem(String complem) {
-		this.complem = complem;
+	public void setEndComplem(String endComplem) {
+		this.endComplem = endComplem;
 	}
 
-	public String getBairro() {
-		return bairro;
+	public String getEndBairro() {
+		return endBairro;
 	}
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
+	public void setEndBairro(String endBairro) {
+		this.endBairro = endBairro;
 	}
 
-	public String getNmCid() {
-		return nmCid;
+	public String getEndCidade() {
+		return endCidade;
 	}
 
-	public void setNmCid(String nomeCidade) {
-		this.nmCid = nomeCidade;
+	public void setEndCidade(String endCidade) {
+		this.endCidade = endCidade;
 	}
 
-	public String getCodPostal() {
-		return codPostal;
+	public String getEndEstado() {
+		return endEstado;
 	}
 
-	public void setCodPostal(String codigoPostal) {
-		this.codPostal = codigoPostal;
+	public void setEndEstado(String endEstado) {
+		this.endEstado = endEstado;
+	}
+
+	public String getEndCodPostal() {
+		return endCodPostal;
+	}
+
+	public void setEndCodPostal(String endCodPostal) {
+		this.endCodPostal = endCodPostal;
+	}
+
+	public String getTelef() {
+		return telef;
+	}
+
+	public void setTelef(String telef) {
+		this.telef = telef;
 	}
 }

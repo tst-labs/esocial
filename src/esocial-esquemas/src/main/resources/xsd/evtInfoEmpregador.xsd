@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_00_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_00_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -227,6 +227,21 @@
                     <xs:documentation>Data da transformação em sociedade de fins lucrativos - Lei 11.096/2005.</xs:documentation>
                     <xs:documentation>Validação: Não preencher se {classTrib}(./classTrib) = [21, 22].</xs:documentation>
                 </xs:annotation>
+            </xs:element>
+            <xs:element name="indTribFolhaPisCofins" minOccurs="0">
+                <xs:simpleType>
+                    <xs:annotation>
+                        <xs:documentation>Indicador de tributação sobre a folha de pagamento - PIS e COFINS.</xs:documentation>
+                        <xs:documentation>Preenchimento exclusivo para o empregador em situação de tributação de PIS e COFINS sobre a folha de pagamento.</xs:documentation>
+                    </xs:annotation>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="S">
+                            <xs:annotation>
+                                <xs:documentation>Sim</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
             </xs:element>
             <xs:element name="dadosIsencao" minOccurs="0">
                 <xs:annotation>

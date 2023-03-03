@@ -11,7 +11,7 @@
     "infoLotacao": {
       "ideLotacao": {
         "codLotacao": "TST12345",
-        "iniValid": "2017-01",
+        "iniValid": "2018-01",
         "fimValid": null
       },
       "dadosLotacao": {

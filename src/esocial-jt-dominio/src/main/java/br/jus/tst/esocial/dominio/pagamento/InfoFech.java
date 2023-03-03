@@ -1,8 +1,8 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
-import javax.validation.constraints.NotNull;
-
 import br.jus.tst.esocial.dominio.enums.SimNao;
+
+import javax.validation.constraints.NotNull;
 
 public class InfoFech {
 
@@ -14,15 +14,17 @@ public class InfoFech {
 	
 	@NotNull
 	private SimNao evtContratAvNP;
-	
+
 	@NotNull
 	private SimNao evtInfoComplPer;
-	
+
 	private String indExcApur1250;
-	
+
 	private String transDCTFWeb;
-	
+
 	private String naoValid;
+
+	private SimNao evtPgtos;
 
 	public SimNao getEvtRemun() {
 		return evtRemun;
@@ -78,5 +80,13 @@ public class InfoFech {
 
 	public void setNaoValid(String naoValid) {
 		this.naoValid = naoValid;
+	}
+
+	public SimNao getEvtPgtos() {
+		return evtPgtos;
+	}
+
+	public void setEvtPgtos(SimNao evtPgtos) {
+		this.evtPgtos = evtPgtos;
 	}
 }

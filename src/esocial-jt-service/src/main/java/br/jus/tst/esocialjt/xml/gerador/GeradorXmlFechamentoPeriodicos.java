@@ -1,7 +1,5 @@
 package br.jus.tst.esocialjt.xml.gerador;
 
-import org.springframework.stereotype.Component;
-
 import br.jus.tst.esocial.esquemas.eventos.fechaevper.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.fechaevper.ESocial.EvtFechaEvPer;
 import br.jus.tst.esocial.ocorrencia.dados.FechaEvPer;
@@ -9,6 +7,7 @@ import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.FechaEvPerMapper;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
+import org.springframework.stereotype.Component;
 
 @Component
 public class GeradorXmlFechamentoPeriodicos extends GeradorXml {
@@ -23,8 +22,7 @@ public class GeradorXmlFechamentoPeriodicos extends GeradorXml {
 		EvtFechaEvPer evtFechaEvPer = FechaEvPerMapper.INSTANCE.comoEvtFechaEvPer(dados);
 		evtFechaEvPer.setId(evento.getIdEvento());
 		preencherConstantes(evtFechaEvPer.getIdeEvento());
-		preencherDadosRetificacao(evtFechaEvPer.getIdeEvento(), evento.getOcorrencia());
-		
+
 		ESocial eSocial = new ESocial();
 		eSocial.setEvtFechaEvPer(evtFechaEvPer);
 
