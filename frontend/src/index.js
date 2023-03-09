@@ -13,27 +13,32 @@ import { LoadingProvider } from "./components/loading/LoadingProvider";
 import PostMessage from "./components/post-message/PostMessage";
 import CustomQueryClientProvider from "./CustomQueryClientProvider";
 import { NOME_APP } from "./shared/env";
+import { initKeycloak } from "./shared/keycloak";
 import theme from "./shared/theme";
 
-ReactDOM.render(
-  <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={theme}>
-      <DialogProvider>
-        <SnackbarProvider maxSnack={1}>
-          <LoadingProvider>
-            <CustomQueryClientProvider>
-              <CssBaseline />
-              <PostMessage>
-                <App />
-              </PostMessage>
-              <ReactQueryDevtools initialIsOpen={false} />
-            </CustomQueryClientProvider>
-          </LoadingProvider>
-        </SnackbarProvider>
-      </DialogProvider>
-    </ThemeProvider>
-  </StyledEngineProvider>,
-  document.getElementById("root")
-);
+function renderApp() {
+  ReactDOM.render(
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <DialogProvider>
+          <SnackbarProvider maxSnack={1}>
+            <LoadingProvider>
+              <CustomQueryClientProvider>
+                <CssBaseline />
+                <PostMessage>
+                  <App />
+                </PostMessage>
+                <ReactQueryDevtools initialIsOpen={false} />
+              </CustomQueryClientProvider>
+            </LoadingProvider>
+          </SnackbarProvider>
+        </DialogProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>,
+    document.getElementById("root")
+  );
+}
+
+initKeycloak().then(renderApp);
 
 document.title = NOME_APP;

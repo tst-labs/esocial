@@ -1,7 +1,9 @@
 import { Icon, IconButton, Menu } from "@mui/material";
 import { useState } from "react";
 import { PRODUCAO_RESTRITA } from "../../shared/env";
+import { authRequired } from "../../shared/keycloak";
 import LimparProducaoRestrita from "./LimparProducaoRestrita";
+import Logout from "./Logout";
 import Status from "./Status";
 
 const isProducaoRestrita = PRODUCAO_RESTRITA === "S";
@@ -43,6 +45,7 @@ function HeaderMenu() {
       >
         {isProducaoRestrita && <LimparProducaoRestrita onClose={handleClose} />}
         <Status onClose={handleClose} />
+        {authRequired && <Logout />}
       </Menu>
     </>
   );

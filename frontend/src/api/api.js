@@ -1,7 +1,17 @@
 import axios from "axios";
+import { getToken, updateToken, authRequired } from "../shared/keycloak";
 
 function createApi(baseURL) {
   const api = axios.create({ baseURL });
+
+  if (authRequired) {
+    api.interceptors.request.use(async (config) => {
+      await updateToken(5);
+      // eslint-disable-next-line
+      config.headers.Authorization = `Bearer ${getToken()}`;
+      return config;
+    });
+  }
 
   api.interceptors.response.use(
     (response) => response,
