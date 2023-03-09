@@ -13,7 +13,7 @@
       "cpfBenef": "77993893704"
     },
     "alteracao": {
-      "dtAlteracao": 1589364507000,
+      "dtAlteracao": 1637722800000,
       "dadosBenef": {
         "nmBenefic": "LEIA ORGANA",
         "sexo": "F",
@@ -41,7 +41,8 @@
             "cpfDep": "99645142393",
             "sexoDep": "M",
             "depIRRF": "N",
-            "incFisMen": "N"
+            "incFisMen": "N",
+            "sexoDep": "M"
           }
         ]
       }

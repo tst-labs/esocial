@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTSVTermino/v_S_01_00_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTSVTermino/v_S_01_00_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTSVTermino/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTSVTermino/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -153,6 +153,13 @@
                                                                         <xs:documentation>REGRA:REGRA_CARACTERE_ESPECIAL</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
+                                                                <xs:element name="indRRA" minOccurs="0" type="TS_indRRA">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Indicativo de Rendimentos Recebidos Acumuladamente - RRA.</xs:documentation>
+                                                                        <xs:documentation>Somente preencher este campo se for um demonstrativo de RRA.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="infoRRA" minOccurs="0" type="T_infoRRA" />
                                                                 <xs:element name="ideEstabLot" maxOccurs="99">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Identificação do estabelecimento e lotação</xs:documentation>
@@ -209,7 +216,7 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="quarentena" minOccurs="0">
+                                        <xs:element name="remunAposTerm" minOccurs="0">
                                             <xs:annotation>
                                                 <xs:documentation>Informações sobre a quarentena remunerada ou outra situação de término com data anterior</xs:documentation>
                                                 <xs:documentation>DESCRICAO_COMPLETA:Informações sobre a "quarentena" remunerada de trabalhador desligado ou outra situação de término com data anterior.</xs:documentation>
@@ -218,7 +225,27 @@
                                             </xs:annotation>
                                             <xs:complexType>
                                                 <xs:sequence>
-                                                    <xs:element name="dtFimQuar" type="xs:date">
+                                                    <xs:element name="indRemun" minOccurs="0">
+                                                        <xs:simpleType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>Indicativo de situação de remuneração após o término.</xs:documentation>
+                                                                <xs:documentation>Validação: Informação obrigatória se {dtTerm}(2399_infoTSVTermino_dtTerm) >= [2023-01-16].</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:restriction base="xs:byte">
+                                                                <xs:enumeration value="1">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Quarentena</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:enumeration>
+                                                                <xs:enumeration value="2">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Término reconhecido judicialmente com data anterior a competências com remunerações já informadas no eSocial</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:enumeration>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="dtFimRemun" type="xs:date">
                                                         <xs:annotation>
                                                             <xs:documentation>Preencher com a data final da quarentena a que está sujeito o trabalhador. No caso de término reconhecido judicialmente com data anterior a competências com remunerações já informadas no eSocial, informar o último dia trabalhado.</xs:documentation>
                                                             <xs:documentation>Validação: Deve ser uma data posterior a {dtTerm}(2399_infoTSVTermino_dtTerm).</xs:documentation>

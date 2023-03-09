@@ -1,16 +1,14 @@
 package br.jus.tst.esocial.dominio.empregador;
 
-import java.util.Calendar;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-
+import br.jus.tst.esocial.dominio.empregador.orgaointernacional.InfoOrgInternacional;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.br.CNPJ;
 
-import br.jus.tst.esocial.dominio.empregador.orgaointernacional.InfoOrgInternacional;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Calendar;
 
 /**
  *
@@ -32,21 +30,23 @@ public class InfoCadastro {
 	private Byte indOpcCP;
 
 	private String indPorte;
-	
+
 	@NotNull
 	private Byte indOptRegEletron;
-	
+
 	@CNPJ
-    private String cnpjEFR;
-	
+	private String cnpjEFR;
+
 	@Valid
 	private DadosIsencao dadosIsencao;
-	
+
 	@Valid
 	private InfoOrgInternacional infoOrgInternacional;
-	
+
 	private Calendar dtTrans11096;
-	
+
+	private String indTribFolhaPisCofins;
+
 	/**
 	 * @return the classTrib
 	 */
@@ -219,7 +219,7 @@ public class InfoCadastro {
 		this.indOpcCP = indOpcCP;
 		return this;
 	}
-	
+
 	public Calendar getDtTrans11096() {
 		return dtTrans11096;
 	}
@@ -228,19 +228,28 @@ public class InfoCadastro {
 		this.dtTrans11096 = dtTrans11096;
 	}
 
+	public String getIndTribFolhaPisCofins() {
+		return indTribFolhaPisCofins;
+	}
+
+	public void setIndTribFolhaPisCofins(String indTribFolhaPisCofins) {
+		this.indTribFolhaPisCofins = indTribFolhaPisCofins;
+	}
+
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
-			.append(this.classTrib)
-			.append(this.indCoop)
-			.append(this.indConstr)
-			.append(this.indDesFolha)
-			.append(this.indOptRegEletron)
-			.append(this.dadosIsencao)
-			.append(this.indPorte)
-			.append(this.infoOrgInternacional)
-			.append(this.cnpjEFR)
-			.toHashCode();
+				.append(this.classTrib)
+				.append(this.indCoop)
+				.append(this.indConstr)
+				.append(this.indDesFolha)
+				.append(this.indOptRegEletron)
+				.append(this.dadosIsencao)
+				.append(this.indPorte)
+				.append(this.infoOrgInternacional)
+				.append(this.cnpjEFR)
+				.append(this.indTribFolhaPisCofins)
+				.toHashCode();
 	}
 
 	@Override
@@ -266,6 +275,7 @@ public class InfoCadastro {
 				.append(this.indPorte, other.indPorte)
 				.append(this.infoOrgInternacional, other.infoOrgInternacional)
 				.append(this.cnpjEFR, other.cnpjEFR)
+				.append(this.indTribFolhaPisCofins, other.indTribFolhaPisCofins)
 				.isEquals();
 	}
 }

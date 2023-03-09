@@ -6,7 +6,7 @@
   "dadosOcorrencia": {
     "ideEvento": {
       "indApuracao": 1,
-      "perApur": "2018-07"
+      "perApur": "2022-02"
     },
     "ideEmpregador": {
       "tpInsc": 1,
@@ -17,8 +17,24 @@
     },
     "dmDev": [
       {
-        "nrBeneficio": 654321,
-        "ideDmDev": "123"
+        "nrBeneficio": 12000,
+        "ideDmDev": "123",
+        "infoPerApur": {
+          "ideEstab": [
+            {
+              "tpInsc": 1,
+              "nrInsc": "00509968000148",
+              "itensRemun": [
+                {
+                  "codRubr": "01",
+                  "ideTabRubr": "01",
+                  "vrRubr": 37328.65,
+                  "indApurIR": 0
+                }
+              ]
+            }
+          ]
+        }
       }
     ]
   }

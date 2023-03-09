@@ -1,9 +1,8 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Calendar;
-
-import javax.validation.constraints.NotNull;
 
 public class InfoPgto {
 
@@ -13,12 +12,16 @@ public class InfoPgto {
 	private Byte tpPgto;
 
 	private String perRef;
-	
+
 	@NotNull
 	private String ideDmDev;
-	
+
 	@NotNull
 	private BigDecimal vrLiq;
+
+	private InfoPgtoExt infoPgtoExt;
+
+	private String paisResidExt;
 
 	public Calendar getDtPgto() {
 		return dtPgto;
@@ -58,5 +61,21 @@ public class InfoPgto {
 
 	public void setVrLiq(BigDecimal vrLiq) {
 		this.vrLiq = vrLiq;
+	}
+
+	public InfoPgtoExt getInfoPgtoExt() {
+		return infoPgtoExt;
+	}
+
+	public void setInfoPgtoExt(InfoPgtoExt infoPgtoExt) {
+		this.infoPgtoExt = infoPgtoExt;
+	}
+
+	public String getPaisResidExt() {
+		return paisResidExt;
+	}
+
+	public void setPaisResidExt(String paisResidExt) {
+		this.paisResidExt = paisResidExt;
 	}
 }

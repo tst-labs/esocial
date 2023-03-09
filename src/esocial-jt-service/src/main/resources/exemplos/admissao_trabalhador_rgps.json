@@ -56,13 +56,8 @@
       "infoRegimeTrab": {
         "infoCeletista": null,
         "infoEstatutario": {
-          "indProvim": 1,
           "tpProv": 1,
-          "dtNomeacao": 535341600000,
-          "dtPosse": 535341600000,
-          "dtExercicio": 535341600000,
-          "tpPlanRP": null,
-          "infoDecJud": null
+          "dtExercicio": 535341600000
         }
       },
       "infoContrato": {

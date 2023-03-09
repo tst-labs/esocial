@@ -16,7 +16,8 @@
       "evtRemun": "S",
       "evtComProd": "N",
       "evtContratAvNP": "N",
-      "evtInfoComplPer": "N"
+      "evtInfoComplPer": "N",
+      "evtPgtos": "S"
     }
   }
 }

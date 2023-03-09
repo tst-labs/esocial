@@ -13,7 +13,7 @@
       "cpfBenef": "77993893704",
       "nmBenefic": "LEIA ORGANA SOLO",
       "dtNascto": 453524400000,
-      "dtInicio": 1588364507000,
+      "dtInicio": 1637636400000,
       "sexo": "F",
       "racaCor": 6,
       "estCiv": 2,
@@ -38,7 +38,8 @@
           "dtNascto": 656391600000,
           "cpfDep": "99645142393",
           "depIRRF": "N",
-          "incFisMen": "N"
+          "incFisMen": "N",
+          "sexoDep": "M"
         }
       ]
     }

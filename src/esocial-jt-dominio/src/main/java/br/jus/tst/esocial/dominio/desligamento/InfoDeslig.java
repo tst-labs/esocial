@@ -1,17 +1,16 @@
 package br.jus.tst.esocial.dominio.desligamento;
 
-import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.List;
+import br.jus.tst.esocial.dominio.enums.SimNao;
+import br.jus.tst.esocial.dominio.termino.Quarentena;
+import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-
-import br.jus.tst.esocial.dominio.enums.SimNao;
-import br.jus.tst.esocial.dominio.termino.Quarentena;
-import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
+import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.List;
 
 public class InfoDeslig {
 
@@ -42,25 +41,27 @@ public class InfoDeslig {
     private List<InfoInterm> infoInterm;
     
     @Valid
-    private List<Observacoes> observacoes;
-    
-    @Valid
-    private SucessaoVinc sucessaoVinc;
-    
-    @Valid
+	private List<Observacoes> observacoes;
+
+	@Valid
+	private SucessaoVinc sucessaoVinc;
+
+	@Valid
 	private TransfTit transfTit;
-	
+
 	@Valid
 	private MudancaCPF mudancaCPF;
-    
-    @Valid
-    private VerbasResc verbasResc;
-    
-    @Valid
-    private Quarentena quarentena;
-    
-    @Valid
-    private List<ConsigFGTS> consigFGTS;
+
+	@Valid
+	private VerbasResc verbasResc;
+
+	@Deprecated
+	private Quarentena quarentena;
+
+	private RemunAposDeslig remunAposDeslig;
+
+	@Valid
+	private List<ConsigFGTS> consigFGTS;
 
 	public String getMtvDeslig() {
 		return mtvDeslig;
@@ -198,4 +199,11 @@ public class InfoDeslig {
 		this.consigFGTS = consigFGTS;
 	}
 
+	public RemunAposDeslig getRemunAposDeslig() {
+		return remunAposDeslig;
+	}
+
+	public void setRemunAposDeslig(RemunAposDeslig remunAposDeslig) {
+		this.remunAposDeslig = remunAposDeslig;
+	}
 }

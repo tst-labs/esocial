@@ -9,6 +9,8 @@ public class Epi {
 
     @NotNull
     public String docAval;
+
+    @Deprecated
     public String dscEPI;
 
     public String getDocAval() {
