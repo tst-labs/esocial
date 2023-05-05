@@ -1,15 +1,27 @@
 package br.jus.tst.esocialjt.evento;
 
-import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.dominio.EnvioEvento;
+import br.jus.tst.esocialjt.dominio.Estado;
+import br.jus.tst.esocialjt.dominio.Evento;
+import br.jus.tst.esocialjt.dominio.GrupoTipoEvento;
+import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.AtualizacaoProcessamentoServico;
 import br.jus.tst.esocialjt.negocio.EnvioServico;
 import br.jus.tst.esocialjt.negocio.EventoServico;
+import br.jus.tst.esocialjt.negocio.EventoTotalizadorServico;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,6 +36,9 @@ public class EventoResource {
 
     @Autowired
     private EventoServico eventoServico;
+
+    @Autowired
+    private EventoTotalizadorServico eventoTotalizadorServico;
 
     @Autowired
     private AtualizacaoProcessamentoServico atualizacaoProcessamentoServico;
@@ -101,5 +116,11 @@ public class EventoResource {
     public List<Evento> abortarProcessamento() {
         atualizacaoProcessamentoServico.abortarTodosEmProcessamento();
         return eventoServico.abortarTodosEmProcessamento();
+    }
+
+    @GetMapping(value = "/totalizadores/{tipo}/{perApuracao}", produces = "text/csv")
+    @Operation(summary = "Retorna resultado de eventos totalizadores por tipo e período de apuração em csv.")
+    public StringBuilder getTotalizador(@PathVariable long tipo, @PathVariable String perApuracao) throws IOException {
+        return eventoTotalizadorServico.getCSVEventoTotalizador("S" + tipo, perApuracao);
     }
 }
