@@ -2,8 +2,8 @@ variables:
   PROJECT_NAME: esocial-jt
   REGISTRY_HOST: os311-registry.tjdft.jus.br
   REGISTRY_USER: builder
-  IMAGE_NAME_STAGE: esocial-stage
-  IMAGE_NAME_PRODUCTION: esocial-production
+  IMAGE_NAME_STAGE: esocialapp-stage
+  IMAGE_NAME_PRODUCTION: esocialapp-production
 stages:
   - build
   - deploy
