@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -118,9 +117,9 @@ public class EventoResource {
         return eventoServico.abortarTodosEmProcessamento();
     }
 
-    @GetMapping(value = "/totalizadores/{tipo}/{perApuracao}", produces = "text/csv")
-    @Operation(summary = "Retorna resultado de eventos totalizadores por tipo e período de apuração em csv.")
-    public StringBuilder getTotalizador(@PathVariable long tipo, @PathVariable String perApuracao) throws IOException {
-        return eventoTotalizadorServico.getCSVEventoTotalizador("S" + tipo, perApuracao);
+    @GetMapping(value = "/totalizadores/{tipo}/{perApuracao}", produces = "text/xml")
+    @Operation(summary = "Retorna resultado de eventos totalizadores por tipo e período de apuração em xml.")
+    public String getTotalizador(@PathVariable long tipo, @PathVariable String perApuracao) {
+        return eventoTotalizadorServico.getCompiladoEventoTotalizador("S" + tipo, perApuracao);
     }
 }
