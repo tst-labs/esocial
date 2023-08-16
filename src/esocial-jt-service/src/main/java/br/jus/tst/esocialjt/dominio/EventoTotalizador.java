@@ -1,6 +1,10 @@
 package br.jus.tst.esocialjt.dominio;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -17,13 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.Type;
-import org.hibernate.validator.constraints.br.CPF;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import java.io.Serializable;
 
 @SuppressWarnings("deprecation")
 @Entity
@@ -61,7 +59,7 @@ public class EventoTotalizador implements Serializable {
 	@CPF
 	@Column(name = "NUM_CPF_TRABALHADOR")
 	private String cpfTrabalhador;
-	
+
 	@Lob
 	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_XML_EVENTO_TOTALIZADOR")
@@ -69,9 +67,9 @@ public class EventoTotalizador implements Serializable {
 
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "TXT_NR_RECIBO_ARQ_BASE", referencedColumnName = "TXT_NR_RECIBO", insertable=false, updatable=false)
+	@JoinColumn(name = "TXT_NR_RECIBO_ARQ_BASE", referencedColumnName = "TXT_NR_RECIBO", insertable = false, updatable = false)
 	private Evento evento;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -142,5 +140,5 @@ public class EventoTotalizador implements Serializable {
 	public void setEvento(Evento evento) {
 		this.evento = evento;
 	}
-	
+
 }
