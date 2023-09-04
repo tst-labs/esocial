@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtProcTrab/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtProcTrab/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtProcTrab/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtProcTrab/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -12,7 +12,6 @@
                     <xs:annotation>
                         <xs:documentation>Evento Processo Trabalhista.</xs:documentation>
                         <xs:documentation>CHAVE_GRUPO: {Id}</xs:documentation>
-                        <xs:documentation>REGRA:REGRA_BASES_PROC_TRAB</xs:documentation>
                         <xs:documentation>REGRA:REGRA_BLOQUEIA_USO_CPF_EMPREGADOR</xs:documentation>
                         <xs:documentation>REGRA:REGRA_COMPATIBILIDADE_CATEGORIA_CLASSTRIB</xs:documentation>
                         <xs:documentation>REGRA:REGRA_ENVIO_PROC_FECHAMENTO</xs:documentation>
@@ -77,25 +76,7 @@
                                 </xs:annotation>
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="origem">
-                                            <xs:simpleType>
-                                                <xs:annotation>
-                                                    <xs:documentation>Informar a origem do processo/demanda.</xs:documentation>
-                                                </xs:annotation>
-                                                <xs:restriction base="xs:byte">
-                                                    <xs:enumeration value="1">
-                                                        <xs:annotation>
-                                                            <xs:documentation>Processo judicial</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:enumeration>
-                                                    <xs:enumeration value="2">
-                                                        <xs:annotation>
-                                                            <xs:documentation>Demanda submetida à CCP ou ao NINTER</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:enumeration>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
+                                        <xs:element name="origem" type="TS_origem" />
                                         <xs:element name="nrProcTrab" type="TS_nrProcTrab">
                                             <xs:annotation>
                                                 <xs:documentation>Número do processo trabalhista, da ata ou número de identificação da conciliação.</xs:documentation>
@@ -221,31 +202,7 @@
                                                 <xs:documentation>Preencher com a data de nascimento.</xs:documentation>
                                                 <xs:documentation>Validação: Preenchimento obrigatório se não existir contrato com {indContr}(2500_ideTrab_infoContr_indContr) = [S]. Deve ser maior ou igual que 01/01/1890 e menor ou igual à data atual.</xs:documentation>
                                             </xs:annotation>
-                                        </xs:element>
-                                        <xs:element name="dependente" minOccurs="0" maxOccurs="99">
-                                            <xs:annotation>
-                                                <xs:documentation>Informações dos dependentes.</xs:documentation>
-                                                <xs:documentation>CHAVE_GRUPO: {cpfDep}</xs:documentation>
-                                                <xs:documentation>CONDICAO_GRUPO: OC (se existir contrato com {indContr}(2500_ideTrab_infoContr_indContr) = [N]); N (nos demais casos)</xs:documentation>
-                                            </xs:annotation>
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="cpfDep" type="TS_cpfDep">
-                                                        <xs:annotation>
-                                                            <xs:documentation>Número de inscrição no CPF.</xs:documentation>
-                                                            <xs:documentation>Validação: Deve ser um número de CPF válido e diferente do CPF do trabalhador. Em arquivo de empregador Pessoa Física, também deve ser diferente do CPF informado em {ideEmpregador/nrInsc}(2500_ideEmpregador_nrInsc).</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:element>
-                                                    <xs:element name="tpDep" type="TS_tpDep" />
-                                                    <xs:element name="descDep" minOccurs="0" type="TS_codigo_esocial">
-                                                        <xs:annotation>
-                                                            <xs:documentation>Informar a descrição da dependência.</xs:documentation>
-                                                            <xs:documentation>Validação: Informação obrigatória e exclusiva se {tpDep}(./tpDep) = [99].</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
+                                        </xs:element>                                     
                                         <xs:element name="infoContr" maxOccurs="99">
                                             <xs:annotation>
                                                 <xs:documentation>Informações do contrato de trabalho.</xs:documentation>
@@ -257,6 +214,7 @@
                                                         <xs:simpleType>
                                                             <xs:annotation>
                                                                 <xs:documentation>Tipo de contrato a que se refere o processo judicial ou a demanda submetida à CCP ou ao NINTER.</xs:documentation>
+                                                                <xs:documentation>Validação: Deve ser igual a [8] se o grupo {ideResp}(2500_ideEmpregador_ideResp) for informado.</xs:documentation>
                                                             </xs:annotation>
                                                             <xs:restriction base="xs:byte">
                                                                 <xs:enumeration value="1">
@@ -289,6 +247,21 @@
                                                                         <xs:documentation>Trabalhador sem vínculo de emprego/estatutário (TSVE), sem reconhecimento de vínculo empregatício</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:enumeration>
+                                                                <xs:enumeration value="7">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Trabalhador com vínculo de emprego formalizado em período anterior ao eSocial</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:enumeration>
+                                                                <xs:enumeration value="8">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Responsabilidade indireta</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:enumeration>
+                                                                <xs:enumeration value="9">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Trabalhador cujos contratos foram unificados (unicidade contratual)</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:enumeration>
                                                             </xs:restriction>
                                                         </xs:simpleType>
                                                     </xs:element>
@@ -301,7 +274,7 @@
                                                     <xs:element name="dtAdmOrig" minOccurs="0" type="xs:date">
                                                         <xs:annotation>
                                                             <xs:documentation>Preencher com a data de admissão original do vínculo (data de admissão antes da alteração).</xs:documentation>
-                                                            <xs:documentation>Validação: Preenchimento obrigatório e exclusivo se {infoContr/tpContr}(./tpContr) = [2, 4] e se {indContr}(./indContr) = [N]. Deve ser posterior à data de nascimento do trabalhador.</xs:documentation>
+                                                            <xs:documentation>Validação: Preenchimento obrigatório se {infoContr/tpContr}(./tpContr) = [2, 4]. Deve ser posterior à data de nascimento do trabalhador.</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:element>
                                                     <xs:element name="indReint" minOccurs="0" type="TS_sim_nao">
@@ -325,18 +298,12 @@
                                                                 <xs:documentation>Indicativo se houve reconhecimento de motivo de desligamento diferente do informado pelo declarante.</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:element>
-                                                    <xs:element name="indUnic" minOccurs="0" type="TS_sim_nao">
-                                                        <xs:annotation>
-                                                                <xs:documentation>Indicativo se houve reconhecimento de unicidade contratual (declaração da continuidade do contrato de trabalho, considerando como único dois ou mais vínculos sucessivos informados no eSocial).</xs:documentation>
-                                                                <xs:documentation>Validação: Deve ser igual a [N] se o grupo {ideResp}(2500_ideEmpregador_ideResp) for informado.</xs:documentation>
-                                                        </xs:annotation>
-                                                    </xs:element>
                                                     <xs:element name="matricula" minOccurs="0" type="TS_codigo_esocial">
                                                         <xs:annotation>
                                                             <xs:documentation>Matrícula atribuída ao trabalhador pela empresa ou, no caso de servidor público, a matrícula constante no Sistema de Administração de Recursos Humanos do órgão.</xs:documentation>
                                                             <xs:documentation>Se {indContr}(./indContr) = [N], deve ser criada uma matrícula para o trabalhador.</xs:documentation>
-                                                            <xs:documentation>Se {indContr}(./indContr) = [S], deve corresponder à matrícula informada pelo empregador no evento S-2190, S-2200 ou S-2300 do respectivo contrato. O campo não deve ser informado somente no caso de TSVE cadastrado em versão do leiaute anterior a S-1.0.</xs:documentation>
-                                                            <xs:documentation>Se {indUnic}(./indUnic) = [S], deve ser preenchida a matrícula que incorporará as demais (informadas no grupo {unicContr}(2500_ideTrab_infoContr_unicContr)).</xs:documentation>
+                                                            <xs:documentation>Se {indContr}(./indContr) = [S], deve corresponder à matrícula informada pelo empregador no evento S-2190, S-2200, S-2300 ou S-8200 do respectivo contrato. O campo não deve ser informado somente no caso de TSVE cadastrado em versão do leiaute anterior a S-1.0.</xs:documentation>
+                                                            <xs:documentation>Se {infoContr/tpContr}(./tpContr) = [9], deve ser preenchida a matrícula que incorporará as demais (informadas no grupo {unicContr}(2500_ideTrab_infoContr_unicContr)).</xs:documentation>
                                                             <xs:documentation>Validação: Se {indContr}(./indContr) = [N], deve ser aplicada a regra de validação abaixo. Além disso, o valor informado neste campo não pode conter a expressão 'eSocial' nas 7 (sete) primeiras posições. Se {indContr}(./indContr) = [S], deve corresponder a uma matrícula existente no Registro de Eventos Trabalhistas - RET para o respectivo trabalhador.</xs:documentation>
                                                             <xs:documentation>REGRA:REGRA_CARACTERE_ESPECIAL</xs:documentation>
                                                         </xs:annotation>
@@ -502,7 +469,6 @@
                                                                                                 <xs:annotation>
                                                                                                     <xs:documentation>Preencher com o código correspondente ao tipo de inscrição, conforme Tabela 05.</xs:documentation>
                                                                                                     <xs:documentation>Validação: Somente é possível informar [5] se {dtTransf}(./dtTransf) for igual ou anterior a [1999-06-30].</xs:documentation>
-                                                                                                    <xs:documentation>Somente é possível informar [6] se {dtTransf}(./dtTransf) for igual ou anterior a [2011-12-31].</xs:documentation>
                                                                                                 </xs:annotation>
                                                                                                 <xs:restriction base="xs:byte">
                                                                                                     <xs:enumeration value="1">
@@ -587,6 +553,15 @@
                                                                                                 <xs:documentation>Validação: Se informada, deve ser igual ou posterior a {dtDeslig}(./dtDeslig).</xs:documentation>
                                                                                             </xs:annotation>
                                                                                         </xs:element>
+                                                                                        <xs:element name="pensAlim" minOccurs="0" type="TS_pensAlim">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Indicativo de pensão alimentícia para fins de retenção de FGTS.</xs:documentation>
+                                                                                                <xs:documentation>Validação: Preenchimento obrigatório e exclusivo se o vínculo for celetista ({tpRegTrab}(../tpRegTrab) = [1]).</xs:documentation>
+                                                                                                <xs:documentation>Se ({dtSent}(2500_infoProcesso_dadosCompl_infoProcJud_dtSent) ou {dtCCP}(2500_infoProcesso_dadosCompl_infoCCP_dtCCP)) &lt; [2024-01-22], o preenchimento é opcional.</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="percAliment" minOccurs="0" type="TS_percAliment" />
+                                                                                        <xs:element name="vrAlim" minOccurs="0" type="TS_vrAlim" />
                                                                                     </xs:sequence>
                                                                                 </xs:complexType>
                                                                             </xs:element>
@@ -683,6 +658,7 @@
                                                                     <xs:annotation>
                                                                         <xs:documentation>Data a partir da qual foi reconhecida a nova categoria e/ou a nova natureza da atividade.</xs:documentation>
                                                                         <xs:documentation>Validação: Deve ser igual ou posterior à data de admissão (ou de início) e igual ou anterior à data de desligamento, se informada.</xs:documentation>
+                                                                        <xs:documentation>Se {indContr}(../indContr) = [N], deve ser uma data posterior à data de admissão (ou de início).</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
                                                             </xs:sequence>
@@ -693,7 +669,7 @@
                                                             <xs:documentation>Informações dos vínculos/contratos incorporados.</xs:documentation>
                                                             <xs:documentation>DESCRICAO_COMPLETA:Informações dos vínculos/contratos incorporados, no caso de reconhecimento de unicidade contratual.</xs:documentation>
                                                             <xs:documentation>CHAVE_GRUPO: {matUnic}, {codCateg}, {dtInicio}</xs:documentation>
-                                                            <xs:documentation>CONDICAO_GRUPO: O (se {indUnic}(2500_ideTrab_infoContr_indUnic) = [S]); N (nos demais casos)</xs:documentation>
+                                                            <xs:documentation>CONDICAO_GRUPO: O (se {infoContr/tpContr}(2500_ideTrab_infoContr_tpContr) = [9]); N (nos demais casos)</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
                                                             <xs:sequence>
@@ -743,7 +719,7 @@
                                                                 <xs:element name="infoVlr">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Informações dos períodos e valores.</xs:documentation>
-                                                                        <xs:documentation>DESCRICAO_COMPLETA:Informações dos períodos e valores decorrentes de processo trabalhista e ainda não declarados no eSocial.</xs:documentation>
+                                                                        <xs:documentation>DESCRICAO_COMPLETA:Informações dos períodos e valores decorrentes de processo trabalhista.</xs:documentation>
                                                                     </xs:annotation>
                                                                     <xs:complexType>
                                                                         <xs:sequence>
@@ -751,7 +727,7 @@
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Competência inicial a que se refere o processo ou conciliação, no formato AAAA-MM.</xs:documentation>
                                                                                     <xs:documentation>Validação: Devem ser obedecidas as seguintes regras:</xs:documentation>
-                                                                                    <xs:documentation>a) Se {infoContr/tpContr}(../../tpContr) = [1, 3], deve ser igual ou posterior ao mês/ano da data de admissão;</xs:documentation>
+                                                                                    <xs:documentation>a) Se {infoContr/tpContr}(../../tpContr) = [1, 3, 7, 8, 9], deve ser igual ou posterior ao mês/ano da data de admissão;</xs:documentation>
                                                                                     <xs:documentation>b) Se {infoContr/tpContr}(../../tpContr) = [2, 4, 5], deve ser igual ao mês/ano da data de admissão;</xs:documentation>
                                                                                     <xs:documentation>c) Se {infoContr/tpContr}(../../tpContr) = [6], deve ser igual ou posterior ao mês/ano da data de início do TSVE.</xs:documentation>
                                                                                 </xs:annotation>    
@@ -759,73 +735,64 @@
                                                                             <xs:element name="compFim" type="TS_periodo_mensal">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Competência final a que se refere o processo ou conciliação, no formato AAAA-MM.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser igual ou posterior a {compIni}(./compIni), igual ou anterior ao mês/ano de {dtSent}(2500_infoProcesso_dadosCompl_infoProcJud_dtSent) ou {dtCCP}(2500_infoProcesso_dadosCompl_infoCCP_dtCCP) e:</xs:documentation>
-                                                                                    <xs:documentation>a) Se {infoContr/tpContr}(../../tpContr) = [1, 2], deve ser igual ou anterior ao mês/ano da data de desligamento, se informada;</xs:documentation>
-                                                                                    <xs:documentation>b) Se {infoContr/tpContr}(../../tpContr) = [3, 4, 5], deve ser igual ao mês/ano da data de desligamento, se informada;</xs:documentation>
-                                                                                    <xs:documentation>c) Se {infoContr/tpContr}(../../tpContr) = [6], deve ser igual ou anterior ao mês/ano da data de término do TSVE, se informada.</xs:documentation>
+                                                                                    <xs:documentation>Validação: Deve ser igual ou posterior a {compIni}(./compIni) e igual ou anterior ao mês/ano de {dtSent}(2500_infoProcesso_dadosCompl_infoProcJud_dtSent) ou {dtCCP}(2500_infoProcesso_dadosCompl_infoCCP_dtCCP).</xs:documentation>
                                                                                 </xs:annotation>    
                                                                             </xs:element>
-                                                                            <xs:element name="repercProc">
+                                                                            <xs:element name="indReperc">
                                                                                 <xs:simpleType>
                                                                                     <xs:annotation>
-                                                                                        <xs:documentation>Repercussão do processo trabalhista ou de demanda submetida à CCP ou ao NINTER.</xs:documentation>
+                                                                                        <xs:documentation>Indicativo de repercussão do processo trabalhista ou de demanda submetida à CCP ou ao NINTER.</xs:documentation>
                                                                                     </xs:annotation>
                                                                                     <xs:restriction base="xs:byte">
                                                                                         <xs:enumeration value="1">
                                                                                             <xs:annotation>
-                                                                                                <xs:documentation>Decisão com pagamento de verbas de natureza remuneratória</xs:documentation>
+                                                                                                <xs:documentation>Decisão com repercussão tributária e/ou FGTS</xs:documentation>
                                                                                             </xs:annotation>
                                                                                         </xs:enumeration>
                                                                                         <xs:enumeration value="2">
                                                                                             <xs:annotation>
-                                                                                                <xs:documentation>Decisão sem pagamento de verbas de natureza remuneratória</xs:documentation>
+                                                                                                <xs:documentation>Decisão sem repercussão tributária ou FGTS</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:enumeration>
+                                                                                        <xs:enumeration value="3">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Decisão com repercussão exclusiva para declaração de rendimentos para fins de Imposto de Renda</xs:documentation>
                                                                                             </xs:annotation>
                                                                                         </xs:enumeration>
                                                                                     </xs:restriction>
                                                                                 </xs:simpleType>
                                                                             </xs:element>
-                                                                            <xs:element name="vrRemun" type="TS_valorMonetario">
+                                                                            <xs:element name="indenSD" type="TS_sim" minOccurs="0">
                                                                                 <xs:annotation>
-                                                                                    <xs:documentation>Valor total das verbas remuneratórias a serem pagas ao trabalhador.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Se {repercProc}(./repercProc) = [1], deve ser maior que 0 (zero). Se {repercProc}(./repercProc) = [2], deve ser igual a 0 (zero).</xs:documentation>
+                                                                                    <xs:documentation>Houve decisão para pagamento da indenização substitutiva do seguro-desemprego?</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
-                                                                            <xs:element name="vrAPI" type="TS_valorMonetario">
+                                                                            <xs:element name="indenAbono" type="TS_sim" minOccurs="0">
                                                                                 <xs:annotation>
-                                                                                    <xs:documentation>Valor do aviso prévio indenizado pago ao empregado.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                                    <xs:documentation>Houve decisão para pagamento da indenização substitutiva de abono salarial?</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
-                                                                            <xs:element name="vr13API" type="TS_valorMonetario">
+                                                                            <xs:element name="abono" minOccurs="0" maxOccurs="9">
                                                                                 <xs:annotation>
-                                                                                    <xs:documentation>Valor da projeção do aviso prévio indenizado sobre o 13º salário.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                                    <xs:documentation>Identificação do(s) ano(s)-base em que houve indenização substitutiva de abono salarial.</xs:documentation>
+                                                                                    <xs:documentation>CHAVE_GRUPO: {anoBase}</xs:documentation>
+                                                                                    <xs:documentation>CONDICAO_GRUPO: O (se {indenAbono}(../indenAbono) = [S]); N (nos demais casos)</xs:documentation>
                                                                                 </xs:annotation>
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="anoBase" type="TS_codTercs">
+                                                                                            <xs:annotation>
+                                                                                                <xs:documentation>Ano-base em que houve indenização substitutiva do abono salarial.</xs:documentation>
+                                                                                            </xs:annotation>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
                                                                             </xs:element>
-                                                                            <xs:element name="vrInden" type="TS_valorMonetario">
-                                                                                <xs:annotation>
-                                                                                    <xs:documentation>Valor total das demais verbas indenizatórias a serem pagas ao trabalhador.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
-                                                                                </xs:annotation>
-                                                                            </xs:element>
-                                                                            <xs:element name="vrBaseIndenFGTS" type="TS_valorMonetario" minOccurs="0">
-                                                                                <xs:annotation>
-                                                                                    <xs:documentation>Valor da base de cálculo para recolhimento da indenização compensatória (multa rescisória) do FGTS, para geração de guia.</xs:documentation>
-                                                                                    <xs:documentation>Preencher este campo somente quando o valor da indenização compensatória (multa rescisória) do FGTS for objeto de transação.</xs:documentation>
-                                                                                    <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
-                                                                                </xs:annotation>
-                                                                            </xs:element>
-                                                                            <xs:element name="pagDiretoResc" minOccurs="0" type="TS_sim_nao">
-                                                                                <xs:annotation>
-                                                                                    <xs:documentation>A indenização compensatória (multa rescisória) do FGTS transacionada foi paga diretamente ao trabalhador mediante decisão/autorização judicial?</xs:documentation>
-                                                                                    <xs:documentation>Validação: Informação obrigatória e exclusiva se {vrBaseIndenFGTS}(./vrBaseIndenFGTS) estiver preenchido.</xs:documentation>
-                                                                                </xs:annotation>
-                                                                            </xs:element>
-                                                                            <xs:element name="idePeriodo" minOccurs="0" maxOccurs="360">
+                                                                            <xs:element name="idePeriodo" minOccurs="0" maxOccurs="999">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Identificação do período ao qual se referem as bases de cálculo.</xs:documentation>
                                                                                     <xs:documentation>CHAVE_GRUPO: {perRef}</xs:documentation>
-                                                                                    <xs:documentation>CONDICAO_GRUPO: O (se {repercProc}(../repercProc) = [1]); OC (nos demais casos)</xs:documentation>
+                                                                                    <xs:documentation>CONDICAO_GRUPO: O (se {indReperc}(../indReperc) = [1]); N (nos demais casos)</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                     <xs:sequence>
@@ -835,10 +802,10 @@
                                                                                                 <xs:documentation>Validação: Deve ser um período compreendido entre {compIni}(../compIni) e {compFim}(../compFim), informado no formato AAAA-MM.</xs:documentation>
                                                                                             </xs:annotation>
                                                                                         </xs:element>
-                                                                                        <xs:element name="baseCalculo">
+                                                                                        <xs:element name="baseCalculo" minOccurs="0">
                                                                                             <xs:annotation>
-                                                                                                <xs:documentation>Bases de cálculo de contribuição previdenciária e FGTS.</xs:documentation>
-                                                                                                <xs:documentation>DESCRICAO_COMPLETA:Bases de cálculo de contribuição previdenciária e FGTS decorrentes de processo trabalhista e ainda não declaradas.</xs:documentation>
+                                                                                                <xs:documentation>Bases de cálculo de contribuição previdenciária decorrentes de processo trabalhista e ainda não declaradas.</xs:documentation>
+                                                                                                <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                                             </xs:annotation>
                                                                                             <xs:complexType>
                                                                                                 <xs:sequence>
@@ -848,21 +815,9 @@
                                                                                                             <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
-                                                                                                    <xs:element name="vrBcCp13" type="TS_valorMonetario">
+                                                                                                    <xs:element name="vrBcCp13" type="TS_valorMonetario" minOccurs="0">
                                                                                                         <xs:annotation>
                                                                                                             <xs:documentation>Valor da base de cálculo da contribuição previdenciária sobre a remuneração do trabalhador referente ao 13º salário.</xs:documentation>
-                                                                                                            <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
-                                                                                                        </xs:annotation>
-                                                                                                    </xs:element>
-                                                                                                    <xs:element name="vrBcFgts" type="TS_valorMonetario">
-                                                                                                        <xs:annotation>
-                                                                                                            <xs:documentation>Valor da base de cálculo do FGTS sobre a remuneração do trabalhador (sem 13° salário).</xs:documentation>
-                                                                                                            <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
-                                                                                                        </xs:annotation>
-                                                                                                    </xs:element>
-                                                                                                    <xs:element name="vrBcFgts13" type="TS_valorMonetario">
-                                                                                                        <xs:annotation>
-                                                                                                            <xs:documentation>Valor da base de cálculo do FGTS sobre a remuneração do trabalhador sobre o 13º salário.</xs:documentation>
                                                                                                             <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
@@ -884,27 +839,29 @@
                                                                                         <xs:element name="infoFGTS" minOccurs="0">
                                                                                             <xs:annotation>
                                                                                                 <xs:documentation>Informações referentes a bases de cálculo de FGTS para geração de guia.</xs:documentation>
-                                                                                                <xs:documentation>DESCRICAO_COMPLETA:Informações referentes a bases de cálculo de FGTS para geração de guia para competências anteriores ao início do FGTS Digital.</xs:documentation>
-                                                                                                <xs:documentation>Informar apenas bases que ainda não foram recolhidas via SEFIP/Conectividade Social.</xs:documentation>
+                                                                                                <xs:documentation>DESCRICAO_COMPLETA:Informações referentes a bases de cálculo de FGTS (valores históricos, sem atualização), inclusive valores de 13º salário, aviso prévio indenizado e seu reflexo sobre o 13º salário, para geração de guia no FGTS Digital.</xs:documentation>
+                                                                                                <xs:documentation>Os campos deste grupo serão somados para compor a base de cálculo para geração de guia.</xs:documentation>
                                                                                                 <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                                             </xs:annotation>
                                                                                             <xs:complexType>
                                                                                                 <xs:sequence>
-                                                                                                    <xs:element name="vrBcFgtsGuia" type="TS_valorMonetario">
+                                                                                                    <xs:element name="vrBcFGTSProcTrab" type="TS_valorMonetario">
                                                                                                         <xs:annotation>
-                                                                                                            <xs:documentation>Valor da base de cálculo do FGTS sobre a remuneração do trabalhador (sem 13° salário).</xs:documentation>
+                                                                                                            <xs:documentation>Valor da base de cálculo de FGTS ainda não declarada em SEFIP ou no eSocial, inclusive de verba reconhecida no processo trabalhista.</xs:documentation>
                                                                                                             <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
-                                                                                                    <xs:element name="vrBcFgts13Guia" type="TS_valorMonetario">
+                                                                                                    <xs:element name="vrBcFGTSSefip" type="TS_valorMonetario_positivo" minOccurs="0">
                                                                                                         <xs:annotation>
-                                                                                                            <xs:documentation>Valor da base de cálculo do FGTS sobre a remuneração do trabalhador sobre o 13º salário.</xs:documentation>
-                                                                                                            <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                                                            <xs:documentation>Valor da base de cálculo de FGTS declarada apenas em SEFIP (não informada no eSocial) e ainda não recolhida.</xs:documentation>
+                                                                                                            <xs:documentation>Validação: Deve ser maior que 0 (zero).</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
-                                                                                                    <xs:element name="pagDireto" type="TS_sim_nao">
+                                                                                                    <xs:element name="vrBcFGTSDecAnt" type="TS_valorMonetario_positivo" minOccurs="0">
                                                                                                         <xs:annotation>
-                                                                                                            <xs:documentation>O FGTS transacionado referente a {perRef}(../perRef) foi pago diretamente ao trabalhador mediante decisão/autorização judicial?</xs:documentation>
+                                                                                                            <xs:documentation>Valor da base de cálculo de FGTS declarada anteriormente no eSocial e ainda não recolhida.</xs:documentation>
+                                                                                                            <xs:documentation>Validação: Somente pode ser informado se {perRef}(../perRef) for anterior ao início do FGTS Digital.</xs:documentation>
+                                                                                                            <xs:documentation>Deve ser maior que 0 (zero).</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
                                                                                                 </xs:sequence>
