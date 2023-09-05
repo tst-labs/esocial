@@ -16,6 +16,7 @@ public class AgNoc {
     public BigDecimal limTol;
     public Byte unMed;
     public String tecMedicao;
+    public String nrProcJud;
 
     @Valid
     public EpcEpi epcEpi;
@@ -82,6 +83,14 @@ public class AgNoc {
 
     public void setEpcEpi(EpcEpi epcEpi) {
         this.epcEpi = epcEpi;
+    }
+
+    public String getNrProcJud() {
+        return nrProcJud;
+    }
+
+    public void setNrProcJud(String nrProcJud) {
+        this.nrProcJud = nrProcJud;
     }
 
     @Override
