@@ -92,7 +92,13 @@ public class OcorrenciaResource {
 	public Ocorrencia getOcorrenciaPorId(@PathVariable("id") long id) throws EntidadeNaoExisteException {
 		return ocorrenciaServico.recuperaPorId(id);
 	}
-	
+
+	@Operation(summary ="Envia o respectivo evento de exclusão da ocorrência especificada pelo id.")
+	@PostMapping("/{id}/acoes/excluir")
+	public Ocorrencia excluirPorId(@PathVariable("id") long id) throws EntidadeNaoExisteException {
+		return ocorrenciaServico.enviarEventoExclusao(id);
+	}
+
 	@Operation(summary = "Url única para o recebimento de ocorrências. O tipo da ocorrência é passado no próprio json dos dados e deve obedecer "
 			+ "ao formato respectivo àquele tipo.")
 	@PostMapping(consumes = "application/json", produces = "application/json;charset=UTF-8")
