@@ -45,6 +45,9 @@ public class OcorrenciaServico {
 	@Autowired
 	PublicacaoServico publicacaoServico;
 
+	@Autowired
+	ExclusaoServico exclusaoServico;
+
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
 		ocorrencia.setDataRecebimento(
@@ -103,6 +106,16 @@ public class OcorrenciaServico {
 		return repository
 				.findById(id)
 				.orElseThrow(()->new EntidadeNaoExisteException("Não foi possível encontrar ocorrência com id=" + id));
+	}
+
+	public Ocorrencia enviarEventoExclusao(long id) throws EntidadeNaoExisteException {
+		Ocorrencia ocorrencia = repository
+				.findById(id)
+				.orElseThrow(()->new EntidadeNaoExisteException("Não foi possível encontrar ocorrência com id=" + id));
+
+		Ocorrencia exclusao = exclusaoServico.gerarExclusao(ocorrencia);
+
+		return salvar(exclusao);
 	}
 
 	public List<Ocorrencia> recuperaOcorrenciasSemEventos() {

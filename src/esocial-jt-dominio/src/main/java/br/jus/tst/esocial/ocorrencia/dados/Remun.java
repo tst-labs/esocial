@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
-public class Remun extends DadosOcorrencia {
+public class Remun extends DadosOcorrencia implements DadosFolha {
 
 	@Valid
 	@NotNull

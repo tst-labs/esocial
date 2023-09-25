@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
-public class BenPrRP extends DadosOcorrencia {
+public class BenPrRP extends DadosOcorrencia implements DadosFolha {
 
 	@Valid
 	private IdeEventoFolha ideEvento;

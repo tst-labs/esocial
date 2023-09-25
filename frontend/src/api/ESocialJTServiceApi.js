@@ -78,3 +78,7 @@ export function useDesarquivar() {
         .then(() => showInfo(`Evento desarquivado`))
   });
 }
+
+export function useEnviarExclusao() {
+  return useMutation((id) => api.post(`/ocorrencias/${id}/acoes/excluir`));
+}

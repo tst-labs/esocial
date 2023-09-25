@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Optional;
 
-public class ReabreEvPer extends DadosOcorrencia {
+public class ReabreEvPer extends DadosOcorrencia implements DadosFechamentoFolha {
 
 	@Valid
 	@NotNull
