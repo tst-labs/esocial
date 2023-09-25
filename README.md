@@ -505,67 +505,67 @@ Pacote de comunicação : 1.5
 
 #### Eventos de Tabelas
 
-| Evento | Nome Evento                         | Versão | Situação           | Resultado do envio para a produção restrita |
-|--------|-------------------------------------|--------|--------------------|---------------------------------------------|
-| S-1000 | Empregador/Contribuinte             | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1005 | Estabelecimentos                    | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1010 | Rubricas                            | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1020 | Lotações Tributárias                | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1070 | Processos Administrativos/Judiciais | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1080 | Operadores Portuários               | NA     | NA                 | NA                                          |
+| Evento | Nome Evento                         | Versão | Situação  | Resultado do envio para a produção restrita |
+|--------|-------------------------------------|--------|-----------|---------------------------------------------|
+| S-1000 | Empregador/Contribuinte             | S-1.2  | Feito     | PROCESSADO COM SUCESSO                      |
+| S-1005 | Estabelecimentos                    | S-1.2  | Feito     | PROCESSADO COM SUCESSO                      |
+| S-1010 | Rubricas                            | S-1.2  | Feito     | PROCESSADO COM SUCESSO                      |
+| S-1020 | Lotações Tributárias                | S-1.2  | Feito     | PROCESSADO COM SUCESSO                      |
+| S-1070 | Processos Administrativos/Judiciais | S-1.2  | Feito     | PROCESSADO COM SUCESSO                      |
+| S-1080 | Operadores Portuários               | NA     | NA        | NA                                          |
 
 #### Eventos periódicos
 
 | Evento | Nome Evento                                               | Versão | Situação           | Resultado do envio para a produção restrita |
 |--------|-----------------------------------------------------------|--------|--------------------|---------------------------------------------|
-| S-1200 | Remuneração de trabalhador vinculado ao RGPS              | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1202 | Remuneração de servidor vinculado a RPPS                  | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1207 | Benefícios previdenciários - RPPS                         | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1210 | Pagamentos de Rendimentos do Trabalho                     | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
+| S-1200 | Remuneração de trabalhador vinculado ao RGPS              | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
+| S-1202 | Remuneração de servidor vinculado a RPPS                  | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
+| S-1207 | Benefícios previdenciários - RPPS                         | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
+| S-1210 | Pagamentos de Rendimentos do Trabalho                     | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
 | S-1260 | Comercialização da Produção Rural Pessoa Física           | S-1.2  | NA                 | NA                                          |
 | S-1270 | Contratação de Trabalhadores Avulsos Não Portuários       | S-1.2  | NA                 | NA                                          |
 | S-1280 | Informações Complementares aos Eventos Periódicos         | S-1.2  | NA                 | NA                                          |
-| S-1298 | Reabertura dos Eventos Periódicos                         | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-1299 | Fechamento dos Eventos Periódicos                         | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
+| S-1298 | Reabertura dos Eventos Periódicos                         | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
+| S-1299 | Fechamento dos Eventos Periódicos                         | S-1.2  | Feito              | PROCESSADO COM SUCESSO                      |
 
 #### Eventos não periódicos
 
-| Evento | Nome Evento                                                              | Versão | Situação           | Resultado do envio para a produção restrita |
-|--------|--------------------------------------------------------------------------|--------|--------------------|---------------------------------------------|
-| S-2190 | Admissão de Trabalhador - Registro Preliminar                            | S-1.2  | NA                 | NA                                          |
-| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador      | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2205 | Alteração de Dados Cadastrais do Trabalhador                             | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2206 | Alteração de Contrato de Trabalho                                        | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2210 | Comunicação de Acidente de Trabalho                                      | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2220 | Monitoramento da Saúde do Trabalhador                                    | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2230 | Afastamento Temporário                                                   | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2231 | Cessão/Exercício em Outro Órgão                                          | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                      | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2298 | Reintegração                                                             | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2299 | Desligamento                                                             | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início                  | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual    | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término                 | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2400 | Cadastro de Beneficiário - Entes Públicos - Início                       | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                    | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2410 | Cadastro de Benefício – Entes Públicos – Início                          | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                       | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2418 | Reativação de Benefício – Entes Públicos                                 | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2420 | Cadastro de Benefício – Entes Públicos – Término                         | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-2500 | Processo Trabalhista                                                     | S-1.2  | NA                 | NA                                          |
-| S-2501 | Informações de Tributos Decorrentes de Processo Trabalhista              | S-1.2  | NA                 | NA                                          |
-| S-3000 | Exclusão de eventos                                                      | S-1.2  | Em desenvolvimento | NAO ACEITO                                  |
-| S-3500 | Exclusão de Eventos - Processo Trabalhista                               | S-1.2  | NA                 | NA                                          |
-| S-5001 | Informações das contribuições sociais por trabalhador                    | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5002 | Imposto de Renda Retido na Fonte                                         | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5003 | Informações do FGTS por Trabalhador                                      | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5011 | Informações das contribuições sociais consolidadas por contribuinte      | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5012 | Informações do IRRF consolidadas por contribuinte                        | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5013 | Informações do FGTS Consolidadas por Contribuinte                        | S-1.2  | Em desenvolvimento | Evento totalizador gravado no formato XML   |
-| S-5501 | Informações Consolidadas de Tributos Decorrentes de Processo Trabalhista | S-1.2  | NA                 | NA                                          |
-| S-5503 | Informações do FGTS por Trabalhador em Processo Trabalhista              | S-1.2  | NA                 | NA                                          |
-| S-8200 | Anotação Judicial do Vínculo                                             | S-1.2  | NA                 | NA                                          |
-| S-8299 | Baixa Judicial do Vínculo                                                | S-1.2  | NA                 | NA                                          |
+| Evento | Nome Evento                                                              | Versão | Situação | Resultado do envio para a produção restrita |
+|--------|--------------------------------------------------------------------------|--------|----------|---------------------------------------------|
+| S-2190 | Admissão de Trabalhador - Registro Preliminar                            | S-1.2  | NA       | NA                                          |
+| S-2200 | Cadastramento Inicial do Vínculo e Admissão/Ingresso de Trabalhador      | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2205 | Alteração de Dados Cadastrais do Trabalhador                             | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2206 | Alteração de Contrato de Trabalho                                        | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2210 | Comunicação de Acidente de Trabalho                                      | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2220 | Monitoramento da Saúde do Trabalhador                                    | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2230 | Afastamento Temporário                                                   | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2231 | Cessão/Exercício em Outro Órgão                                          | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2240 | Condições Ambientais do Trabalho - Fatores de Risco                      | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2298 | Reintegração                                                             | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2299 | Desligamento                                                             | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2300 | Trabalhador Sem Vínculo de Emprego/Estatutário - Início                  | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2306 | Trabalhador Sem Vínculo de Emprego/Estatutário - Alteração Contratual    | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2399 | Trabalhador Sem Vínculo de Emprego/Estatutário - Término                 | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2400 | Cadastro de Beneficiário - Entes Públicos - Início                       | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2405 | Cadastro de Beneficiário – Entes Públicos – Alteração                    | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2410 | Cadastro de Benefício – Entes Públicos – Início                          | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2416 | Cadastro de Benefício – Entes Públicos – Alteração                       | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2418 | Reativação de Benefício – Entes Públicos                                 | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2420 | Cadastro de Benefício – Entes Públicos – Término                         | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-2500 | Processo Trabalhista                                                     | S-1.2  | NA       | NA                                          |
+| S-2501 | Informações de Tributos Decorrentes de Processo Trabalhista              | S-1.2  | NA       | NA                                          |
+| S-3000 | Exclusão de eventos                                                      | S-1.2  | Feito    | PROCESSADO COM SUCESSO                      |
+| S-3500 | Exclusão de Eventos - Processo Trabalhista                               | S-1.2  | NA       | NA                                          |
+| S-5001 | Informações das contribuições sociais por trabalhador                    | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5002 | Imposto de Renda Retido na Fonte                                         | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5003 | Informações do FGTS por Trabalhador                                      | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5011 | Informações das contribuições sociais consolidadas por contribuinte      | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5012 | Informações do IRRF consolidadas por contribuinte                        | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5013 | Informações do FGTS Consolidadas por Contribuinte                        | S-1.2  | Feito    | Evento totalizador gravado no formato XML   |
+| S-5501 | Informações Consolidadas de Tributos Decorrentes de Processo Trabalhista | S-1.2  | NA       | NA                                          |
+| S-5503 | Informações do FGTS por Trabalhador em Processo Trabalhista              | S-1.2  | NA       | NA                                          |
+| S-8200 | Anotação Judicial do Vínculo                                             | S-1.2  | NA       | NA                                          |
+| S-8299 | Baixa Judicial do Vínculo                                                | S-1.2  | NA       | NA                                          |
 
 ## Dúvidas e contato
 
