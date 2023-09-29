@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Optional;
 
-public class FechaEvPer extends DadosOcorrencia {
+public class FechaEvPer extends DadosOcorrencia implements DadosFechamentoFolha {
 
 	@Valid
 	@NotNull

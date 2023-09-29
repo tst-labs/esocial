@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Optional;
 
-public class Pgtos extends DadosOcorrencia {
+public class Pgtos extends DadosOcorrencia implements DadosFolha {
 
 	@Valid
 	private IdeEventoFolha ideEvento;
