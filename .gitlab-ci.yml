@@ -12,7 +12,7 @@ stages:
 ### TEMPLATE PARA DEPLOY
 ############################
 .template_deploy: &template_deploy
-  image: nexuspull.tjdft.jus.br/kaniko-project/executor:debug
+  image: kaniko-project/executor:debug
   stage: deploy
   script:
     - echo "${REGISTRY_HOST}/${IMAGE_NAME}/${SERVICE_NAME}:${IMAGE_TAG}"
