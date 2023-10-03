@@ -86,7 +86,8 @@ public class EmpregadoServico {
             processadores.put(TipoOcorrencia.REINTEGRACAO, new Processador2298());
             processadores.put(TipoOcorrencia.DESLIGAMENTO, new Processador2299());
         }
-        return Optional.ofNullable(processadores.get(tipo))
-                .orElseThrow(() -> new RuntimeException("Não foi encontrado um processador para o tipo " + tipo));
+        return Optional
+                .ofNullable(processadores.get(tipo))
+                .orElse(new ProcessadorEmpregadoVazio());
     }
 }
