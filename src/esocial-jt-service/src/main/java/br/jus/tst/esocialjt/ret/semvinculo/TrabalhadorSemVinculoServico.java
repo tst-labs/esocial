@@ -76,7 +76,7 @@ public class TrabalhadorSemVinculoServico {
             processadores = new HashMap<>();
             processadores.put(TipoOcorrencia.TSV_INICIO, new Processador2300());
         }
-        return Optional.of(processadores.get(tipo))
+        return Optional.ofNullable(processadores.get(tipo))
                 .orElseThrow(() -> new RuntimeException("Não foi encontrado um processador para o tipo " + tipo));
     }
 }

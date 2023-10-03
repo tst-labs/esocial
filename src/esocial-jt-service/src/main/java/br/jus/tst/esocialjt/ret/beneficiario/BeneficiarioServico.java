@@ -91,7 +91,7 @@ public class BeneficiarioServico {
             processadores = new HashMap<>();
             processadores.put(TipoOcorrencia.CADASTRO_BENEFICIARIO_INI, new Processador2400());
         }
-        return Optional.of(processadores.get(tipo))
+        return Optional.ofNullable(processadores.get(tipo))
                 .orElseThrow(() -> new RuntimeException("Não foi encontrado um processador para o tipo " + tipo));
     }
 
