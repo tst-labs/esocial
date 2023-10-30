@@ -31,6 +31,7 @@ build_backend:
   only:
     - tags
   script:
+    - echo "The job's stage is '$CI_COMMIT_TAG'"
     - cd src/
     - mvn -B verify
   artifacts:
