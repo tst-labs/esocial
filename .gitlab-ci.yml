@@ -28,9 +28,9 @@ stages:
 build_backend:
   image: adoptopenjdk/maven-openjdk8
   stage: build
-  only:
-    - $CI_COMMIT_TAG =~ /^stage-.*$/
-    - $CI_COMMIT_TAG =~ /^production-.*$/
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
+    - if: $CI_COMMIT_TAG =~ /^production-.*$/
   script:
     - cd src/
     - mvn -B verify
@@ -43,9 +43,9 @@ build_backend:
 build_frontend:
   image: node:16-bullseye
   stage: build
-  only:    
-    - $CI_COMMIT_TAG =~ /^stage-.*$/
-    - $CI_COMMIT_TAG =~ /^production-.*$/
+  rules:    
+    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
+    - if: $CI_COMMIT_TAG =~ /^production-.*$/
   script:
     - cd frontend/
     - yarn install --frozen-lockfile
@@ -62,8 +62,8 @@ build_frontend:
 
 deploy_backend_desenv:
   <<: *template_deploy
-  only:
-    - $CI_COMMIT_TAG =~ /^stage-.*$/
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
   variables:
     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/src/Dockerfile
     CONTEXT_DIR: ${CI_PROJECT_DIR}/src
@@ -77,8 +77,8 @@ deploy_backend_desenv:
 
 deploy_frontend_desenv:
   <<: *template_deploy
-  only:    
-    - $CI_COMMIT_TAG =~ /^stage-.*$/
+  rules:    
+    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
   variables:
     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
     CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
@@ -93,8 +93,8 @@ deploy_frontend_desenv:
 
 deploy_backend_prod:
   <<: *template_deploy
-  only:
-    - $CI_COMMIT_TAG =~ /^production-.*$/
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^production-.*$/
   variables:
     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/src/Dockerfile
     CONTEXT_DIR: ${CI_PROJECT_DIR}/src
@@ -108,8 +108,8 @@ deploy_backend_prod:
 
 deploy_frontend_prod:
   <<: *template_deploy
-  only:
-    - $CI_COMMIT_TAG =~ /^production-.*$/
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^production-.*$/
   variables:
     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
     CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
