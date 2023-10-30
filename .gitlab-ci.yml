@@ -89,33 +89,33 @@ deploy_frontend_desenv:
     - build_backend
     - build_frontend
 
-deploy_backend_prod:
-  <<: *template_deploy
-  rules:
-    - if: $CI_COMMIT_TAG =~ /^production-.*$/
-  variables:
-    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/src/Dockerfile
-    CONTEXT_DIR: ${CI_PROJECT_DIR}/src
-    IMAGE_NAME: ${IMAGE_NAME_PRODUCTION}
-    SERVICE_NAME: esocial-jt-backend
-    IMAGE_TAG: production
-  before_script:
-    - SA_USER_TOKEN=$SA_USER_TOKEN_PROD
-  dependencies:
-    - build_backend
+# deploy_backend_prod:
+#   <<: *template_deploy
+#   rules:
+#     - if: $CI_COMMIT_TAG =~ /^production-.*$/
+#   variables:
+#     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/src/Dockerfile
+#     CONTEXT_DIR: ${CI_PROJECT_DIR}/src
+#     IMAGE_NAME: ${IMAGE_NAME_PRODUCTION}
+#     SERVICE_NAME: esocial-jt-backend
+#     IMAGE_TAG: production
+#   before_script:
+#     - SA_USER_TOKEN=$SA_USER_TOKEN_PROD
+#   dependencies:
+#     - build_backend
 
-deploy_frontend_prod:
-  <<: *template_deploy
-  rules:
-    - if: $CI_COMMIT_TAG =~ /^production-.*$/
-  variables:
-    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
-    CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
-    IMAGE_NAME: ${IMAGE_NAME_PRODUCTION}
-    SERVICE_NAME: esocial-jt-frontend
-    IMAGE_TAG: production
-  before_script:
-    - SA_USER_TOKEN=$SA_USER_TOKEN_PROD
-  dependencies:
-    - build_backend
-    - build_frontend
+# deploy_frontend_prod:
+#   <<: *template_deploy
+#   rules:
+#     - if: $CI_COMMIT_TAG =~ /^production-.*$/
+#   variables:
+#     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
+#     CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
+#     IMAGE_NAME: ${IMAGE_NAME_PRODUCTION}
+#     SERVICE_NAME: esocial-jt-frontend
+#     IMAGE_TAG: production
+#   before_script:
+#     - SA_USER_TOKEN=$SA_USER_TOKEN_PROD
+#   dependencies:
+#     - build_backend
+#     - build_frontend
