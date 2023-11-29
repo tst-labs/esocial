@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -35,7 +35,7 @@
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="ideEvento" type="T_ideEvento_folha_opp" />
-                            <xs:element name="ideEmpregador" type="T_ideEmpregador_cnpj" />
+                            <xs:element name="ideEmpregador" type="T_ideEmpregador" />
                             <xs:element name="ideTrabalhador">
                                 <xs:annotation>
                                     <xs:documentation>Identificação do trabalhador.</xs:documentation>
@@ -121,10 +121,10 @@
                                                         </xs:annotation>
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="tpInsc" type="TS_tpInsc_1" />
+                                                                <xs:element name="tpInsc" type="TS_tpInsc_1_3" />
                                                                 <xs:element name="nrInsc" type="TS_cnpj">
                                                                     <xs:annotation>
-                                                                        <xs:documentation>Informar o número de inscrição da unidade do órgão público.</xs:documentation>
+                                                                        <xs:documentation>Informar o número de inscrição da unidade do órgão público ou do estabelecimento, de acordo com o tipo de inscrição indicado no campo {ideEstab/tpInsc}(./tpInsc).</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
                                                                 <xs:element name="remunPerApur" maxOccurs="8" type="T_remunPer">
@@ -180,10 +180,10 @@
                                                                     </xs:annotation>
                                                                     <xs:complexType>
                                                                         <xs:sequence>
-                                                                            <xs:element name="tpInsc" type="TS_tpInsc_1" />
+                                                                            <xs:element name="tpInsc" type="TS_tpInsc_1_3" />
                                                                             <xs:element name="nrInsc" type="TS_cnpj">
                                                                                 <xs:annotation>
-                                                                                    <xs:documentation>Informar o número de inscrição da unidade do órgão público.</xs:documentation>
+                                                                                    <xs:documentation>Informar o número de inscrição da unidade do órgão público ou do estabelecimento, de acordo com o tipo de inscrição indicado no campo {ideEstab/tpInsc}(./tpInsc).</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
                                                                             <xs:element name="remunPerAnt" maxOccurs="8" type="T_remunPer">

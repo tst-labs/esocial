@@ -1,15 +1,14 @@
 package br.jus.tst.esocialjt.xml.gerador;
 
-import org.springframework.stereotype.Component;
-
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial;
 import br.jus.tst.esocial.esquemas.eventos.infoempregador.ESocial.EvtInfoEmpregador;
-import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeEventoEvtTabInicial;
+import br.jus.tst.esocial.esquemas.eventos.infoempregador.TIdeEventoExclusao;
 import br.jus.tst.esocial.ocorrencia.dados.InformacoesEmpregador;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.mapper.EmpregadorMapper;
 import br.jus.tst.esocialjt.negocio.exception.GeracaoXmlException;
+import org.springframework.stereotype.Component;
 
 @Component
 public class GeradorXmlInformacaoEmpregador extends GeradorXml {
@@ -23,7 +22,7 @@ public class GeradorXmlInformacaoEmpregador extends GeradorXml {
 		
 		EvtInfoEmpregador evtInfoEmpregador = converterInfoEmpregador(ocorrencia);
 		evtInfoEmpregador.setId(evento.getIdEvento());
-		evtInfoEmpregador.setIdeEvento(preencherConstantes(new TIdeEventoEvtTabInicial()));
+		evtInfoEmpregador.setIdeEvento(preencherConstantes(new TIdeEventoExclusao()));
 		eSocial.setEvtInfoEmpregador(evtInfoEmpregador);
 
 		return eSocial;

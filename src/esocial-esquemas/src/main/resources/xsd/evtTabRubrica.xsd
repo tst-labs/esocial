@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -356,32 +356,32 @@
             <xs:element name="codIncCPRP" minOccurs="0">
                 <xs:simpleType>
                     <xs:annotation>
-                        <xs:documentation>Código de incidência da rubrica para as contribuições do Regime Próprio de Previdência Social - RPPS/regime militar.</xs:documentation>
+                        <xs:documentation>Código de incidência da rubrica para as contribuições do Regime Próprio de Previdência Social - RPPS ou do Sistema de Proteção Social dos Militares das Forças Armadas - SPSMFA.</xs:documentation>
                     </xs:annotation>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="00">
                             <xs:annotation>
-                                <xs:documentation>Não é base de cálculo de contribuições devidas ao RPPS/regime militar</xs:documentation>
+                                <xs:documentation>Não é base de cálculo de contribuições devidas</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="11">
                             <xs:annotation>
-                                <xs:documentation>Base de cálculo de contribuições devidas ao RPPS/regime militar</xs:documentation>
+                                <xs:documentation>Base de cálculo de contribuições devidas</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="12">
                             <xs:annotation>
-                                <xs:documentation>Base de cálculo de contribuições devidas ao RPPS/regime militar - 13º salário</xs:documentation>
+                                <xs:documentation>Base de cálculo de contribuições devidas - 13º salário</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="31">
                             <xs:annotation>
-                                <xs:documentation>Contribuição descontada do segurado e beneficiário</xs:documentation>
+                                <xs:documentation>Contribuição descontada do segurado ou beneficiário</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="32">
                             <xs:annotation>
-                                <xs:documentation>Contribuição descontada do segurado e beneficiário - 13º salário</xs:documentation>
+                                <xs:documentation>Contribuição descontada do segurado ou beneficiário - 13º salário</xs:documentation>
                             </xs:annotation>
                         </xs:enumeration>
                         <xs:enumeration value="91">

@@ -1,14 +1,12 @@
 package br.jus.tst.esocial.dominio.trabalhador;
 
-import java.util.Calendar;
+import br.jus.tst.esocial.dominio.enums.Sexo;
+import br.jus.tst.esocial.dominio.enums.SimNao;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.br.CPF;
-
-import br.jus.tst.esocial.dominio.enums.Sexo;
-import br.jus.tst.esocial.dominio.enums.SimNao;
+import java.util.Calendar;
 
 public class Dependente {
 	@NotNull
@@ -35,6 +33,8 @@ public class Dependente {
 
 	@NotNull
 	private SimNao incTrab;
+
+	private String descrDep;
 
 	public String getTpDep() {
 		return tpDep;
@@ -100,4 +100,11 @@ public class Dependente {
 		this.incTrab = incTrab;
 	}
 
+	public String getDescrDep() {
+		return descrDep;
+	}
+
+	public void setDescrDep(String descrDep) {
+		this.descrDep = descrDep;
+	}
 }

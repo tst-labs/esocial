@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtInfoEmpregador/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -22,7 +22,7 @@
                     </xs:annotation>
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="ideEvento" type="T_ideEvento_evtTab_inicial" />
+                            <xs:element name="ideEvento" type="T_ideEvento_exclusao" />
                             <xs:element name="ideEmpregador">
                                 <xs:annotation>
                                     <xs:documentation>Informações de identificação do empregador.</xs:documentation>
@@ -57,7 +57,7 @@
                                                 <xs:complexType>
                                                     <xs:sequence>
                                                         <xs:element name="idePeriodo" type="T_idePeriodo" />
-                                                        <xs:element name="infoCadastro" type="T_infoCadastro" />
+                                                        <xs:element name="infoCadastro" type="T_infoCadastro" minOccurs="0" />
                                                     </xs:sequence>
                                                 </xs:complexType>
                                             </xs:element>
@@ -69,7 +69,7 @@
                                                 <xs:complexType>
                                                     <xs:sequence>
                                                         <xs:element name="idePeriodo" type="T_idePeriodo" />
-                                                        <xs:element name="infoCadastro" type="T_infoCadastro" />
+                                                        <xs:element name="infoCadastro" type="T_infoCadastro" minOccurs="0" />
                                                         <xs:element name="novaValidade" minOccurs="0" type="T_idePeriodo">
                                                             <xs:annotation>
                                                                 <xs:documentation>Novo período de validade das informações.</xs:documentation>
@@ -116,6 +116,7 @@
     <xs:complexType name="T_infoCadastro">
         <xs:annotation>
             <xs:documentation>Detalhamento das informações do empregador.</xs:documentation>
+            <xs:documentation>CONDICAO_GRUPO: N (se {procEmi}(1000_ideEvento_procEmi) = [8]); O (nos demais casos).</xs:documentation>
         </xs:annotation>
         <xs:sequence>
             <xs:element name="classTrib">

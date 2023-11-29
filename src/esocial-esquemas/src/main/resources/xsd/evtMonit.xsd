@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtMonit/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtMonit/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtMonit/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtMonit/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -202,14 +202,23 @@
                                                                         <xs:documentation>Preencher com o nome do médico emitente do ASO.</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
-                                                                <xs:element name="nrCRM" type="TS_crm">
-                                                                    <xs:annotation>
-                                                                        <xs:documentation>Número de inscrição do médico emitente do ASO no Conselho Regional de Medicina - CRM.</xs:documentation>
-                                                                    </xs:annotation>
+                                                                <xs:element name="nrCRM" minOccurs="0">
+                                                                    <xs:simpleType>
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>Número de inscrição do médico emitente do ASO no Conselho Regional de Medicina - CRM.</xs:documentation>
+                                                                            <xs:documentation>Validação: O preenchimento do campo não é obrigatório se o endereço do trabalhador em S-2200/S-2300, ou em S-2205 vigente em {dtAso}(../dtAso), for no exterior.</xs:documentation>
+                                                                        </xs:annotation>
+                                                                        <xs:restriction base="xs:string">
+                                                                            <xs:minLength value="1" />
+                                                                            <xs:maxLength value="10" />
+                                                                            <xs:pattern value=".*[^\s].*" />
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
                                                                 </xs:element>
-                                                                <xs:element name="ufCRM" type="TS_uf">
+                                                                <xs:element name="ufCRM" type="TS_uf" minOccurs="0">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Preencher com a sigla da Unidade da Federação - UF de expedição do CRM.</xs:documentation>
+                                                                        <xs:documentation>Validação: O preenchimento do campo não é obrigatório se o endereço do trabalhador em S-2200/S-2300, ou em S-2205 vigente em {dtAso}(../dtAso), for no exterior.</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
                                                             </xs:sequence>
@@ -236,10 +245,17 @@
                                                             <xs:documentation>Preencher com o nome do médico responsável/coordenador do PCMSO.</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:element>
-                                                    <xs:element name="nrCRM" type="TS_crm">
-                                                        <xs:annotation>
-                                                            <xs:documentation>Número de inscrição do médico responsável/coordenador do PCMSO no CRM.</xs:documentation>
-                                                        </xs:annotation>
+                                                    <xs:element name="nrCRM">
+                                                        <xs:simpleType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>Número de inscrição do médico responsável/coordenador do PCMSO no CRM.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1" />
+                                                                <xs:maxLength value="10" />
+                                                                <xs:pattern value=".*[^\s].*" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
                                                     </xs:element>
                                                     <xs:element name="ufCRM" type="TS_uf">
                                                         <xs:annotation>

@@ -20,7 +20,7 @@
 
 	<properties>
 		<esocial-jt.dominio.version>0.0.1-SNAPSHOT</esocial-jt.dominio.version>
-		<esocial.esquemas.version>S-1.1.0-NT01</esocial.esquemas.version>
+		<esocial.esquemas.version>S-1.2</esocial.esquemas.version>
 		<esocial.comunicacao.version>1.5</esocial.comunicacao.version>
 		<org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
 		<m2e.apt.activation>jdt_apt</m2e.apt.activation>

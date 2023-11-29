@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtCdBenefAlt/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtCdBenefAlt/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtCdBenefAlt/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtCdBenefAlt/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -64,7 +64,12 @@
                                                             <xs:documentation>Sexo do beneficiário.</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:element>
-                                                    <xs:element name="racaCor" type="TS_racaCorBenef" />
+                                                    <xs:element name="racaCor" type="TS_racaCorBenef">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Etnia e raça do beneficiário, conforme sua autoclassificação (art. 39, § 8º, da Lei 12.288/2010).</xs:documentation>
+                                                            <xs:documentation>Validação: Se {dtAlteracao}(../dtAlteracao) for igual ou posterior a [2023-07-01], retornar alerta caso seja informado o valor [6].</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
                                                     <xs:element name="estCiv" minOccurs="0" type="TS_estCivilBenef" />
                                                     <xs:element name="incFisMen" type="TS_incFisMen" />
                                                     <xs:element name="endereco">
@@ -89,10 +94,10 @@
                                                         </xs:annotation>
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="tpDep" type="TS_tpDep" />
+                                                                <xs:element name="tpDep" type="TS_tpDep" minOccurs="0"/>
                                                                 <xs:element name="nmDep" type="TS_nmDep" />
                                                                 <xs:element name="dtNascto" type="TS_dtNascto" />
-                                                                <xs:element name="cpfDep" minOccurs="0" type="TS_cpfDepBenef" />
+                                                                <xs:element name="cpfDep" type="TS_cpfDepBenef" minOccurs="0" />
                                                                 <xs:element name="sexoDep" type="TS_sexo">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Sexo do dependente.</xs:documentation>
@@ -100,6 +105,7 @@
                                                                 </xs:element>
                                                                 <xs:element name="depIRRF" type="TS_depIRRF_Benef" />
                                                                 <xs:element name="incFisMen" type="TS_incFisMenDep" />
+                                                                <xs:element name="descrDep" type="TS_descrDep" minOccurs="0" />
                                                             </xs:sequence>
                                                         </xs:complexType>
                                                     </xs:element>

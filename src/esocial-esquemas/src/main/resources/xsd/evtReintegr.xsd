@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtReintegr/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtReintegr/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtReintegr/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtReintegr/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -40,7 +40,7 @@
                                             <xs:simpleType>
                                                 <xs:annotation>
                                                     <xs:documentation>Tipo de reintegração/outro provimento.</xs:documentation>
-                                                    <xs:documentation>Validação: Os tipos [3, 4, 5] só podem ser informados se a natureza jurídica do declarante for Administração Pública (grupo [1]).</xs:documentation>
+                                                    <xs:documentation>Validação: Os tipos [3, 4, 5, 6] só podem ser informados se a natureza jurídica do declarante for Administração Pública (grupo [1]).</xs:documentation>
                                                 </xs:annotation>
                                                 <xs:restriction base="xs:byte">
                                                     <xs:enumeration value="1">
@@ -66,6 +66,11 @@
                                                     <xs:enumeration value="5">
                                                         <xs:annotation>
                                                             <xs:documentation>Reinclusão de militar</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:enumeration>
+                                                    <xs:enumeration value="6">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Revisão de reforma de militar</xs:documentation>
                                                         </xs:annotation>
                                                     </xs:enumeration>
                                                     <xs:enumeration value="9">

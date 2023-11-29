@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtDeslig/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtDeslig/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtDeslig/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtDeslig/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -95,6 +95,12 @@
                                             <xs:annotation>
                                                 <xs:documentation>Número que identifica o processo trabalhista, quando o desligamento se der por decisão judicial.</xs:documentation>
                                                 <xs:documentation>Validação: Se preenchido, deve ser um processo judicial válido, com 20 (vinte) algarismos.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="indPDV" minOccurs="0" type="TS_sim">
+                                            <xs:annotation>
+                                                <xs:documentation>Indicativo se o desligamento ocorreu por meio de adesão a Programa de Demissão Voluntária (PDV).</xs:documentation>
+                                                <xs:documentation>Validação: Não informar se {mtvDeslig}(./mtvDeslig) = [10, 11, 12, 13, 28, 29, 30, 34, 36, 37, 40, 43, 44].</xs:documentation>
                                             </xs:annotation>
                                         </xs:element>
                                         <xs:element name="infoInterm" minOccurs="0" maxOccurs="31" type="T_infoInterm">
@@ -292,7 +298,7 @@
                                                                                                     </xs:enumeration>
                                                                                                     <xs:enumeration value="H">
                                                                                                         <xs:annotation>
-                                                                                                            <xs:documentation>Recolhimento mensal de FGTS anterior ao início de obrigatoriedade dos eventos periódicos</xs:documentation>
+                                                                                                            <xs:documentation>Declaração de base de cálculo de FGTS anterior ao início do FGTS Digital</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:enumeration>
                                                                                                     <xs:enumeration value="I">
@@ -317,7 +323,7 @@
                                                                                                             <xs:documentation>Informar o período ao qual se refere o complemento de remuneração, no formato AAAA-MM.</xs:documentation>
                                                                                                             <xs:documentation>Validação: Deve ser igual ou anterior ao mês/ano da data do desligamento, informada em {dtDeslig}(2299_infoDeslig_dtDeslig).</xs:documentation>
                                                                                                             <xs:documentation>Deve ser informado no formato AAAA-MM.</xs:documentation>
-                                                                                                            <xs:documentation>Se {tpAcConv}(../tpAcConv) = [H], deve ser anterior ao início dos eventos periódicos para o empregador no eSocial.</xs:documentation>
+                                                                                                            <xs:documentation>Se {tpAcConv}(../tpAcConv) = [H], deve ser anterior ao início do FGTS Digital e igual ou posterior a [1994-07].</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:element>
                                                                                                     <xs:element name="ideEstabLot" maxOccurs="24" type="T_ideEstabLot">
