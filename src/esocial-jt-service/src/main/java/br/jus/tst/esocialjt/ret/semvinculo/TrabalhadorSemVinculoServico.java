@@ -77,6 +77,8 @@ public class TrabalhadorSemVinculoServico {
             processadores = new HashMap<>();
             processadores.put(TipoOcorrencia.TSV_INICIO, new Processador2300());
             processadores.put(TipoOcorrencia.ALTERACAO_CADASTRAL, new Processador2205TSV());
+            processadores.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, new Processador2306());
+            processadores.put(TipoOcorrencia.TSV_TERMINO, new Processador2399());
         }
         return Optional
                 .ofNullable(processadores.get(tipo))
