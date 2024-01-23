@@ -1,8 +1,10 @@
 package br.jus.tst.esocialjt.ret.semvinculo;
 
+import br.jus.tst.esocial.dominio.semvinculo.termino.InfoTSVTermino;
 import br.jus.tst.esocial.ocorrencia.dados.TSVInicio;
 import br.jus.tst.esocial.ret.tsv.DadosCadastrais;
 import br.jus.tst.esocial.ret.tsv.DadosContratuais;
+import br.jus.tst.esocial.ret.tsv.DadosDesligamento;
 import br.jus.tst.esocial.ret.tsv.TrabalhadorSemVinculo;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocial.dominio.semvinculo.Termino;
@@ -24,17 +26,18 @@ public class Processador2300 implements ProcessadorTrabalhadorSemVinculo {
         BeanUtils.copyProperties(tsvInicio.getTrabalhador(), re.trabalhadorSemVinculo.dadosCadastrais);
         BeanUtils.copyProperties(tsvInicio.getInfoTSVInicio(), re.trabalhadorSemVinculo.dadosContratuais);
 
-        re.trabalhadorSemVinculo.termino = retornaNovoTermino(tsvInicio.getInfoTSVInicio().getTermino());
+        re.trabalhadorSemVinculo.dadosDesligamento = retornaNovoTermino(tsvInicio.getInfoTSVInicio().getTermino());
         re.addOcorrencia(ocorrencia);
         listaRetTrabalhadorSemVinculo.add(re);
     }
     
-    private Termino retornaNovoTermino(Termino term) {
+    private DadosDesligamento retornaNovoTermino(Termino term) {
         if (term == null) {
-            return term;
+            return null;
         }
-        Termino termino = new Termino();
-        termino.setDtTerm(term.getDtTerm());
-        return termino;
+        DadosDesligamento dadosDesligamento = new DadosDesligamento();
+        dadosDesligamento.infoTSVTermino = new InfoTSVTermino();
+        dadosDesligamento.infoTSVTermino.setDtTerm(term.getDtTerm());
+        return dadosDesligamento;
     }
 }

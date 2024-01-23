@@ -1,0 +1,37 @@
+{
+  "tipoOcorrencia": "TSV_ALTERACAO_CONTRATUAL",
+  "referencia": "77993893704",
+  "operacao": "NORMAL",
+  "dataOcorrencia": 1522181179561,
+  "dadosOcorrencia": {
+    "ideEmpregador": {
+      "tpInsc": 1,
+      "nrInsc": "00509968000148"
+    },
+    "ideTrabSemVinculo": {
+      "cpfTrab": "77993893704",
+      "codCateg": 410,
+      "matricula": "C000001-01012007"
+    },
+    "infoTSVAlteracao": {
+      "dtAlteracao": 1522181179561,
+      "infoComplementares": {
+        "cargoFuncao": {
+          "nmCargo": "SERVIDOR DE OUTRO ORGAO",
+          "nmFuncao": null,
+          "cbocargo": "111345",
+          "cbofuncao": null
+        },
+        "remuneracao": null,
+        "infoTrabCedido": {
+          "tpRegPrev": 1
+        },
+        "localTrabGeral": {
+          "tpInsc": 1,
+          "nrInsc": "00509968000148",
+          "descComp": "Teste"
+        }
+      }
+    }
+  }
+}

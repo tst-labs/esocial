@@ -4,15 +4,16 @@ import br.jus.tst.esocial.dominio.semvinculo.InfoComplementares;
 import br.jus.tst.esocial.dominio.semvinculo.MudancaCPF;
 import br.jus.tst.esocial.dominio.semvinculo.Termino;
 import br.jus.tst.esocial.dominio.vinculo.Afastamento;
-import java.time.LocalDate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import java.util.Calendar;
 
 public class DadosContratuais {
 
     private String matricula;
     private Integer codCateg;
-    private LocalDate dtInicio;
+    private Calendar dtInicio;
     private String nrProcTrab;
     private Byte natAtividade;
     private InfoComplementares infoComplementares;
@@ -36,11 +37,11 @@ public class DadosContratuais {
         this.codCateg = codCateg;
     }
 
-    public LocalDate getDtInicio() {
+    public Calendar getDtInicio() {
         return dtInicio;
     }
 
-    public void setDtInicio(LocalDate dtInicio) {
+    public void setDtInicio(Calendar dtInicio) {
         this.dtInicio = dtInicio;
     }
 

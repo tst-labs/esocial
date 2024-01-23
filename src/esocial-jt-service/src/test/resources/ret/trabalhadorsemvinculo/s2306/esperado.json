@@ -25,6 +25,15 @@
       },
       "exterior": null
     },
+    "infoDeficiencia": {
+      "defFisica": "N",
+      "defVisual": "N",
+      "defAuditiva": "N",
+      "defMental": "N",
+      "defIntelectual": "N",
+      "reabReadap": "N",
+      "observacao": null
+    },
     "dependente": [
       {
         "tpDep": "01",
@@ -44,7 +53,11 @@
         "depSF": "N",
         "incTrab": "N"
       }
-    ]
+    ],
+    "contato": {
+      "fonePrinc": "6130430000",
+      "emailPrinc": "abrav@email.com"
+    }
   },
   "dadosContratuais": {
     "codCateg": 410,
@@ -67,7 +80,12 @@
         "matricCed": "123456",
         "dtAdmCed": "2007-09-05T03:00:00.000+00:00",
         "tpRegTrab": 2,
-        "tpRegPrev": 2
+        "tpRegPrev": 1
+      },
+      "localTrabGeral": {
+        "tpInsc": 1,
+        "nrInsc": "00509968000148",
+        "descComp": "Teste"
       }
     },
     "afastamento": null
