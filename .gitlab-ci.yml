@@ -12,7 +12,7 @@ stages:
 ### TEMPLATE PARA DEPLOY
 ############################
 .template_deploy: &template_deploy
-  image: ${CI_TEMPLATE_REGISTRY_HOST}kaniko-project/executor:debug
+  image: kaniko-project/executor:debug
   stage: deploy
   script:
     - echo "${REGISTRY_HOST}/${IMAGE_NAME}/${SERVICE_NAME}:${IMAGE_TAG}"
@@ -26,7 +26,7 @@ stages:
       --destination "${REGISTRY_HOST}/${IMAGE_NAME}/${SERVICE_NAME}:${IMAGE_TAG}"
 
 build_backend:
-  image: ${CI_TEMPLATE_REGISTRY_HOST}adoptopenjdk/maven-openjdk8
+  image: adoptopenjdk/maven-openjdk8
   stage: build
   only:
     - tags
