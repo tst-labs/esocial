@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtExpRisco/v_S_01_01_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtExpRisco/v_S_01_01_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtExpRisco/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtExpRisco/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -352,6 +352,13 @@
                                                                 <xs:pattern value=".*[^\s].*" />
                                                             </xs:restriction>
                                                         </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="nrProcJud" type="TS_nrProc_17_20_21" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Em caso de agente nocivo incluído por determinação administrativa ou judicial, preencher com o número do processo.</xs:documentation>
+                                                            <xs:documentation>Validação: Informação obrigatória e exclusiva se {codAgNoc}(./codAgNoc) = [05.01.001].</xs:documentation>
+                                                            <xs:documentation>Se {dtIniCondicao}(2240_infoExpRisco_dtIniCondicao) &lt; [2024-01-22], o preenchimento é opcional.</xs:documentation>
+                                                        </xs:annotation>
                                                     </xs:element>
                                                     <xs:element name="epcEpi" minOccurs="0">
                                                         <xs:annotation>

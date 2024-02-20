@@ -1,17 +1,13 @@
 package br.jus.tst.esocial.ret.tsv;
 
-import br.jus.tst.esocial.dominio.afasttemp.InfoAfastamento;
-import br.jus.tst.esocial.dominio.semvinculo.InfoComplementares;
-import java.util.List;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import br.jus.tst.esocial.dominio.semvinculo.Termino;
         
 public class TrabalhadorSemVinculo {
 
     public DadosCadastrais dadosCadastrais;
     public DadosContratuais dadosContratuais;
-    public Termino termino;
+    public DadosDesligamento dadosDesligamento;
     
     public DadosCadastrais getDadosCadastrais() {
         return dadosCadastrais;
@@ -21,12 +17,12 @@ public class TrabalhadorSemVinculo {
         this.dadosCadastrais = dadosCadastrais;
     }
 
-    public Termino getTermino() {
-        return termino;
+    public DadosDesligamento getDadosDesligamento() {
+        return dadosDesligamento;
     }
 
-    public void setTermino(Termino termino) {
-        this.termino = termino;
+    public void setDadosDesligamento(DadosDesligamento dadosDesligamento) {
+        this.dadosDesligamento = dadosDesligamento;
     }
 
     public DadosContratuais getDadosContratuais() {
@@ -47,7 +43,8 @@ public class TrabalhadorSemVinculo {
         TrabalhadorSemVinculo trabalhadorSemVinculo = (TrabalhadorSemVinculo) o;
         return new EqualsBuilder()
                 .append(dadosCadastrais, trabalhadorSemVinculo.dadosCadastrais)
-                .append(dadosCadastrais, trabalhadorSemVinculo.dadosContratuais)
+                .append(dadosContratuais, trabalhadorSemVinculo.dadosContratuais)
+                .append(dadosDesligamento, trabalhadorSemVinculo.dadosDesligamento)
                 .isEquals();
     }
 
@@ -56,6 +53,7 @@ public class TrabalhadorSemVinculo {
         return new HashCodeBuilder(17, 37)
                 .append(dadosCadastrais)
                 .append(dadosContratuais)
+                .append(dadosDesligamento)
                 .toHashCode();
     }
 }

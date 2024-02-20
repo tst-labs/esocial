@@ -1,8 +1,9 @@
 package br.jus.tst.esocial.dominio.semvinculo;
 
-import javax.validation.Valid;
-
+import br.jus.tst.esocial.dominio.vinculo.LocalTrabGeral;
 import br.jus.tst.esocial.dominio.vinculo.Remuneracao;
+
+import javax.validation.Valid;
 
 public class InfoComplementares {
 	
@@ -26,6 +27,9 @@ public class InfoComplementares {
 	
 	@Valid
 	private InfoMandElet infoMandElet;
+
+	@Valid
+	private LocalTrabGeral localTrabGeral;
 
 	public CargoFuncao getCargoFuncao() {
 		return cargoFuncao;
@@ -89,4 +93,11 @@ public class InfoComplementares {
 		this.infoMandElet = infoMandElet;
 	}
 
+	public LocalTrabGeral getLocalTrabGeral() {
+		return localTrabGeral;
+	}
+
+	public void setLocalTrabGeral(LocalTrabGeral localTrabGeral) {
+		this.localTrabGeral = localTrabGeral;
+	}
 }

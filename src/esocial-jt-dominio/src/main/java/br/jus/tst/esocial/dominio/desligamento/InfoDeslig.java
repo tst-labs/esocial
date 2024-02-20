@@ -1,5 +1,6 @@
 package br.jus.tst.esocial.dominio.desligamento;
 
+import br.jus.tst.esocial.dominio.enums.Sim;
 import br.jus.tst.esocial.dominio.enums.SimNao;
 import br.jus.tst.esocial.dominio.termino.Quarentena;
 import br.jus.tst.esocial.dominio.vinculo.MudancaCPF;
@@ -62,6 +63,8 @@ public class InfoDeslig {
 
 	@Valid
 	private List<ConsigFGTS> consigFGTS;
+
+	private Sim indPDV;
 
 	public String getMtvDeslig() {
 		return mtvDeslig;
@@ -205,5 +208,13 @@ public class InfoDeslig {
 
 	public void setRemunAposDeslig(RemunAposDeslig remunAposDeslig) {
 		this.remunAposDeslig = remunAposDeslig;
+	}
+
+	public Sim getIndPDV() {
+		return indPDV;
+	}
+
+	public void setIndPDV(Sim indPDV) {
+		this.indPDV = indPDV;
 	}
 }

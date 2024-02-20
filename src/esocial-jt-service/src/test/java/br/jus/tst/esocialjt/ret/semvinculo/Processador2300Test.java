@@ -1,16 +1,13 @@
-package br.jus.tst.esocialjt.ret.trabalhadorsemvinculo;
+package br.jus.tst.esocialjt.ret.semvinculo;
 
-import br.jus.tst.esocial.ret.empregado.Empregado;
 import br.jus.tst.esocial.ret.tsv.TrabalhadorSemVinculo;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
-import br.jus.tst.esocialjt.ret.semvinculo.Processador2300;
-import br.jus.tst.esocialjt.ret.semvinculo.RetTrabalhadorSemVinculo;
 import br.jus.tst.esocialjt.util.OcorrenciaUtil;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.Test;
 
 public class Processador2300Test {
     

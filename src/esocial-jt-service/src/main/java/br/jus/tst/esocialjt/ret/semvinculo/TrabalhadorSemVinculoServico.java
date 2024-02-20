@@ -33,6 +33,7 @@ public class TrabalhadorSemVinculoServico {
                 specs.nosEstados(Collections.singletonList(Estado.PROCESSADO_COM_SUCESSO))
                         .and(specs.dosTipos(Arrays.asList(
                                 TSV_INICIO,
+                                ALTERACAO_CADASTRAL,
                                 TSV_ALTERACAO_CONTRATUAL,
                                 TSV_TERMINO
                         ))).and(specs.comCPF(cpf)));
@@ -75,6 +76,9 @@ public class TrabalhadorSemVinculoServico {
         if (processadores == null) {
             processadores = new HashMap<>();
             processadores.put(TipoOcorrencia.TSV_INICIO, new Processador2300());
+            processadores.put(TipoOcorrencia.ALTERACAO_CADASTRAL, new Processador2205TSV());
+            processadores.put(TipoOcorrencia.TSV_ALTERACAO_CONTRATUAL, new Processador2306());
+            processadores.put(TipoOcorrencia.TSV_TERMINO, new Processador2399());
         }
         return Optional
                 .ofNullable(processadores.get(tipo))

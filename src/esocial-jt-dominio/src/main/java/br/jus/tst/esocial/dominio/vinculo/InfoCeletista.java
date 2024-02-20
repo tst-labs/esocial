@@ -1,13 +1,12 @@
 package br.jus.tst.esocial.dominio.vinculo;
 
-import java.util.Calendar;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.br.CNPJ;
+import java.util.Calendar;
 
 public class InfoCeletista {
 
@@ -44,6 +43,8 @@ public class InfoCeletista {
 
 	@Valid
 	private Aprend aprend;
+
+	private String matAnotJud;
 	
 	public Calendar getDtAdm() {
 		return dtAdm;
@@ -111,5 +112,12 @@ public class InfoCeletista {
 	public void setAprend(Aprend aprendiz) {
 		this.aprend = aprendiz;
 	}
-	
+
+	public String getMatAnotJud() {
+		return matAnotJud;
+	}
+
+	public void setMatAnotJud(String matAnotJud) {
+		this.matAnotJud = matAnotJud;
+	}
 }

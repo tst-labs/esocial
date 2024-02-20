@@ -1,10 +1,9 @@
 package br.jus.tst.esocial.dominio.pagamento;
 
-import java.util.List;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 public class IdeBenef {
 	
@@ -14,6 +13,9 @@ public class IdeBenef {
 	
 	@Valid
 	private List<InfoPgto> infoPgto;
+
+	@Valid
+	private InfoIRComplem infoIRComplem;
 
 	public String getCpfBenef() {
 		return cpfBenef;
@@ -31,4 +33,11 @@ public class IdeBenef {
 		this.infoPgto = infoPgto;
 	}
 
+	public InfoIRComplem getInfoIRComplem() {
+		return infoIRComplem;
+	}
+
+	public void setInfoIRComplem(InfoIRComplem infoIRComplem) {
+		this.infoIRComplem = infoIRComplem;
+	}
 }
