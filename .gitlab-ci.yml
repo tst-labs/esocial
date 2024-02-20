@@ -24,6 +24,7 @@ stages:
       --dockerfile "${DOCKERFILE_DIR}"
       --build-arg "release='${CI_COMMIT_SHA}'"
       --destination "${REGISTRY_HOST}/${IMAGE_NAME}/${SERVICE_NAME}:${IMAGE_TAG}"
+      --registry-mirror "nexuspull.tjdft.jus.br"
 
 build_backend:
   image: adoptopenjdk/maven-openjdk8
