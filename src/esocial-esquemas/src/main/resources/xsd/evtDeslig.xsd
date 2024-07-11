@@ -263,7 +263,7 @@
                                                                                             <xs:simpleType>
                                                                                                 <xs:annotation>
                                                                                                     <xs:documentation>Tipo do instrumento ou situação ensejadora da remuneração relativa a períodos de apuração anteriores.</xs:documentation>
-                                                                                                    <xs:documentation>Validação: Se {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [04, 22], não pode ser informado [E, H].</xs:documentation>
+                                                                                                    <xs:documentation>Validação: Se {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [04, 22], não pode ser informado [E, H, I].</xs:documentation>
                                                                                                 </xs:annotation>
                                                                                                 <xs:restriction base="xs:string">
                                                                                                     <xs:enumeration value="A">
@@ -304,6 +304,11 @@
                                                                                                     <xs:enumeration value="I">
                                                                                                         <xs:annotation>
                                                                                                             <xs:documentation>Sentença judicial (exceto reclamatória trabalhista)</xs:documentation>
+                                                                                                        </xs:annotation>
+                                                                                                    </xs:enumeration>
+                                                                                                    <xs:enumeration value="J">
+                                                                                                        <xs:annotation>
+                                                                                                            <xs:documentation>Parcelas complementares conhecidas após o fechamento da folha</xs:documentation>
                                                                                                         </xs:annotation>
                                                                                                     </xs:enumeration>
                                                                                                 </xs:restriction>
