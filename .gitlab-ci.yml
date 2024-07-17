@@ -74,6 +74,37 @@ deploy_backend_desenv:
   dependencies:
     - build_backend
 
+deploy_backend_desenv_teste:
+  <<: *template_deploy
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^teste-.*$/
+  variables:
+    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/src/Dockerfile
+    CONTEXT_DIR: ${CI_PROJECT_DIR}/src
+    IMAGE_NAME: ${IMAGE_NAME_STAGE}
+    SERVICE_NAME: esocial-jt-backend-teste
+    IMAGE_TAG: desenv-teste
+  before_script:
+    - SA_USER_TOKEN=$SA_USER_TOKEN_STAGE
+  dependencies:
+    - build_backend
+
+deploy_frontend_desenv_teste:
+  <<: *template_deploy
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^teste-.*$/
+  variables:
+    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
+    CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
+    IMAGE_NAME: ${IMAGE_NAME_STAGE}
+    SERVICE_NAME: esocial-jt-frontend-teste
+    IMAGE_TAG: desenv-teste
+  before_script:
+    - SA_USER_TOKEN=$SA_USER_TOKEN_STAGE
+  dependencies:
+    - build_backend
+    - build_frontend
+
 deploy_frontend_desenv:
   <<: *template_deploy
   rules:
