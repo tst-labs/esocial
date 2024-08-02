@@ -42,8 +42,10 @@ services:
 
 networks:
   esocial-net:
-    name: esocial-net
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.57.0/24
 
 volumes:
   postgres:
