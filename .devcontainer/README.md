@@ -20,7 +20,13 @@ Obs.: Não comitar o arquivo [application.properties](../src/esocial-jt-service/
 $ ./.devcontainer/download_xsd.sh
 ```
 
-2) Depois rode o comando abaixo para recompilar e testar tudo:
+2) Gera todas as classes com base nos XSDs baixados:
+
+```shellscript
+mvn clean package -Pgenerate-resources -f /workspace/src/esocial-esquemas/pom.xml
+```
+
+3) Depois rode o comando abaixo para recompilar e testar tudo:
 
 ``shellscript
 $ mvn clean verify -f /workspace/src/pom.xml
