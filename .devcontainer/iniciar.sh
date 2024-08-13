@@ -36,5 +36,6 @@ sed -i "s|^esocialjt.arquivoCertificado=.*|esocialjt.arquivoCertificado=${CAMINH
 sed -i "s/^esocialjt.cnpj-empregador=.*/esocialjt.cnpj-empregador=${CNPJ_TRIBUNAL}/" ./src/esocial-jt-service/src/main/resources/application.properties
 sed -i "s|^esocialjt.senhaCertificado=.*|esocialjt.senhaCertificado=$(printf '%s\n' "$SENHA_CERTIFICADO" | sed 's|[&/\]|\\&|g')|" ./src/esocial-jt-service/src/main/resources/application.properties
 sed -i "s|^esocialjt.arquivoCertificado=.*|esocialjt.arquivoCertificado=${CAMINHO_CERTIFICADO}|" ./src/esocial-jt-service/src/main/resources/application.properties
+sed -i "s|^spring.datasource.url=.*|spring.datasource.url=jdbc:postgresql://esocial-db/postgres|" ./src/esocial-jt-service/src/main/resources/application.properties
 
 echo "Configuração concluída."
