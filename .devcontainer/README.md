@@ -46,6 +46,8 @@ gitlab-tjdft       -> gitlab do tjdft
 
 ## Configuração do projeto
 
+> Obs.: Antes de tudo, tenha em mãos o certificado esocial (com o nome **esocial.pfx**) e a sua respectiva senha.
+
 1) Realiza a configuração inicial do projeto
 
 ```bash
@@ -58,15 +60,15 @@ $ ./.devcontainer/iniciar.sh
 
 Obs.: Pule esse tópico, somente se não atualizar os arquivos XSDs.
 
-1) Gerar novo branch a partir do master com o seguinte padrão:
+1) Gerar novo branch a partir do branch **master** com o seguinte padrão:
 
-`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>`
+`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>-tjdft`
 
 Para substituir esses valores, basta olhar na [Documentação Técnica](https://www.gov.br/esocial/pt-br/documentacao-tecnica)
 
 Um exemplo a ser aplicado:
 
-> atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04
+> atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft
 
 2) Dentro do devcontainer, rode o comando que vai substituir todos os arquivos XSDs:
 
@@ -82,7 +84,7 @@ Nesse script, será perguntado qual a URL de onde estão os arquivos XSDs zipado
 mvn clean package -Pgenerate-resources -f /workspace/src/esocial-esquemas/pom.xml
 ```
 
-3) Depois rode o comando abaixo para recompilar e testar tudo:
+4) Depois rode o comando abaixo para recompilar e testar tudo:
 
 ```bash
 mvn clean verify -f /workspace/src/pom.xml
@@ -95,7 +97,7 @@ mvn clean verify -f /workspace/src/pom.xml
 
 ## Publicar branch no Gitlab do TJDFT
 
-1) Com o [branch já criado](#atualização-dos-arquivos-xsds) e com as alterações necessárias, será necessário testar a aplicação, antes mesmo de enviar [um novo PR para Github oficial do TST](#criar-pr-para-github-do-esocial) .
+1) Com o [branch já criado](#atualização-dos-arquivos-xsds) e com as alterações necessárias, será necessário testar a aplicação, antes mesmo de enviar [um novo PR para Github oficial do TST](#criar-pr-para-github-do-esocial).
 
 ```bash
 # Faça o publicação do branch, depois que tudo estiver pronto
@@ -109,12 +111,18 @@ git push gitlab-tjdft <NOME_BRANCH>
 Depois de comitado a branch, basta criar uma tag com mesmo padrão citado no item [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds), adicionando antes do nome da tag:
 
 - Para o ambiente stage: **stage-**
-  - Um exemplo: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04`
+  - Um exemplo: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft`
 
 - Ambiente produção: **production-**
-  - Um exemplo: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04`
+  - Um exemplo: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft`
 
 ## Criar PR para Github do eSocial
+
+Antes de publicar uma PR, crie um novo branch a partir do branch criado na etapa [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds) adicionando no final **-tst**, por exemplo:
+
+`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>-tst`
+
+O objetivo dessa branch é para deletar arquivos peculiares do TJDFT que serão irrelevantes para o TST
 
 ```bash
 # Depois que tudo for testado e pronto, basta rodar o seguinte comando
@@ -126,14 +134,23 @@ git push github-tst-pessoal <NOME_BRANCH>
 1) Quando o TST mergear o PR para o master, será necessário sincronizar todas as mudanças para repositório do TJDFT:
 
 ```bash
+# Acessa o branch
 git checkout master
+
+# Obtém atualizações do TST
 git fetch github-tst-oficial
+
+# Faz o merge do TST para o branch master do TJDFT
 git merge github-tst-oficial/master
-git remote show origin u github-tst-oficial
+
+# Só para mostrar as diferenças entre os repositórios (curiosidade)
+git remote show gitlab-tjdft u github-tst-oficial
+
+# Realiza push para repositório do TJDFT
 git push gitlab-tjdft master
 ```
 
-1) Refazer o deploy, criando tag apontando para o branch master com o mesmo padrão feito no tópico [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab), adicionando na frente do nome da tag a palavra **-oficial**.
+2) Refazer o deploy, criar uma tag apontando a partir da branch **master** com o mesmo padrão feito no tópico [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab), adicionando na frente do nome da tag a palavra **-oficial**.
 
 Isso é só um exemplo: 
 
