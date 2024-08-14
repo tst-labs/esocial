@@ -1,35 +1,142 @@
-# Como instalar o ambiente usando VSCODE
+# Esocial-JT
+
+- [Esocial-JT](#esocial-jt)
+  - [Instalação inicial](#instalação-inicial)
+  - [Configuração do projeto](#configuração-do-projeto)
+  - [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds)
+  - [Subir a aplicação localmente](#subir-a-aplicação-localmente)
+  - [Publicar branch no Gitlab do TJDFT](#publicar-branch-no-gitlab-do-tjdft)
+  - [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab)
+  - [Criar PR para Github do eSocial](#criar-pr-para-github-do-esocial)
+  - [Atualizar o repositório oficial do TST para Gitlab TJDFT](#atualizar-o-repositório-oficial-do-tst-para-gitlab-tjdft)
+
 
 ## Instalação inicial
 
-1) Na raiz do projeto, rode esse comando abaixo:
+1) Clonagem repositório do TJDFT
 
-```shellscript
+```bash
+# Faça o clone do projeto no Gitlab
+$ git clone https://oauth2:<SEU_TOKEN_GERADO_NO_GITLAB>@gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt.git
+
+$ cd esocial-jt/
+
+# Aproveite para renomear o repositório do TJDFT para não confundir com os outros repositórios que serão adicionados a seguir
+$ git remote rename origin gitlab-tjdft
+```
+
+2) Adição de outros repositórios
+
+Fazer um fork do [projeto esocial oficial](https://github.com/tst-labs/esocial) para seu usuário pessoal do git para fins de envio do PR para repositório github oficial do TST.
+
+```bash
+# Adicionar o repositório apontando para seu repositório do github:
+$ git remote add github-tst-pessoal https://github.com/<SEU_USUARIO_GITHUB>/esocial.git
+
+# Adicionar o repositório apontando para repositório oficial do TST:
+$ git remote add github-tst-oficial https://github.com/tst-labs/esocial.git
+
+# Ao final, os repositórios deverão tá configurados assim:
+$ git remote
+
+github-tst-oficial -> github oficial do TST
+github-tst-pessoal -> github pessoal
+gitlab-tjdft       -> gitlab do tjdft
+```
+
+## Configuração do projeto
+
+1) Realiza a configuração inicial do projeto
+
+```bash
 $ ./.devcontainer/iniciar.sh
 ```
 
-Obs.: Não comitar o arquivo [application.properties](../src/esocial-jt-service/src/main/resources/application.properties) as variáveis alteradas com relação ao certificado.
+2) Abrir o projeto em modo `devcontainer` aguarde toda a instalação.
 
-2) Abre o projeto em modo `devcontainer` e aguarde toda a instalação
+## Atualização dos arquivos XSDs
 
-## Atualizar os arquivos XSDs
+Obs.: Pule esse tópico, somente se não atualizar os arquivos XSDs.
 
-1) Dentro do devcontainer, rode o comando que vai substituir todos os arquivos XSDs:
+1) Gerar novo branch a partir do master com o seguinte padrão:
 
-```shellscript
+`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>`
+
+Para substituir esses valores, basta olhar na [Documentação Técnica](https://www.gov.br/esocial/pt-br/documentacao-tecnica)
+
+Um exemplo a ser aplicado:
+
+> atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04
+
+2) Dentro do devcontainer, rode o comando que vai substituir todos os arquivos XSDs:
+
+```bash
 $ ./.devcontainer/download_xsd.sh
 ```
 
-2) Gera todas as classes com base nos XSDs baixados:
+Nesse script, será perguntado qual a URL de onde estão os arquivos XSDs zipados na [Documentação Técnica](https://www.gov.br/esocial/pt-br/documentacao-tecnica)
 
-```shellscript
+3) Gera todas as classes com base nos XSDs baixados:
+
+```bash
 mvn clean package -Pgenerate-resources -f /workspace/src/esocial-esquemas/pom.xml
 ```
 
 3) Depois rode o comando abaixo para recompilar e testar tudo:
 
-``shellscript
-$ mvn clean verify -f /workspace/src/pom.xml
+```bash
+mvn clean verify -f /workspace/src/pom.xml
 ```
 
-3) Para subir a aplicação, vá no ícone à esquerda chamado de `Spring Boot Dashboard` e dê o play no app `esocial-jt-service` e aguarde subir a aplicação.
+## Subir a aplicação localmente
+
+1) No vscode (modo devcontainer), vá no ícone à esquerda chamado de `Spring Boot Dashboard` e dê o play no app `esocial-jt-service` e aguarde subir a aplicação.
+2) Acesse o endereço http://localhost
+
+## Publicar branch no Gitlab do TJDFT
+
+1) Com o [branch já criado](#atualização-dos-arquivos-xsds) e com as alterações necessárias, será necessário testar a aplicação, antes mesmo de enviar [um novo PR para Github oficial do TST](#criar-pr-para-github-do-esocial) .
+
+```bash
+# Faça o publicação do branch, depois que tudo estiver pronto
+git push gitlab-tjdft <NOME_BRANCH>
+```
+
+> **IMPORTANTÍSSIMO**: Não comitar o arquivo [application.properties](../src/esocial-jt-service/src/main/resources/application.properties) pois existem variáveis sensíveis tais como a senha do certificado.
+
+## Realizar deploy da aplicação no Gitlab
+
+Depois de comitado a branch, basta criar uma tag com mesmo padrão citado no item [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds), adicionando antes do nome da tag:
+
+- Para o ambiente stage: **stage-**
+  - Um exemplo: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04`
+
+- Ambiente produção: **production-**
+  - Um exemplo: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04`
+
+## Criar PR para Github do eSocial
+
+```bash
+# Depois que tudo for testado e pronto, basta rodar o seguinte comando
+git push github-tst-pessoal <NOME_BRANCH>
+```
+
+## Atualizar o repositório oficial do TST para Gitlab TJDFT
+
+1) Quando o TST mergear o PR para o master, será necessário sincronizar todas as mudanças para repositório do TJDFT:
+
+```bash
+git checkout master
+git fetch github-tst-oficial
+git merge github-tst-oficial/master
+git remote show origin u github-tst-oficial
+git push gitlab-tjdft master
+```
+
+1) Refazer o deploy, criando tag apontando para o branch master com o mesmo padrão feito no tópico [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab), adicionando na frente do nome da tag a palavra **-oficial**.
+
+Isso é só um exemplo: 
+
+- stage: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-oficial`
+- producao: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-oficial`
+

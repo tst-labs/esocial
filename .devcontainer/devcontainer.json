@@ -16,7 +16,8 @@
         "vscjava.vscode-java-pack",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
-        "vmware.vscode-boot-dev-pack"
+        "vmware.vscode-boot-dev-pack",
+        "vscjava.vscode-spring-initializr"
       ]
     }
   },
