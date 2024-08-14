@@ -90,6 +90,12 @@ mvn clean package -Pgenerate-resources -f /workspace/src/esocial-esquemas/pom.xm
 mvn clean verify -f /workspace/src/pom.xml
 ```
 
+>Obs.: Pode ocorrer algum erro no final da execução nesta etapa. Se ocorrer, executar essas 2 possibilidades: 
+
+>1 - Tentar reabrir do devcontainer ou;
+
+>2 - No pior caso, alterar/Corrigir alguma(s) classe(s) do projeto (pode ser guiado pelo erros no console).
+
 ## Subir a aplicação localmente
 
 1) No vscode (modo devcontainer), vá no ícone à esquerda chamado de `Spring Boot Dashboard` e dê o play no app `esocial-jt-service` e aguarde subir a aplicação.
