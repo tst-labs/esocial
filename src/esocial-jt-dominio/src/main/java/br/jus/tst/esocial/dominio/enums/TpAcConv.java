@@ -50,7 +50,21 @@ public enum TpAcConv {
 	 * periódicos
 	 * 
 	 */
-	H;
+	H,
+
+	/**
+	 * Sentença judicial (exceto reclamatória trabalhista)
+	 * 
+	 * 
+	 */
+	I,
+
+	/**
+	 * Parcelas complementares conhecidas após o fechamento da folha
+	 * 
+	 * 
+	 */
+	J;
 
 	public String value() {
 		return name();
