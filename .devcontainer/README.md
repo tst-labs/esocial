@@ -62,13 +62,13 @@ Obs.: Pule esse tópico, somente se não atualizar os arquivos XSDs.
 
 1) Gerar novo branch a partir do branch **master** com o seguinte padrão:
 
-`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>-tjdft`
+`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-tjdft`
 
 Para substituir esses valores, basta olhar na [Documentação Técnica](https://www.gov.br/esocial/pt-br/documentacao-tecnica)
 
 Um exemplo a ser aplicado:
 
-> atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft
+> atualizacao-xsds-nt-02-2024-rev-29-02-2024-tjdft
 
 2) Dentro do devcontainer, rode o comando que vai substituir todos os arquivos XSDs:
 
@@ -116,17 +116,15 @@ git push gitlab-tjdft <NOME_BRANCH>
 
 Depois de comitado a branch, basta criar uma tag com mesmo padrão citado no item [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds), adicionando antes do nome da tag:
 
-- Para o ambiente stage: **stage-**
-  - Um exemplo: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft`
+- Padrão para o ambiente stage: **stage-**: `stage-atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-tjdft`
 
-- Ambiente produção: **production-**
-  - Um exemplo: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-tjdft`
+- Ambiente produção: **production-**: `production-atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-tjdft`
 
 ## Criar PR para Github do eSocial
 
 Antes de publicar uma PR, crie um novo branch a partir do branch criado na etapa [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds) adicionando no final **-tst**, por exemplo:
 
-`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-prod-<DIA_PRODUCAO>-<MES_PRODUCAO>-tst`
+`atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-tst`
 
 O objetivo dessa branch é para deletar arquivos peculiares do TJDFT que serão irrelevantes para o TST
 
@@ -160,6 +158,6 @@ git push gitlab-tjdft master
 
 Isso é só um exemplo: 
 
-- stage: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-oficial`
-- producao: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-prod-22-04-oficial`
+- stage: `stage-atualizacao-xsds-nt-02-2024-rev-29-02-2024-oficial`
+- producao: `production-atualizacao-xsds-nt-02-2024-rev-29-02-2024-oficial`
 
