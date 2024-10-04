@@ -12,6 +12,7 @@
                     <xs:annotation>
                         <xs:documentation>Evento Fechamento dos Eventos Periódicos.</xs:documentation>
                         <xs:documentation>CHAVE_GRUPO: {Id}</xs:documentation>
+                        <xs:documentation>REGRA:REGRA_CONVIVENCIA_VERSAO_PIS</xs:documentation>
                         <xs:documentation>REGRA:REGRA_ENVIO_PROC_FECHAMENTO</xs:documentation>
                         <xs:documentation>REGRA:REGRA_EVE_FOPAG_SIMPLIFICADO</xs:documentation>
                         <xs:documentation>REGRA:REGRA_EXISTE_INFO_EMPREGADOR</xs:documentation>

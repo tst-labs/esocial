@@ -13,6 +13,7 @@
                         <xs:documentation>Evento Pagamentos de Rendimentos do Trabalho.</xs:documentation>
                         <xs:documentation>CHAVE_GRUPO: {Id}</xs:documentation>
                         <xs:documentation>REGRA:REGRA_CONTROLE_DUPLICIDADE</xs:documentation>
+                        <xs:documentation>REGRA:REGRA_CONVIVENCIA_VERSAO_DIRF</xs:documentation>
                         <xs:documentation>REGRA:REGRA_EMPREGADO_DOMESTICO</xs:documentation>
                         <xs:documentation>REGRA:REGRA_ENVIO_PROC_FECHAMENTO</xs:documentation>
                         <xs:documentation>REGRA:REGRA_EVENTOS_EXTEMP</xs:documentation>

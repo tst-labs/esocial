@@ -13,6 +13,7 @@
                         <xs:documentation>Evento Exclusão</xs:documentation>
                         <xs:documentation>DESCRICAO_COMPLETA:Evento Exclusão de Eventos - Processo Trabalhista.</xs:documentation>
                         <xs:documentation>CHAVE_GRUPO: {Id}</xs:documentation>
+                        <xs:documentation>REGRA:REGRA_CONVIVENCIA_VERSAO_DIRF_S3500</xs:documentation>
                         <xs:documentation>REGRA:REGRA_ENVIO_PROC_FECHAMENTO</xs:documentation>
                         <xs:documentation>REGRA:REGRA_EXISTE_INFO_EMPREGADOR</xs:documentation>
                         <xs:documentation>REGRA:REGRA_VALIDA_EMPREGADOR</xs:documentation>

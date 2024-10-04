@@ -525,10 +525,10 @@
                                                                                     </xs:sequence>
                                                                                 </xs:complexType>
                                                                             </xs:element>
-                                                                            <xs:element name="infoDeslig">
+                                                                            <xs:element name="infoDeslig" minOccurs="0">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Informações do desligamento.</xs:documentation>
-                                                                                    <xs:documentation>CONDICAO_GRUPO: O</xs:documentation>
+                                                                                    <xs:documentation>CONDICAO_GRUPO: O (se {infoContr/tpContr}(2500_ideTrab_infoContr_tpContr) for diferente [8]); OC (nos demais casos)</xs:documentation>
                                                                                 </xs:annotation>
                                                                                 <xs:complexType>
                                                                                     <xs:sequence>
