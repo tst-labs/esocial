@@ -15,7 +15,7 @@ public class IdeBenef {
 	private List<InfoPgto> infoPgto;
 
 	@Valid
-	private InfoIRComplem infoIRComplem;
+	private List<InfoIRComplem> infoIRComplem;
 
 	public String getCpfBenef() {
 		return cpfBenef;
@@ -33,11 +33,11 @@ public class IdeBenef {
 		this.infoPgto = infoPgto;
 	}
 
-	public InfoIRComplem getInfoIRComplem() {
+	public List<InfoIRComplem> getInfoIRComplem() {
 		return infoIRComplem;
 	}
 
-	public void setInfoIRComplem(InfoIRComplem infoIRComplem) {
+	public void setInfoIRComplem(List<InfoIRComplem> infoIRComplem) {
 		this.infoIRComplem = infoIRComplem;
 	}
 }

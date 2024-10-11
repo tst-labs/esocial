@@ -22,7 +22,7 @@ public class InfoFech {
 
 	private String transDCTFWeb;
 
-	private String naoValid;
+	private SimNao naoValid;
 
 	private SimNao evtPgtos;
 
@@ -74,11 +74,11 @@ public class InfoFech {
 		this.transDCTFWeb = transDCTFWeb;
 	}
 
-	public String getNaoValid() {
+	public SimNao getNaoValid() {
 		return naoValid;
 	}
 
-	public void setNaoValid(String naoValid) {
+	public void setNaoValid(SimNao naoValid) {
 		this.naoValid = naoValid;
 	}
 

@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.dominio.beneficio.demonstrativovalores;
 
+import br.jus.tst.esocial.dominio.folha.DescFolha;
+
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
@@ -14,6 +16,7 @@ public class ItemRemun {
 	    @NotNull
 	    private BigDecimal vrRubr;
 	    private byte indApurIR;
+		private DescFolha descFolha;
 		public String getCodRubr() {
 			return codRubr;
 		}
@@ -49,5 +52,11 @@ public class ItemRemun {
 		}
 		public void setIndApurIR(byte indApurIR) {
 			this.indApurIR = indApurIR;
+		}
+		public DescFolha getDescFolha() {
+			return descFolha;
+		}
+		public void setDescFolha(DescFolha descFolha) {
+			this.descFolha = descFolha;
 		}
 }
