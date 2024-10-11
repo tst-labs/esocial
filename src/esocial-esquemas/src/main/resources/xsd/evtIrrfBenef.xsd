@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtIrrfBenef/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtIrrfBenef/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtIrrfBenef/v_S_01_03_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtIrrfBenef/v_S_01_03_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -283,6 +283,21 @@
                                                                                     <xs:documentation>Parte não tributável do valor de serviço de transporte de passageiros ou cargas</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:enumeration>
+                                                                            <xs:enumeration value="702">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Bolsa médico residente - remuneração mensal</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
+                                                                            <xs:enumeration value="703">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Bolsa médico residente - 13º salário</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
+                                                                            <xs:enumeration value="704">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Juros de mora recebidos, devidos pelo atraso no pagamento de remuneração por exercício de emprego, cargo ou função.</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:enumeration>
                                                                             <xs:enumeration value="79">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Outras isenções</xs:documentation>
@@ -343,7 +358,7 @@
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Compensação judicial de anos anteriores</xs:documentation>
                                                                                 </xs:annotation>
-                                                                            </xs:enumeration>                    
+                                                                            </xs:enumeration>
                                                                             <xs:enumeration value="7960">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Exigibilidade suspensa - Remuneração mensal</xs:documentation>
@@ -368,7 +383,7 @@
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Exigibilidade suspensa - RRA</xs:documentation>
                                                                                 </xs:annotation>
-                                                                            </xs:enumeration>                                                                                                                                    
+                                                                            </xs:enumeration>
                                                                             <xs:enumeration value="9011">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Exigibilidade suspensa - Rendimento tributável (base de cálculo do IR):</xs:documentation>
@@ -494,8 +509,7 @@
                                                                 <xs:element name="valor" type="TS_valor">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Composição do valor do rendimento tributável, não tributável, retenção, dedução ou isenção do IRRF, de acordo com a classificação apresentada no campo {tpInfoIR}(./tpInfoIR).</xs:documentation>
-                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero), exceto para {tpInfoIR}(./tpInfoIR) = [7900].</xs:documentation>
-                                                                        <xs:documentation>Deve corresponder ao somatório dos valores informados nas rubricas (campo {vrRubr}) dos eventos que deram origem ao S-1210 (grupos {infoPerApur} e {infoPerAnt} do S-1200, S-1202, S-1207 e S-2299, e grupo {verbasResc} do S-2399), desde que o campo {indApurIR} vinculado às respectivas rubricas seja igual a [0] ou não informado, obedecendo ao que segue:</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve corresponder ao somatório dos valores informados nas rubricas (campo {vrRubr}) dos eventos que deram origem ao S-1210 (grupos {infoPerApur} e {infoPerAnt} do S-1200, S-1202, S-1207 e S-2299, e grupo {verbasResc} do S-2399), desde que o campo {indApurIR} vinculado às respectivas rubricas seja igual a [0] ou não informado, obedecendo ao que segue:</xs:documentation>
                                                                         <xs:documentation>a) Somar os valores das rubricas cujo {tpRubr}(1010_infoRubrica_inclusao_dadosRubrica_tpRubr) em S-1010 seja igual a [1, 3] e subtrair os valores das rubricas cujo {tpRubr}(1010_infoRubrica_inclusao_dadosRubrica_tpRubr) em S-1010 seja igual a [2, 4], observando a tabela de relacionamento abaixo:</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [11], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [11, 13];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [12], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [12];</xs:documentation>
@@ -510,6 +524,9 @@
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [77], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [77];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [700], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [700];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [701], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [701];</xs:documentation>
+                                                                        <xs:documentation>{tpInfoIR}(./tpInfoIR) = [702], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [702];</xs:documentation>
+                                                                        <xs:documentation>{tpInfoIR}(./tpInfoIR) = [703], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [703];</xs:documentation>
+                                                                        <xs:documentation>{tpInfoIR}(./tpInfoIR) = [704], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [704];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [79], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [79];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [7900], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [9];</xs:documentation>
                                                                         <xs:documentation>{tpInfoIR}(./tpInfoIR) = [7950], {codIncIRRF}(1010_infoRubrica_inclusao_dadosRubrica_codIncIRRF) em S-1010 = [0];</xs:documentation>
@@ -572,6 +589,13 @@
                                                                         <xs:documentation>OBS.: Se o campo {indApurIR} vinculado à rubrica for igual a [1], considerar {vrRubr} = [0].</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
+                                                                <xs:element name="descRendimento" minOccurs="0" type="TS_texto_100">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Descrição do rendimento não tributável ou isento do IRRF.</xs:documentation>
+                                                                        <xs:documentation>Validação: Informação obrigatória e exclusiva para eventos S-1210 com {}(1210_ideEvento_perApur) posterior ou igual ao início da DIRF e se {}(./tpInfoIR) = [79].</xs:documentation>
+                                                                        <xs:documentation>Origem: campo {}(1010_infoRubrica_inclusao_dadosRubrica_dscRubr) em S-1010.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
                                                                 <xs:element name="infoProcJudRub" minOccurs="0" maxOccurs="unbounded">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Informações complementares - Demais rendimentos com exigibilidade suspensa decorrentes de decisão judicial aplicável à rubrica.</xs:documentation>
@@ -617,33 +641,255 @@
                                                     </xs:element>
                                                     <xs:element name="totApurMen" minOccurs="0" maxOccurs="50">
                                                         <xs:annotation>
-                                                            <xs:documentation>Totalizador de tributos com período de apuração mensal.</xs:documentation>
+                                                            <xs:documentation>Totalizador dos rendimentos tributáveis, deduções, isenções e retenção de tributos com período de apuração mensal.</xs:documentation>
                                                             <xs:documentation>CHAVE_GRUPO: {CRMen}</xs:documentation>
                                                             <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
                                                             <xs:sequence>
-                                                                <xs:element name="CRMen" type="TS_CRMen"/>
-                                                                <xs:element name="vlrCRMen" type="TS_valorMonetario_positivo">
+                                                                <xs:element name="CRMen" type="TS_CRMen" />
+                                                                <xs:element name="vlrRendTrib" type="TS_valor">
                                                                     <xs:annotation>
-                                                                        <xs:documentation>Valor relativo ao Imposto de Renda Retido na Fonte sobre rendimentos do trabalho.</xs:documentation>
-                                                                        <xs:documentation>Validação: Deve ser maior que 0 (zero) e agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>Valor relativo ao rendimento tributável mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
                                                                         <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [056107]: se {codCateg}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se {}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se {}(../codCateg) = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se {}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se {}(../codCateg) = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [061001]: se {}(../codCateg) = [712], {indApurIR} = [0] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) = [586], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [356201]: se {}(../codCateg) = [1XX], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [14];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11, 12, 14].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11, 14];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11, 12, 14].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendTrib13" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento do 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se {}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056109]: se {}(../codCateg) = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12], apenas se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056110]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12], exceto se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056112]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12], exceto se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056113]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12], apenas se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [12].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrPrevOficial" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à previdência oficial sobre rendimentos do trabalho, mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [061001]: se codCateg = [712], {indApurIR} = [0] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) = [586], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41, 42].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [41, 42].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrPrevOficial13" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à previdência oficial sobre o 13° salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056109]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42], apenas se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056110]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42], exceto se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056112]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42], exceto se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056113]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42], apenas se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [42].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrCRMen" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao imposto sobre a renda retido na fonte sobre rendimentos do trabalho, mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{CRMen}(./CRMen) = [056107]: se {codCateg}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31];</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [056108]: se {codCateg}(../codCateg) = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31];</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [056109]: se {codCateg}(../codCateg) = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], apenas se origem for S-2299;</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [056110]: se {codCateg}(../codCateg) = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], exceto se origem for S-2299;</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [056111]: se {codCateg}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31];</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [056112]: se {codCateg}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], exceto se origem for S-2299/S-2399;</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [056113]: se {codCateg}(../codCateg) = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], apenas se origem for S-2299/S-2399;</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [058806]: se {codCateg}(../codCateg) = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32];</xs:documentation>
+                                                                        <xs:documentation>{CRMen}(./CRMen) = [058806]: se {codCateg}(../codCateg) = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31];</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [061001]: se {codCateg}(../codCateg) = [712], {indApurIR} = [0] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) = [586], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31];</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [356201]: se {codCateg}(../codCateg) = [1XX], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [34];</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32, 34].</xs:documentation>
                                                                         <xs:documentation> </xs:documentation>
                                                                         <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
-                                                                        <xs:documentation>{CRMen}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32, 34];</xs:documentation>
+                                                                        <xs:documentation>{CRMen}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 34];</xs:documentation>
                                                                         <xs:documentation>{CRMen}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32, 34].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrCR13Men" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao imposto sobre a renda retido na fonte sobre rendimentos do trabalho, 13° salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056109]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], apenas se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056110]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], exceto se origem for S-2299;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056112]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], exceto se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056113]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32], apenas se origem for S-2299/S-2399;</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [32].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrParcIsenta65" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à parcela isenta de proventos de aposentadoria, reserva remunerada, reforma e pensão de beneficiário com 65 anos ou mais.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [70, 71].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [70];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [70, 71].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrParcIsenta65Dec" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à parcela isenta de proventos de aposentadoria, reserva remunerada, reforma e pensão de beneficiário com 65 anos ou mais sobre o 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [71].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrDiarias" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a diárias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [72];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [72];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [72];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [72].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAjudaCusto" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a ajuda de custo.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [73];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [73];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [73];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [73].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrIndResContrato" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a indenização e rescisão de contrato, inclusive a título de PDV e acidentes de trabalho.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [74];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [74];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [74];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [74].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAbonoPec" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao abono pecuniário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [75];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [75];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [75];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [75].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendMoleGrave" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento de beneficiário com moléstia grave ou acidente em serviço - remuneração mensal.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [76, 77].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [76];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [76, 77].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendMoleGrave13" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento de beneficiário com moléstia grave ou acidente em serviço - 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [77].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAuxMoradia" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao auxílio moradia.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [700];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [700];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [700];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [700].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrBolsaMedico" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a bolsa médico residente.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [902], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [702].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrBolsaMedico13" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a bolsa médico residente - 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [902], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [703].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrJurosMora" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo aos juros de mora recebidos, devidos pelo atraso no pagamento de remuneração por exercício de emprego, cargo ou função.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [704].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [188901]: se {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não for informado, {indApurIR} = [0] e {indRRA} = [S], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [704].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrIsenOutros" type="TS_valor">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo aos rendimentos isentos - outros.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser agrupado conforme segue:</xs:documentation>
+                                                                        <xs:documentation>a) Quando o evento de origem for S-1200, S-1202, S-2299, S-2399 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056107]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 401, 410, 501, 721, 722, 723, 761, 901, 902, 903, 904, 906], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 for diferente de [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [79];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056108]: se codCateg = [104], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [79];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [056111]: se codCateg = [101, 102, 103, 105, 106, 107, 108, 111], {indApurIR} = [0], os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados e {classTrib}(1000_infoEmpregador_inclusao_infoCadastro_classTrib) em S-1000 = [22], efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [79];</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [058806]: se codCateg = [201, 202, 701, 711, 712, 731, 734, 738, 741, 751, 771, 781], {indApurIR} = [0] e os campos {indRRA} e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [79].</xs:documentation>
+                                                                        <xs:documentation> </xs:documentation>
+                                                                        <xs:documentation>b) Quando o evento de origem for S-1207 e respectivo S-1210:</xs:documentation>
+                                                                        <xs:documentation>{}(./CRMen) = [353301]: se {indApurIR} = [0] e os campos {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) e {indRRA} não forem informados, efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [79].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="descRendimento" minOccurs="0" type="TS_texto_255">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Descrição do rendimento não tributável ou isento do IRRF.</xs:documentation>
+                                                                        <xs:documentation>Validação: Informação obrigatória e exclusiva para eventos S-1210 com {}(1210_ideEvento_perApur) posterior ou igual ao início da DIRF e se {tpInfoIR}(../infoIR_tpInfoIR) = [79].</xs:documentation>
+                                                                        <xs:documentation>Origem: campo {}(1010_infoRubrica_inclusao_dadosRubrica_dscRubr) em S-1010.</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
                                                             </xs:sequence>
@@ -651,8 +897,8 @@
                                                     </xs:element>
                                                     <xs:element name="totApurDia" minOccurs="0" maxOccurs="350">
                                                         <xs:annotation>
-                                                            <xs:documentation>Totalizador de tributos com período de apuração diário.</xs:documentation>
-                                                            <xs:documentation>CHAVE_GRUPO: {perApurDia}, {CRDia}</xs:documentation>
+                                                            <xs:documentation>Totalizador de rendimentos tributáveis e tributos com período de apuração diário.</xs:documentation>
+                                                            <xs:documentation>CHAVE_GRUPO: {perApurDia}, {CRDia}, {frmTribut}, {paisResidExt}</xs:documentation>
                                                             <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
@@ -663,7 +909,31 @@
                                                                         <xs:documentation>Validação: Deve ser igual ao dia ("DD") da data informada em {dtPgto}(../dtPgto).</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
-                                                                <xs:element name="CRDia" type="TS_CRDia"/>
+                                                                <xs:element name="CRDia" type="TS_CRDia" />
+                                                                <xs:element name="frmTribut">
+                                                                    <xs:simpleType>
+                                                                        <xs:annotation>
+                                                                            <xs:documentation>Forma de tributação, conforme opções disponíveis na Tabela 30.</xs:documentation>
+                                                                        </xs:annotation>
+                                                                        <xs:restriction base="xs:string">
+                                                                            <xs:pattern value="\d{2}" />
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="paisResidExt" type="TS_pais">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Código do país de residência para fins fiscais, quando no exterior, conforme Tabela 06.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrPagoDia" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor pago a residente ou domiciliado no exterior.</xs:documentation>
+                                                                        <xs:documentation>Evento de origem: S-1200, S-1202, S-1207, S-2299, S-2399 e respectivo S-1210.</xs:documentation>
+                                                                        <xs:documentation>Validação: Efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [11, 12, 14, 72, 73, 74, 75, 76, 77, 79, 700, 701, 702, 703, 704], se {indApurIR} = [0] e:</xs:documentation>
+                                                                        <xs:documentation>a) {codCateg}(../codCateg) for diferente de [712] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) for informado com qualquer valor; ou</xs:documentation>
+                                                                        <xs:documentation>b) {codCateg}(../codCateg) = [712] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) for informado com valor diferente de [586].</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
                                                                 <xs:element name="vlrCRDia" type="TS_valorMonetario_positivo">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Valor relativo ao Imposto de Renda Retido na Fonte sobre rendimentos do trabalho pagos a residente, para fins fiscais, no exterior.</xs:documentation>
@@ -676,7 +946,7 @@
                                                                 </xs:element>
                                                             </xs:sequence>
                                                         </xs:complexType>
-                                                    </xs:element>                                                        
+                                                    </xs:element>
                                                     <xs:element name="infoRRA" minOccurs="0">
                                                         <xs:annotation>
                                                             <xs:documentation>Informações complementares - RRA.</xs:documentation>
@@ -742,7 +1012,7 @@
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                             </xs:sequence>
-                                                        </xs:complexType>                                                    
+                                                        </xs:complexType>
                                                     </xs:element>
                                                     <xs:element name="infoPgtoExt" minOccurs="0">
                                                         <xs:annotation>
@@ -866,9 +1136,173 @@
                                                 </xs:sequence>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="infoIRComplem" minOccurs="0">
+                                        <xs:element name="totInfoIR" minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Totalização dos demonstrativos de valores devidos</xs:documentation>
+                                                <xs:documentation>DESCRICAO_COMPLETA: Totais dos rendimentos tributáveis, deduções e isenções para todos os demonstrativos.</xs:documentation>
+                                                <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="consolidApurMen" minOccurs="0" maxOccurs="50">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Totalizador de valores com período de apuração mensal</xs:documentation>
+                                                            <xs:documentation>DESCRICAO_COMPLETA: Totalização dos rendimentos tributáveis, deduções e isenções com período de apuração mensal.</xs:documentation>
+                                                            <xs:documentation>CHAVE_GRUPO: {CRMen}</xs:documentation>
+                                                            <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="CRMen" type="TS_CRMen" />
+                                                                <xs:element name="vlrRendTrib" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento tributável mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrRendTrib}(5002_ideTrabalhador_dmDev_totApurMen_vlrRendTrib).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendTrib13" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento do 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrRendTrib13}(5002_ideTrabalhador_dmDev_totApurMen_vlrRendTrib13).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrPrevOficial" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à previdência oficial sobre rendimentos do trabalho, mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrPrevOficial}(5002_ideTrabalhador_dmDev_totApurMen_vlrPrevOficial).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrPrevOficial13" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à previdência oficial sobre o 13° salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrPrevOficial13}(5002_ideTrabalhador_dmDev_totApurMen_vlrPrevOficial13).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrCRMen" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao imposto sobre a renda retido na fonte sobre rendimentos do trabalho, mensal e férias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrCRMen}(5002_ideTrabalhador_dmDev_totApurMen_vlrCRMen).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrCR13Men" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao imposto sobre a renda retido na fonte sobre rendimentos do trabalho, 13° salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrCR13Men}(5002_ideTrabalhador_dmDev_totApurMen_vlrCR13Men).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrParcIsenta65" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à parcela isenta de proventos de aposentadoria, reserva remunerada, reforma e pensão de beneficiário com 65 anos ou mais.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrParcIsenta65}(5002_ideTrabalhador_dmDev_totApurMen_vlrParcIsenta65).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrParcIsenta65Dec" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo à parcela isenta de proventos de aposentadoria, reserva remunerada, reforma e pensão de beneficiário com 65 anos ou mais sobre o 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrParcIsenta65Dec}(5002_ideTrabalhador_dmDev_totApurMen_vlrParcIsenta65Dec).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrDiarias" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a diárias.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrDiarias}(5002_ideTrabalhador_dmDev_totApurMen_vlrDiarias).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAjudaCusto" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a ajuda de custo.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrAjudaCusto}(5002_ideTrabalhador_dmDev_totApurMen_vlrAjudaCusto).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrIndResContrato" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a indenização e rescisão de contrato, inclusive a título de PDV e acidentes de trabalho.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrIndResContrato}(5002_ideTrabalhador_dmDev_totApurMen_vlrIndResContrato).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAbonoPec" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao abono pecuniário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrAbonoPec}(5002_ideTrabalhador_dmDev_totApurMen_vlrAbonoPec).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendMoleGrave" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento de beneficiário com moléstia grave ou acidente em serviço - remuneração mensal.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrRendMoleGrave}(5002_ideTrabalhador_dmDev_totApurMen_vlrRendMoleGrave).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrRendMoleGrave13" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao rendimento de beneficiário com moléstia grave ou acidente em serviço - 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrRendMoleGrave13}(5002_ideTrabalhador_dmDev_totApurMen_vlrRendMoleGrave13).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrAuxMoradia" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo ao auxílio moradia.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrAuxMoradia}(5002_ideTrabalhador_dmDev_totApurMen_vlrAuxMoradia).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrBolsaMedico" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a bolsa médico residente, mensal.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrBolsaMedico}(5002_ideTrabalhador_dmDev_totApurMen_vlrBolsaMedico).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrBolsaMedico13" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo a bolsa médico residente, 13º salário.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrBolsaMedico13}(5002_ideTrabalhador_dmDev_totApurMen_vlrBolsaMedico13).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrJurosMora" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo aos juros de mora recebidos, devidos pelo atraso no pagamento de remuneração por exercício de emprego, cargo ou função.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrJurosMora}(5002_ideTrabalhador_dmDev_totApurMen_vlrJurosMora).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="vlrIsenOutros" type="TS_valorMonetario">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor relativo aos rendimentos isentos - outros.</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Origem: valores consolidados do campo {totApurMen/vlrIsenOutros}(5002_ideTrabalhador_dmDev_totApurMen_vlrIsenOutros).</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="descRendimento" minOccurs="0" type="TS_texto_999">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Descrição do rendimento não tributável ou isento do IRRF.</xs:documentation>
+                                                                        <xs:documentation>Origem: {totApurMen/descRendimento}(5002_ideTrabalhador_dmDev_totApurMen_descRendimento). Concatenar os campos encontrados com separador ';' e truncar o conteúdo que ultrapassar o tamanho do campo.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="infoIRComplem" minOccurs="0" maxOccurs="13">
                                             <xs:annotation>
                                                 <xs:documentation>Informações complementares para a DIRF ou para a DAA, com a legislação aplicada ao imposto de renda.</xs:documentation>
+                                                <xs:documentation>CHAVE_GRUPO: {perAnt_perRefAjuste}</xs:documentation>
                                                 <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                             </xs:annotation>
                                             <xs:complexType>
@@ -878,6 +1312,29 @@
                                                             <xs:documentation>Data da moléstia grave atribuída pelo laudo.</xs:documentation>
                                                             <xs:documentation>Origem: campo {dtLaudo}(1210_ideBenef_infoIRComplem_dtLaudo) de S-1210.</xs:documentation>
                                                         </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="perAnt" minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Informações complementares de períodos anteriores</xs:documentation>
+                                                            <xs:documentation>DESCRICAO_COMPLETA: Identificação do evento S-1210 original e {}(1210_ideBenef_infoPgto_perRef) cujas informações de {}(1210_ideBenef_infoIRComplem) serão alteradas.</xs:documentation>
+                                                            <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="perRefAjuste" type="TS_perApur_mensal">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>{}(1210_ideEvento_perApur) do S-1210 cujo {}(1210_ideBenef_infoIRComplem) será alterado.</xs:documentation>
+                                                                        <xs:documentation>Origem: campo {}(1210_ideBenef_infoIRComplem_perAnt_perRefAjuste) de S-1210.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="nrRec1210Orig" type="TS_nrRecibo">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Número do recibo do S-1210 original cujas informações de {}(1210_ideBenef_infoIRComplem) serão alteradas.</xs:documentation>
+                                                                        <xs:documentation>Origem: campo {}(1210_ideBenef_infoIRComplem_perAnt_nrRec1210Orig) de S-1210.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
                                                     </xs:element>
                                                     <xs:element name="ideDep" minOccurs="0" maxOccurs="999">
                                                         <xs:annotation>
@@ -930,17 +1387,17 @@
                                                         <xs:annotation>
                                                             <xs:documentation>Informações de Imposto de Renda, por Código de Receita - CR.</xs:documentation>
                                                             <xs:documentation>Evento de origem: S-1210.</xs:documentation>
-                                                            <xs:documentation>CHAVE_GRUPO: {tpCR}</xs:documentation> 
-                                                            <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation> 
+                                                            <xs:documentation>CHAVE_GRUPO: {tpCR}</xs:documentation>
+                                                            <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
                                                             <xs:sequence>
                                                                 <xs:element name="tpCR" type="TS_CR_IR" />
                                                                 <xs:element name="dedDepen" minOccurs="0" maxOccurs="999">
                                                                     <xs:annotation>
-                                                                        <xs:documentation>Dedução do rendimento tributável relativa a dependentes.</xs:documentation>  
+                                                                        <xs:documentation>Dedução do rendimento tributável relativa a dependentes.</xs:documentation>
                                                                         <xs:documentation>CHAVE_GRUPO: {tpRend}, {cpfDep}</xs:documentation>
-                                                                        <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation> 
+                                                                        <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                     </xs:annotation>
                                                                     <xs:complexType>
                                                                         <xs:sequence>
@@ -961,7 +1418,7 @@
                                                                 <xs:element name="penAlim" minOccurs="0" maxOccurs="99">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Informação dos beneficiários da pensão alimentícia.</xs:documentation>
-                                                                        <xs:documentation>CHAVE_GRUPO: {tpRend}, {cpfDep}</xs:documentation>   
+                                                                        <xs:documentation>CHAVE_GRUPO: {tpRend}, {cpfDep}</xs:documentation>
                                                                         <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                     </xs:annotation>
                                                                     <xs:complexType>
@@ -984,7 +1441,7 @@
                                                                     <xs:annotation>
                                                                         <xs:documentation>Informações relativas a planos de previdência complementar.</xs:documentation>
                                                                         <xs:documentation>CHAVE_GRUPO: {tpPrev}, {cnpjEntidPC}</xs:documentation>
-                                                                        <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>  
+                                                                        <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                     </xs:annotation>
                                                                     <xs:complexType>
                                                                         <xs:sequence>
@@ -994,14 +1451,24 @@
                                                                                     <xs:documentation>Número de inscrição da entidade de previdência complementar.</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
-                                                                            <xs:element name="vlrDedPC" type="TS_valorMonetario_positivo">
+                                                                            <xs:element name="vlrDedPC" minOccurs="0" type="TS_valorMonetario_positivo">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Valor da dedução mensal relativa a previdência complementar.</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
+                                                                            <xs:element name="vlrDedPC13" type="TS_valorMonetario_positivo" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Valor da dedução do 13º Salário relativa a previdência complementar.</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
                                                                             <xs:element name="vlrPatrocFunp" type="TS_valorMonetario" minOccurs="0">
-                                                                            <xs:annotation>
+                                                                                <xs:annotation>
                                                                                     <xs:documentation>Valor da contribuição mensal do ente público patrocinador da Fundação de Previdência Complementar do Servidor Público (Funpresp).</xs:documentation>
+                                                                                </xs:annotation>
+                                                                            </xs:element>
+                                                                            <xs:element name="vlrPatrocFunp13" type="TS_valorMonetario" minOccurs="0">
+                                                                                <xs:annotation>
+                                                                                    <xs:documentation>Valor da contribuição do 13º Salário do ente público patrocinador da Fundação de Previdência Complementar do Servidor Público (Funpresp).</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
                                                                         </xs:sequence>
@@ -1123,7 +1590,7 @@
                                                             <xs:documentation>DESCRICAO_COMPLETA: Plano de saúde coletivo.</xs:documentation>
                                                             <xs:documentation>Identificação da(s) operadora(s) de plano privado coletivo empresarial de assistência à saúde.</xs:documentation>
                                                             <xs:documentation>Evento de origem: S-1210.</xs:documentation>
-                                                            <xs:documentation>CHAVE_GRUPO: {cnpjOper}</xs:documentation>
+                                                            <xs:documentation>CHAVE_GRUPO: {cnpjOper}, {regANS}</xs:documentation>
                                                             <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
@@ -1165,13 +1632,14 @@
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                             </xs:sequence>
-                                                        </xs:complexType>    
+                                                        </xs:complexType>
                                                     </xs:element>
                                                     <xs:element name="infoReembMed" minOccurs="0" maxOccurs="99">
                                                         <xs:annotation>
                                                             <xs:documentation>Reembolsos de despesas médicas</xs:documentation>
                                                             <xs:documentation>DESCRICAO_COMPLETA: Informações relativas a reembolsos efetuados no período de apuração ({perApur}(1210_ideEvento_perApur)) pelo empregador ao trabalhador referente a despesas médicas ou odontológicas pagas pelo trabalhador a prestadores de serviços de saúde.</xs:documentation>
                                                             <xs:documentation>Evento de origem: S-1210.</xs:documentation>
+                                                            <xs:documentation>CHAVE_GRUPO: {cnpjOper}, {regANS}</xs:documentation>
                                                             <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                         </xs:annotation>
                                                         <xs:complexType>
@@ -1189,14 +1657,14 @@
                                                                 </xs:element>
                                                                 <xs:element name="detReembTit" type="T_detReemb_Tot" minOccurs="0" maxOccurs="99">
                                                                     <xs:annotation>
-                                                                        <xs:documentation>Informação de reembolso do titular do plano de saúde coletivo empresarial.</xs:documentation>
+                                                                        <xs:documentation>Informação de reembolso do titular do plano de saúde.</xs:documentation>
                                                                         <xs:documentation>CHAVE_GRUPO: {tpInsc}, {nrInsc}</xs:documentation>
                                                                         <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
                                                                 <xs:element name="infoReembDep" minOccurs="0" maxOccurs="99">
                                                                     <xs:annotation>
-                                                                        <xs:documentation>Informação de reembolso do dependente do plano de saúde coletivo empresarial.</xs:documentation>
+                                                                        <xs:documentation>Informação de reembolso do dependente do plano de saúde.</xs:documentation>
                                                                         <xs:documentation>CHAVE_GRUPO: {cpfBenef}</xs:documentation>
                                                                         <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                     </xs:annotation>
@@ -1215,7 +1683,7 @@
                                                                                     <xs:documentation>CONDICAO_GRUPO: OC</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
-                                                                    </xs:sequence>
+                                                                        </xs:sequence>
                                                                     </xs:complexType>
                                                                 </xs:element>
                                                             </xs:sequence>
