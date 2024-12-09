@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_03_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtRmnRPPS/v_S_01_03_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -186,7 +186,7 @@
                                                                                     <xs:documentation>Informar o número de inscrição da unidade do órgão público ou do estabelecimento, de acordo com o tipo de inscrição indicado no campo {ideEstab/tpInsc}(./tpInsc).</xs:documentation>
                                                                                 </xs:annotation>
                                                                             </xs:element>
-                                                                            <xs:element name="remunPerAnt" maxOccurs="8" type="T_remunPer">
+                                                                            <xs:element name="remunPerAnt" maxOccurs="8" type="T_remunPerAnt">
                                                                                 <xs:annotation>
                                                                                     <xs:documentation>Remuneração do trabalhador</xs:documentation>
                                                                                     <xs:documentation>DESCRICAO_COMPLETA:Informações relativas à remuneração do trabalhador em períodos anteriores.</xs:documentation>
@@ -213,7 +213,27 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+    <xs:complexType name="T_itensRemun_rpps_descFolha">
+        <xs:complexContent>
+            <xs:extension base="T_itensRemun_rpps">
+                <xs:sequence>
+                    <xs:element name="descFolha" minOccurs="0" type="T_descFolha" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
     <xs:complexType name="T_remunPer">
+        <xs:sequence>
+            <xs:element name="matricula" minOccurs="0" type="TS_matricula">
+                <xs:annotation>
+                    <xs:documentation>Matrícula atribuída ao trabalhador pela empresa ou, no caso de servidor público, a matrícula constante no Sistema de Administração de Recursos Humanos do órgão.</xs:documentation>
+                    <xs:documentation>Validação: Deve corresponder à matrícula informada pelo empregador no evento S-2200 ou S-2300 do respectivo contrato. Não preencher no caso de Trabalhador Sem Vínculo de Emprego/Estatutário - TSVE sem informação de matrícula no evento S-2300 ou, no caso de {remunPerAnt}(1202_dmDev_infoPerAnt_idePeriodo_ideEstab_remunPerAnt), se {remunOrgSuc}(1202_dmDev_infoPerAnt_remunOrgSuc) = [S].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="itensRemun" type="T_itensRemun_rpps_descFolha" maxOccurs="200" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="T_remunPerAnt">
         <xs:sequence>
             <xs:element name="matricula" minOccurs="0" type="TS_matricula">
                 <xs:annotation>

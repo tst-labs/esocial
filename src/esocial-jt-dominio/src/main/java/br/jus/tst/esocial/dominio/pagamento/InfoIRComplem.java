@@ -19,6 +19,9 @@ public class InfoIRComplem {
     @Valid
     private List<InfoReembMed> infoReembMed;
 
+    @Valid
+    private PerAnt perAnt;
+
     public Calendar getDtLaudo() {
         return dtLaudo;
     }
@@ -57,5 +60,13 @@ public class InfoIRComplem {
 
     public void setInfoReembMed(List<InfoReembMed> infoReembMed) {
         this.infoReembMed = infoReembMed;
+    }
+
+    public PerAnt getPerAnt() {
+        return perAnt;
+    }
+
+    public void setPerAnt(PerAnt perAnt) {
+        this.perAnt = perAnt;
     }
 }
