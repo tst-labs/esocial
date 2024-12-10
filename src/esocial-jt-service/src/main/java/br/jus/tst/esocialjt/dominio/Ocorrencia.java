@@ -211,7 +211,10 @@ public class Ocorrencia implements Serializable {
 
 		if (StringUtils.isNotBlank(txtDadosOcorrencia)) {
 			try {
-				dadosOcorrencia = new ObjectMapper().readValue(txtDadosOcorrencia, DadosOcorrencia.class);
+				dadosOcorrencia = new ObjectMapper().readValue(
+						processarLegado(txtDadosOcorrencia),
+						DadosOcorrencia.class
+				);
 			} catch (IOException e) {
 				LOGGER.error(e.getMessage(), e);
 			}
@@ -220,6 +223,14 @@ public class Ocorrencia implements Serializable {
 		}
 
 		return this;
+	}
+
+	private String processarLegado(String txtDadosOcorrencia) {
+		String processado = txtDadosOcorrencia;
+		if(txtDadosOcorrencia.contains("\"infoIRComplem\":{")) {
+			processado = txtDadosOcorrencia.replace(".Pgtos", ".PgtosV_1_2");
+		}
+		return processado;
 	}
 
 }
