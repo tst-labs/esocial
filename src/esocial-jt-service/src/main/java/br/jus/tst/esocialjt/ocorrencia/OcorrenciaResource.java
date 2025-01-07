@@ -99,6 +99,12 @@ public class OcorrenciaResource {
 		return ocorrenciaServico.enviarEventoExclusao(id);
 	}
 
+	@Operation(summary ="Envia o respectivo evento de exclusão da ocorrência especificada por uma lista de Ids.")
+	@PostMapping("/acoes/excluir-lista")
+	public void excluirPorListaIds(@RequestBody List<Long> ids) {
+		ocorrenciaServico.enviarEventoExclusao(ids);
+	}
+
 	@Operation(summary = "Url única para o recebimento de ocorrências. O tipo da ocorrência é passado no próprio json dos dados e deve obedecer "
 			+ "ao formato respectivo àquele tipo.")
 	@PostMapping(consumes = "application/json", produces = "application/json;charset=UTF-8")

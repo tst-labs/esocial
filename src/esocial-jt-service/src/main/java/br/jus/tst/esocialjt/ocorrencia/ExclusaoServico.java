@@ -35,18 +35,24 @@ public class ExclusaoServico {
             dadosExclusao.getInfoExclusao().getIdeTrabalhador().setCpfTrab(ocorrencia.getCpf());
         }
 
-        if(dadosOcorrencia instanceof DadosFolha){
+        if(dadosOcorrencia instanceof DadosFolha) {
             DadosFolha dadosFolha = (DadosFolha) dadosOcorrencia;
             dadosExclusao.getInfoExclusao().setIdeFolhaPagto(new IdeFolhaPagto());
-            dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setIndApuracao(dadosFolha.getIdeEvento().getIndApuracao());
             dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setPerApur(dadosFolha.getIdeEvento().getPerApur());
+
+            if(dadosFolha.getIdeEvento().getIndApuracao() > 0) {
+                dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setIndApuracao(dadosFolha.getIdeEvento().getIndApuracao());
+            }
         }
 
-        if(dadosOcorrencia instanceof DadosFechamentoFolha){
+        if(dadosOcorrencia instanceof DadosFechamentoFolha) {
             DadosFechamentoFolha dadosFolha = (DadosFechamentoFolha) dadosOcorrencia;
             dadosExclusao.getInfoExclusao().setIdeFolhaPagto(new IdeFolhaPagto());
-            dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setIndApuracao(dadosFolha.getIdeEvento().getIndApuracao());
             dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setPerApur(dadosFolha.getIdeEvento().getPerApur());
+
+            if(dadosFolha.getIdeEvento().getIndApuracao() > 0) {
+                dadosExclusao.getInfoExclusao().getIdeFolhaPagto().setIndApuracao(dadosFolha.getIdeEvento().getIndApuracao());
+            }
         }
 
         exclusao.setDadosOcorrencia(dadosExclusao);
