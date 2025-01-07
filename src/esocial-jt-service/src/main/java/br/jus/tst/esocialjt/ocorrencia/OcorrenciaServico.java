@@ -125,11 +125,6 @@ public class OcorrenciaServico {
 
 	@Async
 	public void enviarEventoExclusao(List<Long> ids) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         ids.forEach(id -> {
 			try {
 				enviarEventoExclusao(id);
