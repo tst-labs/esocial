@@ -8,10 +8,13 @@ import br.jus.tst.esocialjt.negocio.EventoServico;
 import br.jus.tst.esocialjt.negocio.PublicacaoServico;
 import br.jus.tst.esocialjt.negocio.TipoEventoServico;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,6 +50,8 @@ public class OcorrenciaServico {
 
 	@Autowired
 	ExclusaoServico exclusaoServico;
+
+	public static final Logger LOGGER = LoggerFactory.getLogger(OcorrenciaServico.class);
 
 	@Transactional
 	public Ocorrencia salvar(Ocorrencia ocorrencia) {
@@ -116,6 +121,23 @@ public class OcorrenciaServico {
 		Ocorrencia exclusao = exclusaoServico.gerarExclusao(ocorrencia);
 
 		return salvar(exclusao);
+	}
+
+	@Async
+	public void enviarEventoExclusao(List<Long> ids) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        ids.forEach(id -> {
+			try {
+				enviarEventoExclusao(id);
+			} catch (Exception e) {
+                LOGGER.error("Erro ao enviar evento de exclusão para ocorrência com id={}. Mensagem: {}", id, e.getMessage());
+				LOGGER.debug(e.getMessage(), e);
+			}
+		});
 	}
 
 	public List<Ocorrencia> recuperaOcorrenciasSemEventos() {
