@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_03_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTabRubrica/v_S_01_03_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">
@@ -314,7 +314,7 @@
                 <xs:simpleType>
                     <xs:annotation>
                         <xs:documentation>Código de incidência da rubrica para o Fundo de Garantia do Tempo de Serviço - FGTS.</xs:documentation>
-                        <xs:documentation>Validação: Para utilização de código [91, 92, 93], é necessária a existência de grupo com informações relativas ao processo. Para utilização de código [31], é necessário que {natRubr}(./natRubr) seja igual a [9253].</xs:documentation>
+                        <xs:documentation>Validação: Para utilização de código [91, 92, 93], é necessária a existência de grupo com informações relativas ao processo. A utilização do código [31] é obrigatória e exclusiva quando {natRubr}(./natRubr) = [9253].</xs:documentation>
                     </xs:annotation>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="00">
@@ -404,6 +404,42 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
+            <xs:element name="codIncPisPasep" minOccurs="0">
+                <xs:simpleType>
+                    <xs:annotation>
+                        <xs:documentation>Código de incidência da rubrica para o PIS/PASEP sobre a folha de salários a ser utilizado quando {}(1000_infoEmpregador_inclusao_infoCadastro_indTribFolhaPisPasep) = [S] em S-1000.</xs:documentation>
+                        <xs:documentation>Validação: Para utilização de código [91, 92], é necessária a existência de grupo com informações relativas ao processo.</xs:documentation>
+                        <xs:documentation>Caso o campo não seja informado, será presumido o valor [00].</xs:documentation>
+                    </xs:annotation>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="00">
+                            <xs:annotation>
+                                <xs:documentation>Não é base de cálculo do PIS/PASEP</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="11">
+                            <xs:annotation>
+                                <xs:documentation>Base de cálculo do PIS/PASEP mensal</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="12">
+                            <xs:annotation>
+                                <xs:documentation>Base de cálculo do PIS/PASEP 13° salário</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="91">
+                            <xs:annotation>
+                                <xs:documentation>Incidência suspensa em decorrência de decisão judicial - PIS/PASEP mensal</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value="92">
+                            <xs:annotation>
+                                <xs:documentation>Incidência suspensa em decorrência de decisão judicial - PIS/PASEP 13º salário</xs:documentation>
+                            </xs:annotation>
+                        </xs:enumeration>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name="tetoRemun" minOccurs="0" type="TS_sim_nao">
                 <xs:annotation>
                     <xs:documentation>Informar se a rubrica compõe o teto remuneratório específico (art. 37, XI, da CF/1988).</xs:documentation>
@@ -478,6 +514,20 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="nrProc" type="TS_nrProcJud_1_7" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ideProcessoPisPasep" minOccurs="0" maxOccurs="99">
+                <xs:annotation>
+                    <xs:documentation>Identificação de processo - Incidência para o PIS/PASEP</xs:documentation>
+                    <xs:documentation>DESCRICAO_COMPLETA:Caso a empresa possua processo judicial com decisão/sentença favorável, determinando a não incidência de contribuição para o PIS/PASEP relativo à rubrica identificada no evento, as informações deverão ser incluídas neste grupo, e o detalhamento do processo deverá ser efetuado através de evento específico na Tabela de Processos (S-1070).</xs:documentation>
+                    <xs:documentation>CHAVE_GRUPO: {nrProc}</xs:documentation>
+                    <xs:documentation>CONDICAO_GRUPO: O (se {}(1010_infoRubrica_inclusao_dadosRubrica_codIncPisPasep) = [9X]); N (nos demais casos)</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nrProc" type="TS_nrProcJud_1" />
+                        <xs:element name="codSusp" type="TS_codSusp" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTSVAltContr/v_S_01_02_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTSVAltContr/v_S_01_02_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns="http://www.esocial.gov.br/schema/evt/evtTSVAltContr/v_S_01_03_00" targetNamespace="http://www.esocial.gov.br/schema/evt/evtTSVAltContr/v_S_01_03_00" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
     <xs:include schemaLocation="tipos.xsd" />
     <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd" />
     <xs:element name="eSocial">

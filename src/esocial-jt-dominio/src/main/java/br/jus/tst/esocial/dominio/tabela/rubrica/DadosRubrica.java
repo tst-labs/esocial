@@ -35,6 +35,8 @@ public class DadosRubrica {
 	@Size(min = 0, max = 255)
 	private String observacao;
 
+	private String codIncPisPasep;
+
 	@Valid
 	private List<IdeProcessoCP> ideProcessoCP;
 
@@ -43,6 +45,9 @@ public class DadosRubrica {
 
 	@Valid
 	private List<IdeProcessoFGTS> ideProcessoFGTS;
+
+	@Valid
+	private List<IdeProcessoPisPasep> ideProcessoPisPasep;
 
 	public String getDscRubr() {
 		return dscRubr;
@@ -140,4 +145,19 @@ public class DadosRubrica {
 		this.ideProcessoFGTS = ideProcessoFGTS;
 	}
 
+	public String getCodIncPisPasep() {
+		return codIncPisPasep;
+	}
+
+	public void setCodIncPisPasep(String codIncPisPasep) {
+		this.codIncPisPasep = codIncPisPasep;
+	}
+
+	public @Valid List<IdeProcessoPisPasep> getIdeProcessoPisPasep() {
+		return ideProcessoPisPasep;
+	}
+
+	public void setIdeProcessoPisPasep(@Valid List<IdeProcessoPisPasep> ideProcessoPisPasep) {
+		this.ideProcessoPisPasep = ideProcessoPisPasep;
+	}
 }

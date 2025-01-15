@@ -54,15 +54,13 @@ public enum TpAcConv {
 
 	/**
 	 * Sentença judicial (exceto reclamatória trabalhista)
-	 * 
-	 * 
+	 *
 	 */
 	I,
 
 	/**
 	 * Parcelas complementares conhecidas após o fechamento da folha
-	 * 
-	 * 
+	 *
 	 */
 	J;
 

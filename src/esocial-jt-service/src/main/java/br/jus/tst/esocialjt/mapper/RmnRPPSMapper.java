@@ -12,7 +12,7 @@ import br.jus.tst.esocial.esquemas.eventos.rmnrpps.ObjectFactory;
 import br.jus.tst.esocial.ocorrencia.dados.RmnRPPS;
 import br.jus.tst.esocialjt.util.LimpadorNulos;
 
-@Mapper(uses = { ObjectFactory.class, XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
+@Mapper(uses = { XMLGregorianCalendarMapper.class, IdeEventoMapper.class })
 public abstract class RmnRPPSMapper {
 
 	public static final RmnRPPSMapper INSTANCE = Mappers.getMapper(RmnRPPSMapper.class);

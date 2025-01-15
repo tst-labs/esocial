@@ -1,5 +1,7 @@
 package br.jus.tst.esocial.dominio.estabelecimentolotacao;
 
+import br.jus.tst.esocial.dominio.folha.DescFolha;
+
 import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
@@ -22,6 +24,8 @@ public class DetVerbas {
 	private BigDecimal vrRubr;
 	
 	private Byte indApurIR;
+
+	private DescFolha descFolha;
 
 	public String getCodRubr() {
 		return codRubr;
@@ -70,5 +74,12 @@ public class DetVerbas {
 	public void setIndApurIR(Byte indApurIR) {
 		this.indApurIR = indApurIR;
 	}
-	
+
+	public DescFolha getDescFolha() {
+		return descFolha;
+	}
+
+	public void setDescFolha(DescFolha descFolha) {
+		this.descFolha = descFolha;
+	}
 }

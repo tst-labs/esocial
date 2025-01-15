@@ -5,6 +5,8 @@ public class InfoInterm {
 	private Byte qtdDiasInterm;
 
 	private Byte dia;
+
+	private String hrsTrab;
 	
 	public Byte getQtdDiasInterm() {
 		return qtdDiasInterm;
@@ -22,4 +24,11 @@ public class InfoInterm {
 		this.dia = dia;
 	}
 
+	public String getHrsTrab() {
+		return hrsTrab;
+	}
+
+	public void setHrsTrab(String hrsTrab) {
+		this.hrsTrab = hrsTrab;
+	}
 }
