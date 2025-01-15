@@ -1,0 +1,6 @@
+Release Notes for {{ .Chart.Name }}:
+- Version: {{ .Chart.Version }}
+- Environment: {{ .Values.environment | default "N/A" }}
+- Commit: {{ .Values.commitHash | default "N/A" }}
+- Deployed to namespace: {{ .Release.Namespace }}
+- icon: {{ .Chart.Icon | default "N/A" }}

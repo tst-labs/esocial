@@ -1,0 +1,116 @@
+################################################################
+#  ConfigMap
+################################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.backend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.backend.name}}
+data:
+  {{- range $key, $value := .Values.backend.env }}
+    {{ $key | upper }}: {{ $value | quote }}
+  {{- end }}
+
+---
+################################################################
+#  Deployment
+################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.backend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.backend.name }}
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.backend.name}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.backend.name}}
+    spec:
+      securityContext:
+        runAsUser: {{ .Values.backend.usuario }}
+        runAsGroup: {{ .Values.backend.grupo }}
+        fsGroup: {{ .Values.backend.grupo }}
+      imagePullSecrets:
+        - name: gitlab-registry-secret
+      containers:
+      - envFrom:
+          - configMapRef:
+              name: {{ .Values.backend.name }}
+        name: {{ .Values.backend.name}}
+        image: "{{ .Values.backend.image }}"
+        # image: "{{ .Values.backend.image }}:{{ .Values.ambiente }}"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: {{ .Values.backend.port }}
+            protocol: {{ .Values.backend.protocol }}
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "1Gi"
+          limits:
+            cpu: "800m"
+            memory: "1Gi"
+        volumeMounts:
+          - mountPath: /config
+            name: esocial-certificado
+      volumes:
+        - configMap:
+            name: esocial-certificado
+          name: esocial-certificado
+
+---
+################################################################
+#  Service
+################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.backend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.backend.name}}
+spec:
+  selector:
+    app: {{ .Values.backend.name }}                            
+  ports:
+  - name: {{ .Values.backend.name }}
+    port: {{ .Values.backend.port }}
+    targetPort: {{ .Values.backend.port }}
+    protocol: {{ .Values.backend.protocol }}
+  type: ClusterIP
+
+---
+################################################################
+#  Route
+################################################################
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ .Values.backend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    {{- if eq .Values.ambiente "stage" }}
+    intranet-stage: "true"
+    {{- else }}
+    intranet: "true"
+    {{- end }}
+spec:
+  host: {{ .Values.backend.host}}
+  port:
+    targetPort: {{ .Values.backend.port }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: {{ .Values.backend.name }}
+
+---

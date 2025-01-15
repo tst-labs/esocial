@@ -1,0 +1,54 @@
+ambiente: "production"
+
+################################################################
+#  Esocial-JT backend
+################################################################
+backend:
+  host: esocial-jt-api.tjdft.jus.br
+  env:
+    ESOCIALJT_AMBIENTE: PRODUCAO
+    ESOCIALJT_ARQUIVOCERTIFICADO: /config/esocial.pfx
+    ESOCIALJT_CNPJ_EMPREGADOR: 00531954000120
+    JAVA_OPTS: '-Xms512m -Xmx2g'
+    KEYCLOAK_AUTH_SERVER_URL: 'https://sso.tjdft.jus.br/auth'
+    KEYCLOAK_BEARER_ONLY: 'true'
+    KEYCLOAK_CONFIDENTIAL_PORT: '0'
+    KEYCLOAK_ENABLED: 'true'
+    KEYCLOAK_REALM: SUDES
+    KEYCLOAK_RESOURCE: esocialjt-backend
+    KEYCLOAK_SSL_REQUIRED: external
+    LOGGING_FILE_NAME: esocial-service.log
+    LOGGING_FILE_PATH: /var/log
+    LOGGING_LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE: 10MB
+    LOGGING_LOGBACK_ROLLINGPOLICY_MAX_HISTORY: '7'
+    LOGGING_LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP: 100MB
+    MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: 'metrics, info, health, esocialhealth'
+    MANAGEMENT_ENDPOINT_HEALTH_ENABLED: 'true'
+    MANAGEMENT_ENDPOINT_METRICS_ENABLED: 'true'
+    SPRING_DATASOURCE_HIKARI_CONNECTION_TIMEOUT: '50000'
+    SPRING_DATASOURCE_HIKARI_IDLE_TIMEOUT: '300000'
+    SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: '20'
+    SPRING_DATASOURCE_HIKARI_MAX_LIFETIME: '900000'
+    SPRING_DATASOURCE_HIKARI_MINIMUM_IDLE: '10'
+    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-prod.tjdft.jus.br:6432/esocial_jt'
+    SPRING_DATASOURCE_USERNAME: esocial
+    SPRING_FLYWAY_BASELINE_ON_MIGRATE: 'true'
+    SPRING_SECURITY_CSRF_ENABLED: 'false'
+    SPRING_WEBFLUX_CORS_ENABLED: 'false'
+    TZ: America/Sao_Paulo
+
+################################################################
+#  Esocial-JT frontend
+################################################################
+frontend:
+  host: esocial-jt-frontend.tjdft.jus.br
+  env:
+    FRONTEND_ENV_ESOCIAL_JT_SERVICE_URL: 'https://esocial-jt-api.tjdft.jus.br/esocial-jt-service/'
+    FRONTEND_ENV_HABILITA_CABECALHO: S
+    FRONTEND_ENV_KEYCLOAK_CLIENT_ID: esocialjt-frontend
+    FRONTEND_ENV_KEYCLOAK_REALM: SUDES
+    FRONTEND_ENV_KEYCLOAK_URL: 'https://sso.tjdft.jus.br/auth'
+    FRONTEND_ENV_NOME_APP: eSocial (Produção)
+    FRONTEND_ENV_PRIMARY_COLOR: '#0067A0'
+    FRONTEND_ENV_PRODUCAO_RESTRITA: 'N'
+    FRONTEND_ENV_SECONDARY_COLOR: '#19857b'

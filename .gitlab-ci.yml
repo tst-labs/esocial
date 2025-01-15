@@ -59,6 +59,9 @@ build_frontend:
   dependencies:
     - build_backend
 
+#===============================================================
+# Ambiente desenv oficial
+#===============================================================
 deploy_backend_desenv:
   <<: *template_deploy
   rules:
@@ -74,6 +77,25 @@ deploy_backend_desenv:
   dependencies:
     - build_backend
 
+deploy_frontend_desenv:
+  <<: *template_deploy
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
+  variables:
+    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
+    CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
+    IMAGE_NAME: ${IMAGE_NAME_STAGE}
+    SERVICE_NAME: esocial-jt-frontend
+    IMAGE_TAG: desenv
+  before_script:
+    - SA_USER_TOKEN=$SA_USER_TOKEN_STAGE
+  dependencies:
+    - build_backend
+    - build_frontend
+
+#===============================================================
+# Ambiente desenv testes
+#===============================================================
 deploy_backend_desenv_teste:
   <<: *template_deploy
   rules:
@@ -105,22 +127,9 @@ deploy_frontend_desenv_teste:
     - build_backend
     - build_frontend
 
-deploy_frontend_desenv:
-  <<: *template_deploy
-  rules:
-    - if: $CI_COMMIT_TAG =~ /^stage-.*$/
-  variables:
-    DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
-    CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
-    IMAGE_NAME: ${IMAGE_NAME_STAGE}
-    SERVICE_NAME: esocial-jt-frontend
-    IMAGE_TAG: desenv
-  before_script:
-    - SA_USER_TOKEN=$SA_USER_TOKEN_STAGE
-  dependencies:
-    - build_backend
-    - build_frontend
-
+#===============================================================
+# Ambiente produção
+#===============================================================
 deploy_backend_prod:
   <<: *template_deploy
   rules:

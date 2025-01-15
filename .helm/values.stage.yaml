@@ -1,0 +1,29 @@
+ambiente: "stage"
+
+################################################################
+#  Esocial-JT (oficial)
+################################################################
+backend:
+  host: esocial-jt-api.apps.tjdft.jus.br
+  env:    
+    ESOCIALJT_CNPJ_EMPREGADOR: 00531954000120
+    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-desenv.tjdft.jus.br:6432/esocial_jt'
+frontend:
+  host: esocial-jt-frontend.apps.tjdft.jus.br
+  env:
+    FRONTEND_ENV_NOME_APP: eSocial (Desenv - 00531954000120)
+
+################################################################
+#  Esocial-JT (testes)
+################################################################
+backend-teste:
+  host: esocial-app-teste.apps.tjdft.jus.br 
+  env:
+    ESOCIALJT_CNPJ_EMPREGADOR: 00531954003146
+    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-desenv.tjdft.jus.br:6432/esocial_jt_teste'
+frontend-teste:
+  host: esocial-jt-frontend-teste.apps.tjdft.jus.br 
+  env:
+    FRONTEND_ENV_NOME_APP: eSocial (Desenv - 00531954003146)
+    
+    

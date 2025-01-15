@@ -1,0 +1,113 @@
+################################################################
+#  ConfigMap
+################################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.frontend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.frontend.name}}
+data:
+  {{- range $key, $value := .Values.frontend.env }}
+    {{ $key | upper }}: {{ $value | quote }}
+  {{- end }}
+
+---
+################################################################
+#  Deployment
+################################################################
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.frontend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.frontend.name }}
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.frontend.name}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.frontend.name}}
+    spec:
+      securityContext:
+        runAsUser: {{ .Values.frontend.usuario }}
+        runAsGroup: {{ .Values.frontend.grupo }}
+        fsGroup: {{ .Values.frontend.grupo }}
+      imagePullSecrets:
+        - name: gitlab-registry-secret
+      containers:
+      - envFrom:
+          - configMapRef:
+              name: {{ .Values.frontend.name }}
+        name: {{ .Values.frontend.name}}
+        image: "{{ .Values.frontend.image }}"
+        # image: "{{ .Values.frontend.image }}:{{ .Values.ambiente }}"
+        imagePullPolicy: Always
+        ports:
+          - containerPort: {{ .Values.frontend.port }}
+            protocol: {{ .Values.frontend.protocol }}
+        resources:
+            requests:
+              cpu: "200m"
+              memory: "500Mi"
+            limits:
+              cpu: "500m"
+              memory: "500Mi"
+
+---
+################################################################
+#  Service
+################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.frontend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    app: {{ .Values.frontend.name}}
+spec:
+  selector:
+    app: {{ .Values.frontend.name }}                            
+  ports:
+    - name: 80-tcp
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  type: ClusterIP
+
+---
+################################################################
+#  Route
+################################################################
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: {{ .Values.frontend.name }}
+  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  labels:
+    {{- if eq .Values.ambiente "stage" }}
+    intranet-stage: "true"
+    {{- else }}
+    intranet: "true"
+    {{- end }}
+spec:
+  host: {{ .Values.frontend.host}}
+  port:
+    targetPort: {{ .Values.frontend.port }}
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: {{ .Values.frontend.name }}
+
+---
