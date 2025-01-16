@@ -88,7 +88,7 @@ build_backend_image:
   script:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/Dockerfile.backend" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}-backend:${ENVIRONMENT}"
+    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/src/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}-backend:${ENVIRONMENT}"
 
 # =================================================================================================
 # Build da imagem docker do frontend
@@ -102,7 +102,7 @@ build_frontend_image:
   script:
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/Dockerfile.frontend" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}-frontend:${ENVIRONMENT}"
+    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/frontend/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}-frontend:${ENVIRONMENT}"
 
 # =================================================================================================
 # Deploy no Openshift via Helm
@@ -111,6 +111,9 @@ deploy:
   stage: deploy
   image: ${CI_REGISTRY}/docker-images/helm:4.4.0
   extends: .default_rules
+  dependencies:
+    - build_backend_image
+    - build_frontend_image
   script:
     - echo "Deploying to ${ENVIRONMENT}"
     - echo "URL ${OPENSHIFT_URL}"
