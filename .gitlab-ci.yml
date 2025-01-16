@@ -62,8 +62,6 @@ package_frontend:
   image: ${CI_TEMPLATE_REGISTRY_HOST}node:16-bullseye
   stage: package
   extends: .default_rules
-  dependencies:
-    - package_backend
   script:
     - cd frontend/
     - yarn install --frozen-lockfile
@@ -83,7 +81,7 @@ build_backend_image:
   stage: build
   image: kaniko-project/executor:debug
   extends: .default_rules
-  dependencies:
+  needs:
     - package_backend
   script:
     - mkdir -p /kaniko/.docker
@@ -97,7 +95,7 @@ build_frontend_image:
   stage: build
   image: kaniko-project/executor:debug
   extends: .default_rules
-  dependencies:
+  needs:
     - package_frontend
   script:
     - mkdir -p /kaniko/.docker
@@ -111,7 +109,7 @@ deploy:
   stage: deploy
   image: ${CI_REGISTRY}/docker-images/helm:4.4.0
   extends: .default_rules
-  dependencies:
+  needs:
     - build_backend_image
     - build_frontend_image
   script:
