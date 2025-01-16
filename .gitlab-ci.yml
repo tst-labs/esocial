@@ -115,7 +115,7 @@ build_frontend_image:
   variables:
     CONTEXT_DIR: ${CI_PROJECT_DIR}/frontend
     DOCKERFILE_DIR: ${CI_PROJECT_DIR}/frontend/Dockerfile
-    DESTINATION: ${IMAGE_PATH}/frontend:production
+    DESTINATION: ${IMAGE_PATH}/frontend:stage
   needs:
     - package_frontend
 
