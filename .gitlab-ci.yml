@@ -42,65 +42,65 @@ stages:
 # =================================================================================================
 # Package artefatos do backend
 # =================================================================================================
-package_backend:
-  image: adoptopenjdk/maven-openjdk8
-  stage: package
-  extends: .default_rules
-  script:
-    - cd src/
-    - mvn -B verify
-  artifacts:
-    when: on_success
-    paths:
-      - ${CI_PROJECT_DIR}/src/esocial-jt-service/target
-    expire_in: 1 day
+# package_backend:
+#   image: adoptopenjdk/maven-openjdk8
+#   stage: package
+#   extends: .default_rules
+#   script:
+#     - cd src/
+#     - mvn -B verify
+#   artifacts:
+#     when: on_success
+#     paths:
+#       - ${CI_PROJECT_DIR}/src/esocial-jt-service/target
+#     expire_in: 1 day
 
 # =================================================================================================
 # Package artefatos do frontend
 # =================================================================================================
-# package_frontend:
-#   image: ${CI_TEMPLATE_REGISTRY_HOST}node:16-bullseye
-#   stage: package
-#   extends: .default_rules
-#   script:
-#     - cd frontend/
-#     - yarn install --frozen-lockfile
-#     - yarn lint
-#     - yarn test
-#     - yarn build
-#   artifacts:
-#     when: on_success
-#     paths:
-#       - ${CI_PROJECT_DIR}/frontend/build
-#     expire_in: 1 day
+package_frontend:
+  image: ${CI_TEMPLATE_REGISTRY_HOST}node:16-bullseye
+  stage: package
+  extends: .default_rules
+  script:
+    - cd frontend/
+    - yarn install --frozen-lockfile
+    - yarn lint
+    - yarn test
+    - yarn build
+  artifacts:
+    when: on_success
+    paths:
+      - ${CI_PROJECT_DIR}/frontend/build
+    expire_in: 1 day
 
 # =================================================================================================
 # Build da imagem docker do backend
 # =================================================================================================
-build_backend_image:
-  stage: build
-  image: kaniko-project/executor:debug
-  extends: .default_rules
-  needs:
-    - package_backend
-  script:
-    - mkdir -p /kaniko/.docker
-    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/src/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}:${ENVIRONMENT}"
-
-# =================================================================================================
-# Build da imagem docker do frontend
-# =================================================================================================
-# build_frontend_image:
+# build_backend_image:
 #   stage: build
 #   image: kaniko-project/executor:debug
 #   extends: .default_rules
 #   needs:
-#     - package_frontend
+#     - package_backend
 #   script:
 #     - mkdir -p /kaniko/.docker
 #     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-#     - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/frontend/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}:${ENVIRONMENT}"
+#     - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/src/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}:${ENVIRONMENT}"
+
+# =================================================================================================
+# Build da imagem docker do frontend
+# =================================================================================================
+build_frontend_image:
+  stage: build
+  image: kaniko-project/executor:debug
+  extends: .default_rules
+  needs:
+    - package_frontend
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/frontend/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}/frontend:${ENVIRONMENT}"
 
 # =================================================================================================
 # Deploy no Openshift via Helm
@@ -110,8 +110,8 @@ deploy:
   image: ${CI_REGISTRY}/docker-images/helm:4.4.0
   extends: .default_rules
   needs:
-    - build_backend_image
-    # - build_frontend_image
+    # - build_backend_image
+    - build_frontend_image
   script:
     - echo "Deploying to ${ENVIRONMENT}"
     - echo "URL ${OPENSHIFT_URL}"
