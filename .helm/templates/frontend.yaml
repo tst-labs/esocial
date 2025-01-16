@@ -57,6 +57,22 @@ spec:
             limits:
               cpu: "500m"
               memory: "500Mi"
+        volumeMounts:
+        - name: var-volume
+          mountPath: /var/log/nginx
+          readOnly: false
+        - name: var-volume
+          mountPath: /var/cache/nginx
+          readOnly: false
+        - name: var-volume
+          mountPath: /var/run
+          readOnly: false
+        - name: var-volume
+          mountPath: /etc/nginx/conf.d/
+          readOnly: false
+      volumes:
+      - name: var-volume
+        emptyDir: {}
 
 ---
 ################################################################
