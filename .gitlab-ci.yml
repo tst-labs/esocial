@@ -72,6 +72,7 @@ package_frontend:
     when: on_success
     paths:
       - ${CI_PROJECT_DIR}/frontend/build
+      - ${CI_PROJECT_DIR}/frontend/Dockerfile
     expire_in: 1 day
 
 # =================================================================================================
