@@ -45,8 +45,8 @@ spec:
           - configMapRef:
               name: {{ .Values.backend.name }}
         name: {{ .Values.backend.name}}
-        image: "{{ .Values.backend.image }}"
-        # image: "{{ .Values.backend.image }}:{{ .Values.ambiente }}"
+        # image: "{{ .Values.backend.image }}"
+        image: "{{ .Values.backend.image }}:{{ .Values.ambiente }}"
         imagePullPolicy: Always
         ports:
           - containerPort: {{ .Values.backend.port }}
