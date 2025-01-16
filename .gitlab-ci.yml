@@ -71,7 +71,7 @@ package_frontend:
   artifacts:
     when: on_success
     paths:
-      - frontend/build
+      - ${CI_PROJECT_DIR}/frontend/build
     expire_in: 1 day
 
 # =================================================================================================
@@ -98,9 +98,10 @@ build_frontend_image:
   needs:
     - package_frontend
   script:
+    - ls ${CI_PROJECT_DIR}/frontend/build
     - mkdir -p /kaniko/.docker
     - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_JOB_TOKEN}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
-    - /kaniko/executor --context "${CI_PROJECT_DIR}/frontend/build" --dockerfile "${CI_PROJECT_DIR}/frontend/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}/frontend:${ENVIRONMENT}"
+    - /kaniko/executor --context "${CI_PROJECT_DIR}" --dockerfile "${CI_PROJECT_DIR}/frontend/Dockerfile" --build-arg "release='${CI_COMMIT_SHA}'" --destination "${IMAGE_PATH}/frontend:${ENVIRONMENT}"
 
 # =================================================================================================
 # Deploy no Openshift via Helm
