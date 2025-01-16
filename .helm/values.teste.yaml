@@ -1,10 +1,11 @@
-ambiente: "teste"
+ambiente: "stage"
 
 ################################################################
 #  Esocial-JT (testes)
 ################################################################
 backend:
   host: esocial-jt-api-teste.apps.tjdft.jus.br
+  name: esocialjt-backend-teste
   env:
     ESOCIALJT_AMBIENTE: PRODUCAO_RESTRITA
     ESOCIALJT_CNPJ_EMPREGADOR: 00531954003146
@@ -13,7 +14,8 @@ backend:
     KEYCLOAK_AUTH_SERVER_URL: 'https://sso.apps.tjdft.jus.br/auth'
     SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-desenv.tjdft.jus.br:6432/esocial_jt_teste'
 frontend:
-  host: esocial-jt-frontend-teste.apps.tjdft.jus.br 
+  host: esocial-jt-frontend-teste.apps.tjdft.jus.br
+  name: esocialjt-frontend-teste
   env:
     FRONTEND_ENV_ESOCIAL_JT_SERVICE_URL: 'https://esocial-jt-api-teste.apps.tjdft.jus.br/esocial-jt-service/'
     FRONTEND_ENV_KEYCLOAK_URL: 'https://sso.apps.tjdft.jus.br/auth'
