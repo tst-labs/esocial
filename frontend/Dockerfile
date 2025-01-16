@@ -14,3 +14,6 @@ RUN mkdir -p /var/cache/nginx/client_temp && \
 
 # Alterna para o usuário nginx
 USER nginx
+
+# Inicia o nginx como comando padrão
+CMD ["nginx", "-g", "daemon off;"]
