@@ -1,9 +1,7 @@
 version: "3.5"
 services:
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: tstlabs/esocial-jt-frontend:latest
     container_name: esocial-jt-frontend
     ports:
       - "80:8080"
