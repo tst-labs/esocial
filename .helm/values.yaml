@@ -3,8 +3,7 @@
 ################################################################
 backend:
   name: esocialjt-backend
-  image: registry-gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/esocialjt-frontend
-  # image: tstlabs/esocial-jt-service:latest
+  image: registry-gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/backend
   replicas: 1
   port: 8080
   protocol: TCP
@@ -41,8 +40,7 @@ backend:
     TZ: America/Sao_Paulo
 frontend:
   name: esocialjt-frontend
-  image: registry-gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/esocialjt-frontend
-  # image: tstlabs/esocial-jt-frontend:latest
+  image: registry-gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/frontend
   replicas: 1
   port: 8080
   protocol: TCP
