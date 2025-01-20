@@ -1,3 +1,5 @@
+sufixo_ambiente: ""
+
 ################################################################
 #  Esocial-JT (oficial)
 ################################################################
@@ -34,6 +36,10 @@ backend:
     SPRING_SECURITY_CSRF_ENABLED: 'false'
     SPRING_WEBFLUX_CORS_ENABLED: 'false'
     TZ: America/Sao_Paulo
+
+################################################################
+#  Esocial-JT frontend
+################################################################
 frontend:
   name: esocialjt-frontend
   image: registry-gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/frontend

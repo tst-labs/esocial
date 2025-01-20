@@ -32,11 +32,11 @@ stages:
         OPENSHIFT_TOKEN: "${OPENSHIFT_TOKEN_STAGE}"
       when: always
     # Regra para quando gera tag para stage de testes
-    - if: '$CI_COMMIT_TAG =~ /^teste-.*$/'
+    - if: '$CI_COMMIT_TAG =~ /^testes-.*$/'
       variables:
-        ENVIRONMENT: "teste"
+        ENVIRONMENT: "testes"
         OPENSHIFT_URL: "${OPENSHIFT_URL_STAGE}"
-        OPENSHIFT_TOKEN: "${OPENSHIFT_TOKEN_STAGE}"
+        OPENSHIFT_TOKEN: "${OPENSHIFT_TOKEN_STAGE_TESTES}"
       when: always
     # Regra para quando gera tag para produção
     - if: $CI_COMMIT_TAG =~ /^production-.*$/

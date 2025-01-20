@@ -11,11 +11,7 @@ backend:
     LOGGING_LEVEL_ORG_HIBERNATE: ERROR
     LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: DEBUG
     KEYCLOAK_AUTH_SERVER_URL: 'https://sso.tjdft.jus.br/auth'
-    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-prod.tjdft.jus.br:6432/esocial_jt'
-
-################################################################
-#  Esocial-JT frontend
-################################################################
+    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-prod.tjdft.jus.br:6432/esocial_jt?prepareThreshold=0'
 frontend:
   host: esocial-jt-frontend.tjdft.jus.br
   env:

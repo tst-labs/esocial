@@ -5,7 +5,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.backend.name }}
-  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  namespace: {{ .Chart.Name }}{{ .Values.sufixo_ambiente }}-{{ .Values.ambiente }}
   labels:
     app: {{ .Values.backend.name}}
 data:
@@ -15,13 +15,30 @@ data:
 
 ---
 ################################################################
+#  ConfigMap (Certificado A1 do TJDFT)
+################################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: esocial-certificado
+binaryData:
+  esocial.pfx: |-
+{{- if or (eq .Values.ambiente "stage") (eq .Values.ambiente "production") }}
+{{ .Files.Get "certificados/esocial_00531954000120.pfx" | b64enc | indent 4 }}
+{{- else if eq .Values.ambiente "teste" }}
+{{ .Files.Get "certificados/esocial_00531954003146.pfx" | b64enc | indent 4 }}
+{{- else }}
+{{- end }}
+
+---
+################################################################
 #  Deployment
 ################################################################
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.backend.name }}
-  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  namespace: {{ .Chart.Name }}{{ .Values.sufixo_ambiente }}-{{ .Values.ambiente }}
   labels:
     app: {{ .Values.backend.name }}
 spec:
@@ -33,6 +50,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.backend.name}}
+      annotations:
+        deploy-date: {{ now | quote }}
     spec:
       securityContext:
         runAsUser: {{ .Values.backend.usuario }}
@@ -73,7 +92,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.backend.name }}
-  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  namespace: {{ .Chart.Name }}{{ .Values.sufixo_ambiente }}-{{ .Values.ambiente }}
   labels:
     app: {{ .Values.backend.name}}
 spec:
@@ -94,7 +113,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: {{ .Values.backend.name }}
-  namespace: {{ .Chart.Name }}-{{ .Values.ambiente }}
+  namespace: {{ .Chart.Name }}{{ .Values.sufixo_ambiente }}-{{ .Values.ambiente }}
   labels:
     {{- if eq .Values.ambiente "stage" }}
     intranet-stage: "true"

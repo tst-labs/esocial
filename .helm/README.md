@@ -93,14 +93,22 @@ ENVIRONMENT=stage
 CI_COMMIT_SHA=teste
 SOPS_AGE_KEY=${SOPS_AGE_KEY} sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $OPENSHIFT_PROJECT .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
 
-# Ambiente de produção:
-oc login --token=<LOGIN_TOKEN_OPENSHIFT> --server=https://api.ocp4bm1.tjdft.jus.br:6443
-oc project esocial-production
-OPENSHIFT_PROJECT=esocial
-ENVIRONMENT=production
+# Ambiente de desenvolvimento (testes):
+oc login --token=<LOGIN_TOKEN_OPENSHIFT> --server=https://api.ocp4bm2.tjdft.jus.br:6443
+oc project esocialjttestes-stage
+OPENSHIFT_PROJECT=esocialjttestes
+ENVIRONMENT=testes
 CI_COMMIT_SHA=teste
 SOPS_AGE_KEY=${SOPS_AGE_KEY} sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $OPENSHIFT_PROJECT .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
 
+# Ambiente de produção:
+oc login --token=<LOGIN_TOKEN_OPENSHIFT> --server=https://api.ocp4bm1.tjdft.jus.br:6443
+oc project esocialjt-production
+OPENSHIFT_PROJECT=esocialjt
+ENVIRONMENT=production
+CI_COMMIT_SHA=teste
+SOPS_AGE_KEY=AGE-SECRET-KEY-158Y3VM5YHEWY5T4M44X96QT753TG35YS0C85PPJNXHWTV4CDXGFQ5L90MV sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $OPENSHIFT_PROJECT .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
+
 ## 8) Remover o helm
-helm uninstall esocial
+helm uninstall esocialjt
 ```
