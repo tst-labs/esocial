@@ -70,9 +70,10 @@ oc project esocial-stage
 ```bash
 rm -f key.txt && \
 age-keygen -o key.txt && \
-AGE_PUBLIC_KEY=$(grep "public key:" key.txt | awk '{print $4}') && \
+AGE_PUBLIC_KEY=age1y2r53xt24x685mh7lcfxcvjxyef5hfmea3j8mxtjqvls745vlvgq3sduaa && \
 echo "Chave pública gerada: $AGE_PUBLIC_KEY" && \
 sops -e -i --age "$AGE_PUBLIC_KEY" ./.helm/secrets.stage.yaml && \
+sops -e -i --age "$AGE_PUBLIC_KEY" ./.helm/secrets.testes.yaml && \
 sops -e -i --age "$AGE_PUBLIC_KEY" ./.helm/secrets.production.yaml && \
 echo "Criptografia concluída!"
 
@@ -107,8 +108,8 @@ oc project esocialjt-production
 OPENSHIFT_PROJECT=esocialjt
 ENVIRONMENT=production
 CI_COMMIT_SHA=teste
-SOPS_AGE_KEY=AGE-SECRET-KEY-158Y3VM5YHEWY5T4M44X96QT753TG35YS0C85PPJNXHWTV4CDXGFQ5L90MV sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $OPENSHIFT_PROJECT .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
+SOPS_AGE_KEY=${SOPS_AGE_KEY} sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $OPENSHIFT_PROJECT .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
 
 ## 8) Remover o helm
-helm uninstall esocialjt
+helm uninstall esocialjttestes
 ```

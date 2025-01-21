@@ -15,6 +15,18 @@ data:
 
 ---
 ################################################################
+#  ConfigMap (nginx.conf)
+################################################################
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+data:
+  nginx.conf: |
+{{ .Files.Get "files/nginx/nginx.conf" | indent 4 }}
+
+---
+################################################################
 #  Deployment
 ################################################################
 apiVersion: apps/v1
@@ -54,7 +66,7 @@ spec:
             protocol: {{ .Values.frontend.protocol }}
         resources:
             requests:
-              cpu: "200m"
+              cpu: "300m"
               memory: "500Mi"
             limits:
               cpu: "500m"
@@ -72,9 +84,15 @@ spec:
         - name: var-volume
           mountPath: /etc/nginx/conf.d/
           readOnly: false
+        - name: nginx-config
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
       volumes:
       - name: var-volume
         emptyDir: {}
+      - name: nginx-config
+        configMap:
+          name: nginx-config
 
 ---
 ################################################################
