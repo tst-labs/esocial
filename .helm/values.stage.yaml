@@ -17,5 +17,5 @@ frontend:
   env:
     FRONTEND_ENV_ESOCIAL_JT_SERVICE_URL: 'https://esocial-jt-api.apps.tjdft.jus.br/esocial-jt-service/'
     FRONTEND_ENV_KEYCLOAK_URL: 'https://sso.apps.tjdft.jus.br/auth'
-    FRONTEND_ENV_NOME_APP: eSocial (Desenv - 00531954000120)    
+    FRONTEND_ENV_NOME_APP: eSocial (00531954000120 - TRIBUNAL DE JUSTICA)
     FRONTEND_ENV_PRODUCAO_RESTRITA: 'S'
