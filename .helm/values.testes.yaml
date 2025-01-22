@@ -1,0 +1,24 @@
+ambiente: "stage"
+sufixo_ambiente: "testes"
+
+################################################################
+#  Esocial-JT (testes)
+################################################################
+backend:
+  host: esocial-jt-api-teste.apps.tjdft.jus.br
+  env:
+    ESOCIALJT_AMBIENTE: PRODUCAO_RESTRITA
+    ESOCIALJT_CNPJ_EMPREGADOR: '00531954003146'
+    LOGGING_LEVEL_ORG_HIBERNATE: ERROR
+    LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB: DEBUG
+    KEYCLOAK_AUTH_SERVER_URL: 'https://sso.apps.tjdft.jus.br/auth'
+    SPRING_DATASOURCE_URL: 'jdbc:postgresql://pg-desenv.tjdft.jus.br:6432/esocial_jt_teste?prepareThreshold=0'
+frontend:
+  host: esocial-jt-frontend-teste.apps.tjdft.jus.br
+  env:
+    FRONTEND_ENV_ESOCIAL_JT_SERVICE_URL: 'https://esocial-jt-api-teste.apps.tjdft.jus.br/esocial-jt-service/'
+    FRONTEND_ENV_KEYCLOAK_URL: 'https://sso.apps.tjdft.jus.br/auth'
+    FRONTEND_ENV_NOME_APP: eSocial (00531954003146 - CORREGEDORIA DO TJDFT)
+    FRONTEND_ENV_PRODUCAO_RESTRITA: 'S'
+    FRONTEND_ENV_PRIMARY_COLOR: '#24a75d'
+    FRONTEND_ENV_SECONDARY_COLOR: '#19857b'
