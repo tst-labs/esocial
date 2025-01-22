@@ -4,4 +4,4 @@ description: Helm chart para aplicação eSocial-JT
 type: application
 version: 0.1.0
 appVersion: "1.16.0"
-icon: "https://gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/-/raw/main/logo.png"
+icon: "https://gitlab.tjdft.jus.br/cosoft/nusof5/esocial/esocial-jt/-/raw/oc4-migracao/.helm/files/logo.png"
