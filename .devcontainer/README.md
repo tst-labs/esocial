@@ -3,12 +3,13 @@
 - [Esocial-JT](#esocial-jt)
   - [Instalação inicial](#instalação-inicial)
   - [Configuração do projeto](#configuração-do-projeto)
-  - [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds)
-  - [Subir a aplicação localmente](#subir-a-aplicação-localmente)
-  - [Publicar branch no Gitlab do TJDFT](#publicar-branch-no-gitlab-do-tjdft)
-  - [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab)
-  - [Criar PR para Github do eSocial](#criar-pr-para-github-do-esocial)
-  - [Atualizar o repositório oficial do TST para Gitlab TJDFT](#atualizar-o-repositório-oficial-do-tst-para-gitlab-tjdft)
+  - [Para fins de desenvolvimento de uma PR](#para-fins-de-desenvolvimento-de-uma-pr)
+    - [1 Passo: Atualização dos arquivos XSDs](#1-passo-atualização-dos-arquivos-xsds)
+    - [2 Passo: Subir a aplicação localmente](#2-passo-subir-a-aplicação-localmente)
+    - [3 Passo Publicar branch no Gitlab do TJDFT](#3-passo-publicar-branch-no-gitlab-do-tjdft)
+    - [4 Passo: Realizar deploy da aplicação no Gitlab](#4-passo-realizar-deploy-da-aplicação-no-gitlab)
+    - [5 Passo: Criar PR para Github do eSocial](#5-passo-criar-pr-para-github-do-esocial)
+    - [6 Passo: Atualizar o repositório oficial do TST para Gitlab TJDFT](#6-passo-atualizar-o-repositório-oficial-do-tst-para-gitlab-tjdft)
 
 
 ## Instalação inicial
@@ -23,14 +24,9 @@ $ cd esocial-jt/
 
 # Aproveite para renomear o repositório do TJDFT para não confundir com os outros repositórios que serão adicionados a seguir
 $ git remote rename origin gitlab-tjdft
-```
 
-2) Adição de outros repositórios
-
-Fazer um fork do [projeto esocial oficial](https://github.com/tst-labs/esocial) para seu usuário pessoal do git para fins de envio do PR para repositório github oficial do TST.
-
-```bash
-# Adicionar o repositório apontando para seu repositório do github:
+# Adicionar o repositório pessoal apontando para seu repositório do github 
+# para fins de envio do PR para repositório github oficial do TST
 $ git remote add github-tst-pessoal https://github.com/<SEU_USUARIO_GITHUB>/esocial.git
 
 # Adicionar o repositório apontando para repositório oficial do TST:
@@ -56,7 +52,9 @@ $ ./.devcontainer/iniciar.sh
 
 2) Abrir o projeto em modo `devcontainer` aguarde toda a instalação.
 
-## Atualização dos arquivos XSDs
+## Para fins de desenvolvimento de uma PR
+
+### 1 Passo: Atualização dos arquivos XSDs
 
 Obs.: Pule esse tópico, somente se não atualizar os arquivos XSDs.
 
@@ -96,12 +94,12 @@ mvn clean verify -f /workspace/src/pom.xml
 
 >2 - No pior caso, alterar/Corrigir alguma(s) classe(s) do projeto (pode ser guiado pelo erros no console).
 
-## Subir a aplicação localmente
+### 2 Passo: Subir a aplicação localmente
 
 1) No vscode (modo devcontainer), vá no ícone à esquerda chamado de `Spring Boot Dashboard` e dê o play no app `esocial-jt-service` e aguarde subir a aplicação.
 2) Acesse o endereço http://localhost
 
-## Publicar branch no Gitlab do TJDFT
+### 3 Passo Publicar branch no Gitlab do TJDFT
 
 1) Com o [branch já criado](#atualização-dos-arquivos-xsds) e com as alterações necessárias, será necessário testar a aplicação, antes mesmo de enviar [um novo PR para Github oficial do TST](#criar-pr-para-github-do-esocial).
 
@@ -112,7 +110,7 @@ git push gitlab-tjdft <NOME_BRANCH>
 
 > **IMPORTANTÍSSIMO**: Não comitar o arquivo [application.properties](../src/esocial-jt-service/src/main/resources/application.properties) pois existem variáveis sensíveis tais como a senha do certificado.
 
-## Realizar deploy da aplicação no Gitlab
+### 4 Passo: Realizar deploy da aplicação no Gitlab
 
 Depois de comitado a branch, basta criar uma tag com mesmo padrão citado no item [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds), adicionando antes do nome da tag:
 
@@ -120,7 +118,7 @@ Depois de comitado a branch, basta criar uma tag com mesmo padrão citado no ite
 
 - Ambiente produção: **production-**: `production-atualizacao-xsds-nt-<MES_NOTA_TECNICA>-<ANO_NOTA_TECNICA>-rev-<DIA_REV>-<MES_REV>-<ANO_REV>-tjdft`
 
-## Criar PR para Github do eSocial
+### 5 Passo: Criar PR para Github do eSocial
 
 Antes de publicar uma PR, crie um novo branch a partir do branch criado na etapa [Atualização dos arquivos XSDs](#atualização-dos-arquivos-xsds) adicionando no final **-tst**, por exemplo:
 
@@ -133,7 +131,7 @@ O objetivo dessa branch é para deletar arquivos peculiares do TJDFT que serão 
 git push github-tst-pessoal <NOME_BRANCH>
 ```
 
-## Atualizar o repositório oficial do TST para Gitlab TJDFT
+### 6 Passo: Atualizar o repositório oficial do TST para Gitlab TJDFT
 
 1) Quando o TST mergear o PR para o master, será necessário sincronizar todas as mudanças para repositório do TJDFT:
 
@@ -147,6 +145,9 @@ git fetch github-tst-oficial
 # Faz o merge do TST para o branch master do TJDFT
 git merge github-tst-oficial/master
 
+# Caso dê algum conflito, aceite todas alterações vindas do TST
+git checkout --theirs . && git add . && git commit
+
 # Só para mostrar as diferenças entre os repositórios (curiosidade)
 git remote show gitlab-tjdft u github-tst-oficial
 
@@ -154,7 +155,7 @@ git remote show gitlab-tjdft u github-tst-oficial
 git push gitlab-tjdft master
 ```
 
-2) Refazer o deploy, criar uma tag apontando a partir da branch **master** com o mesmo padrão feito no tópico [Realizar deploy da aplicação no Gitlab](#realizar-deploy-da-aplicação-no-gitlab), adicionando na frente do nome da tag a palavra **-oficial**.
+2) Refazer o deploy, criar uma tag apontando a partir da branch **master** com o mesmo padrão feito no tópico [Realizar deploy da aplicação no Gitlab](#3-passo-realizar-deploy-da-aplicação-no-gitlab), adicionando na frente do nome da tag a palavra **-oficial**.
 
 Isso é só um exemplo: 
 
