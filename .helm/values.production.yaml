@@ -19,3 +19,5 @@ frontend:
     FRONTEND_ENV_KEYCLOAK_URL: 'https://sso.tjdft.jus.br/auth'
     FRONTEND_ENV_NOME_APP: eSocial (Produção)
     FRONTEND_ENV_PRODUCAO_RESTRITA: 'N'
+    FRONTEND_ENV_PRIMARY_COLOR: '#ca3827'
+    FRONTEND_ENV_SECONDARY_COLOR: '#248ba7'
