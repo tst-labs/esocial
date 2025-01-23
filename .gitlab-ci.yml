@@ -148,4 +148,4 @@ deploy:
 
     # Descriptografa `secrets` e injeta-o no contexto para ser utilizado no template
     # Instala/atualiza Helm chart no Openshift
-    - SOPS_AGE_KEY=${SOPS_AGE_KEY} sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $HELM_CHART_NAME .helm/ -f .helm/values.${ENVIRONMENT}.yaml --values - --set environment=${ENVIRONMENT} --set commitHash=${CI_COMMIT_SHA}
+    - SOPS_AGE_KEY=${SOPS_AGE_KEY} sops -d .helm/secrets.${ENVIRONMENT}.yaml | helm upgrade --install $HELM_CHART_NAME ${HELM_CHART_DIR} -f ${HELM_CHART_DIR}/values.${ENVIRONMENT}.yaml --values - --set commitHash=${CI_COMMIT_SHA}
