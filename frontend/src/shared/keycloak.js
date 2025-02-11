@@ -31,10 +31,11 @@ export function initKeycloak() {
       if (!authenticated) {
         console.warn("Usuário não autenticado! Redirecionando...");
         keycloak.login();
+      } else {
+        console.log("Usuário autenticado com sucesso!");        
       }
     })
     .catch((err) => {
-      console.error("Falha ao iniciar o keycloak: ", err);
-      throw err;
+      console.error("Erro ao iniciar Keycloak:", err);
     });
 }
