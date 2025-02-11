@@ -24,12 +24,13 @@ export function initKeycloak() {
 
   return keycloak
     .init({
-      onLoad: "login-required"
+      onLoad: "login-required",
+      checkLoginIframe: false
     })
     .then((authenticated) => {
       if (!authenticated) {
-        console.warn(`Não autenticado!`);
-        login();
+        console.warn("Usuário não autenticado! Redirecionando...");
+        keycloak.login();
       }
     })
     .catch((err) => {

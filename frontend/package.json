@@ -10,7 +10,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.0",
-    "keycloak-js": "^16.1.1",
+    "keycloak-js": "^24.0.1",
     "muibox": "^2.0.0",
     "notistack": "^2.0.3",
     "prop-types": "^15.8.1",
