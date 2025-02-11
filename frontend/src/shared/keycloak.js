@@ -24,16 +24,18 @@ export function initKeycloak() {
 
   return keycloak
     .init({
-      onLoad: "login-required"
+      onLoad: "login-required",
+      checkLoginIframe: false
     })
     .then((authenticated) => {
       if (!authenticated) {
-        console.warn(`Não autenticado!`);
-        login();
+        console.warn("Usuário não autenticado! Redirecionando...");
+        keycloak.login();
+      } else {
+        console.log("Usuário autenticado com sucesso!");        
       }
     })
     .catch((err) => {
-      console.error("Falha ao iniciar o keycloak: ", err);
-      throw err;
+      console.error("Erro ao iniciar Keycloak:", err);
     });
 }
