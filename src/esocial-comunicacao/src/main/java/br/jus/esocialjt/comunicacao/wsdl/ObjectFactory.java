@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2021.03.05 às 03:20:20 PM BRT 
+// Gerado em: 2025.04.02 às 10:03:56 AM BRT 
 //
 
 
@@ -34,70 +34,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link ConsultarLoteEventos }
-     * 
-     */
-    public ConsultarLoteEventos createConsultarLoteEventos() {
-        return new ConsultarLoteEventos();
-    }
-
-    /**
-     * Create an instance of {@link ConsultarLoteEventosResponse }
-     * 
-     */
-    public ConsultarLoteEventosResponse createConsultarLoteEventosResponse() {
-        return new ConsultarLoteEventosResponse();
-    }
-
-    /**
-     * Create an instance of {@link EnviarLoteEventos }
-     * 
-     */
-    public EnviarLoteEventos createEnviarLoteEventos() {
-        return new EnviarLoteEventos();
-    }
-
-    /**
-     * Create an instance of {@link EnviarLoteEventosResponse }
-     * 
-     */
-    public EnviarLoteEventosResponse createEnviarLoteEventosResponse() {
-        return new EnviarLoteEventosResponse();
-    }
-
-    /**
-     * Create an instance of {@link SolicitarDownloadEventosPorId }
-     * 
-     */
-    public SolicitarDownloadEventosPorId createSolicitarDownloadEventosPorId() {
-        return new SolicitarDownloadEventosPorId();
-    }
-
-    /**
-     * Create an instance of {@link SolicitarDownloadEventosPorIdResponse }
-     * 
-     */
-    public SolicitarDownloadEventosPorIdResponse createSolicitarDownloadEventosPorIdResponse() {
-        return new SolicitarDownloadEventosPorIdResponse();
-    }
-
-    /**
-     * Create an instance of {@link SolicitarDownloadEventosPorNrRecibo }
-     * 
-     */
-    public SolicitarDownloadEventosPorNrRecibo createSolicitarDownloadEventosPorNrRecibo() {
-        return new SolicitarDownloadEventosPorNrRecibo();
-    }
-
-    /**
-     * Create an instance of {@link SolicitarDownloadEventosPorNrReciboResponse }
-     * 
-     */
-    public SolicitarDownloadEventosPorNrReciboResponse createSolicitarDownloadEventosPorNrReciboResponse() {
-        return new SolicitarDownloadEventosPorNrReciboResponse();
     }
 
     /**
@@ -149,67 +85,67 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ConsultarLoteEventos.Consulta }
+     * Create an instance of {@link SolicitarDownloadEventosPorId }
      * 
      */
-    public ConsultarLoteEventos.Consulta createConsultarLoteEventosConsulta() {
-        return new ConsultarLoteEventos.Consulta();
+    public SolicitarDownloadEventosPorId createSolicitarDownloadEventosPorId() {
+        return new SolicitarDownloadEventosPorId();
     }
 
     /**
-     * Create an instance of {@link ConsultarLoteEventosResponse.ConsultarLoteEventosResult }
+     * Create an instance of {@link SolicitarDownloadEventosPorIdResponse }
      * 
      */
-    public ConsultarLoteEventosResponse.ConsultarLoteEventosResult createConsultarLoteEventosResponseConsultarLoteEventosResult() {
-        return new ConsultarLoteEventosResponse.ConsultarLoteEventosResult();
+    public SolicitarDownloadEventosPorIdResponse createSolicitarDownloadEventosPorIdResponse() {
+        return new SolicitarDownloadEventosPorIdResponse();
     }
 
     /**
-     * Create an instance of {@link EnviarLoteEventos.LoteEventos }
+     * Create an instance of {@link SolicitarDownloadEventosPorNrRecibo }
      * 
      */
-    public EnviarLoteEventos.LoteEventos createEnviarLoteEventosLoteEventos() {
-        return new EnviarLoteEventos.LoteEventos();
+    public SolicitarDownloadEventosPorNrRecibo createSolicitarDownloadEventosPorNrRecibo() {
+        return new SolicitarDownloadEventosPorNrRecibo();
     }
 
     /**
-     * Create an instance of {@link EnviarLoteEventosResponse.EnviarLoteEventosResult }
+     * Create an instance of {@link SolicitarDownloadEventosPorNrReciboResponse }
      * 
      */
-    public EnviarLoteEventosResponse.EnviarLoteEventosResult createEnviarLoteEventosResponseEnviarLoteEventosResult() {
-        return new EnviarLoteEventosResponse.EnviarLoteEventosResult();
+    public SolicitarDownloadEventosPorNrReciboResponse createSolicitarDownloadEventosPorNrReciboResponse() {
+        return new SolicitarDownloadEventosPorNrReciboResponse();
     }
 
     /**
-     * Create an instance of {@link SolicitarDownloadEventosPorId.Solicitacao }
+     * Create an instance of {@link ConsultarLoteEventos }
      * 
      */
-    public SolicitarDownloadEventosPorId.Solicitacao createSolicitarDownloadEventosPorIdSolicitacao() {
-        return new SolicitarDownloadEventosPorId.Solicitacao();
+    public ConsultarLoteEventos createConsultarLoteEventos() {
+        return new ConsultarLoteEventos();
     }
 
     /**
-     * Create an instance of {@link SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult }
+     * Create an instance of {@link ConsultarLoteEventosResponse }
      * 
      */
-    public SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult createSolicitarDownloadEventosPorIdResponseSolicitarDownloadEventosPorIdResult() {
-        return new SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult();
+    public ConsultarLoteEventosResponse createConsultarLoteEventosResponse() {
+        return new ConsultarLoteEventosResponse();
     }
 
     /**
-     * Create an instance of {@link SolicitarDownloadEventosPorNrRecibo.Solicitacao }
+     * Create an instance of {@link EnviarLoteEventos }
      * 
      */
-    public SolicitarDownloadEventosPorNrRecibo.Solicitacao createSolicitarDownloadEventosPorNrReciboSolicitacao() {
-        return new SolicitarDownloadEventosPorNrRecibo.Solicitacao();
+    public EnviarLoteEventos createEnviarLoteEventos() {
+        return new EnviarLoteEventos();
     }
 
     /**
-     * Create an instance of {@link SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult }
+     * Create an instance of {@link EnviarLoteEventosResponse }
      * 
      */
-    public SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult createSolicitarDownloadEventosPorNrReciboResponseSolicitarDownloadEventosPorNrReciboResult() {
-        return new SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult();
+    public EnviarLoteEventosResponse createEnviarLoteEventosResponse() {
+        return new EnviarLoteEventosResponse();
     }
 
     /**
@@ -258,6 +194,70 @@ public class ObjectFactory {
      */
     public ConsultarIdentificadoresEventosEmpregadorResponse.ConsultarIdentificadoresEventosEmpregadorResult createConsultarIdentificadoresEventosEmpregadorResponseConsultarIdentificadoresEventosEmpregadorResult() {
         return new ConsultarIdentificadoresEventosEmpregadorResponse.ConsultarIdentificadoresEventosEmpregadorResult();
+    }
+
+    /**
+     * Create an instance of {@link SolicitarDownloadEventosPorId.Solicitacao }
+     * 
+     */
+    public SolicitarDownloadEventosPorId.Solicitacao createSolicitarDownloadEventosPorIdSolicitacao() {
+        return new SolicitarDownloadEventosPorId.Solicitacao();
+    }
+
+    /**
+     * Create an instance of {@link SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult }
+     * 
+     */
+    public SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult createSolicitarDownloadEventosPorIdResponseSolicitarDownloadEventosPorIdResult() {
+        return new SolicitarDownloadEventosPorIdResponse.SolicitarDownloadEventosPorIdResult();
+    }
+
+    /**
+     * Create an instance of {@link SolicitarDownloadEventosPorNrRecibo.Solicitacao }
+     * 
+     */
+    public SolicitarDownloadEventosPorNrRecibo.Solicitacao createSolicitarDownloadEventosPorNrReciboSolicitacao() {
+        return new SolicitarDownloadEventosPorNrRecibo.Solicitacao();
+    }
+
+    /**
+     * Create an instance of {@link SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult }
+     * 
+     */
+    public SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult createSolicitarDownloadEventosPorNrReciboResponseSolicitarDownloadEventosPorNrReciboResult() {
+        return new SolicitarDownloadEventosPorNrReciboResponse.SolicitarDownloadEventosPorNrReciboResult();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarLoteEventos.Consulta }
+     * 
+     */
+    public ConsultarLoteEventos.Consulta createConsultarLoteEventosConsulta() {
+        return new ConsultarLoteEventos.Consulta();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarLoteEventosResponse.ConsultarLoteEventosResult }
+     * 
+     */
+    public ConsultarLoteEventosResponse.ConsultarLoteEventosResult createConsultarLoteEventosResponseConsultarLoteEventosResult() {
+        return new ConsultarLoteEventosResponse.ConsultarLoteEventosResult();
+    }
+
+    /**
+     * Create an instance of {@link EnviarLoteEventos.LoteEventos }
+     * 
+     */
+    public EnviarLoteEventos.LoteEventos createEnviarLoteEventosLoteEventos() {
+        return new EnviarLoteEventos.LoteEventos();
+    }
+
+    /**
+     * Create an instance of {@link EnviarLoteEventosResponse.EnviarLoteEventosResult }
+     * 
+     */
+    public EnviarLoteEventosResponse.EnviarLoteEventosResult createEnviarLoteEventosResponseEnviarLoteEventosResult() {
+        return new EnviarLoteEventosResponse.EnviarLoteEventosResult();
     }
 
 }
