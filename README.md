@@ -499,7 +499,7 @@ de eventos especificados pelo eSocial-GOV.
 
 #### Versões do eSocial-GOV
 
-Pacote de esquemas : S-1.3
+Pacote de esquemas : S-1.3 (NT 03/2025 22/04/2025)
 
 Pacote de comunicação : 1.6
 
