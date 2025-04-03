@@ -49,6 +49,8 @@ public class InfoCadastro {
 
 	private String indTribFolhaPisPasep;
 
+	private String indPertIRRF;
+
 	/**
 	 * @return the classTrib
 	 */
@@ -246,6 +248,14 @@ public class InfoCadastro {
 		this.indTribFolhaPisPasep = indTribFolhaPisPasep;
 	}
 
+	public String getIndPertIRRF() {
+		return indPertIRRF;
+	}
+
+	public void setIndPertIRRF(String indPertIRRF) {
+		this.indPertIRRF = indPertIRRF;
+	}
+
 	@Override
 	public int hashCode() {
 		return new HashCodeBuilder()
@@ -260,6 +270,7 @@ public class InfoCadastro {
 				.append(this.cnpjEFR)
 				.append(this.indTribFolhaPisCofins)
 				.append(this.indTribFolhaPisPasep)
+				.append(this.indPertIRRF)
 				.toHashCode();
 	}
 
@@ -288,6 +299,7 @@ public class InfoCadastro {
 				.append(this.cnpjEFR, other.cnpjEFR)
 				.append(this.indTribFolhaPisCofins, other.indTribFolhaPisCofins)
 				.append(this.indTribFolhaPisPasep, other.indTribFolhaPisPasep)
+				.append(this.indPertIRRF, other.indPertIRRF)
 				.isEquals();
 	}
 }
