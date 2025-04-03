@@ -934,11 +934,11 @@
                                                                         <xs:documentation>b) {codCateg}(../codCateg) = [712] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) for informado com valor diferente de [586].</xs:documentation>
                                                                     </xs:annotation>
                                                                 </xs:element>
-                                                                <xs:element name="vlrCRDia" type="TS_valorMonetario_positivo">
+                                                                <xs:element name="vlrCRDia" type="TS_valorMonetario">
                                                                     <xs:annotation>
                                                                         <xs:documentation>Valor relativo ao Imposto de Renda Retido na Fonte sobre rendimentos do trabalho pagos a residente, para fins fiscais, no exterior.</xs:documentation>
                                                                         <xs:documentation>Evento de origem: S-1200, S-1202, S-1207, S-2299, S-2399 e respectivo S-1210.</xs:documentation>
-                                                                        <xs:documentation>Validação: Deve ser maior que 0 (zero).</xs:documentation>
+                                                                        <xs:documentation>Validação: Deve ser maior ou igual a 0 (zero). Caso o valor seja negativo, retornar 0 (zero).</xs:documentation>
                                                                         <xs:documentation>Efetuar o somatório de {valor}(../infoIR_valor) cujo {tpInfoIR}(../infoIR_tpInfoIR) = [31, 32, 34], se {indApurIR} = [0] e:</xs:documentation>
                                                                         <xs:documentation>a) {codCateg}(../codCateg) for diferente de [712] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) for informado com qualquer valor; ou</xs:documentation>
                                                                         <xs:documentation>b) {codCateg}(../codCateg) = [712] e {paisResidExt}(1210_ideBenef_infoPgto_paisResidExt) for informado com valor diferente de [586].</xs:documentation>
