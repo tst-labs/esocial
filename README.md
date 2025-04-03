@@ -501,7 +501,7 @@ de eventos especificados pelo eSocial-GOV.
 
 Pacote de esquemas : S-1.3
 
-Pacote de comunicação : 1.5
+Pacote de comunicação : 1.6
 
 #### Eventos de Tabelas
 

@@ -1,6 +1,4 @@
-<eSocial
-	xmlns="http://www.esocial.gov.br/schema/lote/eventos/envio/retornoProcessamento/v1_3_0"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<eSocial xmlns="http://www.esocial.gov.br/schema/lote/eventos/envio/retornoProcessamento/v1_3_0" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<retornoProcessamentoLoteEventos>
 		<ideEmpregador>
 			<tpInsc>1</tpInsc>
@@ -15,18 +13,17 @@
 			<descResposta>Lote processado com sucesso.</descResposta>
 		</status>
 		<dadosRecepcaoLote>
-			<dhRecepcao>2017-11-21T12:43:07.87</dhRecepcao>
-			<versaoAplicativoRecepcao>0.1.0-A0214</versaoAplicativoRecepcao>
-			<protocoloEnvio>1.2.201711.0000000000000705042</protocoloEnvio>
+			<dhRecepcao>2025-04-03T18:00:28.883</dhRecepcao>
+			<versaoAplicativoRecepcao>0.1.0.0</versaoAplicativoRecepcao>
+			<protocoloEnvio>1.2.202504.0000000000174654747</protocoloEnvio>
 		</dadosRecepcaoLote>
 		<dadosProcessamentoLote>
 			<versaoAplicativoProcessamentoLote>1.0.0.0</versaoAplicativoProcessamentoLote>
 		</dadosProcessamentoLote>
 		<retornoEventos>
-			<evento Id="ID1005099680001482017112112365700004">
+			<evento Id="ID1005099680001482025040318000600000">
 				<retornoEvento>
-					<eSocial
-						xmlns="http://www.esocial.gov.br/schema/evt/retornoEvento/v1_2_1">
+					<eSocial xmlns="http://www.esocial.gov.br/schema/evt/retornoEvento/v1_3_0">
 						<retornoEvento Id="ID1005099680001482017112112365700004">
 							<ideEmpregador>
 								<tpInsc>1</tpInsc>
@@ -54,12 +51,33 @@
 											evento para a tabela com o mesmo código de identificação
 											(chave) em período de vigência conflitante com o período
 											informado no evento atual. Certifique-se que o codígo de
-											identificação e os períodos informados estejam corretos.</descricao>
-										<localizacao />
+											identificação e os períodos informados estejam corretos.
+										</descricao>
+										<localizacao/>
 									</ocorrencia>
 								</ocorrencias>
 							</processamento>
 						</retornoEvento>
+						<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+							<SignedInfo>
+								<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+								<SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+								<Reference URI="">
+									<Transforms>
+										<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+										<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+									</Transforms>
+									<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+									<DigestValue>GgKquzZGhmru8+KLQA7Md1ktA5sAGlYUacPR1nFUIwA=</DigestValue>
+								</Reference>
+							</SignedInfo>
+							<SignatureValue>GIgTzo8SQCSYLrSEmN/ya4u5+9G6K0U8uO6f8mxxkQ2Dn4rZ7gBjFW87UyrFYnNSxD7udhnixRfp6yj9ToJDKRYLqiJELnUzqKVM89vIgq8/yqJbjG3nlXHTQWNas/5mbKvyd+DjGFX11MHu9kWg38p5gkuIEKQIQo6Uad7VXvvg+ctkEIyawoLt4BL8fzz89z/LmQBKAUcRO/TgEee8OeEw2ptnCNWfExlEJQ1D+je+nwAEo3O6OpRYbrVL89QQgadGwpkQHPhTHFmuoxjig/nXK55Z0DU0rWjd897uc7HERRijLiYgbHU2h5iE2C2jXzdoAFpS/J/x86QH11q21Q==</SignatureValue>
+							<KeyInfo>
+								<X509Data>
+									<X509Certificate>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</X509Certificate>
+								</X509Data>
+							</KeyInfo>
+						</Signature>
 					</eSocial>
 				</retornoEvento>
 			</evento>
