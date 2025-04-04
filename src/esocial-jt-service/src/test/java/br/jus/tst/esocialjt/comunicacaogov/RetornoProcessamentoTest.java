@@ -17,9 +17,9 @@ public class RetornoProcessamentoTest {
 		
 		soft.assertThat(retornoProcessamento.getXmlRetorno()).isEqualTo(xmlRetorno);
 		soft.assertThat(retornoEvento.getCodigoRespostaProcessamento()).isEqualTo(201l);
-		soft.assertThat(retornoEvento.getIdEvento()).isEqualTo("ID1005099680001482017112914063400001");
+		soft.assertThat(retornoEvento.getIdEvento()).isEqualTo("ID1005099680001482025040318000600000");
 		soft.assertThat(retornoEvento.getRetornoErrosProcessamento()).isEmpty();
-		soft.assertThat(retornoEvento.getNrRecibo()).isEqualTo("1.2.0000000000007498277");
+		soft.assertThat(retornoEvento.getNrRecibo()).isEqualTo("1.2.0000000000268136822");
 
 		soft.assertAll();
 	}

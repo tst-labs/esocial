@@ -34,14 +34,14 @@ public class ComunicacaoEsocialGovTest {
 		String retornoProcessamento = LeitorXML.lerRetornoProcessamento("sem-erros-processamento.xml");
 		
 		String retornoEnvioLocal = retornoEnvio.replace("1.2.201711.0000000000000037150", "LOCAL");
-		String retornoProcessamentoLocal = retornoProcessamento.replace("1.2.201711.0000000000000062303", "LOCAL");
+		String retornoProcessamentoLocal = retornoProcessamento.replace("1.2.202504.0000000000174654747", "LOCAL");
 		ComunicacaoServico comunicacaoServicoMock = mock(ComunicacaoServico.class);
 		when(comunicacaoServicoMock.enviarLote(anyString())).thenReturn(retornoEnvioLocal);
 		when(comunicacaoServicoMock.consultarLote(anyString())).thenReturn(retornoProcessamentoLocal);
 		comunicacao.servico = comunicacaoServicoMock;
 		
 		String retornoEnvioRemoto = retornoEnvio.replace("1.2.201711.0000000000000037150", "REMOTO");
-		String retornoProcessamentoRemoto = retornoProcessamento.replace("1.2.201711.0000000000000062303", "REMOTO");
+		String retornoProcessamentoRemoto = retornoProcessamento.replace("1.2.202504.0000000000174654747", "REMOTO");
 		stubFor(any(urlEqualTo("/enviar"))
 				.willReturn(aResponse().withStatus(200)
 						.withHeader("Content-Type", "text/xml")
