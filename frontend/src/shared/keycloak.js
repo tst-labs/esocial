@@ -24,7 +24,8 @@ export function initKeycloak() {
 
   return keycloak
     .init({
-      onLoad: "login-required"
+      onLoad: "check-sso",
+      checkLoginIframe: false
     })
     .then((authenticated) => {
       if (!authenticated) {
