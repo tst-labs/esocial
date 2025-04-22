@@ -7,12 +7,9 @@ export const ESOCIAL_JT_SERVICE_URL = getEnv(
   "ESOCIAL_JT_SERVICE_URL",
   "http://localhost:8080/esocial-jt-service/"
 );
-export const KEYCLOAK_URL = getEnv(
-  "KEYCLOAK_URL",
-  "http://localhost:9090/auth"
-);
-export const KEYCLOAK_REALM = getEnv("KEYCLOAK_REALM", "app-realm");
-export const KEYCLOAK_CLIENT_ID = getEnv("KEYCLOAK_CLIENT_ID", "esocial-app");
+export const KEYCLOAK_URL = getEnv("KEYCLOAK_URL", "");
+export const KEYCLOAK_REALM = getEnv("KEYCLOAK_REALM", "");
+export const KEYCLOAK_CLIENT_ID = getEnv("KEYCLOAK_CLIENT_ID", "");
 
 function getEnv(envName, defaultValue) {
   if (!window.env) {

@@ -1,20 +1,23 @@
 import Keycloak from "keycloak-js";
 import { KEYCLOAK_URL, KEYCLOAK_REALM, KEYCLOAK_CLIENT_ID } from "./env";
 
-const keycloak = new Keycloak({
-  url: KEYCLOAK_URL,
-  realm: KEYCLOAK_REALM,
-  clientId: KEYCLOAK_CLIENT_ID
-});
-
 export const authRequired =
   KEYCLOAK_URL && KEYCLOAK_REALM && KEYCLOAK_CLIENT_ID ? true : false;
+
+const keycloak = authRequired
+  ? new Keycloak({
+      url: KEYCLOAK_URL,
+      realm: KEYCLOAK_REALM,
+      clientId: KEYCLOAK_CLIENT_ID
+    })
+  : {};
+
 export const { login } = keycloak;
 export const { logout } = keycloak;
 export const getToken = () => keycloak?.token;
 
 export function updateToken(minValidity = 5) {
-  return keycloak?.updateToken(minValidity);
+  return keycloak?.updateToken && keycloak.updateToken(minValidity);
 }
 
 export function initKeycloak() {
