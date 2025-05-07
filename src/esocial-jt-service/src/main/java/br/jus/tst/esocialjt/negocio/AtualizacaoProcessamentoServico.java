@@ -1,7 +1,16 @@
 package br.jus.tst.esocialjt.negocio;
 
-import br.jus.tst.esocialjt.comunicacaogov.*;
-import br.jus.tst.esocialjt.dominio.*;
+import br.jus.tst.esocialjt.comunicacaogov.ComunicacaoEsocialGov;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoEvento;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoEventoTotalizador;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoLote;
+import br.jus.tst.esocialjt.comunicacaogov.RetornoProcessamento;
+import br.jus.tst.esocialjt.dominio.CodigoResposta;
+import br.jus.tst.esocialjt.dominio.EnvioEvento;
+import br.jus.tst.esocialjt.dominio.ErroProcessamento;
+import br.jus.tst.esocialjt.dominio.Estado;
+import br.jus.tst.esocialjt.dominio.EventoTotalizador;
+import br.jus.tst.esocialjt.dominio.Lote;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -95,7 +105,18 @@ public class AtualizacaoProcessamentoServico {
 				eventoTotalizador.setPerApuracao(eventoTot.getPerApuracao());
 				eventoTotalizador.setCpfTrabalhador(eventoTot.getCpfTrabalhador());
 				eventoTotalizador.setXmlEventoTotalizador(eventoTot.getXmlEventoTotalizador());
-				eventoTotalizadorServico.salvar(eventoTotalizador);
+				try {
+					eventoTotalizadorServico.salvar(eventoTotalizador);
+				} catch (Exception e) {
+                    LOGGER.error("Erro ao salvar evento totalizador: {}", e.getMessage());
+					if (e.getCause() instanceof SQLException) {
+						SQLException sqlException = (SQLException) e.getCause();
+						LOGGER.error("SQL State: {}", sqlException.getSQLState());
+						LOGGER.error("Error Code: {}", sqlException.getErrorCode());
+					}
+					LOGGER.error(eventoTotalizador.toString());
+					LOGGER.debug(e.getMessage(), e);
+				}
 			}
 		}
 	}

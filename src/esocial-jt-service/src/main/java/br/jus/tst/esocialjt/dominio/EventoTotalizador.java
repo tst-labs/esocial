@@ -141,4 +141,18 @@ public class EventoTotalizador implements Serializable {
 		this.evento = evento;
 	}
 
+	@Override
+	public String toString() {
+		final StringBuffer sb = new StringBuffer("EventoTotalizador{");
+		sb.append("id=").append(id);
+		sb.append(", tipo='").append(tipo).append('\'');
+		sb.append(", nrReciboArquivoBase='").append(nrReciboArquivoBase).append('\'');
+		sb.append(", indApuracao=").append(indApuracao);
+		sb.append(", perApuracao='").append(perApuracao).append('\'');
+		sb.append(", cpfTrabalhador='").append(cpfTrabalhador).append('\'');
+		sb.append(", xmlEventoTotalizador='").append(xmlEventoTotalizador).append('\'');
+		sb.append(", evento=").append(evento);
+		sb.append('}');
+		return sb.toString();
+	}
 }
