@@ -10,3 +10,11 @@ test("renders without crashing", () => {
     </QueryClientProvider>
   );
 });
+
+jest.mock('keycloak-js', () => {
+  return jest.fn().mockImplementation(() => ({
+    init: jest.fn(),
+    login: jest.fn(),
+    logout: jest.fn(),
+  }));
+});
