@@ -11,10 +11,10 @@ test("renders without crashing", () => {
   );
 });
 
-jest.mock('keycloak-js', () => {
+jest.mock("keycloak-js", () => {
   return jest.fn().mockImplementation(() => ({
     init: jest.fn(),
     login: jest.fn(),
-    logout: jest.fn(),
+    logout: jest.fn()
   }));
 });
