@@ -48,6 +48,7 @@ export function getResumo(ocorrencia) {
     case INFORMACOES_EMPREGADOR:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="nrInsc" v={dados.ideEmpregador?.nrInsc} />
         </>
       );
@@ -55,6 +56,7 @@ export function getResumo(ocorrencia) {
     case TABELA_ESTABELECIMENTO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="nrInsc" v={dados.infoEstab?.ideEstab?.nrInsc} />
         </>
       );
@@ -62,6 +64,7 @@ export function getResumo(ocorrencia) {
     case TABELA_RUBRICA:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="codRubr" v={dados.infoRubrica?.ideRubrica?.codRubr} />
           <D k="dscRubr" v={dados.infoRubrica?.dadosRubrica?.dscRubr} />
         </>
@@ -70,6 +73,7 @@ export function getResumo(ocorrencia) {
     case TABELA_LOTACAO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="codLotacao" v={dados.infoLotacao?.ideLotacao?.codLotacao} />
         </>
       );
@@ -77,6 +81,7 @@ export function getResumo(ocorrencia) {
     case TABELA_PROCESSO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="tpProc" v={dados.infoProcesso?.ideProcesso?.tpProc} />
           <D k="nrProc" v={dados.infoProcesso?.ideProcesso?.nrProc} />
         </>
@@ -85,6 +90,7 @@ export function getResumo(ocorrencia) {
     case ADMISSAO_TRABALHADOR:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.trabalhador?.cpfTrab} />
           <D k="matricula" v={dados.vinculo?.matricula} />
           <D k="cadIni" v={dados.vinculo?.cadIni} />
@@ -95,6 +101,7 @@ export function getResumo(ocorrencia) {
     case CESSAO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />
           <D k="matricula" v={dados.ideVinculo?.matricula} />
         </>
@@ -103,6 +110,7 @@ export function getResumo(ocorrencia) {
     case ALTERACAO_CADASTRAL:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.ideTrabalhador?.cpfTrab} />
           <D k="nmTrab" v={dados.alteracao?.dadosTrabalhador?.nmTrab} />
         </>
@@ -111,6 +119,7 @@ export function getResumo(ocorrencia) {
     case ALTERACAO_CONTRATUAL:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />
           <D k="matricula" v={dados.ideVinculo?.matricula} />
           <D k="dscAlt" v={dados.altContratual?.dscAlt} />
@@ -125,6 +134,7 @@ export function getResumo(ocorrencia) {
     case MONIT:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.ideVinculo?.cpfTrab} />
           <D k="matricula" v={dados.ideVinculo?.matricula} />
         </>
@@ -133,6 +143,7 @@ export function getResumo(ocorrencia) {
     case TSV_INICIO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.trabalhador?.cpfTrab} />
           <D k="matricula" v={dados.infoTSVInicio?.matricula} />
           <D k="cadIni" v={dados.infoTSVInicio?.cadIni} />
@@ -144,6 +155,7 @@ export function getResumo(ocorrencia) {
     case TSV_TERMINO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfTrab" v={dados.ideTrabSemVinculo?.cpfTrab} />
           <D k="matricula" v={dados.ideTrabSemVinculo?.matricula} />
         </>
@@ -152,6 +164,7 @@ export function getResumo(ocorrencia) {
     case CADASTRO_BENEFICIARIO_INI:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfBenef" v={dados.beneficiario?.cpfBenef} />
           <D k="nmBenefic" v={dados.beneficiario?.nmBenefic} />
         </>
@@ -160,6 +173,7 @@ export function getResumo(ocorrencia) {
     case CADASTRO_BENEFICIARIO_ALT:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfBenef" v={dados.ideBenef?.cpfBenef} />
           <D k="nmBenefic" v={dados.alteracao?.dadosBenef?.nmBenefic} />
         </>
@@ -168,6 +182,7 @@ export function getResumo(ocorrencia) {
     case CADASTRO_BENEFICIO_INI:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfBenef" v={dados.beneficiario?.cpfBenef} />
           <D k="nrBeneficio" v={dados.infoBenInicio?.nrBeneficio} />
           <D k="cadIni" v={dados.infoBenInicio?.cadIni} />
@@ -178,6 +193,7 @@ export function getResumo(ocorrencia) {
     case CADASTRO_BENEFICIO_ALT:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfBenef" v={dados.ideBeneficio?.cpfBenef} />
           <D k="nrBeneficio" v={dados.ideBeneficio?.nrBeneficio} />
           <D k="dsc" v={dados.infoBenAlteracao?.dadosBeneficio?.dsc} />
@@ -188,6 +204,7 @@ export function getResumo(ocorrencia) {
     case REATIVACAO_BENEFICIO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="cpfBenef" v={dados.ideBeneficio?.cpfBenef} />
           <D k="nrBeneficio" v={dados.ideBeneficio?.nrBeneficio} />
         </>
@@ -197,6 +214,7 @@ export function getResumo(ocorrencia) {
     case REMUNERACAO_RPPS:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="indApuracao" v={dados.ideEvento?.indApuracao} />
           <D k="perApur" v={dados.ideEvento?.perApur} />
           <D k="cpfTrab" v={dados.ideTrabalhador?.cpfTrab} />
@@ -207,6 +225,7 @@ export function getResumo(ocorrencia) {
     case PAGAMENTOS:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="indApuracao" v={dados.ideEvento?.indApuracao} />
           <D k="perApur" v={dados.ideEvento?.perApur} />
           <D k="cpfBenef" v={dados.ideBenef?.cpfBenef} />
@@ -217,6 +236,7 @@ export function getResumo(ocorrencia) {
     case FECHAMENTO_PERIODICOS:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="indApuracao" v={dados.ideEvento?.indApuracao} />
           <D k="perApur" v={dados.ideEvento?.perApur} />
         </>
@@ -225,13 +245,19 @@ export function getResumo(ocorrencia) {
     case EXCLUSAO:
       resumo = (
         <>
+          <D k="ID" v={ocorrencia?.id} />
           <D k="tpEvento" v={dados.infoExclusao?.tpEvento} />
           <D k="nrRecEvt" v={dados.infoExclusao?.nrRecEvt} />
         </>
       );
       break;
     default:
-      resumo = <D k="referência" v={referencia} />;
+      resumo = (
+        <>
+          <D k="ID" v={ocorrencia?.id} />
+          <D k="referência" v={referencia} />
+        </>
+      );
   }
 
   return resumo;
