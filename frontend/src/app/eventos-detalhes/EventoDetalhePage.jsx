@@ -59,7 +59,9 @@ function EventoDetalhePage() {
       <DataPanel loading={isLoading}>
         <PageHeader
           primary={getTitulo(ocorrencia)}
-          secondary={getDataGeracao(ocorrencia.dataRecebimento)}
+          secondary={
+            `ID: ${id} | ` + getDataGeracao(ocorrencia.dataRecebimento)
+          }
           commands={[
             <ArquivarButton ocorrencia={ocorrencia} />,
             <LabelEstado estado={ocorrencia?.evento?.estado} />,
