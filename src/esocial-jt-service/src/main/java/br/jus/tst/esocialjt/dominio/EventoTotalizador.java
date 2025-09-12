@@ -61,7 +61,6 @@ public class EventoTotalizador implements Serializable {
 	private String cpfTrabalhador;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_XML_EVENTO_TOTALIZADOR")
 	private String xmlEventoTotalizador;
 
