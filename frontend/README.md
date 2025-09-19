@@ -57,4 +57,34 @@ FRONTEND_ENV_NOME_APP=eSocial
 FRONTEND_ENV_HABILITA_CABECALHO=S
 FRONTEND_ENV_PRODUCAO_RESTRITA=S
 FRONTEND_ENV_ESOCIAL_JT_SERVICE_URL=http://localhost:8080/esocial-jt-service/
+FRONTEND_ENV_KEYCLOAK_URL=http://localhost:9090/auth
+FRONTEND_ENV_KEYCLOAK_REALM=app-realm
+FRONTEND_ENV_KEYCLOAK_CLIENT_ID=esocial-app
+FRONTEND_ENV_KEYCLOAK_USER_ROLES=user
+FRONTEND_ENV_KEYCLOAK_MANAGER_ROLES=manager
+FRONTEND_ENV_KEYCLOAK_ADMIN_ROLES=admin
 ```
+
+> Obs.: Se a variável **FRONTEND_ENV_KEYCLOAK_URL**, **FRONTEND_ENV_KEYCLOAK_URL** e **FRONTEND_ENV_KEYCLOAK_REALM** forem especificadas, as variáveis roles **FRONTEND_ENV_KEYCLOAK_USER_ROLES**, **FRONTEND_ENV_KEYCLOAK_MANAGER_ROLES** e **FRONTEND_ENV_KEYCLOAK_ADMIN_ROLES**, precisarão ser criadas na aba **Roles** dentro do client do Keycloak e vinculadas aos usuários necessários.
+
+## Criar as roles no Keycloak:
+
+Caso não sejam criados nenhuma role, siga essas instruções:
+
+1) Acesse o endereço desejado do Keycloak;
+2) Procure o client que foi criado para frontend;
+3) Na aba "Roles", crie os seguintes roles:
+
+| Role    | Descrição               | Utilizado?  |
+|---------|-------------------------|-------------|
+| user    | Role com usuário padrão | Sim         |
+| admin   | Role com acesso admin   | Não         |
+| manager | Role com acesso gestor  | Não         |
+
+> Obs.: Por enquanto, role **User** foi usada em todos os endpoints, mas isso pode ser alterado, caso haja necessidade.
+
+## Atribuir permissões
+
+1) Acesse o endereço desejado do Keycloak;
+2) Vá no menu **User** e informe a matricula desejada;
+3) Dentro desse usuário, na aba **Role Mappings**, assina a role **User** dentro do client do frontend;
