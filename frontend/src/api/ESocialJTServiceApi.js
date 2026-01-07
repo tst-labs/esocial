@@ -19,9 +19,10 @@ export function useOcorrenciasPaginado(
   estados = [],
   expressao = "",
   tipo = "",
-  incluirArquivados = false
+  incluirArquivados = false,
+  cpf = ""
 ) {
-  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}`;
+  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}`;
   return useQuery(query, queryFetcher, {
     refetchInterval: REFRESH_INTERVAL,
     keepPreviousData: true
