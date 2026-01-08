@@ -31,6 +31,7 @@ function EventosPage() {
     estadosAjustado.push(PROCESSADO_COM_ERRO);
   }
 
+  const expressaoIsCpf = /^\d{11}$/.test(expressao.replace(/\D/g, ""));
   const {
     data: ocorrenciaPage = {},
     isLoading,
@@ -38,9 +39,10 @@ function EventosPage() {
   } = useOcorrenciasPaginado(
     page,
     estadosAjustado,
-    expressao,
+    expressaoIsCpf ? "" : expressao,
     tipo,
-    incluirArquivados
+    incluirArquivados,
+    expressaoIsCpf ? expressao : ""
   );
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;
