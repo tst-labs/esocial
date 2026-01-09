@@ -15,6 +15,7 @@ import {
 } from "../../shared/useQueryParam";
 import Busca from "./Busca";
 import Paginacao from "./Paginacao";
+import Acoes from "../acoes/Acoes";
 
 function EventosPage() {
   const page = useNumericQueryParam("page");
@@ -56,7 +57,10 @@ function EventosPage() {
       <PageHeader
         primary="Eventos"
         secondary="Nesta página é possível visualizar informações de todos eventos enviados para o eSocial"
-        commands={[!isFetched ? <CircularProgress size={20} /> : undefined]}
+        commands={[
+          !isFetched ? <CircularProgress key="loading" size={20} /> : undefined,
+          <Acoes key="acoes" />
+        ]}
       />
       <Busca />
       <FiltroEstados contagemEstado={contagemEstado} />

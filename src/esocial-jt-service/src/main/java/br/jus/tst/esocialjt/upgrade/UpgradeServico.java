@@ -1,5 +1,7 @@
 package br.jus.tst.esocialjt.upgrade;
 
+import br.jus.tst.esocial.ocorrencia.dados.DadosFechamentoFolha;
+import br.jus.tst.esocial.ocorrencia.dados.DadosFolha;
 import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -16,6 +18,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +41,7 @@ public class UpgradeServico {
     public void realizarUpgrades() {
         upgradeCpfMatricula();
         upgradeExclusaoRetificacao();
+        upgradePeriodoApuracao();
     }
 
     public void upgradeCpfMatricula() {
@@ -160,6 +164,90 @@ public class UpgradeServico {
         } while (pagina.hasNext());
 
         LOGGER.info("Processamento de exclusões e retificações concluído. Total de {} ocorrências atualizadas", totalAtualizacoes);
+    }
+
+    public void upgradePeriodoApuracao() {
+        Optional<ControleUpgrade> upgrade = upgradeRepository.findById(Upgrade.CAMPO_PERIODO_APURACAO.codUpgrade);
+        if (!upgrade.isPresent()) {
+            realizaUpgradePeriodoApuracao();
+            registrarUpgrade(Upgrade.CAMPO_PERIODO_APURACAO);
+        }
+    }
+
+    @Async
+    public void realizaUpgradePeriodoApuracao() {
+        LOGGER.info("Upgrade: " + Upgrade.CAMPO_PERIODO_APURACAO.desUpgrade);
+
+        // Tipos de eventos de folha: S1200, S1202, S1207, S1210, S1298, S1299
+        List<TipoEvento> tiposFolha = Arrays.asList(
+                TipoEvento.S1200, TipoEvento.S1202, TipoEvento.S1207,
+                TipoEvento.S1210, TipoEvento.S1298, TipoEvento.S1299
+        );
+
+        final int batchSize = 500;
+        int page = 0;
+        Page<Ocorrencia> pagina;
+        int totalAtualizacoes = 0;
+
+        LOGGER.info("Processando período de apuração em batch...");
+
+        do {
+            PageRequest pageRequest = PageRequest.of(page, batchSize, Sort.by("id"));
+            pagina = ocorrenciaRepository.findAll(
+                    specs.nosEstados(Collections.singletonList(Estado.PROCESSADO_COM_SUCESSO))
+                            .and(specs.dosTipos(tiposFolha))
+                            .and((root, query, cb) -> cb.isNull(root.get("periodoApuracao"))),
+                    pageRequest
+            );
+
+            int elemento = page * batchSize + pagina.getNumberOfElements();
+            LOGGER.info("Processando batch de período de apuração: {} de {} ocorrências", elemento, pagina.getTotalElements());
+
+            List<Ocorrencia> ocorrenciasParaAtualizar = new ArrayList<>();
+
+            for (Ocorrencia ocorrencia : pagina.getContent()) {
+                String periodoApuracao = extrairPeriodoApuracao(ocorrencia);
+
+                if (periodoApuracao != null) {
+                    ocorrencia.setPeriodoApuracao(periodoApuracao);
+                    ocorrenciasParaAtualizar.add(ocorrencia);
+                }
+            }
+
+            if (!ocorrenciasParaAtualizar.isEmpty()) {
+                ocorrenciaRepository.saveAll(ocorrenciasParaAtualizar);
+                totalAtualizacoes += ocorrenciasParaAtualizar.size();
+                LOGGER.info("Atualizadas {} ocorrências neste batch", ocorrenciasParaAtualizar.size());
+            }
+
+            page++;
+        } while (pagina.hasNext());
+
+        LOGGER.info("Processamento de período de apuração concluído. Total de {} ocorrências atualizadas", totalAtualizacoes);
+    }
+
+    private String extrairPeriodoApuracao(Ocorrencia ocorrencia) {
+        if (ocorrencia.getDadosOcorrencia() == null) {
+            return null;
+        }
+
+        // Verifica se implementa DadosFolha
+        if (ocorrencia.getDadosOcorrencia() instanceof DadosFolha) {
+            DadosFolha dadosFolha = (DadosFolha) ocorrencia.getDadosOcorrencia();
+            if (dadosFolha.getIdeEvento() != null) {
+                return dadosFolha.getIdeEvento().getPerApur();
+            }
+        }
+
+        // Verifica se implementa DadosFechamentoFolha
+        if (ocorrencia.getDadosOcorrencia() instanceof DadosFechamentoFolha) {
+            DadosFechamentoFolha dadosFechamentoFolha = (DadosFechamentoFolha) ocorrencia.getDadosOcorrencia();
+            if (dadosFechamentoFolha.getIdeEvento() != null) {
+                return dadosFechamentoFolha.getIdeEvento().getPerApur();
+            }
+        }
+
+        return null;
     }
 
     private static Map<String, Long> criarMapaExclusoes(List<Ocorrencia> exclusoes) {

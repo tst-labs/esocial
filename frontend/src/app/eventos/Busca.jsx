@@ -6,13 +6,12 @@ import {
   Icon,
   IconButton,
   InputAdornment,
-  MenuItem,
   TextField
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTiposEnviados } from "../../api/ESocialJTServiceApi";
+import TipoEvento from "../../components/tipo-evento/TipoEvento";
 import { useQueryParam, useSetParam } from "../../shared/useQueryParam";
 
 function Busca() {
@@ -25,8 +24,6 @@ function Busca() {
     useState(incluirArquivadosIni);
   const setParam = useSetParam();
   const navigate = useNavigate();
-
-  const { data: tiposEnviados = [] } = useTiposEnviados();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -79,21 +76,10 @@ function Busca() {
           </form>
         </Grid>
         <Grid item xs={2}>
-          <TextField
-            select
-            fullWidth
-            size="small"
-            label="Tipo"
+          <TipoEvento
             value={tipo}
             onChange={(event) => setTipo(event.target.value)}
-          >
-            <MenuItem value="">
-              <em>Todos</em>
-            </MenuItem>
-            {tiposEnviados.map((option) => (
-              <MenuItem key={option} value={option}>{`S${option}`}</MenuItem>
-            ))}
-          </TextField>
+          />
         </Grid>
         <Grid item xs={3}>
           <FormGroup sx={{ color: "rgba(0, 0, 0, 0.6)" }}>

@@ -12,6 +12,7 @@ import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.EventoTotalizador;
 import br.jus.tst.esocialjt.dominio.Lote;
 import br.jus.tst.esocialjt.negocio.exception.ComunicacaoEsocialGovException;
+import br.jus.tst.esocialjt.ocorrencia.OcorrenciaServico;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,9 @@ public class AtualizacaoProcessamentoServico {
 
 	@Autowired
 	private EventoTotalizadorServico eventoTotalizadorServico;
+
+	@Autowired
+	private OcorrenciaServico ocorrenciaServico;
 
 	public List<Lote> atualizarTodosEmProcessamento() {
 		List<Lote> lotes = loteServico.criarConsulta().nosEstados(Estado.PROCESSAMENTO).buscar();
@@ -84,6 +88,7 @@ public class AtualizacaoProcessamentoServico {
 
 				lotesAtualizados.add(loteServico.atualiza(lote));
 				salvaEventosTotalizadores(retornoLote);
+				atualizarExclusoesRetificacoes(lote);
 			} catch (ComunicacaoEsocialGovException e) {
 				LOGGER.error(e.getMessage());
 				LOGGER.debug(e.getMessage(), e);
@@ -171,4 +176,10 @@ public class AtualizacaoProcessamentoServico {
 		return lote;
 	}
 
+	public void atualizarExclusoesRetificacoes(Lote lote) {
+		lote.getEnviosEvento().forEach(envioEvento -> {
+			ocorrenciaServico.atualizarExclusao(envioEvento.getEvento());
+			ocorrenciaServico.atualizarRetificacao(envioEvento.getEvento());
+		});
+	}
 }

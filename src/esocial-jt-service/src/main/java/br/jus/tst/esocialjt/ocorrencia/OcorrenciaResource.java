@@ -67,7 +67,8 @@ public class OcorrenciaResource {
 			@RequestParam(required = false, defaultValue = "") String expressao,
 			@RequestParam(required = false, defaultValue = "") List<Long> tipos,
 			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados,
-			@RequestParam(required = false, defaultValue = "") String cpf) {
+			@RequestParam(required = false, defaultValue = "") List<String> cpf,
+			@RequestParam(required = false, defaultValue = "") List<String> periodoApuracao) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(Estado::new)
@@ -78,7 +79,7 @@ public class OcorrenciaResource {
 									.map(TipoEvento::new)
 									.collect(Collectors.toList());
 		
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf, periodoApuracao);
 	}
 	
 	@Operation(summary = "Consulta os tipos já enviados para o esocial.")
@@ -138,6 +139,27 @@ public class OcorrenciaResource {
 	@PostMapping("/{id}/acoes/desarquivar")
 	public int desarquivarOcorrenciaPorId(@PathVariable("id") long id) {
 		return ocorrenciaServico.desarquivar(id);
+	}
+
+	@Operation(summary = "Busca otimizada que retorna apenas os IDs das ocorrências que correspondem aos filtros especificados. "
+			+ "Aceita filtros por estados, tipos de evento, CPFs e período de apuração. "
+			+ "Retorna todos os resultados sem paginação (incluindo arquivados), sendo eficiente mesmo para grandes volumes de dados.")
+	@PostMapping("/busca-ids")
+	public List<Long> buscarIdsPorFiltros(@RequestBody BuscaIdsFiltroDTO filtros) {
+		List<Estado> estadosObj = filtros.getEstados() != null
+				? filtros.getEstados().stream().map(Estado::new).collect(Collectors.toList())
+				: null;
+
+		List<TipoEvento> tiposObj = filtros.getTipos() != null
+				? filtros.getTipos().stream().map(TipoEvento::new).collect(Collectors.toList())
+				: null;
+
+		return ocorrenciaServico.buscarIdsPorFiltros(
+				estadosObj,
+				tiposObj,
+				filtros.getCpf(),
+				filtros.getPeriodoApuracao()
+		);
 	}
 
 }

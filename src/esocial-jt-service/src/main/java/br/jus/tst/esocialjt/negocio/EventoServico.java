@@ -88,4 +88,5 @@ public class EventoServico {
 
 		return forcarEstadoEvento(eventos, Estado.ERRO);
 	}
+
 }

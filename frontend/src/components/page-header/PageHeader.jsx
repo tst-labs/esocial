@@ -2,8 +2,9 @@ import { Grid, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
 import LoadingSkeleton from "../loading/LoadingSkeleton";
+import { Link } from "react-router-dom";
 
-function PageHeader({ primary, secondary, commands, loading, sx }) {
+function PageHeader({ primary, secondary, commands, loading, sx, ocorrencia }) {
   return (
     <Grid sx={sx} container justifyContent="space-between" alignItems="center">
       <Grid item xs>
@@ -35,6 +36,28 @@ function PageHeader({ primary, secondary, commands, loading, sx }) {
                         {secondary}
                       </LoadingSkeleton>
                     </Typography>
+                  </Grid>
+                )}
+                {ocorrencia?.ocorrenciaExclusaoId && (
+                  <Grid item>
+                    <Link
+                      to={`/eventos/${ocorrencia?.ocorrenciaExclusaoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver evento de exclusão
+                    </Link>
+                  </Grid>
+                )}
+                {ocorrencia?.ocorrenciaRetificacaoId && (
+                  <Grid item>
+                    <Link
+                      to={`/eventos/${ocorrencia?.ocorrenciaRetificacaoId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Ver evento de retificação
+                    </Link>
                   </Grid>
                 )}
               </Grid>

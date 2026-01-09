@@ -56,7 +56,15 @@ function PainelOcorrencias({ ocorrencias }) {
               <ListItemText
                 primary={getTitulo(ocorrencia)}
                 secondary={getResumo(ocorrencia)}
-                primaryTypographyProps={{ sx: { fontWeight: "500" } }}
+                primaryTypographyProps={{
+                  sx: {
+                    fontWeight: "500",
+                    ...(ocorrencia.ocorrenciaExclusaoId ||
+                    ocorrencia.ocorrenciaRetificacaoId
+                      ? { textDecoration: "line-through" }
+                      : {})
+                  }
+                }}
               />
               <ErrosResumo ocorrencia={ocorrencia} />
             </Grid>

@@ -62,8 +62,8 @@ public class OcorrenciaServicoTest{
 	public void deveRecuperarOcorrenciasPaginadoMaisRecentePrimeiro(){
 		int page = 0;
 		int size = 2;
-		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size, Collections.emptyList(), "", Collections.emptyList(), false, "").pagina;
-		
+		Page<Ocorrencia> ocorrenciasPage = servico.recuperaPaginado(page, size, Collections.emptyList(), "", Collections.emptyList(), false, Collections.emptyList(), Collections.emptyList()).pagina;
+
 		SoftAssertions soft = new SoftAssertions();
 		soft.assertThat(ocorrenciasPage.getSize()).isEqualTo(2);
 		soft.assertThat(ocorrenciasPage.getTotalElements()).isEqualTo(4);

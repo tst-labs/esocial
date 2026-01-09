@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.springframework.util.CollectionUtils.isEmpty;
 
@@ -30,7 +31,33 @@ public class OcorrenciaSpecs {
 		return (root, query, cb) -> incluir ? cb.and() : root.get("arquivado").isNull();
 	}
 
-	public Specification<Ocorrencia> comCPF(String cpf) {
-		return (root, query, cb) -> isBlank(cpf) ? cb.and() : cb.equal(root.get("cpf"), cpf.trim());
+	public Specification<Ocorrencia> comCPF(List<String> cpfs) {
+		return (root, query, cb) -> {
+			if (isEmpty(cpfs)) {
+				return cb.and();
+			}
+			// Remove espaços em branco de todos os CPFs
+			List<String> cpfsTrimmed = cpfs.stream()
+					.map(String::trim)
+					.collect(java.util.stream.Collectors.toList());
+			return root.get("cpf").in(cpfsTrimmed);
+		};
+	}
+
+	public Specification<Ocorrencia> comCPF(String cpfs) {
+		return comCPF(singletonList(cpfs));
+	}
+
+	public Specification<Ocorrencia> comPeriodoApuracao(List<String> periodosApuracao) {
+		return (root, query, cb) -> {
+			if (isEmpty(periodosApuracao)) {
+				return cb.and();
+			}
+			// Remove espaços em branco de todos os períodos
+			List<String> periodosTrimmed = periodosApuracao.stream()
+					.map(String::trim)
+					.collect(java.util.stream.Collectors.toList());
+			return root.get("periodoApuracao").in(periodosTrimmed);
+		};
 	}
 }
