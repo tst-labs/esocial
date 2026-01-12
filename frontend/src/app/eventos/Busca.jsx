@@ -18,10 +18,12 @@ function Busca() {
   const expressaoIni = useQueryParam("expressao") || "";
   const tipoIni = useQueryParam("tipo") || "";
   const incluirArquivadosIni = useQueryParam("incluirArquivados") === "true";
+  const periodoApuracaoIni = useQueryParam("periodoApuracao") || "";
   const [expressao, setExpressao] = useState(expressaoIni);
   const [tipo, setTipo] = useState(tipoIni);
   const [incluirArquivados, setIncluirArquivados] =
     useState(incluirArquivadosIni);
+  const [periodoApuracao, setPeriodoApuracao] = useState(periodoApuracaoIni);
   const setParam = useSetParam();
   const navigate = useNavigate();
 
@@ -43,6 +45,9 @@ function Busca() {
     // eslint-disable-next-line
     [incluirArquivados]
   );
+
+  // eslint-disable-next-line
+  useEffect(() => navigate(`/?${setParam("periodoApuracao", periodoApuracao)}`), [periodoApuracao]);
 
   return (
     <Box marginBottom={2}>
@@ -93,6 +98,16 @@ function Busca() {
               label="Incluir arquivados"
             />
           </FormGroup>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField
+            fullWidth
+            size="small"
+            label="Período de Apuração (perApur)"
+            value={periodoApuracao}
+            onChange={(event) => setPeriodoApuracao(event.target.value)}
+            placeholder="Ex: 2025-12 ou 2025"
+          />
         </Grid>
       </Grid>
     </Box>

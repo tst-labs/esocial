@@ -44,6 +44,14 @@ function Acoes() {
         MenuListProps={{
           "aria-labelledby": "acoes-button"
         }}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right"
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right"
+        }}
       >
         <MenuItem onClick={handleExcluirLote}>Excluir eventos em lote</MenuItem>
       </Menu>

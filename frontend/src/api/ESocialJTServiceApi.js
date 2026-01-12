@@ -20,9 +20,10 @@ export function useOcorrenciasPaginado(
   expressao = "",
   tipo = "",
   incluirArquivados = false,
-  cpf = ""
+  cpf = "",
+  periodoApuracao = ""
 ) {
-  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}`;
+  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}&periodoApuracao=${periodoApuracao}`;
   return useQuery(query, queryFetcher, {
     refetchInterval: REFRESH_INTERVAL,
     keepPreviousData: true
@@ -82,4 +83,18 @@ export function useDesarquivar() {
 
 export function useEnviarExclusao() {
   return useMutation((id) => api.post(`/ocorrencias/${id}/acoes/excluir`));
+}
+
+export function useBuscarIds() {
+  return useMutation((filtros) => api.post(`/ocorrencias/busca-ids`, filtros));
+}
+
+export function useExcluirLista() {
+  const queryClient = useQueryClient();
+  return useMutation(
+    (ids) => api.post(`/ocorrencias/acoes/excluir-lista`, ids),
+    {
+      onSuccess: () => queryClient.invalidateQueries()
+    }
+  );
 }

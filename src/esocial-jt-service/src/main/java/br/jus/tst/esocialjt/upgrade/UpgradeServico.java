@@ -184,7 +184,7 @@ public class UpgradeServico {
                 TipoEvento.S1210, TipoEvento.S1298, TipoEvento.S1299
         );
 
-        final int batchSize = 500;
+        final int batchSize = 100;
         int page = 0;
         Page<Ocorrencia> pagina;
         int totalAtualizacoes = 0;
