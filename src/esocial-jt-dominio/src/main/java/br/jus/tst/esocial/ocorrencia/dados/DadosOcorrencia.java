@@ -36,5 +36,8 @@ public abstract class DadosOcorrencia{
 	
 	@Override
 	public abstract int hashCode();
-	
+
+    public String getPeriodoApuracao() {
+        return null;
+    }
 }

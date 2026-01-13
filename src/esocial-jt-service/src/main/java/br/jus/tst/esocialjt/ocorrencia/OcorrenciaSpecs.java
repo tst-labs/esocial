@@ -84,4 +84,17 @@ public class OcorrenciaSpecs {
 			return cb.lessThan(root.get("dataOcorrencia"), dataFimDate);
 		};
 	}
+
+	public Specification<Ocorrencia> somenteValidos(boolean somenteValidos) {
+		return (root, query, cb) -> {
+			if (!somenteValidos) {
+				return cb.and();
+			}
+			// Filtra ocorrências que não foram excluídas nem retificadas
+			return cb.and(
+					cb.isNull(root.get("ocorrenciaExclusaoId")),
+					cb.isNull(root.get("ocorrenciaRetificacaoId"))
+			);
+		};
+	}
 }

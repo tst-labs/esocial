@@ -1,6 +1,5 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
-import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.dominio.TipoEvento;
@@ -42,9 +41,6 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long>, J
             "WHERE o.evento.tipoEvento = ?1")
     List<OcorrenciaSumario> getSumario(TipoEvento tipoEvento);
 
-    @Query("SELECT o.id FROM Ocorrencia o WHERE o.retificarRecibo = ?1 AND o.evento.estado.id = ?2 AND o.tipoOcorrencia = ?3")
-    List<Long> buscarRetificacoes(String retificarRecibo, Long estadoId, TipoOcorrencia tipoOcorrencia);
-
     @Query("SELECT o.id, o.retificarRecibo FROM Ocorrencia o WHERE o.retificarRecibo IS NOT NULL AND o.evento.estado.id = ?1")
     List<Object[]> buscarOcorrenciasComRetificacao(Long estadoId);
 
@@ -63,6 +59,12 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long>, J
             @Param("tipos") List<TipoEvento> tipos,
             @Param("cpfs") List<String> cpfs,
             @Param("periodosApuracao") List<String> periodosApuracao
+    );
+
+    @Query("SELECT o.id FROM Ocorrencia o WHERE o.evento.estado = :estado AND o.evento.tipoEvento IN :tipos AND o.periodoApuracao IS NULL")
+    List<Long> findIdsParaUpgradePeriodoApuracao(
+            @Param("estado") Estado estado,
+            @Param("tipos") List<TipoEvento> tipos
     );
 
 }

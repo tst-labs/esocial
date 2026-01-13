@@ -75,4 +75,12 @@ public class FechaEvPer extends DadosOcorrencia implements DadosFechamentoFolha 
 	public String getMatricula() {
 		return null;
 	}
+
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolhaSemRetificacao::getPerApur)
+				.orElse(null);
+	}
 }

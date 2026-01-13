@@ -62,6 +62,7 @@ public class OcorrenciaServico {
 				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 		ocorrencia.setCpf(ocorrencia.getDadosOcorrencia().getCpf());
 		ocorrencia.setMatricula(ocorrencia.getDadosOcorrencia().getMatricula());
+		ocorrencia.setPeriodoApuracao(ocorrencia.getDadosOcorrencia().getPeriodoApuracao());
 
 		return gerarEvento(ocorrencia);
 	}

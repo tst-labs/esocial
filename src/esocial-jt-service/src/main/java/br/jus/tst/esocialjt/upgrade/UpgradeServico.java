@@ -184,28 +184,35 @@ public class UpgradeServico {
                 TipoEvento.S1210, TipoEvento.S1298, TipoEvento.S1299
         );
 
+        // PASSO 1: Buscar todos os IDs que precisam ser atualizados (apenas IDs, não as entidades)
+        LOGGER.info("Buscando IDs das ocorrências sem período de apuração...");
+        List<Long> idsParaAtualizar = ocorrenciaRepository.findIdsParaUpgradePeriodoApuracao(
+                Estado.PROCESSADO_COM_SUCESSO,
+                tiposFolha
+        );
+
+        LOGGER.info("Total de {} ocorrências para atualizar", idsParaAtualizar.size());
+
+        if (idsParaAtualizar.isEmpty()) {
+            LOGGER.info("Nenhuma ocorrência para atualizar");
+            return;
+        }
+
+        // PASSO 2: Processar em batch usando os IDs
         final int batchSize = 100;
-        int page = 0;
-        Page<Ocorrencia> pagina;
         int totalAtualizacoes = 0;
 
-        LOGGER.info("Processando período de apuração em batch...");
+        for (int i = 0; i < idsParaAtualizar.size(); i += batchSize) {
+            int fim = Math.min(i + batchSize, idsParaAtualizar.size());
+            List<Long> batchIds = idsParaAtualizar.subList(i, fim);
 
-        do {
-            PageRequest pageRequest = PageRequest.of(page, batchSize, Sort.by("id"));
-            pagina = ocorrenciaRepository.findAll(
-                    specs.nosEstados(Collections.singletonList(Estado.PROCESSADO_COM_SUCESSO))
-                            .and(specs.dosTipos(tiposFolha))
-                            .and((root, query, cb) -> cb.isNull(root.get("periodoApuracao"))),
-                    pageRequest
-            );
+            LOGGER.info("Processando batch {}-{} de {}", i + 1, fim, idsParaAtualizar.size());
 
-            int elemento = page * batchSize + pagina.getNumberOfElements();
-            LOGGER.info("Processando batch de período de apuração: {} de {} ocorrências", elemento, pagina.getTotalElements());
-
+            // Buscar as entidades completas apenas deste batch
+            List<Ocorrencia> ocorrencias = ocorrenciaRepository.findAllById(batchIds);
             List<Ocorrencia> ocorrenciasParaAtualizar = new ArrayList<>();
 
-            for (Ocorrencia ocorrencia : pagina.getContent()) {
+            for (Ocorrencia ocorrencia : ocorrencias) {
                 String periodoApuracao = extrairPeriodoApuracao(ocorrencia);
 
                 if (periodoApuracao != null) {
@@ -219,9 +226,7 @@ public class UpgradeServico {
                 totalAtualizacoes += ocorrenciasParaAtualizar.size();
                 LOGGER.info("Atualizadas {} ocorrências neste batch", ocorrenciasParaAtualizar.size());
             }
-
-            page++;
-        } while (pagina.hasNext());
+        }
 
         LOGGER.info("Processamento de período de apuração concluído. Total de {} ocorrências atualizadas", totalAtualizacoes);
     }
