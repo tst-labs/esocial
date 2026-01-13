@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useDialog } from "muibox";
 import ExcluirEventosLote from "./ExcluirEventosLote";
+import EnviarJson from "./EnviarJson";
 import {
   useArquivarErros,
   useArquivarExcluidosRetificados
@@ -11,6 +12,7 @@ import useFeedback from "../../components/feedback/useFeedback";
 function Acoes() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openEnviarJson, setOpenEnviarJson] = useState(false);
   const open = Boolean(anchorEl);
   const dialog = useDialog();
   const arquivarErros = useArquivarErros();
@@ -32,6 +34,15 @@ function Acoes() {
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
+  };
+
+  const handleEnviarJson = () => {
+    handleClose();
+    setOpenEnviarJson(true);
+  };
+
+  const handleCloseEnviarJson = () => {
+    setOpenEnviarJson(false);
   };
 
   const handleArquivarErros = async () => {
@@ -102,6 +113,7 @@ function Acoes() {
         }}
       >
         <MenuItem onClick={handleExcluirLote}>Excluir eventos em lote</MenuItem>
+        <MenuItem onClick={handleEnviarJson}>Enviar JSON manualmente</MenuItem>
         <MenuItem onClick={handleArquivarErros}>
           Arquivar todos eventos com ERRO
         </MenuItem>
@@ -110,6 +122,7 @@ function Acoes() {
         </MenuItem>
       </Menu>
       <ExcluirEventosLote open={openDialog} onClose={handleCloseDialog} />
+      <EnviarJson open={openEnviarJson} onClose={handleCloseEnviarJson} />
     </>
   );
 }

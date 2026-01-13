@@ -69,9 +69,9 @@ function ExcluirEventosLote({ open, onClose }) {
 
           await excluirLista.mutateAsync(ids);
           showSuccess(
-            `${ids.length} registro${ids.length > 1 ? "s" : ""} enviado${
+            `Gerando ${ids.length} registro${
               ids.length > 1 ? "s" : ""
-            } para exclusão`
+            } para exclusão. Aguarde o processamento pelo eSocial.`
           );
           onClose();
         } catch (error) {

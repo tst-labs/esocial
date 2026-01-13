@@ -125,3 +125,20 @@ export function useArquivarExcluidosRetificados() {
     }
   );
 }
+
+export function useCriarOcorrencia() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation((json) => api.post(`/ocorrencias`, json), {
+    onSuccess: () =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showSuccess("Ocorrência criada com sucesso"))
+  });
+}
+
+export function useExemploOcorrencia(tipo) {
+  return useQuery(`/ocorrencias/exemplos/${tipo}`, queryFetcher, {
+    enabled: !!tipo
+  });
+}
