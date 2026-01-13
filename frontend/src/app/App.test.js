@@ -1,13 +1,16 @@
 import { render } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
+import { SnackbarProvider } from "notistack";
 
 test("renders without crashing", () => {
   const queryClient = new QueryClient();
   render(
-    <QueryClientProvider client={queryClient}>
-      <App />
-    </QueryClientProvider>
+    <SnackbarProvider maxSnack={1}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </SnackbarProvider>
   );
 });
 
