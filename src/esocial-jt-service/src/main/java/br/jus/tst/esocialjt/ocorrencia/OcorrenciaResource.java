@@ -145,6 +145,18 @@ public class OcorrenciaResource {
 		return ocorrenciaServico.desarquivar(id);
 	}
 
+	@Operation(summary = "Arquivar todas as ocorrências com estado PROCESSADO_COM_ERRO ou ERRO.")
+	@PostMapping("/acoes/arquivar-erros")
+	public int arquivarErros() {
+		return ocorrenciaServico.arquivarErros();
+	}
+
+	@Operation(summary = "Arquivar todas as ocorrências que foram excluídas ou retificadas.")
+	@PostMapping("/acoes/arquivar-excluidos-retificados")
+	public int arquivarExcluidosOuRetificados() {
+		return ocorrenciaServico.arquivarExcluidosOuRetificados();
+	}
+
 	@Operation(summary = "Busca otimizada que retorna apenas os IDs das ocorrências que correspondem aos filtros especificados. "
 			+ "Aceita filtros por estados, tipos de evento, CPFs e período de apuração. "
 			+ "Retorna todos os resultados sem paginação (incluindo arquivados), sendo eficiente mesmo para grandes volumes de dados.")

@@ -100,3 +100,28 @@ export function useExcluirLista() {
     }
   );
 }
+
+export function useArquivarErros() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation(() => api.post(`/ocorrencias/acoes/arquivar-erros`), {
+    onSuccess: (response) =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showSuccess(`${response.data} evento(s) arquivado(s)`))
+  });
+}
+
+export function useArquivarExcluidosRetificados() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation(
+    () => api.post(`/ocorrencias/acoes/arquivar-excluidos-retificados`),
+    {
+      onSuccess: (response) =>
+        queryClient
+          .invalidateQueries()
+          .then(() => showSuccess(`${response.data} evento(s) arquivado(s)`))
+    }
+  );
+}

@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.MINIMAL_CLASS, include = JsonTypeInfo.As.PROPERTY, property = "tipo")
-@JsonIgnoreProperties(value = {"dataEvento", "cpf", "matricula"}, allowGetters = true)
+@JsonIgnoreProperties(value = {"dataEvento", "cpf", "matricula", "periodoApuracao"}, allowGetters = true)
 public abstract class DadosOcorrencia{
 
 	@Valid

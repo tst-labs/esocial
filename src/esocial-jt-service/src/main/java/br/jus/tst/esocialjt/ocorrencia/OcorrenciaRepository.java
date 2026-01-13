@@ -28,6 +28,18 @@ public interface OcorrenciaRepository extends JpaRepository<Ocorrencia, Long>, J
     @Query("update Ocorrencia o set o.arquivado = null where o.id = ?1")
     int desarquivar(Long id);
 
+    @Modifying
+    @Query(nativeQuery = true,
+            value = "UPDATE est_ocorrencia SET ind_arquivado = 'S' " +
+                    "WHERE cod_ocorrencia IN (SELECT cod_ocorrencia FROM est_evento WHERE cod_estado IN (4, 5))" +
+                    "AND ind_arquivado IS NULL"
+    )
+    int arquivarErros();
+
+    @Modifying
+    @Query("update Ocorrencia o set o.arquivado = 'S' where (o.ocorrenciaExclusaoId is not null or o.ocorrenciaRetificacaoId is not null) and o.arquivado is null")
+    int arquivarExcluidosOuRetificados();
+
     @Query("SELECT new br.jus.tst.esocialjt.ocorrencia.OcorrenciaSumario(" +
             "o.id, " +
             "o.cpf, " +

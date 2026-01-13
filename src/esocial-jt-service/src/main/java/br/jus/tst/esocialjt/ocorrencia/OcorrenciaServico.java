@@ -173,6 +173,16 @@ public class OcorrenciaServico {
 		return repository.desarquivar(id);
 	}
 
+	@Transactional
+	public int arquivarErros() {
+		return repository.arquivarErros();
+	}
+
+	@Transactional
+	public int arquivarExcluidosOuRetificados() {
+		return repository.arquivarExcluidosOuRetificados();
+	}
+
 
 	public List<OcorrenciaSumario> getSumario(TipoEvento tipoEvento){
 		return repository.getSumario(tipoEvento);
