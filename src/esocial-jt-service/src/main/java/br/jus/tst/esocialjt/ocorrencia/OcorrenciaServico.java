@@ -22,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collections;
@@ -70,7 +71,7 @@ public class OcorrenciaServico {
 	}
 	
 	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos,
-			boolean incluirArquivados, List<String> cpf, List<String> periodoApuracao) {
+			boolean incluirArquivados, List<String> cpf, List<String> periodoApuracao, LocalDate dataInicio, LocalDate dataFim) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
@@ -80,7 +81,9 @@ public class OcorrenciaServico {
 					.and(specs.dosTipos(tipos))
 					.and(specs.incluirArquivados(incluirArquivados)
 					.and(specs.comCPF(cpf))
-					.and(specs.comPeriodoApuracao(periodoApuracao))),
+					.and(specs.comPeriodoApuracao(periodoApuracao))
+					.and(specs.comDataInicio(dataInicio))
+					.and(specs.comDataFim(dataFim))),
 					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
@@ -94,7 +97,9 @@ public class OcorrenciaServico {
 														.and(specs.dosTipos(tipos))
 														.and(specs.incluirArquivados(incluirArquivados))
 														.and(specs.comCPF(cpf))
-														.and(specs.comPeriodoApuracao(periodoApuracao)));
+														.and(specs.comPeriodoApuracao(periodoApuracao))
+														.and(specs.comDataInicio(dataInicio))
+														.and(specs.comDataFim(dataFim)));
 												return new ContagemEstado(e.getId(), count);
 											}).collect(Collectors.toList());
 		

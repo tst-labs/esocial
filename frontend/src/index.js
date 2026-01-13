@@ -3,6 +3,9 @@ import {
   StyledEngineProvider,
   ThemeProvider
 } from "@mui/material";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
+import { ptBR } from "date-fns/locale";
 import { DialogProvider } from "muibox";
 import { SnackbarProvider } from "notistack";
 import React from "react";
@@ -20,19 +23,21 @@ function renderApp() {
   ReactDOM.render(
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <DialogProvider>
-          <SnackbarProvider maxSnack={1}>
-            <LoadingProvider>
-              <CustomQueryClientProvider>
-                <CssBaseline />
-                <PostMessage>
-                  <App />
-                </PostMessage>
-                <ReactQueryDevtools initialIsOpen={false} />
-              </CustomQueryClientProvider>
-            </LoadingProvider>
-          </SnackbarProvider>
-        </DialogProvider>
+        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={ptBR}>
+          <DialogProvider>
+            <SnackbarProvider maxSnack={1}>
+              <LoadingProvider>
+                <CustomQueryClientProvider>
+                  <CssBaseline />
+                  <PostMessage>
+                    <App />
+                  </PostMessage>
+                  <ReactQueryDevtools initialIsOpen={false} />
+                </CustomQueryClientProvider>
+              </LoadingProvider>
+            </SnackbarProvider>
+          </DialogProvider>
+        </LocalizationProvider>
       </ThemeProvider>
     </StyledEngineProvider>,
     document.getElementById("root")

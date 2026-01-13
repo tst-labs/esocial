@@ -24,6 +24,8 @@ function EventosPage() {
   const tipo = useListQueryParam("tipo");
   const incluirArquivados = useQueryParam("incluirArquivados") || false;
   const periodoApuracao = useQueryParam("periodoApuracao") || "";
+  const dataInicio = useQueryParam("dataInicio") || "";
+  const dataFim = useQueryParam("dataFim") || "";
   const navigate = useNavigate();
   const setParam = useSetParam();
 
@@ -45,7 +47,9 @@ function EventosPage() {
     tipo,
     incluirArquivados,
     expressaoIsCpf ? expressao : "",
-    periodoApuracao
+    periodoApuracao,
+    dataInicio,
+    dataFim
   );
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;

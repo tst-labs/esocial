@@ -6,6 +6,9 @@ import br.jus.tst.esocialjt.dominio.TipoEvento;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -58,6 +61,27 @@ public class OcorrenciaSpecs {
 					.map(String::trim)
 					.collect(java.util.stream.Collectors.toList());
 			return root.get("periodoApuracao").in(periodosTrimmed);
+		};
+	}
+
+	public Specification<Ocorrencia> comDataInicio(LocalDate dataInicio) {
+		return (root, query, cb) -> {
+			if (dataInicio == null) {
+				return cb.and();
+			}
+			Date dataInicioDate = Date.from(dataInicio.atStartOfDay(ZoneId.systemDefault()).toInstant());
+			return cb.greaterThanOrEqualTo(root.get("dataOcorrencia"), dataInicioDate);
+		};
+	}
+
+	public Specification<Ocorrencia> comDataFim(LocalDate dataFim) {
+		return (root, query, cb) -> {
+			if (dataFim == null) {
+				return cb.and();
+			}
+			// Adiciona 1 dia e considera até o final do dia informado
+			Date dataFimDate = Date.from(dataFim.plusDays(1).atStartOfDay(ZoneId.systemDefault()).toInstant());
+			return cb.lessThan(root.get("dataOcorrencia"), dataFimDate);
 		};
 	}
 }

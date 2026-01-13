@@ -8,12 +8,14 @@ import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -68,7 +70,9 @@ public class OcorrenciaResource {
 			@RequestParam(required = false, defaultValue = "") List<Long> tipos,
 			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados,
 			@RequestParam(required = false, defaultValue = "") List<String> cpf,
-			@RequestParam(required = false, defaultValue = "") List<String> periodoApuracao) {
+			@RequestParam(required = false, defaultValue = "") List<String> periodoApuracao,
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(Estado::new)
@@ -79,7 +83,7 @@ public class OcorrenciaResource {
 									.map(TipoEvento::new)
 									.collect(Collectors.toList());
 		
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf, periodoApuracao);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf, periodoApuracao, dataInicio, dataFim);
 	}
 	
 	@Operation(summary = "Consulta os tipos já enviados para o esocial.")

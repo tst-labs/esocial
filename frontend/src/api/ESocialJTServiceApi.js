@@ -21,9 +21,11 @@ export function useOcorrenciasPaginado(
   tipo = "",
   incluirArquivados = false,
   cpf = "",
-  periodoApuracao = ""
+  periodoApuracao = "",
+  dataInicio = "",
+  dataFim = ""
 ) {
-  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}&periodoApuracao=${periodoApuracao}`;
+  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}&periodoApuracao=${periodoApuracao}&dataInicio=${dataInicio}&dataFim=${dataFim}`;
   return useQuery(query, queryFetcher, {
     refetchInterval: REFRESH_INTERVAL,
     keepPreviousData: true
