@@ -84,6 +84,15 @@ public class Ocorrencia implements Serializable {
 	@Column(name = "TXT_MATRICULA")
 	private String matricula;
 
+	@Column(name = "TXT_PER_APURACAO")
+	private String periodoApuracao;
+
+	@Column(name = "COD_OCORRENCIA_EXCLUSAO")
+	private Long ocorrenciaExclusaoId;
+
+	@Column(name = "COD_OCORRENCIA_RETIFICACAO")
+	private Long ocorrenciaRetificacaoId;
+
 	public Long getId() {
 		return id;
 	}
@@ -204,6 +213,30 @@ public class Ocorrencia implements Serializable {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public String getPeriodoApuracao() {
+		return periodoApuracao;
+	}
+
+	public void setPeriodoApuracao(String periodoApuracao) {
+		this.periodoApuracao = periodoApuracao;
+	}
+
+	public Long getOcorrenciaExclusaoId() {
+		return ocorrenciaExclusaoId;
+	}
+
+	public void setOcorrenciaExclusaoId(Long ocorrenciaExclusaoId) {
+		this.ocorrenciaExclusaoId = ocorrenciaExclusaoId;
+	}
+
+	public Long getOcorrenciaRetificacaoId() {
+		return ocorrenciaRetificacaoId;
+	}
+
+	public void setOcorrenciaRetificacaoId(Long ocorrenciaRetificacaoId) {
+		this.ocorrenciaRetificacaoId = ocorrenciaRetificacaoId;
 	}
 
 	protected Ocorrencia setTxtDadosOcorrencia(String txtDadosOcorrencia) {

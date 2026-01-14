@@ -6,27 +6,38 @@ import {
   Icon,
   IconButton,
   InputAdornment,
-  MenuItem,
   TextField
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTiposEnviados } from "../../api/ESocialJTServiceApi";
+import { format, isValid, parseISO } from "date-fns";
+import TipoEvento from "../../components/tipo-evento/TipoEvento";
 import { useQueryParam, useSetParam } from "../../shared/useQueryParam";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function Busca() {
   const expressaoIni = useQueryParam("expressao") || "";
   const tipoIni = useQueryParam("tipo") || "";
   const incluirArquivadosIni = useQueryParam("incluirArquivados") === "true";
+  const periodoApuracaoIni = useQueryParam("periodoApuracao") || "";
+  const dataInicioParam = useQueryParam("dataInicio") || "";
+  const dataFimParam = useQueryParam("dataFim") || "";
+
   const [expressao, setExpressao] = useState(expressaoIni);
   const [tipo, setTipo] = useState(tipoIni);
   const [incluirArquivados, setIncluirArquivados] =
     useState(incluirArquivadosIni);
+  const [periodoApuracao, setPeriodoApuracao] = useState(periodoApuracaoIni);
+  const [dataInicio, setDataInicio] = useState(
+    dataInicioParam ? parseISO(dataInicioParam) : null
+  );
+  const [dataFim, setDataFim] = useState(
+    dataFimParam ? parseISO(dataFimParam) : null
+  );
+
   const setParam = useSetParam();
   const navigate = useNavigate();
-
-  const { data: tiposEnviados = [] } = useTiposEnviados();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -45,6 +56,31 @@ function Busca() {
     () => navigate(`/?${setParam("incluirArquivados", incluirArquivados)}`),
     // eslint-disable-next-line
     [incluirArquivados]
+  );
+
+  // eslint-disable-next-line
+  useEffect(() => navigate(`/?${setParam("periodoApuracao", periodoApuracao)}`), [periodoApuracao]);
+
+  useEffect(
+    () => {
+      const dataStr =
+        dataInicio && isValid(dataInicio)
+          ? format(dataInicio, "yyyy-MM-dd")
+          : "";
+      navigate(`/?${setParam("dataInicio", dataStr)}`);
+    },
+    // eslint-disable-next-line
+    [dataInicio]
+  );
+
+  useEffect(
+    () => {
+      const dataStr =
+        dataFim && isValid(dataFim) ? format(dataFim, "yyyy-MM-dd") : "";
+      navigate(`/?${setParam("dataFim", dataStr)}`);
+    },
+    // eslint-disable-next-line
+    [dataFim]
   );
 
   return (
@@ -79,21 +115,10 @@ function Busca() {
           </form>
         </Grid>
         <Grid item xs={2}>
-          <TextField
-            select
-            fullWidth
-            size="small"
-            label="Tipo"
+          <TipoEvento
             value={tipo}
             onChange={(event) => setTipo(event.target.value)}
-          >
-            <MenuItem value="">
-              <em>Todos</em>
-            </MenuItem>
-            {tiposEnviados.map((option) => (
-              <MenuItem key={option} value={option}>{`S${option}`}</MenuItem>
-            ))}
-          </TextField>
+          />
         </Grid>
         <Grid item xs={3}>
           <FormGroup sx={{ color: "rgba(0, 0, 0, 0.6)" }}>
@@ -107,6 +132,101 @@ function Busca() {
               label="Incluir arquivados"
             />
           </FormGroup>
+        </Grid>
+        <Grid item xs={4}>
+          <TextField
+            fullWidth
+            size="small"
+            label="Período de Apuração (perApur)"
+            value={periodoApuracao}
+            onChange={(event) => setPeriodoApuracao(event.target.value)}
+            placeholder="Ex: 2025-12 ou 2025"
+            InputProps={{
+              endAdornment: periodoApuracao ? (
+                <InputAdornment position="end">
+                  <IconButton
+                    edge="end"
+                    size="small"
+                    onClick={() => setPeriodoApuracao("")}
+                  >
+                    <Icon fontSize="small">close</Icon>
+                  </IconButton>
+                </InputAdornment>
+              ) : undefined
+            }}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <DatePicker
+            label="Data Início (envio)"
+            value={dataInicio}
+            onChange={(newValue) => setDataInicio(newValue)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                fullWidth
+                size="small"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <>
+                      {dataInicio && (
+                        <InputAdornment position="end">
+                          <IconButton
+                            edge="end"
+                            size="small"
+                            onClick={() => setDataInicio(null)}
+                            sx={{ mr: 1 }}
+                          >
+                            <Icon fontSize="small">close</Icon>
+                          </IconButton>
+                        </InputAdornment>
+                      )}
+                      {params.InputProps.endAdornment}
+                    </>
+                  )
+                }}
+              />
+            )}
+            inputFormat="dd/MM/yyyy"
+            maxDate={dataFim || undefined}
+          />
+        </Grid>
+        <Grid item xs={4}>
+          <DatePicker
+            label="Data Fim (envio)"
+            value={dataFim}
+            onChange={(newValue) => setDataFim(newValue)}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                fullWidth
+                size="small"
+                InputProps={{
+                  ...params.InputProps,
+                  endAdornment: (
+                    <>
+                      {dataFim && (
+                        <InputAdornment position="end">
+                          <IconButton
+                            edge="end"
+                            size="small"
+                            onClick={() => setDataFim(null)}
+                            sx={{ mr: 1 }}
+                          >
+                            <Icon fontSize="small">close</Icon>
+                          </IconButton>
+                        </InputAdornment>
+                      )}
+                      {params.InputProps.endAdornment}
+                    </>
+                  )
+                }}
+              />
+            )}
+            inputFormat="dd/MM/yyyy"
+            minDate={dataInicio || undefined}
+          />
         </Grid>
       </Grid>
     </Box>

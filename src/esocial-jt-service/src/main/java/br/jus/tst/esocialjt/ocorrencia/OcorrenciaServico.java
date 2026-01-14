@@ -1,5 +1,7 @@
 package br.jus.tst.esocialjt.ocorrencia;
 
+import br.jus.tst.esocial.ocorrencia.dados.DadosOcorrencia;
+import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
@@ -20,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Collections;
@@ -59,6 +62,7 @@ public class OcorrenciaServico {
 				new Date(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()));
 		ocorrencia.setCpf(ocorrencia.getDadosOcorrencia().getCpf());
 		ocorrencia.setMatricula(ocorrencia.getDadosOcorrencia().getMatricula());
+		ocorrencia.setPeriodoApuracao(ocorrencia.getDadosOcorrencia().getPeriodoApuracao());
 
 		return gerarEvento(ocorrencia);
 	}
@@ -68,7 +72,7 @@ public class OcorrenciaServico {
 	}
 	
 	public OcorrenciaPage recuperaPaginado(int page, int size, List<Estado> estados, String expressao, List<TipoEvento> tipos,
-			boolean incluirArquivados, String cpf) {
+			boolean incluirArquivados, List<String> cpf, List<String> periodoApuracao, LocalDate dataInicio, LocalDate dataFim) {
 		Sort ordenamento = Sort.by("dataRecebimento").descending();
 		PageRequest pageRequest = PageRequest.of(page, size, ordenamento);
 		
@@ -77,7 +81,10 @@ public class OcorrenciaServico {
 					.and(specs.comExpressao(expressao))
 					.and(specs.dosTipos(tipos))
 					.and(specs.incluirArquivados(incluirArquivados)
-					.and(specs.comCPF(cpf))),
+					.and(specs.comCPF(cpf))
+					.and(specs.comPeriodoApuracao(periodoApuracao))
+					.and(specs.comDataInicio(dataInicio))
+					.and(specs.comDataFim(dataFim))),
 					pageRequest);
 		
 		OcorrenciaPage ocorrenciaPage = new OcorrenciaPage();
@@ -90,7 +97,10 @@ public class OcorrenciaServico {
 														.and(specs.comExpressao(expressao))
 														.and(specs.dosTipos(tipos))
 														.and(specs.incluirArquivados(incluirArquivados))
-														.and(specs.comCPF(cpf)));
+														.and(specs.comCPF(cpf))
+														.and(specs.comPeriodoApuracao(periodoApuracao))
+														.and(specs.comDataInicio(dataInicio))
+														.and(specs.comDataFim(dataFim)));
 												return new ContagemEstado(e.getId(), count);
 											}).collect(Collectors.toList());
 		
@@ -163,8 +173,69 @@ public class OcorrenciaServico {
 		return repository.desarquivar(id);
 	}
 
+	@Transactional
+	public int arquivarErros() {
+		return repository.arquivarErros();
+	}
+
+	@Transactional
+	public int arquivarExcluidosOuRetificados() {
+		return repository.arquivarExcluidosOuRetificados();
+	}
+
 
 	public List<OcorrenciaSumario> getSumario(TipoEvento tipoEvento){
 		return repository.getSumario(tipoEvento);
+	}
+
+	public List<Long> buscarIdsPorFiltros(List<Estado> estados, List<TipoEvento> tipos, List<String> cpf, List<String> periodoApuracao) {
+		// Remove espaços em branco dos CPFs
+		List<String> cpfsTrimmed = cpf == null ? Collections.emptyList() :
+				cpf.stream()
+						.map(String::trim)
+						.collect(Collectors.toList());
+
+		// Remove espaços em branco dos períodos de apuração
+		List<String> periodosTrimmed = periodoApuracao == null ? Collections.emptyList() :
+				periodoApuracao.stream()
+						.map(String::trim)
+						.collect(Collectors.toList());
+
+		return repository.buscarIdsPorFiltros(
+				estados == null ? Collections.emptyList() : estados,
+				tipos == null ? Collections.emptyList() : tipos,
+				cpfsTrimmed,
+				periodosTrimmed
+		);
+	}
+
+	public void atualizarExclusao(Evento evento) {
+		if (Estado.PROCESSADO_COM_SUCESSO.equals(evento.getEstado()) && TipoEvento.EXCLUSAO.equals(evento.getTipoEvento()) ) {
+			Ocorrencia ocorrenciaExclusao = evento.getOcorrencia();
+			DadosOcorrencia dadosOcorrencia = ocorrenciaExclusao.getDadosOcorrencia();
+			if (dadosOcorrencia instanceof Exclusao) {
+				Exclusao exclusao = (Exclusao) dadosOcorrencia;
+				String recibo = exclusao.getInfoExclusao().getNrRecEvt();
+				repository.buscarPorRecibo(recibo)
+						.stream()
+						.findFirst()
+						.ifPresent(ocorrencia -> {
+							ocorrencia.setOcorrenciaExclusaoId(ocorrenciaExclusao.getId());
+							atualizar(ocorrencia);
+						});
+			}
+		}
+	}
+
+	public void atualizarRetificacao(Evento evento) {
+		if (Estado.PROCESSADO_COM_SUCESSO.equals(evento.getEstado()) && evento.getOcorrencia().getRetificarRecibo() != null) {
+			repository.buscarPorRecibo(evento.getOcorrencia().getRetificarRecibo())
+				.stream()
+				.findFirst()
+				.ifPresent(ocorrencia -> {
+					ocorrencia.setOcorrenciaRetificacaoId(evento.getOcorrencia().getId());
+					atualizar(ocorrencia);
+				});
+		}
 	}
 }

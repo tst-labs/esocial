@@ -8,12 +8,14 @@ import br.jus.tst.esocialjt.dominio.TipoEvento;
 import br.jus.tst.esocialjt.negocio.exception.EntidadeNaoExisteException;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import org.supercsv.io.CsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -67,7 +69,10 @@ public class OcorrenciaResource {
 			@RequestParam(required = false, defaultValue = "") String expressao,
 			@RequestParam(required = false, defaultValue = "") List<Long> tipos,
 			@RequestParam(required = false, defaultValue = "false") boolean incluirArquivados,
-			@RequestParam(required = false, defaultValue = "") String cpf) {
+			@RequestParam(required = false, defaultValue = "") List<String> cpf,
+			@RequestParam(required = false, defaultValue = "") List<String> periodoApuracao,
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim) {
 		List<Estado> estadosObj = estados
 									.stream()
 									.map(Estado::new)
@@ -78,7 +83,7 @@ public class OcorrenciaResource {
 									.map(TipoEvento::new)
 									.collect(Collectors.toList());
 		
-		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf);
+		return ocorrenciaServico.recuperaPaginado(page, size, estadosObj, expressao, tiposObj, incluirArquivados, cpf, periodoApuracao, dataInicio, dataFim);
 	}
 	
 	@Operation(summary = "Consulta os tipos já enviados para o esocial.")
@@ -138,6 +143,39 @@ public class OcorrenciaResource {
 	@PostMapping("/{id}/acoes/desarquivar")
 	public int desarquivarOcorrenciaPorId(@PathVariable("id") long id) {
 		return ocorrenciaServico.desarquivar(id);
+	}
+
+	@Operation(summary = "Arquivar todas as ocorrências com estado PROCESSADO_COM_ERRO ou ERRO.")
+	@PostMapping("/acoes/arquivar-erros")
+	public int arquivarErros() {
+		return ocorrenciaServico.arquivarErros();
+	}
+
+	@Operation(summary = "Arquivar todas as ocorrências que foram excluídas ou retificadas.")
+	@PostMapping("/acoes/arquivar-excluidos-retificados")
+	public int arquivarExcluidosOuRetificados() {
+		return ocorrenciaServico.arquivarExcluidosOuRetificados();
+	}
+
+	@Operation(summary = "Busca otimizada que retorna apenas os IDs das ocorrências que correspondem aos filtros especificados. "
+			+ "Aceita filtros por estados, tipos de evento, CPFs e período de apuração. "
+			+ "Retorna todos os resultados sem paginação (incluindo arquivados), sendo eficiente mesmo para grandes volumes de dados.")
+	@PostMapping("/busca-ids")
+	public List<Long> buscarIdsPorFiltros(@RequestBody BuscaIdsFiltroDTO filtros) {
+		List<Estado> estadosObj = filtros.getEstados() != null
+				? filtros.getEstados().stream().map(Estado::new).collect(Collectors.toList())
+				: null;
+
+		List<TipoEvento> tiposObj = filtros.getTipos() != null
+				? filtros.getTipos().stream().map(TipoEvento::new).collect(Collectors.toList())
+				: null;
+
+		return ocorrenciaServico.buscarIdsPorFiltros(
+				estadosObj,
+				tiposObj,
+				filtros.getCpf(),
+				filtros.getPeriodoApuracao()
+		);
 	}
 
 }

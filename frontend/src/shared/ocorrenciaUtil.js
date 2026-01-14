@@ -36,7 +36,11 @@ import {
 
 export function getTitulo(ocorrencia) {
   return ocorrencia?.evento?.tipoEvento
-    ? `S${ocorrencia.evento.tipoEvento.codTipo} - ${ocorrencia.evento.tipoEvento.desTipo}`
+    ? `S${ocorrencia.evento.tipoEvento.codTipo} - ${
+        ocorrencia.evento.tipoEvento.desTipo
+      }${ocorrencia.ocorrenciaExclusaoId ? " (Excluído)" : ""}${
+        ocorrencia.ocorrenciaRetificacaoId ? " (Retificado)" : ""
+      }`
     : "Gerando evento...";
 }
 export function getResumo(ocorrencia) {

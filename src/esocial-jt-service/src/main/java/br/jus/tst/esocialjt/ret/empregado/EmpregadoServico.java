@@ -1,17 +1,14 @@
 package br.jus.tst.esocialjt.ret.empregado;
 
 import br.jus.tst.esocial.ocorrencia.TipoOcorrencia;
-import br.jus.tst.esocial.ocorrencia.dados.Exclusao;
 import br.jus.tst.esocialjt.dominio.Estado;
 import br.jus.tst.esocialjt.dominio.Ocorrencia;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaRepository;
 import br.jus.tst.esocialjt.ocorrencia.OcorrenciaSpecs;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static br.jus.tst.esocialjt.dominio.TipoEvento.*;
 
@@ -39,41 +36,18 @@ public class EmpregadoServico {
                                 CESSAO,
                                 DESLIGAMENTO,
                                 REINTEGRACAO
-                        ))).and(specs.comCPF(cpf)));
-
-        List<String> exclusoes = getExclusoes(cpf);
-        List<String> retificacoes = getRetificacoes(ocorrencias);
+                        )))
+                        .and(specs.comCPF(cpf))
+                        .and(specs.somenteValidos(true)));
 
         ocorrencias
                 .stream()
-                .filter(o -> !exclusoes.contains(o.getEvento().getNrRecibo()))
-                .filter(o -> !retificacoes.contains(o.getEvento().getNrRecibo()))
                 .sorted(Comparator.comparing(o -> o.getDadosOcorrencia().getDataEvento()))
                 .forEach(o -> getProcessadorEmpregado(o.getTipoOcorrencia()).processaRegistro(listaRetEmpregado, o));
 
         return listaRetEmpregado;
     }
 
-    private static List<String> getRetificacoes(List<Ocorrencia> ocorrencias) {
-        return ocorrencias
-                .stream()
-                .map(Ocorrencia::getRetificarRecibo)
-                .filter(StringUtils::isNotBlank)
-                .collect(Collectors.toList());
-    }
-
-    private List<String> getExclusoes(String cpf) {
-        return repository
-                .findAll(
-                        specs.nosEstados(Collections.singletonList(Estado.PROCESSADO_COM_SUCESSO))
-                                .and(specs.dosTipos(Collections.singletonList(EXCLUSAO)))
-                                .and(specs.comCPF(cpf))
-                )
-                .stream()
-                .map(o -> (Exclusao) o.getDadosOcorrencia())
-                .map(o -> o.getInfoExclusao().getNrRecEvt())
-                .collect(Collectors.toList());
-    }
 
     private ProcessadorEmpregado getProcessadorEmpregado(TipoOcorrencia tipo) {
         if (processadores == null) {

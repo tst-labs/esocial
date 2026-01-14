@@ -1,7 +1,9 @@
 package br.jus.tst.esocialjt.upgrade;
 
 public enum Upgrade {
-    CAMPO_CPF_MATRICULA(1, "Atualização de valores de CPF e Matricula na entidade Ocorrencia");
+    CAMPO_CPF_MATRICULA(1, "Atualização de valores de CPF e Matricula na entidade Ocorrencia"),
+    CAMPO_EXCLUSAO_RETIFICACAO(2, "Atualização de referencias de exclusão e retificação na entidade Ocorrencia"),
+    CAMPO_PERIODO_APURACAO(3, "Atualização de periodo de apuração na entidade Ocorrencia");
 
     public final long codUpgrade;
     public final String desUpgrade;

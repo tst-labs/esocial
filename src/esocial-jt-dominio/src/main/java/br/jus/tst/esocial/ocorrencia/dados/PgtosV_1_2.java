@@ -67,4 +67,12 @@ public class PgtosV_1_2 extends DadosOcorrencia implements DadosFolha {
 		return null;
 	}
 
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.orElse(null);
+	}
+
 }

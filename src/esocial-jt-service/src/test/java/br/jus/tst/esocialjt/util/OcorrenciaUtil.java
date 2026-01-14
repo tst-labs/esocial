@@ -25,6 +25,7 @@ public class OcorrenciaUtil {
 			Ocorrencia ocorrencia = OcorrenciaMapper.INSTANCE.comoOcorrencia(ocorrenciaDTO);
 			ocorrencia.setCpf(ocorrencia.getDadosOcorrencia().getCpf());
 			ocorrencia.setMatricula(ocorrencia.getDadosOcorrencia().getMatricula());
+			ocorrencia.setPeriodoApuracao(ocorrencia.getDadosOcorrencia().getPeriodoApuracao());
 			return ocorrencia;
 			
 		} catch (IllegalArgumentException | IOException e) {

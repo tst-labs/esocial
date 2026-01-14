@@ -95,4 +95,12 @@ public class RmnRPPS extends DadosOcorrencia implements DadosFolha {
 	public String getMatricula() {
 		return null;
 	}
+
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.orElse(null);
+	}
 }

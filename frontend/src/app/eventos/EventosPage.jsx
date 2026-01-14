@@ -15,6 +15,7 @@ import {
 } from "../../shared/useQueryParam";
 import Busca from "./Busca";
 import Paginacao from "./Paginacao";
+import Acoes from "../acoes/Acoes";
 
 function EventosPage() {
   const page = useNumericQueryParam("page");
@@ -22,6 +23,9 @@ function EventosPage() {
   const expressao = useQueryParam("expressao") || "";
   const tipo = useListQueryParam("tipo");
   const incluirArquivados = useQueryParam("incluirArquivados") || false;
+  const periodoApuracao = useQueryParam("periodoApuracao") || "";
+  const dataInicio = useQueryParam("dataInicio") || "";
+  const dataFim = useQueryParam("dataFim") || "";
   const navigate = useNavigate();
   const setParam = useSetParam();
 
@@ -42,7 +46,10 @@ function EventosPage() {
     expressaoIsCpf ? "" : expressao,
     tipo,
     incluirArquivados,
-    expressaoIsCpf ? expressao : ""
+    expressaoIsCpf ? expressao : "",
+    periodoApuracao,
+    dataInicio,
+    dataFim
   );
   const { pagina = {}, contagemEstado = [] } = ocorrenciaPage;
   const { content: ocorrencias } = pagina;
@@ -56,7 +63,10 @@ function EventosPage() {
       <PageHeader
         primary="Eventos"
         secondary="Nesta página é possível visualizar informações de todos eventos enviados para o eSocial"
-        commands={[!isFetched ? <CircularProgress size={20} /> : undefined]}
+        commands={[
+          !isFetched ? <CircularProgress key="loading" size={20} /> : undefined,
+          <Acoes key="acoes" />
+        ]}
       />
       <Busca />
       <FiltroEstados contagemEstado={contagemEstado} />

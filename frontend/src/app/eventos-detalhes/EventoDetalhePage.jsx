@@ -67,6 +67,7 @@ function EventoDetalhePage() {
             <LabelEstado estado={ocorrencia?.evento?.estado} />,
             <Voltar />
           ]}
+          ocorrencia={ocorrencia}
         />
         <Grid container spacing={2}>
           <Grid item xs={12}>

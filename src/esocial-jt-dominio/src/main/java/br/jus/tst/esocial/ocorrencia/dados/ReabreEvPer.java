@@ -24,25 +24,20 @@ public class ReabreEvPer extends DadosOcorrencia implements DadosFechamentoFolha
 		this.ideEvento = ideEvento;
 	}
 
-
 	@Override
-	public boolean equals(final Object other) {
-		if (!(other instanceof FechaEvPer)) {
-			return false;
-		}
-		ReabreEvPer castOther = (ReabreEvPer) other;
-		return new EqualsBuilder()
-				.append(ideEvento, castOther.ideEvento)
-				.append(ideEmpregador, castOther.ideEmpregador)
-				.isEquals();
+	public boolean equals(Object o) {
+		if (this == o) return true;
+
+		if (o == null || getClass() != o.getClass()) return false;
+
+		ReabreEvPer that = (ReabreEvPer) o;
+
+		return new EqualsBuilder().append(ideEvento, that.ideEvento).isEquals();
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder()
-				.append(ideEvento)
-				.append(ideEmpregador)
-				.toHashCode();
+		return new HashCodeBuilder(17, 37).append(ideEvento).toHashCode();
 	}
 
 	@Override
@@ -61,5 +56,13 @@ public class ReabreEvPer extends DadosOcorrencia implements DadosFechamentoFolha
 	@Override
 	public String getMatricula() {
 		return null;
+	}
+
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolhaSemRetificacao::getPerApur)
+				.orElse(null);
 	}
 }

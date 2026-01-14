@@ -1,6 +1,7 @@
 package br.jus.tst.esocial.ocorrencia.dados;
 
 import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolha;
+import br.jus.tst.esocial.dominio.ideEvento.IdeEventoFolhaSemRetificacao;
 import br.jus.tst.esocial.dominio.pagamento.IdeBenef;
 
 import javax.validation.Valid;
@@ -59,6 +60,14 @@ public class Pgtos extends DadosOcorrencia implements DadosFolha {
 	@Override
 	public String getMatricula() {
 		return null;
+	}
+
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.orElse(null);
 	}
 
 }

@@ -20,9 +20,12 @@ export function useOcorrenciasPaginado(
   expressao = "",
   tipo = "",
   incluirArquivados = false,
-  cpf = ""
+  cpf = "",
+  periodoApuracao = "",
+  dataInicio = "",
+  dataFim = ""
 ) {
-  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}`;
+  const query = `/ocorrencias/paginado?page=${page}&size=${PAGE_SIZE}&estados=${estados.join()}&expressao=${expressao}&tipos=${tipo}&incluirArquivados=${incluirArquivados}&cpf=${cpf}&periodoApuracao=${periodoApuracao}&dataInicio=${dataInicio}&dataFim=${dataFim}`;
   return useQuery(query, queryFetcher, {
     refetchInterval: REFRESH_INTERVAL,
     keepPreviousData: true
@@ -82,4 +85,60 @@ export function useDesarquivar() {
 
 export function useEnviarExclusao() {
   return useMutation((id) => api.post(`/ocorrencias/${id}/acoes/excluir`));
+}
+
+export function useBuscarIds() {
+  return useMutation((filtros) => api.post(`/ocorrencias/busca-ids`, filtros));
+}
+
+export function useExcluirLista() {
+  const queryClient = useQueryClient();
+  return useMutation(
+    (ids) => api.post(`/ocorrencias/acoes/excluir-lista`, ids),
+    {
+      onSuccess: () => queryClient.invalidateQueries()
+    }
+  );
+}
+
+export function useArquivarErros() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation(() => api.post(`/ocorrencias/acoes/arquivar-erros`), {
+    onSuccess: (response) =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showSuccess(`${response.data} evento(s) arquivado(s)`))
+  });
+}
+
+export function useArquivarExcluidosRetificados() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation(
+    () => api.post(`/ocorrencias/acoes/arquivar-excluidos-retificados`),
+    {
+      onSuccess: (response) =>
+        queryClient
+          .invalidateQueries()
+          .then(() => showSuccess(`${response.data} evento(s) arquivado(s)`))
+    }
+  );
+}
+
+export function useCriarOcorrencia() {
+  const queryClient = useQueryClient();
+  const { showSuccess } = useFeedback();
+  return useMutation((json) => api.post(`/ocorrencias`, json), {
+    onSuccess: () =>
+      queryClient
+        .invalidateQueries()
+        .then(() => showSuccess("Ocorrência criada com sucesso"))
+  });
+}
+
+export function useExemploOcorrencia(tipo) {
+  return useQuery(`/ocorrencias/exemplos/${tipo}`, queryFetcher, {
+    enabled: !!tipo
+  });
 }
