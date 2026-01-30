@@ -83,4 +83,12 @@ public class BenPrRP extends DadosOcorrencia implements DadosFolha {
 		return null;
 	}
 
+	@Override
+	public String getPeriodoApuracao() {
+		return Optional
+				.ofNullable(ideEvento)
+				.map(IdeEventoFolha::getPerApur)
+				.orElse(null);
+	}
+
 }
