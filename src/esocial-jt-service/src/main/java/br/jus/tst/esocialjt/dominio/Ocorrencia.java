@@ -62,7 +62,6 @@ public class Ocorrencia implements Serializable {
 	private Date dataRecebimento;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_DADOS_OCORRENCIA")
 	@Access(AccessType.PROPERTY)
 	private String txtDadosOcorrencia;

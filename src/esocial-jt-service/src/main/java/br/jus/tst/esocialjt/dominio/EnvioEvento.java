@@ -61,7 +61,6 @@ public class EnvioEvento implements Serializable {
 	private String versao;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_ERRO_INTERNO")
 	private String erroInterno;
 

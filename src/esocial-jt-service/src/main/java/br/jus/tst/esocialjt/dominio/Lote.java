@@ -61,17 +61,14 @@ public class Lote implements Serializable {
 	private String protocolo;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_RETORNO")
 	private String retorno;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_XML_LOTE")
 	private String xmlLote;
 
 	@Lob
-	@Type(type = "org.hibernate.type.TextType")
 	@Column(name = "TXT_ERRO_INTERNO")
 	private String erroInterno;
 
