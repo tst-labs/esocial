@@ -22,6 +22,7 @@ import br.jus.tst.esocialjt.dominio.Evento;
 import br.jus.tst.esocialjt.evento.EventoDTO;
 import br.jus.tst.esocialjt.negocio.EnvioServico;
 import br.jus.tst.esocialjt.negocio.EventoServico;
+import br.jus.tst.esocialjt.negocio.exception.RegraException;
 import br.jus.tst.esocialjt.regras.evento.RegrasFactory;
 
 @Service
@@ -56,6 +57,10 @@ public class TarefaEnvioEventos implements Tarefa {
 		return true;
 	}
 
+	/**
+	 * O limite por ciclo só pode ser aplicado depois do filtro: cortar antes deixa fora da
+	 * janela justamente os eventos que destravariam os demais, e a fila nunca volta a andar.
+	 */
 	private List<Evento> selecionarEventosParaEnvio() {
 		List<EventoDTO> eventosEmFila = eventoServico
 				.criarConsulta()
@@ -96,18 +101,28 @@ public class TarefaEnvioEventos implements Tarefa {
 				.buscar();
 	}
 
-	/**
-	 * O limite por ciclo só pode ser aplicado depois do filtro: cortar antes deixa fora da
-	 * janela justamente os eventos que destravariam os demais, e a fila nunca volta a andar.
-	 */
 	private List<EventoDTO> filtrarHabilitados(List<EventoDTO> eventosEmFila) {
+		// Memoizar por tipo só é correto enquanto nenhuma Regra.habilitado depender de campos do evento.
 		Map<Long, Boolean> habilitadoPorTipo = new HashMap<>();
 
 		return eventosEmFila.stream()
 			.filter(evento -> habilitadoPorTipo.computeIfAbsent(
 					evento.getCodTipoEvento(),
-					codTipoEvento -> regrasFactory.getRegra(evento).habilitado(evento)))
+					codTipoEvento -> habilitado(evento)))
 			.collect(Collectors.toList());
+	}
+
+	/**
+	 * Evento sem regra cadastrada não pode derrubar o ciclo: a exceção subiria até o Runnable
+	 * agendado em TimerEnvio e o scheduleAtFixedRate cancelaria o agendamento em definitivo.
+	 */
+	private boolean habilitado(EventoDTO evento) {
+		try {
+			return regrasFactory.getRegra(evento).habilitado(evento);
+		} catch (RegraException e) {
+			LOGGER.error(String.format("Tipo de evento %s sem regra cadastrada; ignorado neste ciclo", evento.getCodTipoEvento()), e);
+			return false;
+		}
 	}
 
 	private void logNenhumEventoHabilitado(List<EventoDTO> eventosEmFila) {

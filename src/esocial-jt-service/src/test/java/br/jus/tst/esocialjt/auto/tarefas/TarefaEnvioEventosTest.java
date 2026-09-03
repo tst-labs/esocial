@@ -108,6 +108,32 @@ public class TarefaEnvioEventosTest {
 		verify(envioServico, never()).enviarEventosParaESocialGov(anyList());
 	}
 
+	@Test
+	public void deveAplicarOLimitePorCicloDepoisDoFiltro() {
+		configurarFila(
+				naoPeriodico(1L, TipoEvento.TSV_INICIO),
+				naoPeriodico(2L, TipoEvento.TSV_INICIO),
+				naoPeriodico(3L, TipoEvento.TSV_INICIO));
+
+		tarefa.executar();
+
+		assertThat(idsSelecionados()).containsExactly(1L, 2L);
+	}
+
+	@Test
+	public void deveLimitarAUmLoteQuandoHaEventoDeTabelaHabilitado() {
+		ReflectionTestUtils.setField(tarefa, "lotesPorCiclo", 2L);
+
+		configurarFila(
+				tabela(1L, TipoEvento.TABELA_RUBRICA),
+				tabela(2L, TipoEvento.TABELA_RUBRICA),
+				tabela(3L, TipoEvento.TABELA_RUBRICA));
+
+		tarefa.executar();
+
+		assertThat(idsSelecionados()).containsExactly(1L, 2L);
+	}
+
 	private void configurarFila(EventoDTO... eventosEmFila) {
 		when(consultaEvento.buscarDTO()).thenReturn(Arrays.asList(eventosEmFila));
 		when(consultaEvento.buscar()).thenReturn(Collections.singletonList(new Evento()));
@@ -117,9 +143,9 @@ public class TarefaEnvioEventosTest {
 		when(regraLiberada.habilitado(any())).thenReturn(true);
 		when(regrasFactory.getRegra(any())).thenAnswer(invocacao -> {
 			EventoDTO evento = invocacao.getArgument(0);
-			return TipoEvento.TSV_INICIO.getCodTipo().equals(evento.getCodTipoEvento())
-					? regraLiberada
-					: regraBloqueada;
+			return TipoEvento.ALTERACAO_CADASTRAL.getCodTipo().equals(evento.getCodTipoEvento())
+					? regraBloqueada
+					: regraLiberada;
 		});
 	}
 
@@ -130,9 +156,17 @@ public class TarefaEnvioEventosTest {
 	}
 
 	private EventoDTO naoPeriodico(Long id, TipoEvento tipoEvento) {
+		return evento(id, tipoEvento, GrupoTipoEvento.NAO_PERIODICO);
+	}
+
+	private EventoDTO tabela(Long id, TipoEvento tipoEvento) {
+		return evento(id, tipoEvento, GrupoTipoEvento.TABELA);
+	}
+
+	private EventoDTO evento(Long id, TipoEvento tipoEvento, GrupoTipoEvento grupoTipoEvento) {
 		return new EventoDTO()
 				.setId(id)
 				.setCodTipoEvento(tipoEvento.getCodTipo())
-				.setCodGrupoEvento(GrupoTipoEvento.NAO_PERIODICO.getId());
+				.setCodGrupoEvento(grupoTipoEvento.getId());
 	}
 }
