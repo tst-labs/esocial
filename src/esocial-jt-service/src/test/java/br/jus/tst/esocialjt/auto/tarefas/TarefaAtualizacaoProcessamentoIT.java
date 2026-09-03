@@ -34,17 +34,17 @@ public class TarefaAtualizacaoProcessamentoIT{
 	}
 	
 	@Test
-	public void deveRetornarFalseSeProcessouAlgumLote() {
+	public void deveSeguirParaAsProximasTarefasMesmoTendoProcessadoLote() {
 		Lote lote = new Lote();
 		lote.setId(0);
 		lote.setProtocolo("001");
 		lote.setEstado(Estado.PROCESSADO_COM_SUCESSO);
-		
+
 		Mockito.when(servico.atualizarTodosEmProcessamento()).thenReturn(Arrays.asList(lote));
 		boolean executarProximo = tarefa.executar();
-		assertThat(executarProximo).isFalse();
+		assertThat(executarProximo).isTrue();
 	}
-	
+
 	@Test
 	public void deveRetornarTrueSeNaoProcessouLote() {
 		Mockito.when(servico.atualizarTodosEmProcessamento()).thenReturn(Collections.emptyList());

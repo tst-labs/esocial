@@ -268,6 +268,22 @@
 					<!--<rerunFailingTestsCount>2</rerunFailingTestsCount>-->
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<forkCount>${fork.count}</forkCount>
+					<reuseForks>true</reuseForks>
+					<runOrder>alphabetical</runOrder>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>

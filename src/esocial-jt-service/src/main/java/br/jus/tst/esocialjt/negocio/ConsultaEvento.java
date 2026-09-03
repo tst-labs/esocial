@@ -23,6 +23,7 @@ public class ConsultaEvento {
 	private static final String QUERY_BASE = " SELECT e FROM Evento e ";
 	private static final String QUERY_BASE_DTO = " SELECT e.id as codEvento, e.tipoEvento.id as codTipoEvento, e.tipoEvento.grupoTipoEvento.id as codGrupoEvento FROM Evento e ";
 	private static final String QUERY_COUNT = " SELECT COUNT(e) FROM Evento e ";
+	private static final String ORDENACAO = " ORDER BY e.id ";
 
 	private EntityManager em;
 	private Set<String> campos = new LinkedHashSet<>();
@@ -33,7 +34,7 @@ public class ConsultaEvento {
 	}
 
 	public List<Evento> buscar() {
-		TypedQuery<Evento> typedQuery = em.createQuery(criarQuery(QUERY_BASE), Evento.class);
+		TypedQuery<Evento> typedQuery = em.createQuery(criarQueryOrdenada(QUERY_BASE), Evento.class);
 		parametros.forEach(typedQuery::setParameter);
 		return typedQuery.getResultList();
 	}
@@ -41,7 +42,7 @@ public class ConsultaEvento {
 	public List<EventoDTO> buscarDTO() {
 		List<EventoDTO> listaEventoDTO = new ArrayList<>();
 
-		TypedQuery<Tuple> typedQuery = em.createQuery(criarQuery(QUERY_BASE_DTO), Tuple.class);
+		TypedQuery<Tuple> typedQuery = em.createQuery(criarQueryOrdenada(QUERY_BASE_DTO), Tuple.class);
 		parametros.forEach(typedQuery::setParameter);
 		List<Tuple> resultado = typedQuery.getResultList();
 		
@@ -113,6 +114,10 @@ public class ConsultaEvento {
 			parametros.put("referencias", Arrays.asList(referencias));
 		}
 		return this;
+	}
+
+	private String criarQueryOrdenada(String queryBase) {
+		return criarQuery(queryBase) + ORDENACAO;
 	}
 
 	private String criarQuery(String queryBase) {
